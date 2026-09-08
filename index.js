@@ -1,19 +1,145 @@
 const fs = require('fs');
 const path = require('path');
 
+const input = process.argv[2];
+
 function main(src) {
-  const file = grepToFile('CvGame::Serialize', src);
-  const func = splitCppFunc('CvGame::Serialize', file);
+  const primitivePath = path.join(__dirname, 'primitive.json');
+  const primitive = JSON.parse(fs.readFileSync(primitivePath, 'utf8'));
+  const primitiveMap = new Map(
+    primitive.map(type => [type.name, type])
+  );
+
+  const definitions = collectDefinitions(
+    'CvGame',
+    src,
+    primitiveMap
+  );
+
+  fs.writeFileSync(
+    'definitions.json',
+    JSON.stringify(definitions, null, 2)
+  );
+}
+
+function collectDefinitions(rootType, src, primitiveMap) {
+  const definitions = {};
+  const visited = new Set();
+  const queue = [{ type: rootType, from: null }];
+
+  while (queue.length > 0) {
+    const current = queue.shift();
+
+    if (visited.has(current.type)) continue;
+    visited.add(current.type);
+
+    if (primitiveMap.has(current.type)) continue;
+
+    const definition = analyzeType(current.type, src);
+
+    if (definition === null) {
+      console.log(
+        `Type '${current.type}' from '${current.from}' could not be resolved.`
+      );
+      continue;
+    }
+
+    definitions[current.type] = definition;
+
+    for (const next of getRecursiveTypes(
+      definition,
+      current.type,
+      primitiveMap
+    )) {
+      if (visited.has(next.type)) continue;
+
+      queue.push(next);
+    }
+  }
+
+  return definitions;
+}
+
+function getRecursiveTypes(definition, from, primitiveMap) {
+  const result = [];
+
+  for (const call of definition.calls) {
+    if (!call.type) continue;
+
+    const types = getCustomTypes(call.type, primitiveMap);
+
+    for (const type of types) {
+      result.push({
+        type,
+        from
+      });
+    }
+  }
+
+  return result;
+}
+
+function getCustomTypes(type, primitiveMap) {
+  if (type.args.length === 0) {
+    if (primitiveMap.has(type.name)) {
+      return [];
+    }
+
+    return [type.name];
+  }
+
+  const result = [];
+
+  for (const arg of type.args) {
+    result.push(...getCustomTypes(arg, primitiveMap));
+  }
+
+  return result;
+}
+
+function analyzeType(type, src) {
+  const file = grepToFile(
+    new RegExp(`\\b${escapeRegExp(type)}::Serialize\\b`),
+    src,
+    ['.cpp', '.h']
+  );
+
+  if (file === null) {
+    return null;
+  }
+
+  const func = splitCppFunc(`${type}::Serialize`, file);
+
+  if (func === null) {
+    console.log(
+      `Serialize function for type '${type}' could not be found.`
+    );
+    return null;
+  }
+
   const calls = recordAllCalls('visitor', func)
-    .filter(v => v.call != '');
+    .filter(v => v.call !== '');
 
-  const header = grepToFile('CvGame(', src, ['.h']);
-  const cls = splitCppClass('CvGame', header);
+  const header = grepToFile(
+    new RegExp(`\\bclass\\s+${escapeRegExp(type)}\\b`),
+    src,
+    ['.cpp', '.h']
+  );
+
+  if (header === null) {
+    console.log(
+      `Class definition for type '${type}' could not be found.`
+    );
+    return null;
+  }
+
+  const cls = splitCppClass(type, header);
   const fields = recordAllFields(cls);
-
   const typedCalls = enrichCalls(calls, fields);
 
-  console.log(JSON.stringify(typedCalls));
+  return {
+    calls: typedCalls
+  };
 }
 
 /** find file that includes keyword and return full file to string*/
@@ -36,12 +162,15 @@ function grepToFile(keyword, src, opt = ['.cpp', '.h']) {
     if (!entry.isFile()) continue;
 
     const ext = path.extname(entry.name);
-    
+
     if (!opt.includes(ext)) continue;
 
     const content = fs.readFileSync(filePath, 'utf8');
-    if ((typeof keyword === 'string' && content.includes(keyword)) ||
-        (typeof keyword === 'object' && keyword.test(content))) {
+
+    if (
+      (typeof keyword === 'string' && content.includes(keyword)) ||
+      (keyword instanceof RegExp && keyword.test(content))
+    ) {
       return content;
     }
   }
@@ -52,7 +181,16 @@ function grepToFile(keyword, src, opt = ['.cpp', '.h']) {
 /** In str, return only function part of name 'func'. */
 function splitCppFunc(func, str) {
   const start = str.indexOf(func);
+
+  if (start === -1) {
+    return null;
+  }
+
   const braceStart = str.indexOf('{', start);
+
+  if (braceStart === -1) {
+    return null;
+  }
 
   let depth = 0;
 
@@ -67,8 +205,9 @@ function splitCppFunc(func, str) {
       }
     }
   }
-}
 
+  return null;
+}
 
 /** 모든 keyword가 포함된 줄마다 괄호 속의 글자를 객체로 저장함
     기계적으로 keyword와 소괄호만 봐야 함.
@@ -111,7 +250,10 @@ function recordAllCalls(keyword, str) {
 
     if (line.includes(keyword)) {
       const keywordIndex = line.indexOf(keyword);
-      const openParen = line.indexOf('(', keywordIndex + keyword.length);
+      const openParen = line.indexOf(
+        '(',
+        keywordIndex + keyword.length
+      );
 
       if (openParen !== -1) {
         let depth = 1;
@@ -167,7 +309,9 @@ function recordAllCalls(keyword, str) {
 }
 
 function splitCppClass(cls, str) {
-  const start = str.search(new RegExp(`\\bclass\\s+${cls}\\b`));
+  const start = str.search(
+    new RegExp(`\\bclass\\s+${escapeRegExp(cls)}\\b`)
+  );
 
   if (start === -1) {
     throw new Error(`Class '${cls}' was not found.`);
@@ -200,7 +344,6 @@ function recordAllFields(cls) {
   const bodyEnd = cls.lastIndexOf('}');
 
   const body = cls.slice(bodyStart + 1, bodyEnd);
-
   const lines = body.split(/\r?\n/);
 
   for (const line of lines) {
@@ -234,6 +377,7 @@ function recordAllFields(cls) {
 
   return result;
 }
+
 function enrichCalls(calls, fields) {
   const fieldMap = new Map(
     fields.map(field => [field.name, field.type])
@@ -247,20 +391,90 @@ function enrichCalls(calls, fields) {
     }
 
     const [, object, name] = match;
+    const type = fieldMap.get(name);
 
     return {
       ...call,
       object,
       name,
-      type: fieldMap.get(name)
+      type: type ? parseType(type) : null
     };
   });
 }
 
-const src = process.argv[2];
+function parseType(type) {
+  type = type.trim();
 
-if (!src) {
+  const lt = type.indexOf('<');
+
+  if (lt === -1) {
+    return {
+      name: type,
+      args: []
+    };
+  }
+
+  const name = type.slice(0, lt).trim();
+
+  let depth = 0;
+  let end = -1;
+
+  for (let i = lt; i < type.length; i++) {
+    if (type[i] === '<') {
+      depth++;
+    } else if (type[i] === '>') {
+      depth--;
+
+      if (depth === 0) {
+        end = i;
+        break;
+      }
+    }
+  }
+
+  if (end === -1) {
+    throw new Error(`Invalid type '${type}'.`);
+  }
+
+  return {
+    name,
+    args: splitTypeArgs(type.slice(lt + 1, end))
+      .map(parseType)
+  };
+}
+
+function splitTypeArgs(str) {
+  const result = [];
+
+  let depth = 0;
+  let start = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '<') {
+      depth++;
+    } else if (str[i] === '>') {
+      depth--;
+    } else if (str[i] === ',' && depth === 0) {
+      result.push(str.slice(start, i).trim());
+      start = i + 1;
+    }
+  }
+
+  const last = str.slice(start).trim();
+
+  if (last) {
+    result.push(last);
+  }
+
+  return result;
+}
+
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+if (!input) {
   throw new Error('Source path is required.');
 }
 
-main(src);
+main(input);

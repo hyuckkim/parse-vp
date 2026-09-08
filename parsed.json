@@ -1,0 +1,320 @@
+{
+  "title": "Release-5.4.4-0-ga42699246 Clean",
+  "fields": [
+    {
+      "name": "m_iEndTurnMessagesSent",
+      "type": "int",
+      "offset": 56,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iElapsedGameTurns",
+      "type": "int",
+      "offset": 60,
+      "size": 4,
+      "data": "01000000"
+    },
+    {
+      "name": "m_iStartTurn",
+      "type": "int",
+      "offset": 64,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iWinningTurn",
+      "type": "int",
+      "offset": 68,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iStartYear",
+      "type": "int",
+      "offset": 72,
+      "size": 4,
+      "data": "60f0ffff"
+    },
+    {
+      "name": "m_iEstimateEndTurn",
+      "type": "int",
+      "offset": 76,
+      "size": 4,
+      "data": "f4010000"
+    },
+    {
+      "name": "m_iDefaultEstimateEndTurn",
+      "type": "int",
+      "offset": 80,
+      "size": 4,
+      "data": "f4010000"
+    },
+    {
+      "name": "m_iTurnSlice",
+      "type": "int",
+      "offset": 84,
+      "size": 4,
+      "data": "4e010000"
+    },
+    {
+      "name": "m_iCutoffSlice",
+      "type": "int",
+      "offset": 88,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iNumCities",
+      "type": "int",
+      "offset": 92,
+      "size": 4,
+      "data": "16000000"
+    },
+    {
+      "name": "m_iTotalPopulation",
+      "type": "int",
+      "offset": 96,
+      "size": 4,
+      "data": "16000000"
+    },
+    {
+      "name": "m_iTotalEconomicValue",
+      "type": "int",
+      "offset": 100,
+      "size": 4,
+      "data": "11500100"
+    },
+    {
+      "name": "m_iHighestEconomicValue",
+      "type": "int",
+      "offset": 104,
+      "size": 4,
+      "data": "ae190000"
+    },
+    {
+      "name": "m_iMedianEconomicValue",
+      "type": "int",
+      "offset": 108,
+      "size": 4,
+      "data": "1c0c0000"
+    },
+    {
+      "name": "m_iNoNukesCount",
+      "type": "int",
+      "offset": 112,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iNukesExploded",
+      "type": "int",
+      "offset": 116,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iMaxPopulation",
+      "type": "int",
+      "offset": 120,
+      "size": 4,
+      "data": "80040000"
+    },
+    {
+      "name": "m_iGlobalAssetCounterAllPreviousTurns",
+      "type": "int",
+      "offset": 124,
+      "size": 4,
+      "data": "46040000"
+    },
+    {
+      "name": "m_iGlobalAssetCounterCurrentTurn",
+      "type": "int",
+      "offset": 128,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iInitPopulation",
+      "type": "int",
+      "offset": 132,
+      "size": 4,
+      "data": "01000000"
+    },
+    {
+      "name": "m_iInitLand",
+      "type": "int",
+      "offset": 136,
+      "size": 4,
+      "data": "25000000"
+    },
+    {
+      "name": "m_iInitTech",
+      "type": "int",
+      "offset": 140,
+      "size": 4,
+      "data": "01000000"
+    },
+    {
+      "name": "m_iInitWonders",
+      "type": "int",
+      "offset": 144,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iAIAutoPlay",
+      "type": "int",
+      "offset": 148,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iUnitedNationsCountdown",
+      "type": "int",
+      "offset": 152,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iNumVictoryVotesTallied",
+      "type": "int",
+      "offset": 156,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iNumVictoryVotesExpected",
+      "type": "int",
+      "offset": 160,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iVotesNeededForDiploVictory",
+      "type": "int",
+      "offset": 164,
+      "size": 4,
+      "data": "2d000000"
+    },
+    {
+      "name": "m_iMapScoreMod",
+      "type": "int",
+      "offset": 168,
+      "size": 4,
+      "data": "64000000"
+    },
+    {
+      "name": "m_iCityFoundValueReference",
+      "type": "int",
+      "offset": 172,
+      "size": 4,
+      "data": "7e370900"
+    },
+    {
+      "name": "m_iNumReferenceCities",
+      "type": "int",
+      "offset": 176,
+      "size": 4,
+      "data": "06000000"
+    },
+    {
+      "name": "m_iNumMajorCivsAliveAtGameStart",
+      "type": "int",
+      "offset": 180,
+      "size": 4,
+      "data": "08000000"
+    },
+    {
+      "name": "m_iNumMinorCivsAliveAtGameStart",
+      "type": "int",
+      "offset": 184,
+      "size": 4,
+      "data": "10000000"
+    },
+    {
+      "name": "m_bScoreDirty",
+      "type": "bool",
+      "offset": 188,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bCircumnavigated",
+      "type": "bool",
+      "offset": 189,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bFinalInitialized",
+      "type": "bool",
+      "offset": 190,
+      "size": 1,
+      "data": "01"
+    },
+    {
+      "name": "m_bHotPbemBetweenTurns",
+      "type": "bool",
+      "offset": 191,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bNukesValid",
+      "type": "bool",
+      "offset": 192,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bEndGameTechResearched",
+      "type": "bool",
+      "offset": 193,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_eObserverUIOverridePlayer",
+      "type": "PlayerTypes",
+      "offset": 194,
+      "size": 4,
+      "data": "ffffffff"
+    },
+    {
+      "name": "m_bTunerEverConnected",
+      "type": "bool",
+      "offset": 198,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bSavedOnce",
+      "type": "bool",
+      "offset": 199,
+      "size": 1,
+      "data": "01"
+    },
+    {
+      "name": "m_bTutorialEverAttacked",
+      "type": "bool",
+      "offset": 200,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bStaticTutorialActive",
+      "type": "bool",
+      "offset": 201,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_bEverRightClickMoved",
+      "type": "bool",
+      "offset": 202,
+      "size": 1,
+      "data": "00"
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvDllInterfaces.h:685:	virtual ICvEraInfo1* DLLCALL GetEraInfo(EraTypes eEraNum) = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvDllInterfaces.h:1294:	virtual EraTypes DLLCALL GetCurrentEra() const = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvDllInterfaces.h:1446:	virtual EraTypes DLLCALL era() = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvDllInterfaces.h:1545:	virtual void DLLCALL setEra(EraTypes e) = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvDllInterfaces.h:1661:	virtual EraTypes DLLCALL GetCurrentEra() const = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnumSerialization.h:28:FDataStream & operator<<(FDataStream &, const EraTypes &);
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnumSerialization.h:29:FDataStream & operator>>(FDataStream &, EraTypes &);
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h:1511:enum OPEN_ENUM EraTypes
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvStructs.h:37:	EraTypes		m_eEra;			// Era type for the unit/city
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvStructs.h:88:	EraTypes	GetEra() const { return m_eEra; }
+Community-Patch-DLL/CvGameCoreDLLUtil/include/CvStructs.h:89:	void		SetEra(EraTypes eEra) { m_eEra = eEra; }
+Community-Patch-DLL/CvGameCoreDLLUtil/include/ICvDLLUtility.h:224:	virtual void GameplayEraChanged(PlayerTypes playerID, EraTypes newEra) = 0;
+Community-Patch-DLL/CvGameCoreDLLUtil/include/ICvDLLUtility.h:244:	virtual void GameplayCityCreated(_In_ ICvCity1* pThisCity, EraTypes eCurrentEra) = 0;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:932:EraTypes CvBeliefEntry::GetObsoleteEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:1449:	m_eObsoleteEra					  = (EraTypes)GC.getInfoTypeForString(szTextVal, true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:2959:EraTypes CvReligionBeliefs::GetObsoleteEra(PlayerTypes ePlayer, bool bHolyCityOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:2963:	EraTypes eEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:2966:		EraTypes eTestEra = pBeliefs->GetEntry(*it)->GetObsoleteEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:3073:int CvReligionBeliefs::GetWonderProductionModifier(EraTypes eWonderEra, PlayerTypes ePlayer, const CvCity* pCity, bool bHolyCityOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:3081:		EraTypes eObsoleteEra = pBeliefs->GetEntry(*it)->GetObsoleteEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:4166:bool CvReligionBeliefs::IsFaithBuyingEnabled(EraTypes eEra, PlayerTypes ePlayer, const CvCity* pCity, bool bHolyCityOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:4903:int CvReligionBeliefs::GetIgnorePolicyRequirementsAmount(EraTypes eEra, PlayerTypes ePlayer, const CvCity* pCity, bool bHolyCityOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.cpp:4909:		EraTypes eObsoleteEra = pBeliefs->GetEntry(*it)->GetObsoleteEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:139:	EraTypes GetObsoleteEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:264:	EraTypes m_eObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:470:	EraTypes GetObsoleteEra(PlayerTypes ePlayer = NO_PLAYER, bool bHolyCityOnly = false) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:477:	int GetWonderProductionModifier(EraTypes eWonderEra, PlayerTypes ePlayer = NO_PLAYER, const CvCity* pCity = NULL, bool bHolyCityOnly = false) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:538:	bool IsFaithBuyingEnabled(EraTypes eEra, PlayerTypes ePlayer = NO_PLAYER, const CvCity* pCity = NULL, bool bHolyCityOnly = false) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBeliefClasses.h:580:	int GetIgnorePolicyRequirementsAmount(EraTypes eEra, PlayerTypes ePlayer = NO_PLAYER, const CvCity* pCity = NULL, bool bHolyCityOnly = false) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingClasses.cpp:1441:			m_miGreatPersonPointFromConstruction[std::make_pair((GreatPersonTypes)iGreatPerson, (EraTypes)iEra)] += iYield;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingClasses.cpp:1447:		std::map<pair<GreatPersonTypes, EraTypes>, int>(m_miGreatPersonPointFromConstruction).swap(m_miGreatPersonPointFromConstruction);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingClasses.cpp:4839:std::map<pair<GreatPersonTypes, EraTypes>, int> CvBuildingEntry::GetGreatPersonPointFromConstruction() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingClasses.h:678:	std::map<pair<GreatPersonTypes, EraTypes>, int> GetGreatPersonPointFromConstruction() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingClasses.h:1148:	std::map<pair<GreatPersonTypes, EraTypes>, int> m_miGreatPersonPointFromConstruction;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvBuildingProductionAI.cpp:1366:			EraTypes eEra = (EraTypes)pEntry->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:1841:	EraTypes eCurrentEra = player.GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:3729:	if (pkEventInfo->getRequiredEra() != -1 && kPlayer.GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:3732:	if (pkEventInfo->getObsoleteEra() != -1 && kPlayer.GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:4275:		if (pkEventInfo->getRequiredEra() != -1 && kPlayer.GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:4278:		if (pkEventInfo->getObsoleteEra() != -1 && kPlayer.GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:4675:	if (pkEventInfo->getRequiredEra() != -1 && GET_PLAYER(eSpyOwner).GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:4678:	if (pkEventInfo->getObsoleteEra() != -1 && GET_PLAYER(eSpyOwner).GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:5912:	if (pkEventInfo->getRequiredEra() != -1 && kPlayer.GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:5915:		localizedDurationText << GC.getEraInfo((EraTypes)pkEventInfo->getRequiredEra())->GetDescription();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:5919:	if (pkEventInfo->getObsoleteEra() != -1 && kPlayer.GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:5922:		localizedDurationText << GC.getEraInfo((EraTypes)pkEventInfo->getObsoleteEra())->GetDescription();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:9717:						static EraTypes industrialEra = (EraTypes)GC.getInfoTypeForString("ERA_INDUSTRIAL", true /*bHideAssert*/);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:9768:								EraTypes eRequiredEra = (EraTypes)it->m_iRequiredEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:9769:								EraTypes eObsoleteEra = (EraTypes)it->m_iObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:9800:							EraTypes eRequiredEra = (EraTypes)it->m_iRequiredEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:9801:							EraTypes eObsoleteEra = (EraTypes)it->m_iObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:11427:			EraTypes eUnitEra = (EraTypes)pGameUnit->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:11478:		EraTypes eBuildingEra = static_cast<EraTypes>(pkBuildingInfo->GetEra());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:12064:			EraTypes eEra = GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:12292:		EraTypes eEra = GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:13022:	EraTypes eEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:13026:		eEra = static_cast<EraTypes>(GC.getTechInfo(eTech)->GetEra());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:13975:					ChangeGreatPersonProgressFromConstruction((GreatPersonTypes)it->first, (EraTypes)it->second.first, it->second.second);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:14295:			std::map<pair<GreatPersonTypes, EraTypes>, int> mGreatPersonPointFromConstruction = pBuildingInfo->GetGreatPersonPointFromConstruction();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:14296:			std::map<pair<GreatPersonTypes, EraTypes>, int>::iterator it;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:15895:	EraTypes eCurrentEra = GET_PLAYER(getOwner()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:15898:		CvEraInfo* pEraInfo = GC.getEraInfo((EraTypes)iEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:18337:	EraTypes eEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:18341:		eEra = static_cast<EraTypes>(GC.getTechInfo(eTech)->GetEra());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:18351:int CvCity::GetWonderProductionModifierFromLocalResources(EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:18407:			EraTypes eResourceObsoleteEra = pkResourceInfo->getWonderProductionModObsoleteEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:18418:int CvCity::GetWonderProductionModifierFromReligion(EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:25254:int CvCity::GetGreatPersonProgressFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:25278:void CvCity::ChangeGreatPersonProgressFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra, int iChange)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:26399:std::map<pair<GreatPersonTypes, EraTypes>, int> CvCity::GetGreatPersonPointFromConstructionMap() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:26403:int CvCity::GetGreatPersonPointFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:26411:	std::map<pair<GreatPersonTypes, EraTypes>, int>::const_iterator it = m_miGreatPersonPointFromConstruction.find(std::make_pair(eGreatPerson, eEra));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:26419:void CvCity::ChangeGreatPersonPointFromConstruction(pair<GreatPersonTypes, EraTypes> pGreatPersonEra, int iChange)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:30913:						if (!pReligion->m_Beliefs.IsFaithBuyingEnabled((EraTypes)0, getOwner(), this)) // Ed?
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:30919:						if (!pReligion->m_Beliefs.IsFaithBuyingEnabled((EraTypes)pkTechInfo->GetEra(), getOwner(), this))
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:34201:	EraTypes eCityEra = GET_TEAM(getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.cpp:34209:	EraTypes eCityEra = GET_TEAM(getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:661:	int GetWonderProductionModifierFromLocalResources(EraTypes eEra) const; // generic version taking in only the building era
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:662:	int GetWonderProductionModifierFromReligion(EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:1228:	int GetGreatPersonProgressFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:1229:	void ChangeGreatPersonProgressFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra, int iChange);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:1375:	std::map<pair<GreatPersonTypes, EraTypes>, int> GetGreatPersonPointFromConstructionMap() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:1376:	int GetGreatPersonPointFromConstruction(GreatPersonTypes eGreatPerson, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:1377:	void ChangeGreatPersonPointFromConstruction(pair<GreatPersonTypes, EraTypes> pGreatPersonEra, int iChange);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:2120:	std::map<pair<GreatPersonTypes, EraTypes>, int> m_miGreatPersonPointFromConstruction;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCity.h:2524:SYNC_ARCHIVE_VAR(SYNC_ARCHIVE_VAR_TYPE(std::map<pair<GreatPersonTypes, EraTypes>, int>), m_miGreatPersonPointFromConstruction)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCityConnections.cpp:566:		if (GET_TEAM(m_pPlayer->getTeam()).GetCurrentEra() >= (EraTypes) GC.getInfoTypeForString("ERA_INDUSTRIAL", true))
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCityStrategyAI.cpp:5218:		std::map<pair<GreatPersonTypes, EraTypes>, int> mGreatPersonPointFromConstruction = pkBuildingInfo->GetGreatPersonPointFromConstruction();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCityStrategyAI.cpp:5219:		std::map<pair<GreatPersonTypes, EraTypes>, int>::iterator it;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCityStrategyAI.cpp:5222:			EraTypes eGPConstructionEra = (it->first).second;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.cpp:57:EraTypes CvContractEntry::GetPrereqEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.cpp:59:	return (EraTypes)m_iPrereqEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.cpp:62:EraTypes CvContractEntry::GetObsoleteEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.cpp:64:	return (EraTypes)m_iObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.h:18:	EraTypes GetPrereqEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvContractClasses.h:19:	EraTypes GetObsoleteEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:39:CvGreatWork::CvGreatWork(const CvString& szGreatPersonName, GreatWorkType eType, GreatWorkClass eClassType, int iTurn, EraTypes eEra, PlayerTypes ePlayer)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:108:int CvGameCulture::CreateGreatWork(GreatWorkType eType, GreatWorkClass eClass, PlayerTypes ePlayer, EraTypes eEra, const CvString& szCreator)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:874:CvGreatWorkAvailableForUse::CvGreatWorkAvailableForUse(int iIndex, PlayerTypes eOwnedByPlayer, int iCityID, BuildingTypes eBuilding, int iSlot, PlayerTypes eCreatedByPlayer, EraTypes eCreatedEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:1639:	vector<EraTypes> aErasSeen;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:1891:	vector<EraTypes> aArtifactsErasSeen;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:1957:			vector<EraTypes> aErasSeen;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:6352:	set<EraTypes> aErasSeen;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:6367:		EraTypes eFirstEra = (EraTypes) GC.getNumEraInfos();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:6368:		EraTypes eLastEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:6470:bool CultureHelpers::IsValidForForeignThemingBonus(CvThemingBonusInfo *pBonusInfo, EraTypes eEra, vector<EraTypes> &aForeignErasSeen, vector<EraTypes> &aErasSeen, PlayerTypes ePlayer, vector<PlayerTypes> &aForeignPlayersSeen, vector<PlayerTypes> &aPlayersSeen, PlayerTypes eOwner)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.cpp:6528:bool CultureHelpers::IsValidForThemingBonus(CvThemingBonusInfo *pBonusInfo, EraTypes eEra, vector<EraTypes> &aErasSeen, PlayerTypes ePlayer, vector<PlayerTypes> &aPlayersSeen, PlayerTypes eOwner)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:26:	CvGreatWork(const CvString& szGreatPersonName, GreatWorkType eType, GreatWorkClass eClassType, int iTurn, EraTypes eEra, PlayerTypes ePlayer);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:36:	EraTypes m_eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:64:	int CreateGreatWork(GreatWorkType eType, GreatWorkClass eClassType, PlayerTypes ePlayer, EraTypes eEra, const CvString& szCreator);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:143:	CvGreatWorkAvailableForUse(int iIndex, PlayerTypes eOwnedByPlayer, int iCityID, BuildingTypes eBuilding, int iSlot, PlayerTypes eCreatedByPlayer, EraTypes eCreatedEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:152:	EraTypes m_eCreatedEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:410:	bool IsValidForThemingBonus(CvThemingBonusInfo *pBonusInfo, EraTypes eEra, vector<EraTypes> &aErasSeen, PlayerTypes ePlayer, vector<PlayerTypes> &aPlayersSeen, PlayerTypes eOwner);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvCultureClasses.h:411:	bool IsValidForForeignThemingBonus(CvThemingBonusInfo *pBonusInfo, EraTypes eEra, vector<EraTypes> &aForeignErasSeen, vector<EraTypes> &aErasSeen, PlayerTypes ePlayer, vector<PlayerTypes> &aForeignPlayersSeen, vector<PlayerTypes> &aPlayersSeen, PlayerTypes eOwner);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDealAI.cpp:2623:		EraTypes eMyEra = GET_TEAM(GetPlayer()->getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDealAI.cpp:2624:		EraTypes eTheirEra = GET_TEAM(GET_PLAYER(eOtherPlayer).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDealAI.cpp:2718:	EraTypes eOurEra = GET_TEAM(GetPlayer()->getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDiplomacyAI.cpp:17604:		iReligiosityScore = max(iFlavorReligion, GC.getEraInfo((EraTypes)iGameEra)->getDiploEmphasisReligion());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDiplomacyAI.cpp:17765:	int iIdeologueScore = max(iFlavorCulture, GC.getEraInfo((EraTypes)iGameEra)->getDiploEmphasisLatePolicies());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDiplomacyAI.cpp:31358:	EraTypes eModern = (EraTypes) GC.getInfoTypeForString("ERA_MODERN", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDiplomacyAI.cpp:31516:	EraTypes eAtomic = (EraTypes) GC.getInfoTypeForString("ERA_POSTMODERN", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDiplomacyAI.cpp:36977:	EraTypes eCurrentEra = GC.getGame().getCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllContext.cpp:520:ICvEraInfo1* CvDllGameContext::GetEraInfo(EraTypes eEraNum)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllContext.h:93:	ICvEraInfo1* DLLCALL GetEraInfo(EraTypes eEraNum);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllNetInitInfo.h:48:	EraTypes m_eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPlayer.cpp:238:EraTypes CvDllPlayer::GetCurrentEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPreGame.cpp:175:EraTypes CvDllPreGame::era()
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPreGame.cpp:695:void CvDllPreGame::setEra(EraTypes e)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllTeam.cpp:89:EraTypes CvDllTeam::GetCurrentEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllTeam.h:30:	EraTypes DLLCALL GetCurrentEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvEconomicAI.cpp:966:		EraTypes eEra = m_pPlayer->GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvEnumsUtil.h:333:	template<> struct Traits<EraTypes>
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:228:			CvEraInfo* curEraInfo = GC.getEraInfo((EraTypes)eraIdx);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:230:				CvPreGame::setEra((EraTypes)eraIdx);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:4637:EraTypes CvGame::getCurrentEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:4657:		m_eGameEra = (EraTypes)iRoundedEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:7944:EraTypes CvGame::getStartEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:8851:			EraTypes ePrereqEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:8858:					ePrereqEra = (EraTypes) pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:9904:			if (GET_PLAYER(eLoopPlayer).GetCurrentEra() >= (EraTypes) GC.getInfoTypeForString("ERA_POSTMODERN"))
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:11975:	EraTypes ePlayer1Era = GET_TEAM(GET_PLAYER(ePlayer1).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:11976:	EraTypes ePlayer2Era = GET_TEAM(GET_PLAYER(ePlayer2).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:11977:	EraTypes eHighestEra = max(ePlayer1Era, ePlayer2Era);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13095:CvWeightedVector<EraTypes> CvGame::GetWeightedArchaeologyErasList() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13098:	EraTypes eHighestEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13105:		EraTypes eCurrentEra = kPlayer.GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13115:	CvWeightedVector<EraTypes> viEras;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13118:		EraTypes eAncient = static_cast<EraTypes>(0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13126:			EraTypes eEra = static_cast<EraTypes>(iEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13135:void CvGame::PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact, GreatWorkType eWrittenWork)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13256:	CvWeightedVector<EraTypes> viEras = GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13352:		EraTypes eEra = viEras.ChooseByWeight(CvSeeder::fromRaw(0x55b48f5f).mix(iPlotIndex));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13424:		EraTypes eEra = viEras.ChooseByWeight(CvSeeder::fromRaw(0xb14501cf).mix(iNumExistingHiddenWritingSites));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13467:		EraTypes eEra = viEras.ChooseByWeight(CvSeeder::fromRaw(0xbf4ecc7c).mix(iNumExistingHiddenDigSites));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:13503:		EraTypes eEra = viEras.ChooseByWeight(CvSeeder::fromRaw(0xd1f2ea4f).mix(iNumExistingDigSites));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:14017:bool CvGame::AnyoneIsInEra(EraTypes iEraType) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.cpp:14030:bool CvGame::AnyoneHasReachedEra(EraTypes iEraType) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGlobals.cpp:5046:CvEraInfo* CvGlobals::getEraInfo(EraTypes eEraNum)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:5984:EraTypes CvResourceInfo::getWonderProductionModObsoleteEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6307:int CvResourceInfo::getUnitCombatProductionCostModifiersLocal(UnitCombatTypes eUnitCombat, EraTypes eUnitEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6324:			EraTypes eRequiredEra = (EraTypes)itVector->m_iRequiredEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6325:			EraTypes eObsoleteEra = (EraTypes)itVector->m_iObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6370:int CvResourceInfo::getBuildingProductionCostModifiersLocal(EraTypes eBuildingEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6380:		EraTypes eRequiredEra = (EraTypes)it->m_iRequiredEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6381:		EraTypes eObsoleteEra = (EraTypes)it->m_iObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.cpp:6457:	m_eWonderProductionModObsoleteEra = (EraTypes)GC.getInfoTypeForString(szEraType, true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.h:1815:	EraTypes getWonderProductionModObsoleteEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.h:1870:	int getUnitCombatProductionCostModifiersLocal(UnitCombatTypes eUnitCombat, EraTypes eUnitEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.h:1874:	int getBuildingProductionCostModifiersLocal(EraTypes eBuildingEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvInfos.h:1918:	EraTypes m_eWonderProductionModObsoleteEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.h:66:	EraTypes m_eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.h:765:	void SetArchaeologicalRecord(GreatWorkArtifactClass eType, EraTypes eEra, PlayerTypes ePlayer1, PlayerTypes ePlayer2, bool bIgnoreNormalRestrictions = false);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.h:767:	void AddArchaeologicalRecord(GreatWorkArtifactClass eType, EraTypes eEra, PlayerTypes ePlayer1, PlayerTypes ePlayer2, bool bIgnoreNormalRestrictions = false);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReligionClasses.h:176:	EraTypes GetFaithPurchaseGreatPeopleEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReplayInfo.cpp:341:EraTypes CvReplayInfo::getEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:208:	m_eCurrentEra = ((EraTypes) 0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:6742:			EraTypes eThisTechsEra = (EraTypes) pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:6747:				EraTypes eNewEra = (EraTypes) pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:6892:					const EraTypes currentEra = GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:6896:						const EraTypes nextEra = static_cast<EraTypes>(iNextEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:8503:	EraTypes eObsoleteEra = (EraTypes) pResource->getAIStopTradingEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:8622:EraTypes CvTeam::GetCurrentEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:8629:void CvTeam::SetCurrentEra(EraTypes eNewValue)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.cpp:8930:				EraTypes eCurrentEra = GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.h:399:	EraTypes GetCurrentEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.h:400:	void SetCurrentEra(EraTypes eNewValue);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTeam.h:532:	EraTypes m_eCurrentEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTradeClasses.cpp:2195:			EraTypes eModern = (EraTypes)GC.getInfoTypeForString("ERA_MODERN", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.cpp:1690:EraTypes CvTraitEntry::GetGPFaithPurchaseEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.cpp:3323:		m_eGPFaithPurchaseEra = (EraTypes)GC.getInfoTypeForString(szTextVal, true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.cpp:7384:	EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.h:380:	EraTypes GetGPFaithPurchaseEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.h:713:	EraTypes m_eGPFaithPurchaseEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.h:1864:	EraTypes GetGPFaithPurchaseEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvTraitClasses.h:2348:	EraTypes m_eGPFaithPurchaseEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:25:	EraTypes GetGameEraForTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:26:	EraTypes GetNextGameEraForTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:27:	EraTypes GetNextGameEraForTrigger(EraTypes eThisEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:807:	EraTypes GetLastEraTrigger() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:808:	void SetLastEraTrigger(EraTypes eEraTrigger);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:848:	EraTypes m_eLastEraTrigger;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:1076:	EraTypes GetEraTrigger() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.h:1088:	EraTypes m_eEraTrigger;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPlayer.h:56:	EraTypes DLLCALL GetCurrentEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPreGame.h:52:	EraTypes DLLCALL era();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvDllPreGame.h:151:	void DLLCALL setEra(EraTypes e);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:130:	EraTypes getCurrentEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:388:	EraTypes getStartEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:730:	CvWeightedVector<EraTypes> GetWeightedArchaeologyErasList() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:731:	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact, GreatWorkType eWrittenWork = NO_GREAT_WORK);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:742:	bool AnyoneIsInEra(EraTypes iEraType) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:743:	bool AnyoneHasReachedEra(EraTypes iEraType) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGame.h:914:	EraTypes m_eGameEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGameCoreUtils.cpp:1383:			const EraTypes eUpgradeEra = static_cast<EraTypes>(pkTechInfo->GetEra());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvGlobals.h:621:	CvEraInfo* getEraInfo(EraTypes eEraNum);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMilitaryAI.cpp:4300:	static EraTypes eThreshold = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMilitaryAI.cpp:4306:	static EraTypes eThreshold = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:4912:int CvMinorCivAI::GetFriendYieldBonusValue(YieldTypes eYield, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:4922:int CvMinorCivAI::GetFriendCityYieldBonusValue(YieldTypes eYield, EraTypes eEra, bool bCapital) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:4933:int CvMinorCivAI::GetAllyYieldBonusValue(YieldTypes eYield, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:4943:int CvMinorCivAI::GetAllyCityYieldBonusValue(YieldTypes eYield, EraTypes eEra, bool bCapital) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:6276:	EraTypes eEra = GC.getGame().getCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:6336:	EraTypes eEra = GET_PLAYER(ePlayer).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:6671:bool CvMinorCivAI::IsEnabledQuest(MinorCivQuestTypes eQuest, EraTypes eEra, bool bCheckPriorEras)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:6735:		EraTypes eLoopEra = (EraTypes)iEraLoop;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:6833:bool CvMinorCivAI::IsValidQuestForPlayer(PlayerTypes ePlayer, MinorCivQuestTypes eQuest, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:7421:int CvMinorCivAI::GetQuestWeight(MinorCivQuestTypes eQuest, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:7704:	EraTypes eEra = IsGlobalQuest(eQuest) ? GC.getGame().getCurrentEra() : GET_PLAYER(eMajor).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:8018:	EraTypes eCurrentEra = GC.getGame().getCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:8019:	EraTypes eRenaissance = (EraTypes) GC.getInfoTypeForString("ERA_RENAISSANCE", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:8020:	EraTypes eClassical = (EraTypes) GC.getInfoTypeForString("ERA_CLASSICAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11517:		EraTypes eCurrentEra = GET_TEAM(GET_PLAYER(ePlayer).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11518:		EraTypes eMedieval = (EraTypes)GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11519:		EraTypes eIndustrial = (EraTypes)GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11559:		EraTypes eCurrentEra = GET_TEAM(GET_PLAYER(ePlayer).getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11560:		EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:11561:		EraTypes eIndustrial = (EraTypes)GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12577:bool CvMinorCivAI::DoMajorCivEraChange(PlayerTypes ePlayer, EraTypes eNewEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12612:	EraTypes eOldEra = (EraTypes)iCurrentEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12748:int CvMinorCivAI::GetHappinessFlatFriendshipBonus(PlayerTypes ePlayer, EraTypes eAssumeEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12753:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12757:	EraTypes eIndustrial = (EraTypes) GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12758:	EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12773:int CvMinorCivAI::GetHappinessFlatAlliesBonus(PlayerTypes ePlayer, EraTypes eAssumeEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12778:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12782:	EraTypes eIndustrial = (EraTypes) GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12783:	EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12834:int CvMinorCivAI::GetHappinessPerLuxuryFriendshipBonus(PlayerTypes ePlayer, EraTypes eAssumeEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12853:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12857:	EraTypes eIndustrial = (EraTypes) GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12858:	EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12874:int CvMinorCivAI::GetHappinessPerLuxuryAlliesBonus(PlayerTypes ePlayer, EraTypes eAssumeEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12893:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12897:	EraTypes eIndustrial = (EraTypes) GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12898:	EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12947:int CvMinorCivAI::GetYieldFriendFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12951:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12958:		EraTypes eEra = (EraTypes)iEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12970:int CvMinorCivAI::GetYieldAllyFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12974:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:12981:		EraTypes eEra = (EraTypes)iEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13031:int CvMinorCivAI::GetCityYieldFriendFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra, bool bCapitalOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13035:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13042:		EraTypes eEra = (EraTypes)iEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13055:int CvMinorCivAI::GetCityYieldAllyFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra, bool bCapitalOnly) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13059:	EraTypes eCurrentEra = eAssumeEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:13066:		EraTypes eEra = (EraTypes)iEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17177:int CvMinorCivInfo::getFriendYieldBonuses(YieldTypes eYield, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17182:	std::map<YieldTypes, std::map<EraTypes, int> >::const_iterator itYield;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17187:    std::map<EraTypes, int>::const_iterator itEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17202:int CvMinorCivInfo::getFriendCityYieldBonuses(YieldTypes eYield, EraTypes eEra, bool bCapital) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17207:    std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int> >::const_iterator itYield;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17212:    std::map<std::pair<EraTypes, bool>, int>::const_iterator itEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17227:int CvMinorCivInfo::getAllyYieldBonuses(YieldTypes eYield, EraTypes eEra) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17232:	std::map<YieldTypes, std::map<EraTypes, int> >::const_iterator itYield;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17237:    std::map<EraTypes, int>::const_iterator itEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17252:int CvMinorCivInfo::getAllyCityYieldBonuses(YieldTypes eYield, EraTypes eEra, bool bCapital) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17257:    std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int> >::const_iterator itYield;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17262:    std::map<std::pair<EraTypes, bool>, int>::const_iterator itEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17277:int CvMinorCivInfo::GetQuestWeight(MinorCivPersonalityTypes ePersonality, EraTypes eEra, MinorCivQuestTypes eQuest) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17380:			const EraTypes eEra = (EraTypes)pResults->GetInt(0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17391:		std::map<YieldTypes, std::map<EraTypes, int>>(m_miFriendYieldBonuses).swap(m_miFriendYieldBonuses);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17415:			const EraTypes eEra = (EraTypes)pResults->GetInt(0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17427:		std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int>>(m_miFriendCityYieldBonuses).swap(m_miFriendCityYieldBonuses);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17451:			const EraTypes eEra = (EraTypes)pResults->GetInt(0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17462:		std::map<YieldTypes, std::map<EraTypes, int>>(m_miAllyYieldBonuses).swap(m_miAllyYieldBonuses);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17486:			const EraTypes eEra = (EraTypes)pResults->GetInt(0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.cpp:17498:		std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int>>(m_miAllyCityYieldBonuses).swap(m_miAllyCityYieldBonuses);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:455:	bool IsEnabledQuest(MinorCivQuestTypes eQuest, EraTypes eEra, bool bCheckPriorEras = true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:457:	bool IsValidQuestForPlayer(PlayerTypes ePlayer, MinorCivQuestTypes eQuest, EraTypes eEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:462:	int GetQuestWeight(MinorCivQuestTypes eQuest, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:645:	bool DoMajorCivEraChange(PlayerTypes ePlayer, EraTypes eNewEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:653:	int GetFriendYieldBonusValue(YieldTypes eYield, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:655:	int GetFriendCityYieldBonusValue(YieldTypes eYield, EraTypes eEra, bool bCapitalOnly) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:657:	int GetAllyYieldBonusValue(YieldTypes eYield, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:659:	int GetAllyCityYieldBonusValue(YieldTypes eYield, EraTypes eEra, bool bCapitalOnly) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:661:	int GetYieldFriendFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:662:	int GetYieldAllyFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:664:	int GetCityYieldFriendFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra, bool bCapitalOnly) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:665:	int GetCityYieldAllyFlatBonusTimes100(PlayerTypes ePlayer, YieldTypes eYield, EraTypes eAssumeEra, bool bCapitalOnly) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:669:	int GetHappinessFlatFriendshipBonus(PlayerTypes ePlayer, EraTypes eAssumeEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:670:	int GetHappinessFlatAlliesBonus(PlayerTypes ePlayer, EraTypes eAssumeEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:672:	int GetHappinessPerLuxuryFriendshipBonus(PlayerTypes ePlayer, EraTypes eAssumeEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:673:	int GetHappinessPerLuxuryAlliesBonus(PlayerTypes ePlayer, EraTypes eAssumeEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:960:	int getFriendYieldBonuses(YieldTypes eYield, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:962:	int getFriendCityYieldBonuses(YieldTypes eYield, EraTypes eEra, bool bCapital) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:964:	int getAllyYieldBonuses(YieldTypes eYield, EraTypes eEra) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:966:	int getAllyCityYieldBonuses(YieldTypes eYield, EraTypes eEra, bool bCapital) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:969:	int GetQuestWeight(MinorCivPersonalityTypes ePersonality, EraTypes eEra, MinorCivQuestTypes eQuest) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:1001:	std::map<YieldTypes, std::map<EraTypes, int>> m_miFriendYieldBonuses;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:1003:	std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int>> m_miFriendCityYieldBonuses;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:1005:	std::map<YieldTypes, std::map<EraTypes, int>> m_miAllyYieldBonuses;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvMinorCivAI.h:1007:	std::map<YieldTypes, std::map<std::pair<EraTypes, bool>, int>> m_miAllyCityYieldBonuses;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:5721:	if(pkEventInfo->getRequiredEra() != -1 && GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:5724:	if(pkEventInfo->getObsoleteEra() != -1 && GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:6212:	if(pkEventInfo->getRequiredEra() != -1 && GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:6215:	if(pkEventInfo->getObsoleteEra() != -1 && GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:7344:	if(pkEventInfo->getRequiredEra() != -1 && GetCurrentEra() < (EraTypes)pkEventInfo->getRequiredEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:7347:		localizedDurationText << GC.getEraInfo((EraTypes)pkEventInfo->getRequiredEra())->GetDescription();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:7351:	if(pkEventInfo->getObsoleteEra() != -1 && GetCurrentEra() >= (EraTypes)pkEventInfo->getObsoleteEra())
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:7354:		localizedDurationText << GC.getEraInfo((EraTypes)pkEventInfo->getObsoleteEra())->GetDescription();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13592:		CvWeightedVector<EraTypes> viEras = GC.getGame().GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13628:		CvWeightedVector<EraTypes> viEras = GC.getGame().GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13662:		CvWeightedVector<EraTypes> viEras = GC.getGame().GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13789:void CvPlayer::PlacePrioritizedDigSite(ResourceTypes eResource, bool bSarcophagus, CvWeightedVector<EraTypes> viEras, vector<CvPlot*>& vPrioritizedArchaeologyTiles, vector<CvPlot*>& vArchaeologyTiles, const CvSeeder& seedOne, const CvSeeder& seedTwo)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13797:		EraTypes eEra = viEras.ChooseByWeight(seedTwo);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13819:		CvWeightedVector<EraTypes> viEras = GC.getGame().GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:13820:		EraTypes eEra = viEras.ChooseByWeight(seedTwo);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:14623:						EraTypes eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:14630:								eEra = (EraTypes)pEntry->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:15360:							EraTypes eBuildingUnlockedEra = (EraTypes)pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:15405:				EraTypes eBuildingUnlockedEra = (EraTypes) pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:15416:							CvEraInfo* pkEraInfo = GC.getEraInfo((EraTypes)iLoop);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:15439:					CvEraInfo* pkEraInfo = GC.getEraInfo((EraTypes)iLoop);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23463:void CvPlayer::ChangeYieldInCapitalPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23495:void CvPlayer::ChangeYieldInOtherCitiesPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23530:void CvPlayer::ChangeYieldPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23558:void CvPlayer::ChangeHappinessFromAnnexedMinor(PlayerTypes eMinor, int iSign, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23569:		static EraTypes eCurrentEra = GET_TEAM(getTeam()).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23570:		static EraTypes eIndustrial = (EraTypes)GC.getInfoTypeForString("ERA_INDUSTRIAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:23571:		static EraTypes eMedieval = (EraTypes)GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:28563:								iValue += pLoopCity->GetGreatPersonProgressFromConstruction(eGreatPerson, (EraTypes)iLoopEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:28570:								iValue += pLoopCity->GetGreatPersonPointFromConstruction(eGreatPerson, (EraTypes)iLoopEra) * pkBuildingInfo->GetProductionCost() / 100;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:34673:EraTypes CvPlayer::GetCurrentEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:34678:EraTypes CvPlayer::GetFaithPurchaseGreatPeopleEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:34680:	EraTypes eGPEra = GC.getGame().GetGameReligions()->GetFaithPurchaseGreatPeopleEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:34681:	EraTypes eSpecialEra = GetPlayerTraits()->GetGPFaithPurchaseEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:50332:bool CvPlayer::IsInEra(EraTypes iEraType) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.cpp:50337:bool CvPlayer::HasReachedEra(EraTypes iEraType) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:851:	void ChangeYieldInCapitalPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:853:	void ChangeYieldInOtherCitiesPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:856:	void ChangeYieldPerTurnFromAnnexedMinorTimes100(PlayerTypes eMinor, int iSign, EraTypes eEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:858:	void ChangeHappinessFromAnnexedMinor(PlayerTypes eMinor, int iSign, EraTypes eEra = NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:1724:	EraTypes GetCurrentEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:1725:	EraTypes GetFaithPurchaseGreatPeopleEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:2795:	bool IsInEra(EraTypes iEraType) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:2796:	bool HasReachedEra(EraTypes iEraType) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlayer.h:3022:	void PlacePrioritizedDigSite(ResourceTypes eResource, bool bSarcophagus, CvWeightedVector<EraTypes> viEras, vector<CvPlot*>& vPrioritizedArchaeologyTiles, vector<CvPlot*>& vArchaeologyTiles, const CvSeeder& seedOne, const CvSeeder& seedTwo);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.cpp:7850:				CvWeightedVector<EraTypes> viEras = GC.getGame().GetWeightedArchaeologyErasList();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.cpp:7853:				EraTypes eEra = viEras.ChooseByWeight(CvSeeder::fromRaw(0x119757d6).mix(iPlotIndex));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.cpp:14594:void CvPlot::SetArchaeologicalRecord(GreatWorkArtifactClass eType, EraTypes eEra, PlayerTypes ePlayer1, PlayerTypes ePlayer2, bool bIgnoreNormalRestrictions)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.cpp:14616:	EraTypes eNewEra = m_kArchaeologyData.m_eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPlot.cpp:14624:void CvPlot::AddArchaeologicalRecord(GreatWorkArtifactClass eType, EraTypes eEra, PlayerTypes ePlayer1, PlayerTypes ePlayer2, bool bIgnoreNormalRestrictions)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:558:		m_ePolicyEraUnlock = (EraTypes)GC.getInfoTypeForString(szUnlockPolicyEra, true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:1731:EraTypes CvPolicyEntry::GetPolicyEraUnlock() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:5217:		EraTypes ePrereqEra = (EraTypes) pkBranchEntry->GetEraPrereq();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:5742:			EraTypes ePrereqEra = (EraTypes)pkPolicyBranchInfo->GetEraPrereq();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:5743:			EraTypes eAncientEra = (EraTypes)GD_INT_GET(ANCIENT_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:5744:			EraTypes eMedievalEra = (EraTypes)GD_INT_GET(MEDIEVAL_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:5745:			EraTypes eIndustrialEra = (EraTypes)GD_INT_GET(INDUSTRIAL_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.cpp:6316:		EraTypes eMedieval = (EraTypes) GC.getInfoTypeForString("ERA_MEDIEVAL", true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.h:94:	EraTypes GetPolicyEraUnlock() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPolicyClasses.h:543:	EraTypes m_ePolicyEraUnlock;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.cpp:197:EraTypes s_era(NO_ERA);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.cpp:854:EraTypes era()
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.cpp:1938:	s_era = EraTypes(GD_INT_GET(STANDARD_ERA)); // NO_ option?
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.cpp:2411:void setEra(EraTypes e)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.cpp:2420:		const EraTypes eEra = static_cast<EraTypes>(i);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.h:80:EraTypes                                   era();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvPreGame.h:198:void                                       setEra(EraTypes e);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReligionClasses.cpp:634:EraTypes CvGameReligions::GetFaithPurchaseGreatPeopleEra() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReligionClasses.cpp:636:	return /*ERA_INDUSTRIAL*/ static_cast<EraTypes>(GD_INT_GET(RELIGION_GP_FAITH_PURCHASE_ERA));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReplayInfo.h:41:	EraTypes getEra() const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvReplayInfo.h:95:	EraTypes m_eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnit.cpp:622:			EraTypes eUnitEra = getUnitInfo().GetGreatPersonEra(iI);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnit.cpp:646:				EraTypes eUnitEra = getUnitInfo().GetGreatPersonEra(iI);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnit.cpp:854:		EraTypes eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnit.cpp:858:			eEra = (EraTypes) iEraLoop;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitClasses.cpp:509:			m_paeGreatPersonEra = FNEW(EraTypes[m_iNumUnitNames], c_eCiv5GameplayDLL, 0);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitClasses.cpp:541:					m_paeGreatPersonEra[i] = static_cast<EraTypes>(GC.getInfoTypeForString(szEraType, true));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitClasses.cpp:1664:EraTypes CvUnitEntry::GetGreatPersonEra(int i) const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitClasses.h:175:	EraTypes GetGreatPersonEra(int i) const;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitClasses.h:428:	EraTypes* m_paeGreatPersonEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvUnitCombat.cpp:58:static CvCombatMemberEntry* AddCombatMember(CvCombatMemberEntry* pkArray, int* piMembers, int iMaxMembers, IDInfo kMember, CvCombatMemberEntry::MEMBER_TYPE eType, int iX, int iY, EraTypes eEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:120:EraTypes LeagueHelpers::GetGameEraForTrigger()
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:122:	EraTypes eGameEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:125:	EraTypes eMostAdvancedEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:130:			EraTypes e = GET_PLAYER((PlayerTypes)i).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:139:		eGameEra = (EraTypes) ((int)eMostAdvancedEra - 1);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:148:			EraTypes e = GET_PLAYER((PlayerTypes)i).GetCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:164:EraTypes LeagueHelpers::GetNextGameEraForTrigger()
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:169:EraTypes LeagueHelpers::GetNextGameEraForTrigger(EraTypes eThisEra)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:171:	EraTypes eNextEra = (EraTypes) ((int)eThisEra + 1);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:7057:			EraTypes eEra = pInfo->GetEraTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:7143:		EraTypes eNextEra = LeagueHelpers::GetNextGameEraForTrigger(pThisSessionInfo->GetEraTrigger());
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9403:			EraTypes eGameEra = LeagueHelpers::GetGameEraForTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9415:					EraTypes eEraTrigger = pInfo->GetEraTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9607:			EraTypes eEarliestEraTrigger = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9608:			EraTypes eLatestEraTrigger = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9625:			EraTypes eGoverningEraTrigger = (EraTypes) max((int)LeagueHelpers::GetGameEraForTrigger(), (int)eEarliestEraTrigger);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9626:			eGoverningEraTrigger = (EraTypes) min((int)eGoverningEraTrigger, (int)eLatestEraTrigger);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9637:					EraTypes eEraTrigger = pInfo->GetEraTrigger();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9714:EraTypes CvGameLeagues::GetLastEraTrigger() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:9719:void CvGameLeagues::SetLastEraTrigger(EraTypes eEraTrigger)
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:14511:	m_eEraTrigger						= (EraTypes) GC.getInfoTypeForString(kResults.GetText("EraTrigger"), true);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvVotingClasses.cpp:14525:EraTypes CvLeagueSpecialSessionEntry::GetEraTrigger() const
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvWorldBuilderMapLoader.cpp:512:			const EraTypes eEra = (EraTypes)iEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/CvWorldBuilderMapLoader.cpp:2001:					CvEraInfo* pkEraInfo = GC.getEraInfo((EraTypes)iEra);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaCity.cpp:2066:									EraTypes eBuildingUnlockedEra = (EraTypes)pkTechInfo->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaCity.cpp:2126:						EraTypes eEra;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaCity.cpp:2133:								eEra = (EraTypes)pEntry->GetEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:777://EraTypes getCurrentEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:1514://EraTypes getStartEra();
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:3321:	EraTypes eEra = (EraTypes)lua_tointeger(L, 3);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:3823:		if(GC.getEraInfo(static_cast<EraTypes>(iLoopEra))->getVassalageEnabled()) {
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:3875:	const EraTypes iEraType = static_cast<EraTypes>(luaL_checkint(L, 1));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaGame.cpp:3882:	const EraTypes iEraType = static_cast<EraTypes>(luaL_checkint(L, 1));
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlayer.cpp:7120:		EraTypes eWritingWorkEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlayer.cpp:7136:		EraTypes eArtWorkEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlayer.cpp:7152:		EraTypes eArtifactWorkEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlayer.cpp:7168:		EraTypes eMusicWorkEra = NO_ERA;
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlot.cpp:2239:	EraTypes eEra = CvLuaArgs::toValue<EraTypes>(L, 3);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaPlot.cpp:2252:	EraTypes eEra = CvLuaArgs::toValue<EraTypes>(L, 3);
+Community-Patch-DLL/CvGameCoreDLL_Expansion2/Lua/CvLuaTeam.cpp:1426://void SetCurrentEra(EraTypes  iNewValue);

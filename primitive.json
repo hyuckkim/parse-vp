@@ -1,0 +1,45 @@
+[
+  { "name": "bool", "size": 1 },
+  { "name": "char", "size": 1 },
+  { "name": "signed char", "size": 1 },
+  { "name": "unsigned char", "size": 1 },
+
+  { "name": "short", "size": 2 },
+  { "name": "unsigned short", "size": 2 },
+
+  { "name": "int", "size": 4 },
+  { "name": "unsigned int", "size": 4 },
+
+  { "name": "long", "size": 4 },
+  { "name": "unsigned long", "size": 4 },
+
+  { "name": "long long", "size": 8 },
+  { "name": "unsigned long long", "size": 8 },
+
+  { "name": "float", "size": 4 },
+  { "name": "double", "size": 8 },
+
+  { "name": "int8_t", "size": 1 },
+  { "name": "uint8_t", "size": 1 },
+  { "name": "int16_t", "size": 2 },
+  { "name": "uint16_t", "size": 2 },
+  { "name": "int32_t", "size": 4 },
+  { "name": "uint32_t", "size": 4 },
+  { "name": "int64_t", "size": 8 },
+  { "name": "uint64_t", "size": 8 },
+
+  { "name": "size_t", "size": 4 },
+
+  { "name": "CvString", "size": "custom" },
+
+  { "name": "PlayerTypes", "size": 4 },
+  { "name": "HandicapTypes", "size": 4 },
+  { "name": "UnitTypes", "size": 4 },
+  { "name": "TeamTypes", "size": 4 },
+  { "name": "VictoryTypes", "size": 4 },
+  { "name": "GameStateTypes", "size": 4 },
+  { "name": "RouteTypes", "size": 4 },
+  { "name": "EraTypes", "size": 4 },
+
+  { "name": "char /*TeamTypes*/", "size": 1 }
+]
