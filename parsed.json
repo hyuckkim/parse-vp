@@ -279,7 +279,9 @@
       "type": "PlayerTypes",
       "offset": 194,
       "size": 4,
-      "data": "ffffffff"
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
     },
     {
       "name": "m_bTunerEverConnected",
@@ -315,6 +317,127 @@
       "offset": 202,
       "size": 1,
       "data": "00"
+    },
+    {
+      "name": "m_AdvisorMessagesViewed",
+      "type": "std::tr1::unordered_set<size_t>",
+      "offset": 203,
+      "size": 32,
+      "count": 7,
+      "elements": [
+        {
+          "name": "[0]",
+          "type": "size_t",
+          "offset": 207,
+          "size": 4,
+          "data": "83ea334e"
+        },
+        {
+          "name": "[1]",
+          "type": "size_t",
+          "offset": 211,
+          "size": 4,
+          "data": "5dccb5c9"
+        },
+        {
+          "name": "[2]",
+          "type": "size_t",
+          "offset": 215,
+          "size": 4,
+          "data": "3ac72c4d"
+        },
+        {
+          "name": "[3]",
+          "type": "size_t",
+          "offset": 219,
+          "size": 4,
+          "data": "cc932ad0"
+        },
+        {
+          "name": "[4]",
+          "type": "size_t",
+          "offset": 223,
+          "size": 4,
+          "data": "22a660c7"
+        },
+        {
+          "name": "[5]",
+          "type": "size_t",
+          "offset": 227,
+          "size": 4,
+          "data": "e2ddffdf"
+        },
+        {
+          "name": "[6]",
+          "type": "size_t",
+          "offset": 231,
+          "size": 4,
+          "data": "6300a179"
+        }
+      ]
+    },
+    {
+      "name": "m_eHandicap",
+      "type": "HandicapTypes",
+      "offset": 235,
+      "size": 4,
+      "value": 4,
+      "enumName": null,
+      "raw": "04000000"
+    },
+    {
+      "name": "m_ePausePlayer",
+      "type": "PlayerTypes",
+      "offset": 239,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eAIAutoPlayReturnPlayer",
+      "type": "PlayerTypes",
+      "offset": 243,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eBestLandUnit",
+      "type": "UnitTypes",
+      "offset": 247,
+      "size": 4,
+      "value": 83,
+      "enumName": null,
+      "raw": "53000000"
+    },
+    {
+      "name": "m_eWinner",
+      "type": "TeamTypes",
+      "offset": 251,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_TEAM",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eVictory",
+      "type": "VictoryTypes",
+      "offset": 255,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_VICTORY",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eGameState",
+      "type": "GameStateTypes",
+      "offset": 259,
+      "size": 4,
+      "value": 0,
+      "enumName": "GAMESTATE_ON",
+      "raw": "00000000"
     }
   ]
 }

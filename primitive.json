@@ -31,15 +31,5 @@
   { "name": "size_t", "size": 4 },
 
   { "name": "CvString", "size": "custom" },
-
-  { "name": "PlayerTypes", "size": 4 },
-  { "name": "HandicapTypes", "size": 4 },
-  { "name": "UnitTypes", "size": 4 },
-  { "name": "TeamTypes", "size": 4 },
-  { "name": "VictoryTypes", "size": 4 },
-  { "name": "GameStateTypes", "size": 4 },
-  { "name": "RouteTypes", "size": 4 },
-  { "name": "EraTypes", "size": 4 },
-
   { "name": "char /*TeamTypes*/", "size": 1 }
 ]

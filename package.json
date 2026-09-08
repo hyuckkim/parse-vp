@@ -7,6 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "parse-enum": "node enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\" enum.json",
+    "build": "node index.js \"Community-Patch-DLL\""
   }
 }
