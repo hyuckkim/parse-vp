@@ -117,8 +117,7 @@ function analyzeType(type, src) {
     return null;
   }
 
-  const calls = recordAllCalls('visitor', func)
-    .filter(v => v.call !== '');
+  const calls = recordAllCalls(func);
 
   const header = grepToFile(
     new RegExp(`\\bclass\\s+${escapeRegExp(type)}\\b`),
@@ -208,24 +207,7 @@ function splitCppFunc(func, str) {
 
   return null;
 }
-
-/** 모든 keyword가 포함된 줄마다 괄호 속의 글자를 객체로 저장함
-    기계적으로 keyword와 소괄호만 봐야 함.
-    예: recordAllCalls('visitor', ...) 에 대해
-    visitor(m_someData) -> { call: m_someData }
-    visitor.as<int>(m_otherData) -> { call: m_otherData }
-
-    if와 for를 인식해서 데이터에 포함해야 함
-    (if와 함수는 같은 줄에 포함되지 않음, 다행이다):
-    if (a < b)
-    {
-    visitor(m_moreData) -> { call: m_moreData, state: [{ of: if, exp: 'a < b' }] }
-    }
-    
-    for (int i = 0; i < absolute_value; i++)
-    ... -> { call: m_justData, state: [{ of: for, exp: 'int i = 0 ...'}]}
- */
-function recordAllCalls(keyword, str) {
+function recordAllCalls(str) {
   const result = [];
   const lines = str.split(/\r?\n/);
   const states = [];
@@ -248,12 +230,14 @@ function recordAllCalls(keyword, str) {
       });
     }
 
-    if (line.includes(keyword)) {
-      const keywordIndex = line.indexOf(keyword);
-      const openParen = line.indexOf(
-        '(',
-        keywordIndex + keyword.length
-      );
+    // visitor(...)
+    // visitor.as<...>(...)
+    const visitorMatch = line.match(
+      /^visitor(?:\s*\.\s*as\s*<[^;]*?>)?\s*\(/
+    );
+
+    if (visitorMatch) {
+      const openParen = line.indexOf('(', visitorMatch.index);
 
       if (openParen !== -1) {
         let depth = 1;

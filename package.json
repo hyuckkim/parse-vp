@@ -7,7 +7,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "parse-enum": "node enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\" enum.json",
+    "parse-enum": "node enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\" enum.json ./Civ5CoreDatabase.db",
     "build": "node index.js \"Community-Patch-DLL\""
+  },
+  "dependencies": {
+    "sqlite3": "^6.0.1"
   }
 }

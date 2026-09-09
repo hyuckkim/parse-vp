@@ -4,6 +4,7 @@ const path = require('path');
 const definitionsPath = path.join(__dirname, 'definitions.json');
 const primitivePath = path.join(__dirname, 'primitive.json');
 const enumPath = path.join(__dirname, 'enum.json');
+const tableCountPath = path.join(__dirname, 'tableCount.json');
 
 const definitions = JSON.parse(
   fs.readFileSync(definitionsPath, 'utf8')
@@ -15,6 +16,9 @@ const primitive = JSON.parse(
 
 const enums = JSON.parse(
   fs.readFileSync(enumPath, 'utf8')
+);
+const tableCount = JSON.parse(
+  fs.readFileSync(tableCountPath, 'utf8')
 );
 
 const primitiveMap = new Map(
@@ -388,6 +392,90 @@ function readUnorderedSet(type, name) {
     elements
   };
 }
+function getEnumCount(enumType) {
+  const candidates = new Set();
+
+  // 혹시 enum 이름과 table 이름이 같은 경우
+  candidates.add(enumType);
+
+  // TerrainTypes -> Terrain / Terrains
+  if (enumType.endsWith('Types')) {
+    const base = enumType.slice(0, -5);
+
+    candidates.add(base);
+    candidates.add(`${base}s`);
+  }
+
+  // TerrainType -> Terrain / Terrains
+  if (enumType.endsWith('Type')) {
+    const base = enumType.slice(0, -4);
+
+    candidates.add(base);
+    candidates.add(`${base}s`);
+  }
+
+  // 정확히 일치하는 table부터 찾음
+  for (const tableName of candidates) {
+    if (Object.prototype.hasOwnProperty.call(tableCount, tableName)) {
+      const count = tableCount[tableName];
+
+      if (!Number.isInteger(count) || count < 0) {
+        throw new Error(
+          `Invalid table count for '${tableName}': ${count}`
+        );
+      }
+
+      return count;
+    }
+  }
+
+  // 대소문자 무시해서 한 번 더 찾음
+  const lowerCandidates = new Set(
+    [...candidates].map(name => name.toLowerCase())
+  );
+
+  const matches = Object.keys(tableCount).filter(
+    tableName => lowerCandidates.has(tableName.toLowerCase())
+  );
+
+  if (matches.length === 1) {
+    return tableCount[matches[0]];
+  }
+
+  if (matches.length > 1) {
+    throw new Error(
+      `Ambiguous table mapping for enum '${enumType}': ` +
+      matches.join(', ')
+    );
+  }
+
+  throw new Error(
+    `Cannot resolve DB table for enum '${enumType}'. ` +
+    `Tried: ${[...candidates].join(', ')}`
+  );
+}
+function readCvEnumMap(type, name) {
+  const args = typeArgs(type);
+
+  if (args.length < 2) {
+    throw new Error(`Invalid CvEnumMap type: ${typeToString(type)}`);
+  }
+
+  const enumType = typeName(args[0]);
+  const valueType = args[1];
+
+  const count = getEnumCount(enumType);
+
+  const values = [];
+
+  for (let i = 0; i < count; i++) {
+    values.push(
+      readType(valueType, `${name}[${i}]`)
+    );
+  }
+
+  return values;
+}
 
 function readType(type, name) {
   const typeNameValue = typeName(type);
@@ -416,6 +504,11 @@ function readType(type, name) {
   // unordered_set<T>
   if (typeNameValue === 'std::tr1::unordered_set') {
     return readUnorderedSet(type, name);
+  }
+
+  // CvEnumMap<K, V>
+  if (typeNameValue === 'CvEnumMap') {
+    return readCvEnumMap(type, name);
   }
 
   // nested definition

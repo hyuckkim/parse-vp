@@ -484,18 +484,6 @@
         }
       },
       {
-        "call": "game.m_eGameState, GAMESTATE_EXTENDED",
-        "state": [
-          {
-            "of": "if",
-            "exp": "bLoading && game.m_eGameState == GAMESTATE_OVER"
-          }
-        ],
-        "object": "game",
-        "name": "m_eGameState, GAMESTATE_EXTENDED",
-        "type": null
-      },
-      {
         "call": "game.m_eBestWondersPlayer",
         "object": "game",
         "name": "m_eBestWondersPlayer",

@@ -438,6 +438,629 @@
       "value": 0,
       "enumName": "GAMESTATE_ON",
       "raw": "00000000"
-    }
+    },
+    {
+      "name": "m_eBestWondersPlayer",
+      "type": "PlayerTypes",
+      "offset": 263,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eBestPoliciesPlayer",
+      "type": "PlayerTypes",
+      "offset": 267,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eBestGreatPeoplePlayer",
+      "type": "PlayerTypes",
+      "offset": 271,
+      "size": 4,
+      "value": -1,
+      "enumName": "NO_PLAYER",
+      "raw": "ffffffff"
+    },
+    {
+      "name": "m_eIndustrialRoute",
+      "type": "RouteTypes",
+      "offset": 275,
+      "size": 4,
+      "value": 1,
+      "enumName": "ROUTE_RAILROAD",
+      "raw": "01000000"
+    },
+    {
+      "name": "m_eGameEra",
+      "type": "EraTypes",
+      "offset": 279,
+      "size": 4,
+      "value": 0,
+      "enumName": null,
+      "raw": "00000000"
+    },
+    {
+      "name": "m_eTeamThatCircumnavigated",
+      "type": "char /*TeamTypes*/",
+      "offset": 283,
+      "size": 1,
+      "data": "ff"
+    },
+    {
+      "name": "m_bVictoryRandomization",
+      "type": "bool",
+      "offset": 284,
+      "size": 1,
+      "data": "00"
+    },
+    {
+      "name": "m_iMedianTechsResearched",
+      "type": "int",
+      "offset": 285,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iBasicNeedsMedian",
+      "type": "int",
+      "offset": 289,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iGoldMedian",
+      "type": "int",
+      "offset": 293,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iScienceMedian",
+      "type": "int",
+      "offset": 297,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iCultureMedian",
+      "type": "int",
+      "offset": 301,
+      "size": 4,
+      "data": "00000000"
+    },
+    {
+      "name": "m_iSpyThreshold",
+      "type": "int",
+      "offset": 305,
+      "size": 4,
+      "data": "64000000"
+    },
+    {
+      "name": "m_iLastTurnCSSurrendered",
+      "type": "int",
+      "offset": 309,
+      "size": 4,
+      "data": "00000000"
+    },
+    [
+      {
+        "name": "m_aiGreatestMonopolyPlayer[0]",
+        "type": "PlayerTypes",
+        "offset": 313,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[1]",
+        "type": "PlayerTypes",
+        "offset": 317,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[2]",
+        "type": "PlayerTypes",
+        "offset": 321,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[3]",
+        "type": "PlayerTypes",
+        "offset": 325,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[4]",
+        "type": "PlayerTypes",
+        "offset": 329,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[5]",
+        "type": "PlayerTypes",
+        "offset": 333,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[6]",
+        "type": "PlayerTypes",
+        "offset": 337,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[7]",
+        "type": "PlayerTypes",
+        "offset": 341,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[8]",
+        "type": "PlayerTypes",
+        "offset": 345,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[9]",
+        "type": "PlayerTypes",
+        "offset": 349,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[10]",
+        "type": "PlayerTypes",
+        "offset": 353,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[11]",
+        "type": "PlayerTypes",
+        "offset": 357,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[12]",
+        "type": "PlayerTypes",
+        "offset": 361,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[13]",
+        "type": "PlayerTypes",
+        "offset": 365,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[14]",
+        "type": "PlayerTypes",
+        "offset": 369,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[15]",
+        "type": "PlayerTypes",
+        "offset": 373,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[16]",
+        "type": "PlayerTypes",
+        "offset": 377,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[17]",
+        "type": "PlayerTypes",
+        "offset": 381,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[18]",
+        "type": "PlayerTypes",
+        "offset": 385,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[19]",
+        "type": "PlayerTypes",
+        "offset": 389,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[20]",
+        "type": "PlayerTypes",
+        "offset": 393,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[21]",
+        "type": "PlayerTypes",
+        "offset": 397,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[22]",
+        "type": "PlayerTypes",
+        "offset": 401,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[23]",
+        "type": "PlayerTypes",
+        "offset": 405,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[24]",
+        "type": "PlayerTypes",
+        "offset": 409,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[25]",
+        "type": "PlayerTypes",
+        "offset": 413,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[26]",
+        "type": "PlayerTypes",
+        "offset": 417,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[27]",
+        "type": "PlayerTypes",
+        "offset": 421,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[28]",
+        "type": "PlayerTypes",
+        "offset": 425,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[29]",
+        "type": "PlayerTypes",
+        "offset": 429,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[30]",
+        "type": "PlayerTypes",
+        "offset": 433,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[31]",
+        "type": "PlayerTypes",
+        "offset": 437,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[32]",
+        "type": "PlayerTypes",
+        "offset": 441,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[33]",
+        "type": "PlayerTypes",
+        "offset": 445,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[34]",
+        "type": "PlayerTypes",
+        "offset": 449,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[35]",
+        "type": "PlayerTypes",
+        "offset": 453,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[36]",
+        "type": "PlayerTypes",
+        "offset": 457,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[37]",
+        "type": "PlayerTypes",
+        "offset": 461,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[38]",
+        "type": "PlayerTypes",
+        "offset": 465,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[39]",
+        "type": "PlayerTypes",
+        "offset": 469,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[40]",
+        "type": "PlayerTypes",
+        "offset": 473,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[41]",
+        "type": "PlayerTypes",
+        "offset": 477,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[42]",
+        "type": "PlayerTypes",
+        "offset": 481,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[43]",
+        "type": "PlayerTypes",
+        "offset": 485,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[44]",
+        "type": "PlayerTypes",
+        "offset": 489,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[45]",
+        "type": "PlayerTypes",
+        "offset": 493,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[46]",
+        "type": "PlayerTypes",
+        "offset": 497,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[47]",
+        "type": "PlayerTypes",
+        "offset": 501,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[48]",
+        "type": "PlayerTypes",
+        "offset": 505,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[49]",
+        "type": "PlayerTypes",
+        "offset": 509,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[50]",
+        "type": "PlayerTypes",
+        "offset": 513,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[51]",
+        "type": "PlayerTypes",
+        "offset": 517,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[52]",
+        "type": "PlayerTypes",
+        "offset": 521,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[53]",
+        "type": "PlayerTypes",
+        "offset": 525,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[54]",
+        "type": "PlayerTypes",
+        "offset": 529,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[55]",
+        "type": "PlayerTypes",
+        "offset": 533,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer[56]",
+        "type": "PlayerTypes",
+        "offset": 537,
+        "size": 4,
+        "value": -1,
+        "enumName": "NO_PLAYER",
+        "raw": "ffffffff"
+      }
+    ]
   ]
 }
