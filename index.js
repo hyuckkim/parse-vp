@@ -3,17 +3,27 @@ const path = require('path');
 
 const input = process.argv[2];
 
-function main(src) {
-  const primitivePath = path.join(__dirname, 'primitive.json');
-  const primitive = JSON.parse(fs.readFileSync(primitivePath, 'utf8'));
-  const primitiveMap = new Map(
-    primitive.map(type => [type.name, type])
-  );
+const primitivePath = path.join(__dirname, 'primitive.json');
+const primitive = JSON.parse(fs.readFileSync(primitivePath, 'utf8'));
+const primitiveMap = new Map(
+  primitive.map(type => [type.name, type])
+);
 
+const enumPath = path.join(__dirname, 'enum.json');
+const enums = JSON.parse(
+  fs.readFileSync(enumPath, 'utf8')
+);
+const enumTypes = new Set(Object.keys(enums));
+
+const typedefPath = path.join(__dirname, 'typedef.json');
+const typedefs = JSON.parse(
+  fs.readFileSync(typedefPath, 'utf8')
+);
+
+function main(src) {
   const definitions = collectDefinitions(
     'CvGame',
-    src,
-    primitiveMap
+    src
   );
 
   fs.writeFileSync(
@@ -22,7 +32,7 @@ function main(src) {
   );
 }
 
-function collectDefinitions(rootType, src, primitiveMap) {
+function collectDefinitions(rootType, src) {
   const definitions = {};
   const visited = new Set();
   const queue = [{ type: rootType, from: null }];
@@ -34,6 +44,7 @@ function collectDefinitions(rootType, src, primitiveMap) {
     visited.add(current.type);
 
     if (primitiveMap.has(current.type)) continue;
+    if (enumTypes.has(current.type)) continue;
 
     const definition = analyzeType(current.type, src);
 
@@ -48,8 +59,7 @@ function collectDefinitions(rootType, src, primitiveMap) {
 
     for (const next of getRecursiveTypes(
       definition,
-      current.type,
-      primitiveMap
+      current.type
     )) {
       if (visited.has(next.type)) continue;
 
@@ -60,13 +70,13 @@ function collectDefinitions(rootType, src, primitiveMap) {
   return definitions;
 }
 
-function getRecursiveTypes(definition, from, primitiveMap) {
+function getRecursiveTypes(definition, from) {
   const result = [];
 
   for (const call of definition.calls) {
     if (!call.type) continue;
 
-    const types = getCustomTypes(call.type, primitiveMap);
+    const types = getCustomTypes(call.type);
 
     for (const type of types) {
       result.push({
@@ -79,7 +89,7 @@ function getRecursiveTypes(definition, from, primitiveMap) {
   return result;
 }
 
-function getCustomTypes(type, primitiveMap) {
+function getCustomTypes(type) {
   if (type.args.length === 0) {
     if (primitiveMap.has(type.name)) {
       return [];
@@ -91,7 +101,7 @@ function getCustomTypes(type, primitiveMap) {
   const result = [];
 
   for (const arg of type.args) {
-    result.push(...getCustomTypes(arg, primitiveMap));
+    result.push(...getCustomTypes(arg));
   }
 
   return result;
@@ -120,7 +130,7 @@ function analyzeType(type, src) {
   const calls = recordAllCalls(func);
 
   const header = grepToFile(
-    new RegExp(`\\bclass\\s+${escapeRegExp(type)}\\b`),
+    new RegExp(`\\bclass\\s+${escapeRegExp(type)}\\b\\s*(?:\\n\\s*)?\\{`),
     src,
     ['.cpp', '.h']
   );
@@ -294,7 +304,7 @@ function recordAllCalls(str) {
 
 function splitCppClass(cls, str) {
   const start = str.search(
-    new RegExp(`\\bclass\\s+${escapeRegExp(cls)}\\b`)
+    new RegExp(`\\bclass\\s+${escapeRegExp(cls)}\\b\\s*(?:\\n\\s*)?\\{`)
   );
 
   if (start === -1) {
@@ -341,14 +351,6 @@ function recordAllFields(cls) {
     trimmed = trimmed.replace(/\/\*.*?\*\//g, '').trim();
     if (!trimmed) continue;
 
-    const match = trimmed.match(
-      /^(?:static\s+|mutable\s+|const\s+|volatile\s+)*(.*?)\s+([A-Za-z_]\w*)(?:\s*\[[^\]]*\])?\s*(?:=\s*[^;]+)?;$/
-    );
-
-    if (!match) continue;
-
-    const [, type, name] = match;
-
     if (
       trimmed.startsWith('public:') ||
       trimmed.startsWith('protected:') ||
@@ -357,22 +359,41 @@ function recordAllFields(cls) {
       continue;
     }
 
+    const match = trimmed.match(
+      /^(?:static\s+|mutable\s+|const\s+|volatile\s+)*(.*?)\s+([A-Za-z_]\w*)((?:\[[^\]]*\])*)\s*(?:=\s*[^;]+)?;$/
+    );
+
+    if (!match) continue;
+
+    const [, rawType, name, rawDimensions] = match;
+
+
+    const type = rawType
+      .trim()
+      .replace(/\s*\*$/, '')
+      .trim();
+
+    const dimensions = [
+      ...rawDimensions.matchAll(/\[([^\]]*)\]/g)
+    ].map(match => match[1].trim());
+
     result.push({
-      type: type.trim(),
-      name
+      type,
+      name,
+      dimensions
     });
+
   }
 
   return result;
 }
-
 function enrichCalls(calls, fields) {
   const fieldMap = new Map(
-    fields.map(field => [field.name, field.type])
+    fields.map(field => [field.name, field])
   );
 
   return calls.map(call => {
-    const match = call.call.match(/^([A-Za-z_]\w*)\.(.+)$/);
+    const match = call.call.match(/^\*?([A-Za-z_]\w*)\.(.+)$/);
 
     if (!match) {
       return call;
@@ -383,19 +404,45 @@ function enrichCalls(calls, fields) {
     // [i], [j] 같은 인덱스를 제거해서 실제 field 이름을 얻는다.
     const baseName = name.replace(/\[[A-Za-z_]\w*\]/g, '');
 
-    const type = fieldMap.get(baseName);
+    const field = fieldMap.get(baseName);
 
-    return {
+    if (!field) {
+      return {
+        ...call,
+        object,
+        name,
+        type: null
+      };
+    }
+
+    let type = field.type;
+
+    if (typedefs[type]) {
+      type = typedefs[type];
+    }
+
+    const result = {
       ...call,
       object,
       name,
-      type: type ? parseType(type) : null
+      type: parseType(type)
     };
+
+    if (field.dimensions?.length) {
+      result.dimensions = field.dimensions;
+    }
+
+    return result;
   });
 }
 
 function parseType(type) {
   type = type.trim();
+
+  // typedef면 실제 타입으로 치환
+  if (typedefs[type]) {
+    return parseType(typedefs[type], typedefs);
+  }
 
   const lt = type.indexOf('<');
 
@@ -431,7 +478,7 @@ function parseType(type) {
   return {
     name,
     args: splitTypeArgs(type.slice(lt + 1, end))
-      .map(parseType)
+      .map(arg => parseType(arg))
   };
 }
 

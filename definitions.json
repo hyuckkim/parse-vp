@@ -1012,8 +1012,13 @@
         "object": "game",
         "name": "m_listReplayMessages",
         "type": {
-          "name": "ReplayMessageList",
-          "args": []
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "CvReplayMessage",
+              "args": []
+            }
+          ]
         }
       },
       {
@@ -1081,22 +1086,58 @@
         }
       },
       {
-        "call": "*game.m_pGameReligions"
+        "call": "*game.m_pGameReligions",
+        "object": "game",
+        "name": "m_pGameReligions",
+        "type": {
+          "name": "CvGameReligions",
+          "args": []
+        }
       },
       {
-        "call": "*game.m_pGameCulture"
+        "call": "*game.m_pGameCulture",
+        "object": "game",
+        "name": "m_pGameCulture",
+        "type": {
+          "name": "CvGameCulture",
+          "args": []
+        }
       },
       {
-        "call": "*game.m_pGameLeagues"
+        "call": "*game.m_pGameLeagues",
+        "object": "game",
+        "name": "m_pGameLeagues",
+        "type": {
+          "name": "CvGameLeagues",
+          "args": []
+        }
       },
       {
-        "call": "*game.m_pGameTrade"
+        "call": "*game.m_pGameTrade",
+        "object": "game",
+        "name": "m_pGameTrade",
+        "type": {
+          "name": "CvGameTrade",
+          "args": []
+        }
       },
       {
-        "call": "*game.m_pGameCorporations"
+        "call": "*game.m_pGameCorporations",
+        "object": "game",
+        "name": "m_pGameCorporations",
+        "type": {
+          "name": "CvGameCorporations",
+          "args": []
+        }
       },
       {
-        "call": "*game.m_pGameContracts"
+        "call": "*game.m_pGameContracts",
+        "object": "game",
+        "name": "m_pGameContracts",
+        "type": {
+          "name": "CvGameContracts",
+          "args": []
+        }
       },
       {
         "call": "game.m_strGameId",
@@ -1115,19 +1156,91 @@
         "call": "random.m_ullRandomSeed",
         "object": "random",
         "name": "m_ullRandomSeed",
-        "type": null
+        "type": {
+          "name": "unsigned long long",
+          "args": []
+        }
       },
       {
         "call": "random.m_ulCallCount",
         "object": "random",
         "name": "m_ulCallCount",
-        "type": null
+        "type": {
+          "name": "unsigned long",
+          "args": []
+        }
       },
       {
         "call": "random.m_ulResetCount",
         "object": "random",
         "name": "m_ulResetCount",
-        "type": null
+        "type": {
+          "name": "unsigned long",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvReplayMessage": {
+    "calls": [
+      {
+        "call": "replayMessage.m_iTurn",
+        "object": "replayMessage",
+        "name": "m_iTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "replayMessage.m_eType",
+        "object": "replayMessage",
+        "name": "m_eType",
+        "type": {
+          "name": "ReplayMessageTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "replayMessage.m_Plots",
+        "object": "replayMessage",
+        "name": "m_Plots",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "std::pair",
+              "args": [
+                {
+                  "name": "short",
+                  "args": []
+                },
+                {
+                  "name": "short",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "call": "replayMessage.m_ePlayer",
+        "object": "replayMessage",
+        "name": "m_ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "replayMessage.m_strText",
+        "object": "replayMessage",
+        "name": "m_strText",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
       }
     ]
   },
@@ -1138,8 +1251,13 @@
         "object": "gameDeals",
         "name": "m_ProposedDeals",
         "type": {
-          "name": "DealList",
-          "args": []
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
         }
       },
       {
@@ -1147,8 +1265,13 @@
         "object": "gameDeals",
         "name": "m_CurrentDeals",
         "type": {
-          "name": "DealList",
-          "args": []
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
         }
       },
       {
@@ -1156,8 +1279,904 @@
         "object": "gameDeals",
         "name": "m_HistoricalDeals",
         "type": {
-          "name": "DealList",
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvGameReligions": {
+    "calls": [
+      {
+        "call": "gameReligions.m_iMinimumFaithForNextPantheon",
+        "object": "gameReligions",
+        "name": "m_iMinimumFaithForNextPantheon",
+        "type": {
+          "name": "int",
           "args": []
+        }
+      },
+      {
+        "call": "gameReligions.m_CurrentReligions",
+        "object": "gameReligions",
+        "name": "m_CurrentReligions",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvReligion",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvGameCulture": {
+    "calls": [
+      {
+        "call": "gameCulture.m_CurrentGreatWorks",
+        "object": "gameCulture",
+        "name": "m_CurrentGreatWorks",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvGreatWork",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "gameCulture.m_bReportedSomeoneInfluential",
+        "object": "gameCulture",
+        "name": "m_bReportedSomeoneInfluential",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGameLeagues": {
+    "calls": [
+      {
+        "call": "gameLeagues.m_iGeneratedIDCount",
+        "object": "gameLeagues",
+        "name": "m_iGeneratedIDCount",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "gameLeagues.m_vActiveLeagues",
+        "object": "gameLeagues",
+        "name": "m_vActiveLeagues",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "CvLeague",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "gameLeagues.m_iNumLeaguesEverFounded",
+        "object": "gameLeagues",
+        "name": "m_iNumLeaguesEverFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "gameLeagues.m_eDiplomaticVictor",
+        "object": "gameLeagues",
+        "name": "m_eDiplomaticVictor",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "gameLeagues.m_eLastEraTrigger",
+        "object": "gameLeagues",
+        "name": "m_eLastEraTrigger",
+        "type": {
+          "name": "EraTypes",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGameTrade": {
+    "calls": [
+      {
+        "call": "gameTrade.m_aTradeConnections",
+        "object": "gameTrade",
+        "name": "m_aTradeConnections",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "TradeConnection",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "gameTrade.m_routesPerPlayer",
+        "object": "gameTrade",
+        "name": "m_routesPerPlayer",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "vector",
+              "args": [
+                {
+                  "name": "int",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "call": "gameTrade.m_aaiTechDifference",
+        "object": "gameTrade",
+        "name": "m_aaiTechDifference",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "MAX_MAJOR_CIVS",
+          "MAX_MAJOR_CIVS"
+        ]
+      },
+      {
+        "call": "gameTrade.m_aaiPolicyDifference",
+        "object": "gameTrade",
+        "name": "m_aaiPolicyDifference",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "MAX_MAJOR_CIVS",
+          "MAX_MAJOR_CIVS"
+        ]
+      },
+      {
+        "call": "gameTrade.m_iNextID",
+        "object": "gameTrade",
+        "name": "m_iNextID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGameCorporations": {
+    "calls": [
+      {
+        "call": "gameCorporations.m_ActiveCorporations",
+        "object": "gameCorporations",
+        "name": "m_ActiveCorporations",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvCorporation",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvGameContracts": {
+    "calls": [
+      {
+        "call": "gameContracts.m_ActiveContracts",
+        "object": "gameContracts",
+        "name": "m_ActiveContracts",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvContract",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "gameContracts.m_InactiveContracts",
+        "object": "gameContracts",
+        "name": "m_InactiveContracts",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvContract",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvDeal": {
+    "calls": [
+      {
+        "call": "deal.m_iID",
+        "object": "deal",
+        "name": "m_iID",
+        "type": {
+          "name": "return",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_eFromPlayer",
+        "object": "deal",
+        "name": "m_eFromPlayer",
+        "type": {
+          "name": "return",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_eToPlayer",
+        "object": "deal",
+        "name": "m_eToPlayer",
+        "type": {
+          "name": "return",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_iFinalTurn",
+        "object": "deal",
+        "name": "m_iFinalTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_iDuration",
+        "object": "deal",
+        "name": "m_iDuration",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_iStartTurn",
+        "object": "deal",
+        "name": "m_iStartTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_bIsGift",
+        "object": "deal",
+        "name": "m_bIsGift",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_ePeaceTreatyType",
+        "object": "deal",
+        "name": "m_ePeaceTreatyType",
+        "type": {
+          "name": "PeaceTreatyTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_eSurrenderingPlayer",
+        "object": "deal",
+        "name": "m_eSurrenderingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_eDemandingPlayer",
+        "object": "deal",
+        "name": "m_eDemandingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_eRequestingPlayer",
+        "object": "deal",
+        "name": "m_eRequestingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "deal.m_TradedItems",
+        "object": "deal",
+        "name": "m_TradedItems",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvTradedItem",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvReligion": {
+    "calls": [
+      {
+        "call": "religion.m_eReligion",
+        "object": "religion",
+        "name": "m_eReligion",
+        "type": {
+          "name": "ReligionTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_eFounder",
+        "object": "religion",
+        "name": "m_eFounder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_iHolyCityX",
+        "object": "religion",
+        "name": "m_iHolyCityX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_iHolyCityY",
+        "object": "religion",
+        "name": "m_iHolyCityY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_iTurnFounded",
+        "object": "religion",
+        "name": "m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_bPantheon",
+        "object": "religion",
+        "name": "m_bPantheon",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_bEnhanced",
+        "object": "religion",
+        "name": "m_bEnhanced",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_szCustomName",
+        "object": "religion",
+        "name": "m_szCustomName",
+        "type": {
+          "name": "char",
+          "args": []
+        },
+        "dimensions": [
+          "128"
+        ]
+      },
+      {
+        "call": "religion.m_bReformed",
+        "object": "religion",
+        "name": "m_bReformed",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "religion.m_Beliefs",
+        "object": "religion",
+        "name": "m_Beliefs",
+        "type": {
+          "name": "CvReligionBeliefs",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGreatWork": {
+    "calls": [
+      {
+        "call": "greatWork.m_szGreatPersonName",
+        "object": "greatWork",
+        "name": "m_szGreatPersonName",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
+      },
+      {
+        "call": "greatWork.m_eType",
+        "object": "greatWork",
+        "name": "m_eType",
+        "type": {
+          "name": "GreatWorkType",
+          "args": []
+        }
+      },
+      {
+        "call": "greatWork.m_eClassType",
+        "object": "greatWork",
+        "name": "m_eClassType",
+        "type": {
+          "name": "GreatWorkClass",
+          "args": []
+        }
+      },
+      {
+        "call": "greatWork.m_iTurnFounded",
+        "object": "greatWork",
+        "name": "m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "greatWork.m_eEra",
+        "object": "greatWork",
+        "name": "m_eEra",
+        "type": {
+          "name": "EraTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "greatWork.m_ePlayer",
+        "object": "greatWork",
+        "name": "m_ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvLeague": {
+    "calls": [
+      {
+        "call": "league.m_eID",
+        "object": "league",
+        "name": "m_eID",
+        "type": {
+          "name": "LeagueTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_bUnitedNations",
+        "object": "league",
+        "name": "m_bUnitedNations",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_bInSession",
+        "object": "league",
+        "name": "m_bInSession",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_bHostProposing",
+        "object": "league",
+        "name": "m_bHostProposing",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_iTurnsUntilSession",
+        "object": "league",
+        "name": "m_iTurnsUntilSession",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_iNumResolutionsEverEnacted",
+        "object": "league",
+        "name": "m_iNumResolutionsEverEnacted",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_vEnactProposals",
+        "object": "league",
+        "name": "m_vEnactProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vRepealProposals",
+        "object": "league",
+        "name": "m_vRepealProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vActiveResolutions",
+        "object": "league",
+        "name": "m_vActiveResolutions",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvActiveResolution",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vMembers",
+        "object": "league",
+        "name": "m_vMembers",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "Member",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_eHost",
+        "object": "league",
+        "name": "m_eHost",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_vProjects",
+        "object": "league",
+        "name": "m_vProjects",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "Project",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_iConsecutiveHostedSessions",
+        "object": "league",
+        "name": "m_iConsecutiveHostedSessions",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_eAssignedName",
+        "object": "league",
+        "name": "m_eAssignedName",
+        "type": {
+          "name": "LeagueNameTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_szCustomName",
+        "object": "league",
+        "name": "m_szCustomName",
+        "type": {
+          "name": "char",
+          "args": []
+        },
+        "dimensions": [
+          "128"
+        ]
+      },
+      {
+        "call": "league.m_iLastSessionEndedTurn",
+        "object": "league",
+        "name": "m_iLastSessionEndedTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_eLastSpecialSession",
+        "object": "league",
+        "name": "m_eLastSpecialSession",
+        "type": {
+          "name": "LeagueSpecialSessionTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_eCurrentSpecialSession",
+        "object": "league",
+        "name": "m_eCurrentSpecialSession",
+        "type": {
+          "name": "LeagueSpecialSessionTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "league.m_vEnactProposalsOnHold",
+        "object": "league",
+        "name": "m_vEnactProposalsOnHold",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vRepealProposalsOnHold",
+        "object": "league",
+        "name": "m_vRepealProposalsOnHold",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vLastTurnEnactProposals",
+        "object": "league",
+        "name": "m_vLastTurnEnactProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "league.m_vLastTurnRepealProposals",
+        "object": "league",
+        "name": "m_vLastTurnRepealProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvCorporation": {
+    "calls": [
+      {
+        "call": "corporation.m_eCorporation",
+        "object": "corporation",
+        "name": "m_eCorporation",
+        "type": {
+          "name": "CorporationTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "corporation.m_eFounder",
+        "object": "corporation",
+        "name": "m_eFounder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "corporation.m_iHeadquartersCityX",
+        "object": "corporation",
+        "name": "m_iHeadquartersCityX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "corporation.m_iHeadquartersCityY",
+        "object": "corporation",
+        "name": "m_iHeadquartersCityY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "corporation.m_iTurnFounded",
+        "object": "corporation",
+        "name": "m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvContract": {
+    "calls": [
+      {
+        "call": "contract.m_eContract",
+        "object": "contract",
+        "name": "m_eContract",
+        "type": {
+          "name": "ContractTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "contract.m_eContractHolder",
+        "object": "contract",
+        "name": "m_eContractHolder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "contract.m_iContractTurns",
+        "object": "contract",
+        "name": "m_iContractTurns",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "contract.m_iContractMaintenance",
+        "object": "contract",
+        "name": "m_iContractMaintenance",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "contract.m_iContractTurnStart",
+        "object": "contract",
+        "name": "m_iContractTurnStart",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvReligionBeliefs": {
+    "calls": [
+      {
+        "call": "religionBeliefs.m_eReligion",
+        "object": "religionBeliefs",
+        "name": "m_eReligion",
+        "type": {
+          "name": "ReligionTypes",
+          "args": []
+        }
+      },
+      {
+        "call": "religionBeliefs.m_ReligionBeliefs",
+        "object": "religionBeliefs",
+        "name": "m_ReligionBeliefs",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "religionBeliefs.m_BeliefLookup",
+        "object": "religionBeliefs",
+        "name": "m_BeliefLookup",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
         }
       }
     ]

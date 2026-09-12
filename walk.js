@@ -29,6 +29,7 @@ const primitiveMap = new Map(
   primitive.map(type => [type.name, type])
 );
 
+
 const input = process.argv[2];
 const startOffset = Number(process.argv[3] ?? 0);
 
@@ -37,7 +38,7 @@ if (!input) {
 }
 
 if (!Number.isInteger(startOffset) || startOffset < 0) {
-  throw new Error('Start offset must be a non-negative integer.');
+  throw new Error('Start offset ' + startOffset + ' is not a non-negative integer.');
 }
 
 const data = fs.readFileSync(input);
@@ -330,7 +331,9 @@ function walkDefinition(type) {
       }
     }
 
-    const field = readType(call.type, name);
+    const field = call.dimensions?.length
+      ? readArray(call.type, call.dimensions, name)
+      : readType(call.type, name);
 
     if (field === null) {
       break;
@@ -471,6 +474,41 @@ function readUnorderedSet(type, name) {
     elements
   };
 }
+
+function getArrayCount(expr) {
+  if (/^\d+$/.test(expr)) {
+    return Number(expr);
+  }
+
+  if (expr === 'MAX_MAJOR_CIVS') {
+    return 22;
+  }
+
+  throw new Error(`Unknown array count '${expr}'.`);
+}
+
+function readArray(type, dimensions, name, depth = 0) {
+  const count = getArrayCount(dimensions[depth]);
+
+  const values = [];
+
+  for (let i = 0; i < count; i++) {
+    const childName = `${name}[${i}]`;
+
+    if (depth + 1 < dimensions.length) {
+      values.push(
+        readArray(type, dimensions, childName, depth + 1)
+      );
+    } else {
+      values.push(
+        readType(type, childName)
+      );
+    }
+  }
+
+  return values;
+}
+
 function getEnumCount(enumType) {
   // Fixed-count enums
   const fixedCounts = {
@@ -605,6 +643,18 @@ function readCvString(name) {
     raw: raw.toString('hex')
   };
 }
+function readPair(type, name) {
+  const args = typeArgs(type);
+
+  if (args.length !== 2) {
+    throw new Error(`Invalid std::pair type: ${typeToString(type)}`);
+  }
+
+  return [
+    readType(args[0], `${name}[0]`),
+    readType(args[1], `${name}[1]`)
+  ];
+}
 
 function readType(type, name) {
   const typeNameValue = typeName(type);
@@ -631,7 +681,8 @@ function readType(type, name) {
   }
 
   // vector<T>
-  if (typeNameValue === 'std::vector') {
+  if (typeNameValue === 'std::vector'
+  || typeNameValue === 'vector') {
     return readVector(type, name);
   }
 
@@ -640,6 +691,11 @@ function readType(type, name) {
     return readUnorderedSet(type, name);
   }
 
+  // pair<T1, T2>
+  if (typeNameValue === 'std::pair') {
+    return readPair(type, name);
+  }
+  
   // CvEnumMap<K, V>
   if (typeNameValue === 'CvEnumMap') {
     return readCvEnumMap(type, name);

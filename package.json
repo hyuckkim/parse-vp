@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "parse-enum": "node enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\" enum.json ./Civ5CoreDatabase.db",
-    "build": "node index.js \"Community-Patch-DLL\""
+    "build": "node index.js \"Community-Patch-DLL\"",
+    "test-parse": "node walk.js \"./saves/2알렉산드로스_0001 BC-3960.Civ5Save.decompressed.bin\" 20"
   },
   "dependencies": {
     "sqlite3": "^6.0.1"
