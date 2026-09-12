@@ -533,7 +533,7 @@
         "object": "game",
         "name": "m_eTeamThatCircumnavigated",
         "type": {
-          "name": "char /*TeamTypes*/",
+          "name": "char",
           "args": []
         }
       },
@@ -658,37 +658,109 @@
         "call": "game.m_aiRankPlayer",
         "object": "game",
         "name": "m_aiRankPlayer",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_aiPlayerRank",
         "object": "game",
         "name": "m_aiPlayerRank",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_aiPlayerScore",
         "object": "game",
         "name": "m_aiPlayerScore",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_aiRankTeam",
         "object": "game",
         "name": "m_aiRankTeam",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_aiTeamRank",
         "object": "game",
         "name": "m_aiTeamRank",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_aiTeamScore",
         "object": "game",
         "name": "m_aiTeamScore",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_paiUnitCreatedCount",
@@ -848,7 +920,19 @@
         ],
         "object": "game",
         "name": "m_ppaaiTeamVictoryRank[i][j]",
-        "type": null
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "VictoryTypes",
+              "args": []
+            },
+            {
+              "name": "TeamTypes*",
+              "args": []
+            }
+          ]
+        }
       },
       {
         "call": "game.m_ppaiContractUnits",

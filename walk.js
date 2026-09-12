@@ -5,6 +5,7 @@ const definitionsPath = path.join(__dirname, 'definitions.json');
 const primitivePath = path.join(__dirname, 'primitive.json');
 const enumPath = path.join(__dirname, 'enum.json');
 const tableCountPath = path.join(__dirname, 'tableCount.json');
+const iteratePath = path.join(__dirname, 'iterate.json');
 
 const definitions = JSON.parse(
   fs.readFileSync(definitionsPath, 'utf8')
@@ -19,6 +20,9 @@ const enums = JSON.parse(
 );
 const tableCount = JSON.parse(
   fs.readFileSync(tableCountPath, 'utf8')
+);
+const iterate = JSON.parse(
+  fs.readFileSync(iteratePath, 'utf8')
 );
 
 const primitiveMap = new Map(
@@ -230,7 +234,6 @@ function readEnum(type, name) {
  * Definition walker
  * ------------------------------------------------------------
  */
-
 function walkDefinition(type) {
   const definition = definitions[type];
 
@@ -249,6 +252,82 @@ function walkDefinition(type) {
       console.log(`Unknown/null type at field '${name}'.`);
       stopped = true;
       break;
+    }
+
+    // m_xxx[i][j] 같은 indexed call
+    const indices = [...name.matchAll(/\[([A-Za-z_]\w*)\]/g)]
+      .map(m => m[1]);
+
+    if (indices.length > 0) {
+      const callType = call.type;
+
+      // CvEnumMap<Enum, T>[i][j]의 최종 원소 타입은 T
+      if (typeName(callType) === 'CvEnumMap') {
+        let elementType = typeArgs(callType)[1];
+
+        // T* -> T
+        if (typeName(elementType).endsWith('*')) {
+          elementType = {
+            name: typeName(elementType).slice(0, -1).trim(),
+            args: typeArgs(elementType)
+          };
+        }
+
+        const counts = [];
+
+        for (const state of call.state || []) {
+          if (state.of !== 'for') continue;
+
+          const value = iterate[state.exp];
+
+          if (value === undefined) {
+            throw new Error(
+              `Unknown iteration expression '${state.exp}'.`
+            );
+          }
+
+          const count =
+            typeof value === 'number'
+              ? value
+              : tableCount[value];
+
+          if (count === undefined) {
+            throw new Error(
+              `Unknown iteration count '${value}'.`
+            );
+          }
+
+          counts.push(count);
+        }
+
+        if (counts.length !== indices.length) {
+          throw new Error(
+            `Index/state mismatch at '${name}': ` +
+            `${indices.length} indices, ${counts.length} loops.`
+          );
+        }
+
+        // 모든 loop 조합을 생성
+        function walkIndices(depth, currentName) {
+          if (depth === counts.length) {
+            result.push(
+              readType(elementType, currentName)
+            );
+            return;
+          }
+
+          for (let i = 0; i < counts[depth]; i++) {
+            walkIndices(
+              depth + 1,
+              `${currentName}[${i}]`
+            );
+          }
+        }
+
+        walkIndices(0, name.replace(/\[[A-Za-z_]\w*\]/g, ''));
+
+        continue;
+      }
     }
 
     const field = readType(call.type, name);
@@ -393,28 +472,56 @@ function readUnorderedSet(type, name) {
   };
 }
 function getEnumCount(enumType) {
+  // Fixed-count enums
+  const fixedCounts = {
+    PlayerTypes: 64,
+    TeamTypes: 64,
+    // 필요해질 때 추가
+  };
+
+  if (Object.prototype.hasOwnProperty.call(fixedCounts, enumType)) {
+    return fixedCounts[enumType];
+  }
+
+  // 기존 DB table 추론
   const candidates = new Set();
 
-  // 혹시 enum 이름과 table 이름이 같은 경우
   candidates.add(enumType);
 
-  // TerrainTypes -> Terrain / Terrains
   if (enumType.endsWith('Types')) {
     const base = enumType.slice(0, -5);
-
     candidates.add(base);
     candidates.add(`${base}s`);
+
+    if (base.endsWith('s') ||
+    base.endsWith('x') ||
+    base.endsWith('z') ||
+    base.endsWith('ch') ||
+    base.endsWith('sh')) {
+      candidates.add(`${base}es`);
+    } else if (base.endsWith('y')) {
+      candidates.add(`${base.slice(0, -1)}ies`);
+    } else {
+      candidates.add(`${base}s`);
+    }
+
+    candidates.add(`${base}Info`);
+    candidates.add(`${base}Infos`);
   }
 
-  // TerrainType -> Terrain / Terrains
   if (enumType.endsWith('Type')) {
     const base = enumType.slice(0, -4);
-
     candidates.add(base);
     candidates.add(`${base}s`);
+
+    if (base.endsWith('y')) {
+      candidates.add(`${base.slice(0, -1)}ies`);
+    }
+
+    candidates.add(`${base}Info`);
+    candidates.add(`${base}Infos`);
   }
 
-  // 정확히 일치하는 table부터 찾음
   for (const tableName of candidates) {
     if (Object.prototype.hasOwnProperty.call(tableCount, tableName)) {
       const count = tableCount[tableName];
@@ -429,31 +536,37 @@ function getEnumCount(enumType) {
     }
   }
 
-  // 대소문자 무시해서 한 번 더 찾음
-  const lowerCandidates = new Set(
-    [...candidates].map(name => name.toLowerCase())
-  );
-
-  const matches = Object.keys(tableCount).filter(
-    tableName => lowerCandidates.has(tableName.toLowerCase())
-  );
-
-  if (matches.length === 1) {
-    return tableCount[matches[0]];
-  }
-
-  if (matches.length > 1) {
-    throw new Error(
-      `Ambiguous table mapping for enum '${enumType}': ` +
-      matches.join(', ')
-    );
-  }
-
   throw new Error(
     `Cannot resolve DB table for enum '${enumType}'. ` +
     `Tried: ${[...candidates].join(', ')}`
   );
 }
+function getIterationCount(exp) {
+    const value = iterate[exp];
+
+    if (value === undefined) {
+        throw new Error(`Unknown iteration expression: ${exp}`);
+    }
+
+    if (typeof value === 'number') {
+        return value;
+    }
+
+    if (typeof value === 'string') {
+        const count = tableCount[value];
+
+        if (count === undefined) {
+            throw new Error(
+                `Unknown table count '${value}' for iteration: ${exp}`
+            );
+        }
+
+        return count;
+    }
+
+    throw new Error(`Invalid iteration value for: ${exp}`);
+}
+
 function readCvEnumMap(type, name) {
   const args = typeArgs(type);
 
@@ -477,6 +590,22 @@ function readCvEnumMap(type, name) {
   return values;
 }
 
+function readCvString(name) {
+  const start = offset;
+
+  const length = readBytes(4).readUInt32LE(0);
+  const raw = readBytes(length);
+
+  return {
+    name,
+    type: 'CvString',
+    offset: start,
+    size: 4 + length,
+    value: raw.toString('utf8'),
+    raw: raw.toString('hex')
+  };
+}
+
 function readType(type, name) {
   const typeNameValue = typeName(type);
 
@@ -494,6 +623,11 @@ function readType(type, name) {
   // enum
   if (enums[typeNameValue]) {
     return readEnum(typeNameValue, name);
+  }
+
+  // CvString
+  if (typeNameValue === 'CvString') {
+    return readCvString(name);
   }
 
   // vector<T>

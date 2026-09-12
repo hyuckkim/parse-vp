@@ -1,0 +1,4 @@
+{
+    "std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i": "Victories",
+    "int j = 0; j < /*5*/ GD_INT_GET(NUM_VICTORY_POINT_AWARDS); ++j": 5
+}

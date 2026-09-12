@@ -331,11 +331,15 @@ function recordAllFields(cls) {
   const lines = body.split(/\r?\n/);
 
   for (const line of lines) {
-    const trimmed = line.trim();
+    let trimmed = line.trim();
 
     if (!trimmed) continue;
     if (trimmed.startsWith('//')) continue;
     if (trimmed.startsWith('/*')) continue;
+
+    trimmed = trimmed.replace(/\/\/.*$/, '').trim();
+    trimmed = trimmed.replace(/\/\*.*?\*\//g, '').trim();
+    if (!trimmed) continue;
 
     const match = trimmed.match(
       /^(?:static\s+|mutable\s+|const\s+|volatile\s+)*(.*?)\s+([A-Za-z_]\w*)(?:\s*\[[^\]]*\])?\s*(?:=\s*[^;]+)?;$/
@@ -375,7 +379,11 @@ function enrichCalls(calls, fields) {
     }
 
     const [, object, name] = match;
-    const type = fieldMap.get(name);
+
+    // [i], [j] 같은 인덱스를 제거해서 실제 field 이름을 얻는다.
+    const baseName = name.replace(/\[[A-Za-z_]\w*\]/g, '');
+
+    const type = fieldMap.get(baseName);
 
     return {
       ...call,
