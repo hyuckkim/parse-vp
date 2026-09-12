@@ -31,19 +31,14 @@ const primitiveMap = new Map(
 
 
 const input = process.argv[2];
-const startOffset = Number(process.argv[3] ?? 0);
-
 if (!input) {
   throw new Error('Decompressed file path is required.');
 }
 
-if (!Number.isInteger(startOffset) || startOffset < 0) {
-  throw new Error('Start offset ' + startOffset + ' is not a non-negative integer.');
-}
 
 const data = fs.readFileSync(input);
 
-let offset = startOffset;
+let offset = 0;
 let stopped = false;
 
 
@@ -66,6 +61,35 @@ let stopped = false;
  *
  * "CvEnumMap"
  */
+
+function readSaveHeader() {
+  const saveVersion = data.readUInt32LE(offset);
+  offset += 4;
+
+  // GameDataHash = uint32[4]
+  const gameDataHash = [
+    data.readUInt32LE(offset),
+    data.readUInt32LE(offset + 4),
+    data.readUInt32LE(offset + 8),
+    data.readUInt32LE(offset + 12)
+  ];
+  offset += 16;
+
+  const versionLength = data.readUInt32LE(offset);
+  offset += 4;
+
+  const version = data
+    .subarray(offset, offset + versionLength)
+    .toString('utf8');
+
+  offset += versionLength;
+
+  return {
+    saveVersion,
+    gameDataHash,
+    version
+  };
+}
 
 function typeName(type) {
   if (!type) {
@@ -148,20 +172,6 @@ function readBytes(size) {
   offset += size;
 
   return value;
-}
-
-
-/*
- * ------------------------------------------------------------
- * Title
- * ------------------------------------------------------------
- */
-
-function readTitle() {
-  const length = readBytes(4).readUInt32LE(0);
-  const value = readBytes(length);
-
-  return value.toString('utf8').replace(/\0+$/, '');
 }
 
 
@@ -731,11 +741,8 @@ function readType(type, name) {
  * ------------------------------------------------------------
  */
 
-
-const title = readTitle();
-
 const result = {
-  title,
+  ...readSaveHeader(),
   fields: walkDefinition('CvGame')
 };
 
@@ -744,7 +751,9 @@ fs.writeFileSync(
   JSON.stringify(result, null, 2)
 );
 
-console.log(`Title: ${title}`);
+console.log(`Save Version: ${result.saveVersion}`);
+console.log(`Game Data Hash: ${result.gameDataHash.join(', ')}`);
+console.log(`Version: ${result.version}`);
 console.log(`Read through offset: 0x${offset.toString(16)}`);
 
 if (stopped) {

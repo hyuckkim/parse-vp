@@ -1,5 +1,12 @@
 {
-  "title": "Release-5.4.4-0-ga42699246 Clean",
+  "saveVersion": 0,
+  "gameDataHash": [
+    1629209786,
+    1130115282,
+    2261965284,
+    1515707706
+  ],
+  "version": "Release-5.4.4-0-ga42699246 Clean",
   "fields": [
     {
       "name": "m_iEndTurnMessagesSent",
