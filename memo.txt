@@ -1,0 +1,34 @@
+grok이랑 찾았음.
+".civ5save"를 검색해서 나온 '스팀에 업로드' 부터 출발했고 거기 있었음
+FUN_007ae0a0 에 있었다.
+
+// 1. Game 얻기
+puVar4 = FUN_0042c640(&local_24);     // ← +0x20 → GetGame()
+piVar1 = *puVar4;                     // ICvGame1* (CvDllGame*)
+
+// 2. Map 얻기
+piVar5 = FUN_005d1de0(&local_20);     // ← +0x28 → GetMap() 추정
+piVar2 = *piVar5;
+
+// 3. Game에 직렬화 요청
+(**(code **)(*piVar1 + 0x130))(piVar1, appuStack_100f0);  // Write 계열
+
+// 4. Map에 직렬화 요청
+(**(code **)(*piVar2 + 0x48))(piVar2, appuStack_100f0);
+
+// 5. Team 루프 (0~0x3F)
+for (i = 0; i < 0x40; i++) {
+    FUN_006c8e00(..., i);             // GetTeam(i) 추정
+    (**(code **)(*piVar1 + 0x44))(...); // Team Write
+}
+
+// 6. Player 루프 (0~0x3F)
+for (i = 0; i < 0x40; i++) {
+    FUN_0040c140(..., i);             // GetPlayer(i) 추정
+    (**(code **)(*piVar1 + 0xc0))(...); // Player Write
+}
+
+// 7. Game 마무리
+(**(code **)(*param_1 + 0x138))(param_1, appuStack_100f0);
+
+이런 느낌

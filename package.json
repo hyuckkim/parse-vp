@@ -4,14 +4,18 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "parse-enum": "node enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\" enum.json ./Civ5CoreDatabase.db",
-    "build": "node index.js \"Community-Patch-DLL\"",
-    "test-parse": "node walk.js \"./saves/2알렉산드로스_0001 BC-3960.Civ5Save.decompressed.bin\""
+    "parse-enum": "node dist/enum.js \"Community-Patch-DLL/CvGameCoreDLLUtil/include/CvEnums.h\"",
+    "build": "node dist/index.js \"Community-Patch-DLL\"",
+    "test-parse": "node dist/walk.js \"./saves/2알렉산드로스_0001 BC-3960.Civ5Save.decompressed.bin\""
   },
   "dependencies": {
+    "es-main": "^1.4.0",
     "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1"
   }
 }

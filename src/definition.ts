@@ -1,44 +1,15 @@
-const fs = require('fs');
-const path = require('path');
+import esMain from 'es-main';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { join, extname } from 'path';
 
-const input = process.argv[2];
-
-const primitivePath = path.join(__dirname, 'primitive.json');
-const primitive = JSON.parse(fs.readFileSync(primitivePath, 'utf8'));
-const primitiveMap = new Map(
-  primitive.map(type => [type.name, type])
-);
-
-const enumPath = path.join(__dirname, 'enum.json');
-const enums = JSON.parse(
-  fs.readFileSync(enumPath, 'utf8')
-);
-const enumTypes = new Set(Object.keys(enums));
-
-const typedefPath = path.join(__dirname, 'typedef.json');
-const typedefs = JSON.parse(
-  fs.readFileSync(typedefPath, 'utf8')
-);
-
-function main(src) {
-  const definitions = collectDefinitions(
-    'CvGame',
-    src
-  );
-
-  fs.writeFileSync(
-    'definitions.json',
-    JSON.stringify(definitions, null, 2)
-  );
-}
-
-function collectDefinitions(rootType, src) {
-  const definitions = {};
+function collectDefinitions(rootType: string, src: string): Record<string, any> {
+  const definitions: Record<string, any> = {};
   const visited = new Set();
-  const queue = [{ type: rootType, from: null }];
+  const queue: Array<{ type: string; from: string | null }> = [{ type: rootType, from: null }];
 
   while (queue.length > 0) {
     const current = queue.shift();
+    if (!current) continue;
 
     if (visited.has(current.type)) continue;
     visited.add(current.type);
@@ -70,7 +41,7 @@ function collectDefinitions(rootType, src) {
   return definitions;
 }
 
-function getRecursiveTypes(definition, from) {
+function getRecursiveTypes(definition: any, from: string): Array<{ type: string; from: string }> {
   const result = [];
 
   for (const call of definition.calls) {
@@ -89,7 +60,7 @@ function getRecursiveTypes(definition, from) {
   return result;
 }
 
-function getCustomTypes(type) {
+function getCustomTypes(type: { name: string; args: any[] }): string[] {
   if (type.args.length === 0) {
     if (primitiveMap.has(type.name)) {
       return [];
@@ -107,7 +78,7 @@ function getCustomTypes(type) {
   return result;
 }
 
-function analyzeType(type, src) {
+function analyzeType(type: string, src: string): { calls: Definition[] } | null {
   const file = grepToFile(
     new RegExp(`\\b${escapeRegExp(type)}::Serialize\\b`),
     src,
@@ -152,11 +123,11 @@ function analyzeType(type, src) {
 }
 
 /** find file that includes keyword and return full file to string*/
-function grepToFile(keyword, src, opt = ['.cpp', '.h']) {
-  const entries = fs.readdirSync(src, { withFileTypes: true });
+function grepToFile(keyword: string | RegExp, src: string, opt = ['.cpp', '.h']): string | null {
+  const entries = readdirSync(src, { withFileTypes: true });
 
   for (const entry of entries) {
-    const filePath = path.join(src, entry.name);
+    const filePath = join(src, entry.name);
 
     if (entry.isDirectory()) {
       const result = grepToFile(keyword, filePath, opt);
@@ -170,11 +141,11 @@ function grepToFile(keyword, src, opt = ['.cpp', '.h']) {
 
     if (!entry.isFile()) continue;
 
-    const ext = path.extname(entry.name);
+    const ext = extname(entry.name);
 
     if (!opt.includes(ext)) continue;
 
-    const content = fs.readFileSync(filePath, 'utf8');
+    const content = readFileSync(filePath, 'utf8');
 
     if (
       (typeof keyword === 'string' && content.includes(keyword)) ||
@@ -188,7 +159,7 @@ function grepToFile(keyword, src, opt = ['.cpp', '.h']) {
 }
 
 /** In str, return only function part of name 'func'. */
-function splitCppFunc(func, str) {
+function splitCppFunc(func: string, str: string): string | null {
   const start = str.indexOf(func);
 
   if (start === -1) {
@@ -217,14 +188,30 @@ function splitCppFunc(func, str) {
 
   return null;
 }
-function recordAllCalls(str) {
+
+type RawDefinition = {
+  type: string;
+  name: string;
+  dimensions?: string[];
+}
+type Definition = {
+  call: string;
+  state?: Array<{ of: string; exp: string }>;
+  object?: string;
+  name?: string;
+  type?: any;
+  dimensions?: string[];
+};
+function recordAllCalls(str: string): Definition[] {
   const result = [];
   const lines = str.split(/\r?\n/);
   const states = [];
   let braceDepth = 0;
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-    const line = lines[lineIndex].trim();
+    const l = lines[lineIndex];
+    if (!l) continue;
+    const line = l.trim();
 
     if (!line) continue;
 
@@ -232,6 +219,7 @@ function recordAllCalls(str) {
 
     if (controlMatch) {
       const [, of, exp] = controlMatch;
+      if (!of || !exp) continue;
 
       states.push({
         of,
@@ -267,7 +255,7 @@ function recordAllCalls(str) {
         }
 
         if (closeParen !== -1) {
-          const item = {
+          const item: Definition = {
             call: line.slice(openParen + 1, closeParen).trim()
           };
 
@@ -291,7 +279,7 @@ function recordAllCalls(str) {
 
         while (
           states.length > 0 &&
-          states[states.length - 1].depth > braceDepth
+          states[states.length - 1]!.depth > braceDepth
         ) {
           states.pop();
         }
@@ -302,7 +290,7 @@ function recordAllCalls(str) {
   return result;
 }
 
-function splitCppClass(cls, str) {
+function splitCppClass(cls: string, str: string): string {
   const start = str.search(
     new RegExp(`\\bclass\\s+${escapeRegExp(cls)}\\b\\s*(?:\\n\\s*)?\\{`)
   );
@@ -332,7 +320,7 @@ function splitCppClass(cls, str) {
 
 /** save every field's type and name.
     return [{type: "int", name: "m_blabla}]*/
-function recordAllFields(cls) {
+function recordAllFields(cls: string): {type: string, name: string, dimensions?: string[]}[] {
   const result = [];
   const bodyStart = cls.indexOf('{');
   const bodyEnd = cls.lastIndexOf('}');
@@ -366,7 +354,7 @@ function recordAllFields(cls) {
     if (!match) continue;
 
     const [, rawType, name, rawDimensions] = match;
-
+    if (!rawType || !name || !rawDimensions) continue;
 
     const type = rawType
       .trim()
@@ -375,7 +363,7 @@ function recordAllFields(cls) {
 
     const dimensions = [
       ...rawDimensions.matchAll(/\[([^\]]*)\]/g)
-    ].map(match => match[1].trim());
+    ].map(match => match[1]!.trim());
 
     result.push({
       type,
@@ -387,7 +375,7 @@ function recordAllFields(cls) {
 
   return result;
 }
-function enrichCalls(calls, fields) {
+function enrichCalls(calls: Definition[], fields: RawDefinition[]): Definition[] {
   const fieldMap = new Map(
     fields.map(field => [field.name, field])
   );
@@ -400,6 +388,9 @@ function enrichCalls(calls, fields) {
     }
 
     const [, object, name] = match;
+    if (!object || !name) {
+      return call;
+    }
 
     // [i], [j] 같은 인덱스를 제거해서 실제 field 이름을 얻는다.
     const baseName = name.replace(/\[[A-Za-z_]\w*\]/g, '');
@@ -418,7 +409,7 @@ function enrichCalls(calls, fields) {
     let type = field.type;
 
     if (typedefs[type]) {
-      type = typedefs[type];
+      type = typedefs[type] ?? type;
     }
 
     const result = {
@@ -436,12 +427,12 @@ function enrichCalls(calls, fields) {
   });
 }
 
-function parseType(type) {
+function parseType(type: string): { name: string; args: any[] } {
   type = type.trim();
 
   // typedef면 실제 타입으로 치환
   if (typedefs[type]) {
-    return parseType(typedefs[type], typedefs);
+    return parseType(typedefs[type] ?? type);
   }
 
   const lt = type.indexOf('<');
@@ -482,7 +473,7 @@ function parseType(type) {
   };
 }
 
-function splitTypeArgs(str) {
+function splitTypeArgs(str: string): string[] {
   const result = [];
 
   let depth = 0;
@@ -508,12 +499,45 @@ function splitTypeArgs(str) {
   return result;
 }
 
-function escapeRegExp(str) {
+function escapeRegExp(str: string): string {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-if (!input) {
-  throw new Error('Source path is required.');
-}
+let primitiveMap: Map<string, any>;
+let enumTypes: Set<string>;
+let typedefs: Record<string, string>;
 
-main(input);
+if (esMain(import.meta)) {
+  if (!process.argv[2]) {
+    console.error('Usage: node definition.js <source_path>');
+    process.exit(1);
+  }
+  
+  const primitivePath = join(__dirname, 'primitive.json');
+  const primitive = JSON.parse(readFileSync(primitivePath, 'utf8'));
+  primitiveMap = new Map(
+    primitive.map((type: { name: string }) => [type.name, type])
+  );
+
+  const enumPath = join(__dirname, 'enum.json');
+  const enums = JSON.parse(
+    readFileSync(enumPath, 'utf8')
+  );
+  enumTypes = new Set(Object.keys(enums));
+
+  const typedefPath = join(__dirname, 'typedef.json');
+  typedefs = JSON.parse(
+    readFileSync(typedefPath, 'utf8')
+  );
+
+  
+  const definitions = collectDefinitions(
+    'CvGame',
+    process.argv[2]
+  );
+
+  writeFileSync(
+    'definitions.json',
+    JSON.stringify(definitions, null, 2)
+  );
+}
