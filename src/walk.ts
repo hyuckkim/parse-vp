@@ -1,6 +1,13 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 import type { Definition } from './definition.js';
+import { Init, offset, readBytes, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
+import { readVector } from './generics/vector.js';
+import { readPrimitive } from './generics/primitive.js';
+import { readEnum } from './generics/enum.js';
+import { readUnorderedSet } from './generics/unorderedset.js';
+import { readCvEnumMap } from './generics/cvenummap.js';
+import { readPair } from './generics/pair.js';
 const definitions: Record<string, { calls: Definition[] }> = JSON.parse(
   readFileSync( 'definitions.json', 'utf8')
 );
@@ -12,14 +19,20 @@ const primitive: { name: string; size: number }[] = JSON.parse(
 const enums: Record<string, Record<string, number>> = JSON.parse(
   readFileSync('enum.json', 'utf8')
 );
-const tableCount: Record<string, number> = JSON.parse(
+export const tableCount: Record<string, number> = JSON.parse(
   readFileSync('tableCount.json', 'utf8')
 );
 const iterate: Record<string, string | number> = JSON.parse(
   readFileSync('iterate.json', 'utf8')
 );
+export type CvEnumMapInfo = TypeInfo & {
+  values: TypeInfo[];
+};
+type StringInfo = PrimitiveInfo & {
+  value: string;
+};
 
-const primitiveMap = new Map(
+export const primitiveMap = new Map(
   primitive.map(type => [type.name, type])
 );
 
@@ -28,13 +41,7 @@ const input = process.argv[2];
 if (!input) {
   throw new Error('Decompressed file path is required.');
 }
-
-
-const data = readFileSync(input);
-
-let offset = 0;
-let stopped = false;
-
+Init(input);
 
 /*
  * ------------------------------------------------------------
@@ -57,26 +64,16 @@ let stopped = false;
  */
 
 function readSaveHeader() {
-  const saveVersion = data.readUInt32LE(offset);
-  offset += 4;
+  const saveVersion = readBytes(4).readUInt32LE(0);
 
   // GameDataHash = uint32[4]
   const gameDataHash = [
-    data.readUInt32LE(offset),
-    data.readUInt32LE(offset + 4),
-    data.readUInt32LE(offset + 8),
-    data.readUInt32LE(offset + 12)
+    readBytes(4).readUInt32LE(0),
+    readBytes(4).readUInt32LE(0),
+    readBytes(4).readUInt32LE(0),
+    readBytes(4).readUInt32LE(0)
   ];
-  offset += 16;
-
-  const versionLength = data.readUInt32LE(offset);
-  offset += 4;
-
-  const version = data
-    .subarray(offset, offset + versionLength)
-    .toString('utf8');
-
-  offset += versionLength;
+  const version = readString();
 
   return {
     saveVersion,
@@ -85,58 +82,13 @@ function readSaveHeader() {
   };
 }
 
-function typeName(type: { name: string; args: any[] } | string): string | null {
-  if (!type) {
-    return null;
-  }
-
-  if (typeof type === 'string') {
-    return type;
-  }
-
-  if (typeof type === 'object' && typeof type.name === 'string') {
-    return type.name;
-  }
-
-  return null;
-}
-
-function typeArgs(type: { name: string; args: any[] } | string): any[] {
-  if (!type || typeof type !== 'object') {
-    return [];
-  }
-
-  return Array.isArray(type.args) ? type.args : [];
-}
-
-function typeToString(type: { name: string; args: any[] } | string): string {
-  if (!type) {
-    return '<null>';
-  }
-
-  const name = typeName(type);
-
-  if (!name) {
-    return '<unknown>';
-  }
-
-  const args = typeArgs(type);
-
-  if (args.length === 0) {
-    return name;
-  }
-
-  return `${name}<${args.map(typeToString).join(', ')}>`;
-}
-
-
 /*
  * ------------------------------------------------------------
  * Enum reverse lookup
  * ------------------------------------------------------------
  */
 
-const enumReverse = new Map();
+export const enumReverse = new Map();
 
 for (const [enumType, values] of Object.entries(enums)) {
   const reverse = new Map();
@@ -149,102 +101,23 @@ for (const [enumType, values] of Object.entries(enums)) {
 }
 
 
-/*
- * ------------------------------------------------------------
- * Binary reader
- * ------------------------------------------------------------
- */
-function readBytes(size: number) {
-  if (offset + size > data.length) {
-    throw new Error(
-      `Unexpected end of data at offset 0x${offset.toString(16)}.`
-    );
-  }
-
-  const value = data.subarray(offset, offset + size);
-  offset += size;
-
-  return value;
-}
-
-
-/*
- * ------------------------------------------------------------
- * Primitive
- * ------------------------------------------------------------
- */
-
 type TypeInfo = {
   name: string;
   type: string;
   offset: number;
   size: number;
 }
-type PrimitiveInfo = TypeInfo & {
+export type PrimitiveInfo = TypeInfo & {
   data: string;
 };
-
-function readPrimitive(type: string, name: string): PrimitiveInfo | null {
-  const info = primitiveMap.get(type);
-
-  if (!info || typeof info.size !== 'number') {
-    console.log(
-      `Unknown primitive type '${type}' at field '${name}'.`
-    );
-
-    stopped = true;
-    return null;
-  }
-
-  const fieldOffset = offset;
-  const value = readBytes(info.size);
-
-  return {
-    name,
-    type,
-    offset: fieldOffset,
-    size: info.size,
-    data: value.toString('hex')
-  };
-}
-
-
-/*
- * ------------------------------------------------------------
- * Enum
- * ------------------------------------------------------------
- */
-
-type EnumInfo = PrimitiveInfo & {
+export type EnumInfo = PrimitiveInfo & {
   value: number;
   enumName: string | null;
 };
-function readEnum(type: string, name: string): EnumInfo | null {
-  const primitiveInfo = primitiveMap.get('int');
-
-  if (!primitiveInfo) {
-    throw new Error('primitive.json must contain int');
-  }
-
-  const fieldOffset = offset;
-  const raw = readBytes(primitiveInfo.size);
-  const value = raw.readInt32LE(0);
-
-  const reverse = enumReverse.get(type);
-
-  const enumName =
-    reverse?.get(value) ?? null;
-
-  return {
-    name,
-    type,
-    offset: fieldOffset,
-    data: raw.toString('hex'),
-    size: primitiveInfo.size,
-    value,
-    enumName,
-  };
-}
+export type CollectionInfo = TypeInfo & {
+  count: number;
+  elements: TypeInfo[];
+};
 
 
 /*
@@ -267,8 +140,7 @@ function walkDefinition(type: string): any[] | null {
     const name = call.name || call.call;
 
     if (!call.type) {
-      console.log(`Unknown/null type at field '${name}'.`);
-      stopped = true;
+      Stop(`Unknown/null type at field '${name}'.`);
       break;
     }
 
@@ -363,107 +235,6 @@ function walkDefinition(type: string): any[] | null {
   return result;
 }
 
-function readContainerCount() {
-  const info = primitiveMap.get('size_t');
-
-  if (!info) {
-    throw new Error('primitive.json must contain size_t');
-  }
-
-  const fieldOffset = offset;
-  const raw = readBytes(info.size);
-
-  if (info.size !== 4) {
-    throw new Error(
-      `Unexpected size_t size: ${info.size}`
-    );
-  }
-
-  return {
-    offset: fieldOffset,
-    size: info.size,
-    count: raw.readUInt32LE(0),
-    data: raw.toString('hex')
-  };
-}
-
-type CollectionInfo = TypeInfo & {
-  count: number;
-  elements: TypeInfo[];
-};
-function readVector(type: string, name: string): CollectionInfo | null {
-  const args = typeArgs(type);
-
-  if (args.length !== 1) {
-    throw new Error(
-      `Invalid vector type: ${typeToString(type)}`
-    );
-  }
-
-  const elementType = args[0];
-  const countInfo = readContainerCount();
-
-  const elements = [];
-
-  for (let i = 0; i < countInfo.count; ++i) {
-    const element = readType(
-      elementType,
-      `[${i}]`
-    );
-
-    if (element === null) {
-      break;
-    }
-
-    elements.push(element);
-  }
-
-  return {
-    name,
-    type: typeToString(type),
-    offset: countInfo.offset,
-    size: offset - countInfo.offset,
-    count: countInfo.count,
-    elements
-  };
-}
-
-function readUnorderedSet(type: string, name: string): CollectionInfo | null {
-  const args = typeArgs(type);
-
-  if (args.length !== 1) {
-    throw new Error(
-      `Invalid unordered_set type: ${typeToString(type)}`
-    );
-  }
-
-  const elementType = args[0];
-  const countInfo = readContainerCount();
-
-  const elements = [];
-
-  for (let i = 0; i < countInfo.count; ++i) {
-    const element = readType(
-      elementType,
-      `[${i}]`
-    );
-
-    if (element === null) {
-      break;
-    }
-
-    elements.push(element);
-  }
-
-  return {
-    name,
-    type: typeToString(type),
-    offset: countInfo.offset,
-    size: offset - countInfo.offset,
-    count: countInfo.count,
-    elements
-  };
-}
 
 function getArrayCount(expr: string): number {
   if (/^\d+$/.test(expr)) {
@@ -503,122 +274,7 @@ function readArray(type: string, dimensions: string[], name: string, depth = 0):
   return values;
 }
 
-function getEnumCount(enumType: string): number {
-  // Fixed-count enums
-  const fixedCounts: Record<string, number> = {
-    PlayerTypes: 64,
-    TeamTypes: 64,
-    // 필요해질 때 추가
-  };
 
-  if (Object.prototype.hasOwnProperty.call(fixedCounts, enumType)) {
-    return fixedCounts[enumType] ?? (() => {
-      throw new Error(`Invalid fixed count for enum '${enumType}'.`);
-    })();
-  }
-
-  // 기존 DB table 추론
-  const candidates: Set<string> = new Set();
-
-  candidates.add(enumType);
-
-  if (enumType.endsWith('Types')) {
-    const base = enumType.slice(0, -5);
-    candidates.add(base);
-    candidates.add(`${base}s`);
-
-    if (base.endsWith('s') ||
-    base.endsWith('x') ||
-    base.endsWith('z') ||
-    base.endsWith('ch') ||
-    base.endsWith('sh')) {
-      candidates.add(`${base}es`);
-    } else if (base.endsWith('y')) {
-      candidates.add(`${base.slice(0, -1)}ies`);
-    } else {
-      candidates.add(`${base}s`);
-    }
-
-    candidates.add(`${base}Info`);
-    candidates.add(`${base}Infos`);
-  }
-
-  if (enumType.endsWith('Type')) {
-    const base = enumType.slice(0, -4);
-    candidates.add(base);
-    candidates.add(`${base}s`);
-
-    if (base.endsWith('y')) {
-      candidates.add(`${base.slice(0, -1)}ies`);
-    }
-
-    candidates.add(`${base}Info`);
-    candidates.add(`${base}Infos`);
-  }
-
-  for (const tableName of candidates) {
-    if (Object.prototype.hasOwnProperty.call(tableCount, tableName)) {
-      const count = tableCount[tableName];
-
-      if (count === undefined) {
-        throw new Error(
-          `Invalid table count for '${tableName}': ${count}`
-        );
-      }
-
-      return count;
-    }
-  }
-
-  throw new Error(
-    `Cannot resolve DB table for enum '${enumType}'. ` +
-    `Tried: ${[...candidates].join(', ')}`
-  );
-}
-
-type CvEnumMapInfo = TypeInfo & {
-  values: TypeInfo[];
-};
-function readCvEnumMap(type: string, name: string): CvEnumMapInfo | null {
-  const args = typeArgs(type);
-
-  if (args.length < 2) {
-    throw new Error(`Invalid CvEnumMap type: ${typeToString(type)}`);
-  }
-
-  const enumType = typeName(args[0]);
-  const valueType = args[1];
-
-  if (!enumType) {
-    throw new Error(`Invalid enum type in CvEnumMap: ${typeToString(type)}`);
-  }
-  if (!valueType) {
-    throw new Error(`Invalid value type in CvEnumMap: ${typeToString(type)}`);
-  }
-  const count = getEnumCount(enumType);
-
-  const values = [];
-
-  for (let i = 0; i < count; i++) {
-    const element = readType(valueType, `${name}[${i}]`);
-    if (element === null) {
-      throw new Error(`Failed to read CvEnumMap element at '${name}[${i}]'.`);
-    }
-    values.push(element);
-  }
-
-  return {
-    name,
-    type: typeToString(type),
-    offset: values[0]?.offset ?? 0,
-    size: count * (values[0]?.size ?? 0),
-    values
-  };
-}
-
-type StringInfo = PrimitiveInfo & {
-  value: string;
-};
 function readCvString(name: string): StringInfo {
   const start = offset;
 
@@ -635,42 +291,21 @@ function readCvString(name: string): StringInfo {
   };
 }
 
-type PairInfo = TypeInfo & {
+export type PairInfo = TypeInfo & {
   first: TypeInfo;
   second: TypeInfo;
 };
-function readPair(type: string, name: string): PairInfo {
-  const args = typeArgs(type);
-
-  if (args.length !== 2) {
-    throw new Error(`Invalid std::pair type: ${typeToString(type)}`);
-  }
-  const value1 = readType(args[0], `${name}[0]`);
-  const value2 = readType(args[1], `${name}[1]`);
-
-  if (value1 === null || value2 === null) {
-    throw new Error(`Failed to read std::pair at '${name}'.`);
-  }
-  return {
-    name,
-    type: typeToString(type),
-    offset: value1.offset,
-    size: (value2.offset + value2.size) - value1.offset,
-    first: value1,
-    second: value2
-  };
-}
 
 type NestedInfo = TypeInfo & {
   fields: TypeInfo[];
 };
-function readType(type: string, name: string): TypeInfo | NestedInfo | null {
+export function readType(type: string, name: string): TypeInfo | NestedInfo | null {
+  if (stopped) return null;
+
   const typeNameValue = typeName(type);
 
   if (!typeNameValue) {
-    console.log(`Unknown type at '${name}'.`);
-    stopped = true;
-    return null;
+    return Stop(`Unknown/null type at field '${name}'.`);
   }
 
   // primitive
@@ -695,7 +330,9 @@ function readType(type: string, name: string): TypeInfo | NestedInfo | null {
   }
 
   // unordered_set<T>
-  if (typeNameValue === 'std::tr1::unordered_set') {
+  if (typeNameValue === 'std::tr1::unordered_set'
+    || typeNameValue === 'TContainer'
+  ) {
     return readUnorderedSet(type, name);
   }
 
@@ -727,12 +364,7 @@ function readType(type: string, name: string): TypeInfo | NestedInfo | null {
     };
   }
 
-  console.log(
-    `Unsupported type '${typeToString(type)}' at field '${name}'.`
-  );
-
-  stopped = true;
-  return null;
+  return Stop(`Unsupported type '${typeToString(type)}' at field '${name}'.`);
 }
 
 
@@ -765,4 +397,3 @@ if (stopped) {
 }
 
 console.log('Output: parsed.json');
-
