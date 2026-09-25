@@ -2,10 +2,21 @@ import esMain from 'es-main';
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, extname } from 'path';
 
-function collectDefinitions(rootType: string, src: string): Record<string, any> {
+function collectDefinitions(
+  rootType: string | string[],
+  src: string
+): Record<string, any> {
   const definitions: Record<string, any> = {};
-  const visited = new Set();
-  const queue: Array<{ type: string; from: string | null }> = [{ type: rootType, from: null }];
+  const visited = new Set<string>();
+
+  const rootTypes = Array.isArray(rootType) ? rootType : [rootType];
+
+  const queue: Array<{ type: string; from: string | null }> = rootTypes.map(
+    (type) => ({
+      type,
+      from: null,
+    })
+  );
 
   while (queue.length > 0) {
     const current = queue.shift();
@@ -28,10 +39,7 @@ function collectDefinitions(rootType: string, src: string): Record<string, any> 
 
     definitions[current.type] = definition;
 
-    for (const next of getRecursiveTypes(
-      definition,
-      current.type
-    )) {
+    for (const next of getRecursiveTypes(definition, current.type)) {
       if (visited.has(next.type)) continue;
 
       queue.push(next);
@@ -354,12 +362,20 @@ function recordAllFields(cls: string): {type: string, name: string, dimensions?:
     if (!match) continue;
 
     const [, rawType, name, rawDimensions] = match;
-    if (!rawType || !name || !rawDimensions) continue;
+    if (!rawType || !name) continue;
 
     const type = rawType
       .trim()
       .replace(/\s*\*$/, '')
       .trim();
+
+    if (!rawDimensions) {
+      result.push({
+        type,
+        name
+      });
+      continue;
+    }
 
     const dimensions = [
       ...rawDimensions.matchAll(/\[([^\]]*)\]/g)
@@ -512,27 +528,32 @@ if (esMain(import.meta)) {
     console.error('Usage: node definition.js <source_path>');
     process.exit(1);
   }
-  
-  const primitivePath = join(__dirname, 'primitive.json');
-  const primitive = JSON.parse(readFileSync(primitivePath, 'utf8'));
+
+  const primitive = JSON.parse(
+    readFileSync('primitive.json', 'utf8')
+  );
+
   primitiveMap = new Map(
     primitive.map((type: { name: string }) => [type.name, type])
   );
 
-  const enumPath = join(__dirname, 'enum.json');
   const enums = JSON.parse(
-    readFileSync(enumPath, 'utf8')
+    readFileSync('enum.json', 'utf8')
   );
+
   enumTypes = new Set(Object.keys(enums));
 
-  const typedefPath = join(__dirname, 'typedef.json');
   typedefs = JSON.parse(
-    readFileSync(typedefPath, 'utf8')
+    readFileSync('typedef.json', 'utf8')
   );
 
-  
   const definitions = collectDefinitions(
-    'CvGame',
+    [
+      'CvGame',
+      'CvMap',
+      'CvTeam',
+      'CvPlayer',
+    ],
     process.argv[2]
   );
 

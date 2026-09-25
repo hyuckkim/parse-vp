@@ -4,7 +4,11 @@ import { join, extname } from 'path';
 function collectDefinitions(rootType, src) {
     const definitions = {};
     const visited = new Set();
-    const queue = [{ type: rootType, from: null }];
+    const rootTypes = Array.isArray(rootType) ? rootType : [rootType];
+    const queue = rootTypes.map((type) => ({
+        type,
+        from: null,
+    }));
     while (queue.length > 0) {
         const current = queue.shift();
         if (!current)
@@ -251,12 +255,19 @@ function recordAllFields(cls) {
         if (!match)
             continue;
         const [, rawType, name, rawDimensions] = match;
-        if (!rawType || !name || !rawDimensions)
+        if (!rawType || !name)
             continue;
         const type = rawType
             .trim()
             .replace(/\s*\*$/, '')
             .trim();
+        if (!rawDimensions) {
+            result.push({
+                type,
+                name
+            });
+            continue;
+        }
         const dimensions = [
             ...rawDimensions.matchAll(/\[([^\]]*)\]/g)
         ].map(match => match[1].trim());
@@ -376,15 +387,17 @@ if (esMain(import.meta)) {
         console.error('Usage: node definition.js <source_path>');
         process.exit(1);
     }
-    const primitivePath = join(__dirname, 'primitive.json');
-    const primitive = JSON.parse(readFileSync(primitivePath, 'utf8'));
+    const primitive = JSON.parse(readFileSync('primitive.json', 'utf8'));
     primitiveMap = new Map(primitive.map((type) => [type.name, type]));
-    const enumPath = join(__dirname, 'enum.json');
-    const enums = JSON.parse(readFileSync(enumPath, 'utf8'));
+    const enums = JSON.parse(readFileSync('enum.json', 'utf8'));
     enumTypes = new Set(Object.keys(enums));
-    const typedefPath = join(__dirname, 'typedef.json');
-    typedefs = JSON.parse(readFileSync(typedefPath, 'utf8'));
-    const definitions = collectDefinitions('CvGame', process.argv[2]);
+    typedefs = JSON.parse(readFileSync('typedef.json', 'utf8'));
+    const definitions = collectDefinitions([
+        'CvGame',
+        'CvMap',
+        'CvTeam',
+        'CvPlayer',
+    ], process.argv[2]);
     writeFileSync('definitions.json', JSON.stringify(definitions, null, 2));
 }
 //# sourceMappingURL=definition.js.map
