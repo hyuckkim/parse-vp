@@ -1,1 +1,1 @@
-{"version":3,"file":"definition.d.ts","sourceRoot":"","sources":["../src/definition.ts"],"names":[],"mappings":""}
+{"version":3,"file":"definition.d.ts","sourceRoot":"","sources":["../src/definition.ts"],"names":[],"mappings":"AAgNA,MAAM,MAAM,UAAU,GAAG;IACvB,IAAI,EAAE,MAAM,CAAC;IACb,KAAK,CAAC,EAAE,KAAK,CAAC;QAAE,EAAE,EAAE,MAAM,CAAC;QAAC,GAAG,EAAE,MAAM,CAAA;KAAE,CAAC,CAAC;IAC3C,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,IAAI,CAAC,EAAE,GAAG,CAAC;IACX,UAAU,CAAC,EAAE,MAAM,EAAE,CAAC;CACvB,CAAC"}

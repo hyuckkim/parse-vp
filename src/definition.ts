@@ -5,8 +5,12 @@ import { join, extname } from 'path';
 function collectDefinitions(
   rootType: string | string[],
   src: string
-): Record<string, any> {
-  const definitions: Record<string, any> = {};
+): Record<string, {
+  calls: Definition[];
+}> {
+  const definitions: Record<string, {
+    calls: Definition[];
+  }> = {};
   const visited = new Set<string>();
 
   const rootTypes = Array.isArray(rootType) ? rootType : [rootType];
@@ -202,7 +206,7 @@ type RawDefinition = {
   name: string;
   dimensions?: string[];
 }
-type Definition = {
+export type Definition = {
   call: string;
   state?: Array<{ of: string; exp: string }>;
   object?: string;

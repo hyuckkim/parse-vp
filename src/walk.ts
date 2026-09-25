@@ -1,28 +1,22 @@
-const fs = require('fs');
-const path = require('path');
+import { readFileSync, writeFileSync } from 'fs';
 
-const definitionsPath = path.join(__dirname, 'definitions.json');
-const primitivePath = path.join(__dirname, 'primitive.json');
-const enumPath = path.join(__dirname, 'enum.json');
-const tableCountPath = path.join(__dirname, 'tableCount.json');
-const iteratePath = path.join(__dirname, 'iterate.json');
-
-const definitions = JSON.parse(
-  fs.readFileSync(definitionsPath, 'utf8')
+import type { Definition } from './definition.js';
+const definitions: Record<string, { calls: Definition[] }> = JSON.parse(
+  readFileSync( 'definitions.json', 'utf8')
 );
 
-const primitive = JSON.parse(
-  fs.readFileSync(primitivePath, 'utf8')
+const primitive: { name: string; size: number }[] = JSON.parse(
+  readFileSync('primitive.json', 'utf8')
 );
 
-const enums = JSON.parse(
-  fs.readFileSync(enumPath, 'utf8')
+const enums: Record<string, Record<string, number>> = JSON.parse(
+  readFileSync('enum.json', 'utf8')
 );
-const tableCount = JSON.parse(
-  fs.readFileSync(tableCountPath, 'utf8')
+const tableCount: Record<string, number> = JSON.parse(
+  readFileSync('tableCount.json', 'utf8')
 );
-const iterate = JSON.parse(
-  fs.readFileSync(iteratePath, 'utf8')
+const iterate: Record<string, string | number> = JSON.parse(
+  readFileSync('iterate.json', 'utf8')
 );
 
 const primitiveMap = new Map(
@@ -36,7 +30,7 @@ if (!input) {
 }
 
 
-const data = fs.readFileSync(input);
+const data = readFileSync(input);
 
 let offset = 0;
 let stopped = false;
@@ -91,7 +85,7 @@ function readSaveHeader() {
   };
 }
 
-function typeName(type) {
+function typeName(type: { name: string; args: any[] } | string): string | null {
   if (!type) {
     return null;
   }
@@ -107,7 +101,7 @@ function typeName(type) {
   return null;
 }
 
-function typeArgs(type) {
+function typeArgs(type: { name: string; args: any[] } | string): any[] {
   if (!type || typeof type !== 'object') {
     return [];
   }
@@ -115,7 +109,7 @@ function typeArgs(type) {
   return Array.isArray(type.args) ? type.args : [];
 }
 
-function typeToString(type) {
+function typeToString(type: { name: string; args: any[] } | string): string {
   if (!type) {
     return '<null>';
   }
@@ -160,8 +154,7 @@ for (const [enumType, values] of Object.entries(enums)) {
  * Binary reader
  * ------------------------------------------------------------
  */
-
-function readBytes(size) {
+function readBytes(size: number) {
   if (offset + size > data.length) {
     throw new Error(
       `Unexpected end of data at offset 0x${offset.toString(16)}.`
@@ -181,7 +174,17 @@ function readBytes(size) {
  * ------------------------------------------------------------
  */
 
-function readPrimitive(type, name) {
+type TypeInfo = {
+  name: string;
+  type: string;
+  offset: number;
+  size: number;
+}
+type PrimitiveInfo = TypeInfo & {
+  data: string;
+};
+
+function readPrimitive(type: string, name: string): PrimitiveInfo | null {
   const info = primitiveMap.get(type);
 
   if (!info || typeof info.size !== 'number') {
@@ -212,7 +215,11 @@ function readPrimitive(type, name) {
  * ------------------------------------------------------------
  */
 
-function readEnum(type, name) {
+type EnumInfo = PrimitiveInfo & {
+  value: number;
+  enumName: string | null;
+};
+function readEnum(type: string, name: string): EnumInfo | null {
   const primitiveInfo = primitiveMap.get('int');
 
   if (!primitiveInfo) {
@@ -232,10 +239,10 @@ function readEnum(type, name) {
     name,
     type,
     offset: fieldOffset,
+    data: raw.toString('hex'),
     size: primitiveInfo.size,
     value,
     enumName,
-    raw: raw.toString('hex')
   };
 }
 
@@ -245,7 +252,7 @@ function readEnum(type, name) {
  * Definition walker
  * ------------------------------------------------------------
  */
-function walkDefinition(type) {
+function walkDefinition(type: string): any[] | null {
   const definition = definitions[type];
 
   if (!definition) {
@@ -277,14 +284,15 @@ function walkDefinition(type) {
         let elementType = typeArgs(callType)[1];
 
         // T* -> T
-        if (typeName(elementType).endsWith('*')) {
+        const elementTypeName = typeName(elementType);
+        if (elementTypeName && elementTypeName.endsWith('*')) {
           elementType = {
-            name: typeName(elementType).slice(0, -1).trim(),
-            args: typeArgs(elementType)
+            name: elementTypeName.slice(0, -1).trim(),
+            args: elementTypeName
           };
         }
 
-        const counts = [];
+        const counts: number[] = [];
 
         for (const state of call.state || []) {
           if (state.of !== 'for') continue;
@@ -319,7 +327,7 @@ function walkDefinition(type) {
         }
 
         // 모든 loop 조합을 생성
-        function walkIndices(depth, currentName) {
+        function walkIndices(depth: number, currentName: string) {
           if (depth === counts.length) {
             result.push(
               readType(elementType, currentName)
@@ -327,7 +335,7 @@ function walkDefinition(type) {
             return;
           }
 
-          for (let i = 0; i < counts[depth]; i++) {
+          for (let i = 0; counts[depth] && i < counts[depth]; i++) {
             walkIndices(
               depth + 1,
               `${currentName}[${i}]`
@@ -355,40 +363,6 @@ function walkDefinition(type) {
   return result;
 }
 
-function typeName(type) {
-  if (!type) return null;
-  if (typeof type === 'string') return type;
-
-  if (
-    typeof type === 'object' &&
-    typeof type.name === 'string'
-  ) {
-    return type.name;
-  }
-
-  return null;
-}
-
-function typeArgs(type) {
-  if (!type || typeof type !== 'object') {
-    return [];
-  }
-
-  return Array.isArray(type.args) ? type.args : [];
-}
-
-function typeToString(type) {
-  const name = typeName(type);
-  if (!name) return '<unknown>';
-
-  const args = typeArgs(type);
-
-  if (args.length === 0) {
-    return name;
-  }
-
-  return `${name}<${args.map(typeToString).join(', ')}>`;
-}
 function readContainerCount() {
   const info = primitiveMap.get('size_t');
 
@@ -409,10 +383,15 @@ function readContainerCount() {
     offset: fieldOffset,
     size: info.size,
     count: raw.readUInt32LE(0),
-    raw: raw.toString('hex')
+    data: raw.toString('hex')
   };
 }
-function readVector(type, name) {
+
+type CollectionInfo = TypeInfo & {
+  count: number;
+  elements: TypeInfo[];
+};
+function readVector(type: string, name: string): CollectionInfo | null {
   const args = typeArgs(type);
 
   if (args.length !== 1) {
@@ -448,7 +427,8 @@ function readVector(type, name) {
     elements
   };
 }
-function readUnorderedSet(type, name) {
+
+function readUnorderedSet(type: string, name: string): CollectionInfo | null {
   const args = typeArgs(type);
 
   if (args.length !== 1) {
@@ -485,7 +465,7 @@ function readUnorderedSet(type, name) {
   };
 }
 
-function getArrayCount(expr) {
+function getArrayCount(expr: string): number {
   if (/^\d+$/.test(expr)) {
     return Number(expr);
   }
@@ -497,8 +477,12 @@ function getArrayCount(expr) {
   throw new Error(`Unknown array count '${expr}'.`);
 }
 
-function readArray(type, dimensions, name, depth = 0) {
-  const count = getArrayCount(dimensions[depth]);
+function readArray(type: string, dimensions: string[], name: string, depth = 0): any[] {
+  const current = dimensions[depth];
+  if (!current) {
+    throw new Error(`Invalid array dimensions at '${name}'.`);
+  };
+  const count = getArrayCount(current);
 
   const values = [];
 
@@ -519,20 +503,22 @@ function readArray(type, dimensions, name, depth = 0) {
   return values;
 }
 
-function getEnumCount(enumType) {
+function getEnumCount(enumType: string): number {
   // Fixed-count enums
-  const fixedCounts = {
+  const fixedCounts: Record<string, number> = {
     PlayerTypes: 64,
     TeamTypes: 64,
     // 필요해질 때 추가
   };
 
   if (Object.prototype.hasOwnProperty.call(fixedCounts, enumType)) {
-    return fixedCounts[enumType];
+    return fixedCounts[enumType] ?? (() => {
+      throw new Error(`Invalid fixed count for enum '${enumType}'.`);
+    })();
   }
 
   // 기존 DB table 추론
-  const candidates = new Set();
+  const candidates: Set<string> = new Set();
 
   candidates.add(enumType);
 
@@ -574,7 +560,7 @@ function getEnumCount(enumType) {
     if (Object.prototype.hasOwnProperty.call(tableCount, tableName)) {
       const count = tableCount[tableName];
 
-      if (!Number.isInteger(count) || count < 0) {
+      if (count === undefined) {
         throw new Error(
           `Invalid table count for '${tableName}': ${count}`
         );
@@ -589,33 +575,11 @@ function getEnumCount(enumType) {
     `Tried: ${[...candidates].join(', ')}`
   );
 }
-function getIterationCount(exp) {
-    const value = iterate[exp];
 
-    if (value === undefined) {
-        throw new Error(`Unknown iteration expression: ${exp}`);
-    }
-
-    if (typeof value === 'number') {
-        return value;
-    }
-
-    if (typeof value === 'string') {
-        const count = tableCount[value];
-
-        if (count === undefined) {
-            throw new Error(
-                `Unknown table count '${value}' for iteration: ${exp}`
-            );
-        }
-
-        return count;
-    }
-
-    throw new Error(`Invalid iteration value for: ${exp}`);
-}
-
-function readCvEnumMap(type, name) {
+type CvEnumMapInfo = TypeInfo & {
+  values: TypeInfo[];
+};
+function readCvEnumMap(type: string, name: string): CvEnumMapInfo | null {
   const args = typeArgs(type);
 
   if (args.length < 2) {
@@ -625,20 +589,37 @@ function readCvEnumMap(type, name) {
   const enumType = typeName(args[0]);
   const valueType = args[1];
 
+  if (!enumType) {
+    throw new Error(`Invalid enum type in CvEnumMap: ${typeToString(type)}`);
+  }
+  if (!valueType) {
+    throw new Error(`Invalid value type in CvEnumMap: ${typeToString(type)}`);
+  }
   const count = getEnumCount(enumType);
 
   const values = [];
 
   for (let i = 0; i < count; i++) {
-    values.push(
-      readType(valueType, `${name}[${i}]`)
-    );
+    const element = readType(valueType, `${name}[${i}]`);
+    if (element === null) {
+      throw new Error(`Failed to read CvEnumMap element at '${name}[${i}]'.`);
+    }
+    values.push(element);
   }
 
-  return values;
+  return {
+    name,
+    type: typeToString(type),
+    offset: values[0]?.offset ?? 0,
+    size: count * (values[0]?.size ?? 0),
+    values
+  };
 }
 
-function readCvString(name) {
+type StringInfo = PrimitiveInfo & {
+  value: string;
+};
+function readCvString(name: string): StringInfo {
   const start = offset;
 
   const length = readBytes(4).readUInt32LE(0);
@@ -650,23 +631,40 @@ function readCvString(name) {
     offset: start,
     size: 4 + length,
     value: raw.toString('utf8'),
-    raw: raw.toString('hex')
+    data: raw.toString('hex')
   };
 }
-function readPair(type, name) {
+
+type PairInfo = TypeInfo & {
+  first: TypeInfo;
+  second: TypeInfo;
+};
+function readPair(type: string, name: string): PairInfo {
   const args = typeArgs(type);
 
   if (args.length !== 2) {
     throw new Error(`Invalid std::pair type: ${typeToString(type)}`);
   }
+  const value1 = readType(args[0], `${name}[0]`);
+  const value2 = readType(args[1], `${name}[1]`);
 
-  return [
-    readType(args[0], `${name}[0]`),
-    readType(args[1], `${name}[1]`)
-  ];
+  if (value1 === null || value2 === null) {
+    throw new Error(`Failed to read std::pair at '${name}'.`);
+  }
+  return {
+    name,
+    type: typeToString(type),
+    offset: value1.offset,
+    size: (value2.offset + value2.size) - value1.offset,
+    first: value1,
+    second: value2
+  };
 }
 
-function readType(type, name) {
+type NestedInfo = TypeInfo & {
+  fields: TypeInfo[];
+};
+function readType(type: string, name: string): TypeInfo | NestedInfo | null {
   const typeNameValue = typeName(type);
 
   if (!typeNameValue) {
@@ -716,6 +714,9 @@ function readType(type, name) {
     const fieldOffset = offset;
 
     const fields = walkDefinition(typeNameValue);
+    if (fields === null) {
+      throw new Error(`Failed to read nested definition '${typeNameValue}' at '${name}'.`);
+    }
 
     return {
       name,
@@ -743,10 +744,13 @@ function readType(type, name) {
 
 const result = {
   ...readSaveHeader(),
-  fields: walkDefinition('CvGame')
+  CvGame: walkDefinition('CvGame'),
+  GameDB: readCvString('GameDB'),
+  
+  CvMap: walkDefinition('CvMap'),
 };
 
-fs.writeFileSync(
+writeFileSync(
   'parsed.json',
   JSON.stringify(result, null, 2)
 );
