@@ -1354,6 +1354,36 @@
         }
       },
       {
+        "call": "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));",
+        "name": "CvPlot",
+        "type": {
+          "name": "CvPlot",
+          "args": []
+        },
+        "state": [
+          {
+            "of": "if",
+            "exp": "bLoading"
+          },
+          {
+            "of": "if",
+            "exp": "bLoading"
+          },
+          {
+            "of": "for",
+            "exp": "int iY = 0; iY < map.getGridHeight(); ++iY"
+          },
+          {
+            "of": "for",
+            "exp": "int iX = 0; iX < map.getGridWidth(); ++iX"
+          },
+          {
+            "of": "if",
+            "exp": "bLoading"
+          }
+        ]
+      },
+      {
         "call": "map.m_areas",
         "object": "map",
         "name": "m_areas",
@@ -9999,6 +10029,692 @@
       }
     ]
   },
+  "CvPlot": {
+    "calls": [
+      {
+        "call": "plot.m_iArea",
+        "object": "plot",
+        "name": "m_iArea",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iOwnershipDuration",
+        "object": "plot",
+        "name": "m_iOwnershipDuration",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iImprovementDuration",
+        "object": "plot",
+        "name": "m_iImprovementDuration",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iUpgradeProgress",
+        "object": "plot",
+        "name": "m_iUpgradeProgress",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iNumMajorCivsRevealed",
+        "object": "plot",
+        "name": "m_iNumMajorCivsRevealed",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iCityRadiusCount",
+        "object": "plot",
+        "name": "m_iCityRadiusCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iReconCount",
+        "object": "plot",
+        "name": "m_iReconCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iRiverCrossingCount",
+        "object": "plot",
+        "name": "m_iRiverCrossingCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iResourceNum",
+        "object": "plot",
+        "name": "m_iResourceNum",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iLandmass",
+        "object": "plot",
+        "name": "m_iLandmass",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iContinent",
+        "object": "plot",
+        "name": "m_iContinent",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_vRivers",
+        "object": "plot",
+        "name": "m_vRivers",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "plot.m_iUnitPlotExperience",
+        "object": "plot",
+        "name": "m_iUnitPlotExperience",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iUnitPlotGAExperience",
+        "object": "plot",
+        "name": "m_iUnitPlotGAExperience",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iPlotChangeMoves",
+        "object": "plot",
+        "name": "m_iPlotChangeMoves",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iRestoreMoves",
+        "object": "plot",
+        "name": "m_iRestoreMoves",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iFreeMoveAcross",
+        "object": "plot",
+        "name": "m_iFreeMoveAcross",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eOwner",
+        "object": "plot",
+        "name": "m_eOwner",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlotType",
+        "object": "plot",
+        "name": "m_ePlotType",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eTerrainType",
+        "object": "plot",
+        "name": "m_eTerrainType",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerBuiltImprovement",
+        "object": "plot",
+        "name": "m_ePlayerBuiltImprovement",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerResponsibleForImprovement",
+        "object": "plot",
+        "name": "m_ePlayerResponsibleForImprovement",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerBuiltRoute",
+        "object": "plot",
+        "name": "m_ePlayerBuiltRoute",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerResponsibleForRoute",
+        "object": "plot",
+        "name": "m_ePlayerResponsibleForRoute",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerThatClearedBarbCampHere",
+        "object": "plot",
+        "name": "m_ePlayerThatClearedBarbCampHere",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eLandmarkCreditMinor",
+        "object": "plot",
+        "name": "m_eLandmarkCreditMinor",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerThatClearedDigHere",
+        "object": "plot",
+        "name": "m_ePlayerThatClearedDigHere",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_ePlayerThatDestroyedCityHere",
+        "object": "plot",
+        "name": "m_ePlayerThatDestroyedCityHere",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eRouteType",
+        "object": "plot",
+        "name": "m_eRouteType",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eUnitIncrement",
+        "object": "plot",
+        "name": "m_eUnitIncrement",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eWorldAnchor",
+        "object": "plot",
+        "name": "m_eWorldAnchor",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_cWorldAnchorData",
+        "object": "plot",
+        "name": "m_cWorldAnchorData",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eRiverEFlowDirection",
+        "object": "plot",
+        "name": "m_eRiverEFlowDirection",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eRiverSEFlowDirection",
+        "object": "plot",
+        "name": "m_eRiverSEFlowDirection",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_eRiverSWFlowDirection",
+        "object": "plot",
+        "name": "m_eRiverSWFlowDirection",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_bIsCity",
+        "object": "plot",
+        "name": "m_bIsCity",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_owningCity.eOwner",
+        "object": "plot",
+        "name": "m_owningCity.eOwner"
+      },
+      {
+        "call": "plot.m_owningCity.iID",
+        "object": "plot",
+        "name": "m_owningCity.iID"
+      },
+      {
+        "call": "plot.m_owningCityOverride.eOwner",
+        "object": "plot",
+        "name": "m_owningCityOverride.eOwner"
+      },
+      {
+        "call": "plot.m_owningCityOverride.iID",
+        "object": "plot",
+        "name": "m_owningCityOverride.iID"
+      },
+      {
+        "call": "plot.m_aiYield[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "uint i = 0; i < NUM_YIELD_TYPES; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aiYield[i]",
+        "type": {
+          "name": "UINT8",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_aiPlayerCityRadiusCount[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aiPlayerCityRadiusCount[i]",
+        "type": {
+          "name": "UINT8",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_aiVisibilityCount[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aiVisibilityCount[i]",
+        "type": {
+          "name": "UINT8",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_aiVisibilityCountThisTurnMax[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aiVisibilityCountThisTurnMax[i]",
+        "type": {
+          "name": "UINT8",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_aiRevealedOwner[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aiRevealedOwner[i]",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_abResourceForceReveal[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_abResourceForceReveal[i]",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_abIsImpassable[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_abIsImpassable[i]",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_abStrategicRoute[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_abStrategicRoute[i]",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_aeHumanPlannedRouteState[i]",
+        "state": [
+          {
+            "of": "for",
+            "exp": "int i = 0; i < MAX_TEAMS; i++"
+          }
+        ],
+        "object": "plot",
+        "name": "m_aeHumanPlannedRouteState[i]",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_bfRevealed",
+        "object": "plot",
+        "name": "m_bfRevealed",
+        "type": {
+          "name": "CvFixedBitfield",
+          "args": [
+            {
+              "name": "MAX_PLAYERS",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "plot.m_cRiverCrossing",
+        "object": "plot",
+        "name": "m_cRiverCrossing",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "hasScriptData",
+        "state": [
+          {
+            "of": "if",
+            "exp": "bSaving"
+          }
+        ]
+      },
+      {
+        "call": "scriptData",
+        "state": [
+          {
+            "of": "if",
+            "exp": "bSaving"
+          },
+          {
+            "of": "if",
+            "exp": "hasScriptData"
+          },
+          {
+            "of": "if",
+            "exp": "bSaving"
+          }
+        ]
+      },
+      {
+        "call": "plot.m_buildProgress",
+        "object": "plot",
+        "name": "m_buildProgress",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "BuildTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "call": "plot.m_vInvisibleVisibilityUnitCount",
+        "object": "plot",
+        "name": "m_vInvisibleVisibilityUnitCount",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "pair",
+              "args": [
+                {
+                  "name": "TeamTypes",
+                  "args": []
+                },
+                {
+                  "name": "int",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "call": "plot.m_vInvisibleVisibilityCount",
+        "object": "plot",
+        "name": "m_vInvisibleVisibilityCount",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "pair",
+              "args": [
+                {
+                  "name": "TeamTypes",
+                  "args": []
+                },
+                {
+                  "name": "vector",
+                  "args": [
+                    {
+                      "name": "int",
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "call": "uLength",
+        "state": [
+          {
+            "of": "if",
+            "exp": "bSaving"
+          }
+        ]
+      },
+      {
+        "call": "data",
+        "state": [
+          {
+            "of": "if",
+            "exp": "bSaving"
+          },
+          {
+            "of": "for",
+            "exp": "uint32 uIdx = 0; uIdx < uLength; ++uIdx"
+          },
+          {
+            "of": "if",
+            "exp": "bSaving"
+          }
+        ]
+      },
+      {
+        "call": "plot.m_cContinentType",
+        "object": "plot",
+        "name": "m_cContinentType",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_kArchaeologyData",
+        "object": "plot",
+        "name": "m_kArchaeologyData",
+        "type": {
+          "name": "CvArchaeologyData",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iNumTradeUnitRoute",
+        "object": "plot",
+        "name": "m_iNumTradeUnitRoute",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_iLastTurnBuildChanged",
+        "object": "plot",
+        "name": "m_iLastTurnBuildChanged",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_sSpawnedResourceX",
+        "object": "plot",
+        "name": "m_sSpawnedResourceX",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "call": "plot.m_sSpawnedResourceY",
+        "object": "plot",
+        "name": "m_sSpawnedResourceY",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      }
+    ]
+  },
   "CvArea": {
     "calls": [
       {
@@ -10103,26 +10819,22 @@
       {
         "call": "area.m_Boundaries.m_iNorthEdge",
         "object": "area",
-        "name": "m_Boundaries.m_iNorthEdge",
-        "type": null
+        "name": "m_Boundaries.m_iNorthEdge"
       },
       {
         "call": "area.m_Boundaries.m_iSouthEdge",
         "object": "area",
-        "name": "m_Boundaries.m_iSouthEdge",
-        "type": null
+        "name": "m_Boundaries.m_iSouthEdge"
       },
       {
         "call": "area.m_Boundaries.m_iEastEdge",
         "object": "area",
-        "name": "m_Boundaries.m_iEastEdge",
-        "type": null
+        "name": "m_Boundaries.m_iEastEdge"
       },
       {
         "call": "area.m_Boundaries.m_iWestEdge",
         "object": "area",
-        "name": "m_Boundaries.m_iWestEdge",
-        "type": null
+        "name": "m_Boundaries.m_iWestEdge"
       },
       {
         "call": "area.m_bWater",
@@ -22236,8 +22948,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_combatUnit.eOwner",
-        "type": null
+        "name": "m_combatUnit.eOwner"
       },
       {
         "call": "unit.m_combatUnit.iID",
@@ -22248,8 +22959,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_combatUnit.iID",
-        "type": null
+        "name": "m_combatUnit.iID"
       },
       {
         "call": "unit.m_transportUnit.eOwner",
@@ -22260,8 +22970,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_transportUnit.eOwner",
-        "type": null
+        "name": "m_transportUnit.eOwner"
       },
       {
         "call": "unit.m_transportUnit.iID",
@@ -22272,8 +22981,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_transportUnit.iID",
-        "type": null
+        "name": "m_transportUnit.iID"
       },
       {
         "call": "unit.m_missionAIUnit.eOwner",
@@ -22284,8 +22992,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_missionAIUnit.eOwner",
-        "type": null
+        "name": "m_missionAIUnit.eOwner"
       },
       {
         "call": "unit.m_missionAIUnit.iID",
@@ -22296,8 +23003,7 @@
           }
         ],
         "object": "unit",
-        "name": "m_missionAIUnit.iID",
-        "type": null
+        "name": "m_missionAIUnit.iID"
       },
       {
         "call": "unit.m_extraDomainModifiers",
@@ -22568,8 +23274,7 @@
           }
         ],
         "object": "node",
-        "name": "eMissionType",
-        "type": null
+        "name": "eMissionType"
       },
       {
         "call": "node.iData1",
@@ -22619,8 +23324,7 @@
           }
         ],
         "object": "node",
-        "name": "iData2",
-        "type": null
+        "name": "iData2"
       },
       {
         "call": "node.iFlags",
@@ -22670,8 +23374,7 @@
           }
         ],
         "object": "node",
-        "name": "iPushTurn",
-        "type": null
+        "name": "iPushTurn"
       },
       {
         "call": "unit.m_kLastPath",

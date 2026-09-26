@@ -139,37 +139,42 @@ function recordAllCalls(str) {
     const lines = str.split(/\r?\n/);
     const states = [];
     let braceDepth = 0;
+    const copyStates = () => states.map(({ of, exp }) => ({
+        of,
+        exp
+    }));
     for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-        const l = lines[lineIndex];
-        if (!l)
+        const rawLine = lines[lineIndex];
+        if (!rawLine) {
             continue;
-        const line = l.trim();
-        if (!line)
+        }
+        const line = rawLine.trim();
+        if (!line) {
             continue;
+        }
         const controlMatch = line.match(/^(if|for)\s*\((.*)\)\s*$/);
         if (controlMatch) {
             const [, of, exp] = controlMatch;
-            if (!of || !exp)
-                continue;
-            states.push({
-                of,
-                exp: exp.trim(),
-                depth: braceDepth + 1
-            });
+            if (of && exp) {
+                states.push({
+                    of,
+                    exp: exp.trim(),
+                    depth: braceDepth + 1
+                });
+            }
         }
-        // visitor(...)
-        // visitor.as<...>(...)
         const visitorMatch = line.match(/^visitor(?:\s*\.\s*as\s*<[^;]*?>)?\s*\(/);
+        const literalMatch = literalMap.get(line);
         if (visitorMatch) {
-            const openParen = line.indexOf('(', visitorMatch.index);
+            const openParen = line.indexOf("(", visitorMatch.index);
             if (openParen !== -1) {
                 let depth = 1;
                 let closeParen = -1;
                 for (let i = openParen + 1; i < line.length; i++) {
-                    if (line[i] === '(') {
+                    if (line[i] === "(") {
                         depth++;
                     }
-                    else if (line[i] === ')') {
+                    else if (line[i] === ")") {
                         depth--;
                         if (depth === 0) {
                             closeParen = i;
@@ -182,20 +187,37 @@ function recordAllCalls(str) {
                         call: line.slice(openParen + 1, closeParen).trim()
                     };
                     if (states.length > 0) {
-                        item.state = states.map(({ of, exp }) => ({
-                            of,
-                            exp
-                        }));
+                        item.state = copyStates();
                     }
                     result.push(item);
                 }
             }
         }
-        for (const char of line) {
-            if (char === '{') {
+        //
+        // literal
+        //
+        if (literalMatch) {
+            const item = {
+                call: line,
+                name: literalMatch.name,
+                type: {
+                    name: literalMatch.name,
+                    args: literalMatch.args
+                }
+            };
+            if (states.length > 0) {
+                item.state = copyStates();
+            }
+            result.push(item);
+        }
+        //
+        // scope tracking
+        //
+        for (const ch of line) {
+            if (ch === "{") {
                 braceDepth++;
             }
-            else if (char === '}') {
+            else if (ch === "}") {
                 braceDepth--;
                 while (states.length > 0 &&
                     states[states.length - 1].depth > braceDepth) {
@@ -298,7 +320,6 @@ function enrichCalls(calls, fields) {
                 ...call,
                 object,
                 name,
-                type: null
             };
         }
         let type = field.type;
@@ -380,6 +401,7 @@ function escapeRegExp(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 let primitiveMap;
+let literalMap;
 let enumTypes;
 let typedefs;
 if (esMain(import.meta)) {
@@ -387,8 +409,9 @@ if (esMain(import.meta)) {
         console.error('Usage: node definition.js <source_path>');
         process.exit(1);
     }
-    const primitive = JSON.parse(readFileSync('primitive.json', 'utf8'));
-    primitiveMap = new Map(primitive.map((type) => [type.name, type]));
+    const magicnumbers = JSON.parse(readFileSync('magicnumbers.json', 'utf8'));
+    primitiveMap = new Map(magicnumbers.primitive.map((type) => [type.name, type]));
+    literalMap = new Map(Object.entries(magicnumbers.literal));
     const enums = JSON.parse(readFileSync('enum.json', 'utf8'));
     enumTypes = new Set(Object.keys(enums));
     typedefs = JSON.parse(readFileSync('typedef.json', 'utf8'));

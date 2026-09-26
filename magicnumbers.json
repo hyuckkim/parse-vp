@@ -1,0 +1,47 @@
+{
+    "primitive": [
+    { "name": "bool", "size": 1, "encoding": "signed" },
+    { "name": "char", "size": 1, "encoding": "signed" },
+    { "name": "signed char", "size": 1, "encoding": "signed" },
+    { "name": "unsigned char", "size": 1, "encoding": "unsigned" },
+
+    { "name": "short", "size": 2, "encoding": "signed" },
+    { "name": "unsigned short", "size": 2, "encoding": "unsigned" },
+
+    { "name": "int", "size": 4, "encoding": "signed" },
+    { "name": "unsigned int", "size": 4, "encoding": "unsigned" },
+
+    { "name": "long", "size": 4, "encoding": "signed" },
+    { "name": "unsigned long", "size": 4, "encoding": "unsigned" },
+
+    { "name": "long long", "size": 8, "encoding": "signed" },
+    { "name": "unsigned long long", "size": 8, "encoding": "unsigned" },
+
+    { "name": "float", "size": 4, "encoding": "float" },
+    { "name": "double", "size": 8, "encoding": "double" },
+
+    { "name": "int8_t", "size": 1, "encoding": "signed" },
+    { "name": "uint8_t", "size": 1, "encoding": "unsigned" },
+    { "name": "int16_t", "size": 2, "encoding": "signed" },
+    { "name": "uint16_t", "size": 2, "encoding": "unsigned" },
+    { "name": "int32_t", "size": 4, "encoding": "signed" },
+    { "name": "uint32_t", "size": 4, "encoding": "unsigned" },
+    { "name": "int64_t", "size": 8, "encoding": "signed" },
+    { "name": "uint64_t", "size": 8, "encoding": "unsigned" },
+
+    { "name": "size_t", "size": 4, "encoding": "unsigned" },
+    { "name": "GUID", "size": 24, "encoding": "uuid" }
+    ],
+    "iterate": {
+        "std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i": "Victories",
+        "int j = 0; j < /*5*/ GD_INT_GET(NUM_VICTORY_POINT_AWARDS); ++j": 5,
+        "int iY = 0; iY < map.getGridHeight(); ++iY": {},
+        "int iX = 0; iX < map.getGridWidth(); ++iX": {}
+    },
+    "literal": {
+        "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));": {
+            "name": "CvPlot",
+            "args": []
+        }
+    }
+}

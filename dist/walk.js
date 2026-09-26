@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { Init, offset, readBytes, readContainerCount, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
+import { Init, offset, readBytes, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
 import { readVector } from './generics/vector.js';
 import { readPrimitive } from './generics/primitive.js';
 import { readEnum } from './generics/enum.js';

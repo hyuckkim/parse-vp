@@ -1,3 +1,7 @@
+type DefinitionType = {
+    name: string;
+    args: DefinitionType[];
+};
 export type Definition = {
     call: string;
     state?: Array<{
@@ -6,7 +10,8 @@ export type Definition = {
     }>;
     object?: string;
     name?: string;
-    type?: any;
+    type?: DefinitionType;
     dimensions?: string[];
 };
+export {};
 //# sourceMappingURL=definition.d.ts.map
