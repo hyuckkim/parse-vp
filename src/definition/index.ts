@@ -3,10 +3,7 @@ import { readMagicNumber } from '../magicnumber.js';
 import type { CallInfo, ClassCall, ClassCallType, PrimitiveInfo } from '../types.js';
 import { getHeaderContent, getVisitorContent } from './file.js';
 import { recordAllFields } from './recordAllFields.js';
-
-const {
-    primitiveMap,
-} = readMagicNumber('magicnumber.json');
+import { collectTypedefs } from '../typedef.js';
 
 function collectDefinitions(rootType: string | string[], src: string): Record<string, CallInfo> {
     const visited = new Set<string>();
@@ -78,11 +75,12 @@ function searchDefinition(typeName: string, src: string): {
 
             const field = fields.find(field => field.name === type);
             if (!field) return null;
+            const fieldType = useTypedefs(field.type);
 
             return {
                 name: type,
                 raw: call,
-                type: field.type,
+                type: fieldType,
                 dimensions: field.dimensions
             };
         }).filter((call): call is ClassCall => !!call)
@@ -91,6 +89,18 @@ function searchDefinition(typeName: string, src: string): {
         def: calls,
         next: getEveryType(calls.map(call => call.type))
     };
+}
+
+function useTypedefs(call: ClassCallType): ClassCallType {
+    const queue = [call];
+    while (queue.length > 0) {
+        const current = queue.shift()!;
+        if (typedefs[current.name]) {
+            current.name = typedefs[current.name] ?? current.name;
+        }   
+        queue.push(...current.args);
+    }
+    return call;
 }
 
 function getEveryType(call: ClassCallType[]): string[] {
@@ -119,6 +129,11 @@ function patternizeNormalType(call: string): string | null {
     return splitted[1]!;
 }
 
-const d = collectDefinitions('CvGame', '../Community-Patch-DLL');
+const gamePath = 'Community-Patch-DLL';
+const {
+    primitiveMap,
+} = readMagicNumber('magicnumber.json');
+const typedefs = collectTypedefs(gamePath);
+const d = collectDefinitions('CvGame', gamePath);
 
 writeFileSync('def.json', JSON.stringify(d, null, 2), 'utf8');

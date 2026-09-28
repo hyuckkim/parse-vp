@@ -1,17 +1,7 @@
-import esMain from 'es-main';
-import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import { readdirSync, readFileSync } from 'fs';
 import { join, extname } from 'path';
 
-const src = process.argv[2];
-
-if (!src) {
-  console.error('Usage: node typedef.js <source-directory>');
-  process.exit(1);
-}
-
-const outputPath = join(__dirname, 'typedef.json');
-
-function collectTypedefs(dir: string): Record<string, string> {
+export function collectTypedefs(dir: string): Record<string, string> {
   const typedefs = {};
 
   walk(dir, typedefs);
@@ -66,21 +56,4 @@ function extractTypedefs(content: string, typedefs: Record<string, string>) {
 
     typedefs[name] = type;
   }
-}
-
-if (esMain(import.meta)) {
-  const typedefs = collectTypedefs(src);
-
-  writeFileSync(
-    outputPath,
-    JSON.stringify(typedefs, null, 2),
-    'utf8'
-  );
-
-  console.log(
-    `Found ${Object.keys(typedefs).length} typedefs.`
-  );
-
-  console.log(`Written to ${outputPath}`);
-
 }

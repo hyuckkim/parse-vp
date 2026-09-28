@@ -893,7 +893,7 @@
       "name": "m_listReplayMessages",
       "raw": "game.m_listReplayMessages",
       "type": {
-        "name": "ReplayMessageList",
+        "name": "std::vector<CvReplayMessage>",
         "args": []
       }
     },
@@ -1058,7 +1058,7 @@
       "name": "m_ProposedDeals",
       "raw": "gameDeals.m_ProposedDeals",
       "type": {
-        "name": "DealList",
+        "name": "vector<CvDeal>",
         "args": []
       }
     },
@@ -1066,7 +1066,7 @@
       "name": "m_CurrentDeals",
       "raw": "gameDeals.m_CurrentDeals",
       "type": {
-        "name": "DealList",
+        "name": "vector<CvDeal>",
         "args": []
       }
     },
@@ -1074,7 +1074,7 @@
       "name": "m_HistoricalDeals",
       "raw": "gameDeals.m_HistoricalDeals",
       "type": {
-        "name": "DealList",
+        "name": "vector<CvDeal>",
         "args": []
       }
     }
@@ -1092,7 +1092,7 @@
       "name": "m_CurrentReligions",
       "raw": "gameReligions.m_CurrentReligions",
       "type": {
-        "name": "ReligionList",
+        "name": "vector<CvReligion>",
         "args": []
       }
     }
@@ -1102,7 +1102,7 @@
       "name": "m_CurrentGreatWorks",
       "raw": "gameCulture.m_CurrentGreatWorks",
       "type": {
-        "name": "GreatWorkList",
+        "name": "vector<CvGreatWork>",
         "args": []
       }
     },
@@ -1128,7 +1128,7 @@
       "name": "m_vActiveLeagues",
       "raw": "gameLeagues.m_vActiveLeagues",
       "type": {
-        "name": "LeagueList",
+        "name": "std::vector<CvLeague>",
         "args": []
       }
     },
@@ -1162,7 +1162,7 @@
       "name": "m_aTradeConnections",
       "raw": "gameTrade.m_aTradeConnections",
       "type": {
-        "name": "TradeConnectionList",
+        "name": "std::vector<TradeConnection>",
         "args": []
       }
     },
@@ -1222,7 +1222,7 @@
       "name": "m_ActiveCorporations",
       "raw": "gameCorporations.m_ActiveCorporations",
       "type": {
-        "name": "CorporationList",
+        "name": "vector<CvCorporation>",
         "args": []
       }
     }
@@ -1232,7 +1232,7 @@
       "name": "m_ActiveContracts",
       "raw": "gameContracts.m_ActiveContracts",
       "type": {
-        "name": "ContractList",
+        "name": "vector<CvContract>",
         "args": []
       }
     },
@@ -1240,7 +1240,7 @@
       "name": "m_InactiveContracts",
       "raw": "gameContracts.m_InactiveContracts",
       "type": {
-        "name": "ContractList",
+        "name": "vector<CvContract>",
         "args": []
       }
     }
