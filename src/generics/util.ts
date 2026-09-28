@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { primitiveMap } from "../walk.js";
-import { type DefinitionType } from '../magicnumber.js';
+import type { DefinitionType } from "../definition.js";
 
 export let offset = 0;
 export let stopped = false;

@@ -207,7 +207,7 @@ type RawDefinition = {
   name: string;
   dimensions?: string[];
 }
-type DefinitionType = {
+export type DefinitionType = {
   name: string; args: DefinitionType[];
 }
 export type Definition = {
@@ -307,15 +307,7 @@ function recordAllCalls(str: string): Definition[] {
     // literal
     //
     if (literalMatch) {
-      const item: Definition = {
-        call: line,
-        name: literalMatch.name,
-        type: {
-          name: literalMatch.name,
-          args: literalMatch.args
-        }
-      };
-
+      const item = Object.assign({}, literalMatch);
       if (states.length > 0) {
         item.state = copyStates();
       }
@@ -570,7 +562,7 @@ let primitiveMap: Map<string, {
   size: number;
   encoding: string;
 }>;
-let literalMap: Map<string, DefinitionType>;
+let literalMap: Map<string, Definition>;
 let enumTypes: Set<string>;
 let typedefs: Record<string, string>;
 

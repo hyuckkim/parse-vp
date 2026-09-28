@@ -1,4 +1,5 @@
-import { type DefinitionType } from '../magicnumber.js';
+
+import type { DefinitionType } from "../definition.js";
 import { type CvEnumMapInfo, readType, tableCount } from "../walk.js";
 import { typeArgs, typeToString, typeName } from "./util.js";
 

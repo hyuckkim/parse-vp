@@ -48,8 +48,12 @@
     },
     "literal": {
         "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));": {
-            "name": "mutPlot[iX][iY]",
+          "name": "mutPlot[iX][iY]",
+          "call": "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));",
+          "type": {
+            "name": "CvPlot",
             "args": []
+          }
         }
     }
 }

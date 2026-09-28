@@ -1,8 +1,7 @@
-import { type DefinitionType } from './magicnumber.js';
 import { readFileSync, writeFileSync } from 'fs';
 import { readMagicNumber } from './magicnumber.js';
 
-import type { Definition } from './definition.js';
+import type { Definition, DefinitionType } from './definition.js';
 import { Init, offset, readBytes, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
 import { readVector } from './generics/vector.js';
 import { readPrimitive } from './generics/primitive.js';
@@ -166,79 +165,77 @@ function walkDefinition(type: string): any[] | null {
     // m_xxx[i][j] 같은 indexed call
     const indices = [...name.matchAll(/\[([A-Za-z_]\w*)\]/g)]
       .map(m => m[1]);
+    const forStates = call.state?.filter(s => s.of === 'for') ?? [];
 
-    if (indices.length > 0) {
-      const callType = call.type;
-
-      // CvEnumMap<Enum, T>[i][j]의 최종 원소 타입은 T
-      if (typeName(callType) === 'CvEnumMap') {
-        let elementType = typeArgs(callType)[1];
+    if (indices.length > 0 && forStates.length > 0) {
+      console.log(JSON.stringify(call, null, 2));
+      let callType = call.type;
+      if (callType.args.length > 0)
+        callType = callType.args[callType.args.length - 1] ?? callType;
 
         // T* -> T
-        const elementTypeName = typeName(elementType);
+        const elementTypeName = typeName(callType);
         if (elementTypeName && elementTypeName.endsWith('*')) {
-          elementType = {
+          callType = {
             name: elementTypeName.slice(0, -1).trim(),
-            args: elementTypeName
+            args: callType.args
           };
         }
 
-        const counts: number[] = [];
+      const counts: number[] = [];
 
-        for (const state of call.state || []) {
-          if (state.of !== 'for') continue;
+      for (const state of call.state || []) {
+        if (state.of !== 'for') continue;
 
-            const value = iterateMap.get(state.exp);
+          const value = iterateMap.get(state.exp);
 
-          if (value === undefined) {
-            throw new Error(
-              `Unknown iteration expression '${state.exp}'.`
-            );
-          }
-
-          const count =
-            value.t === 'literal'
-              ? value.v
-                : tableCount[value.v];
-            console.log(value.t, value.v, count);
-
-          if (count === undefined) {
-            throw new Error(
-              `Unknown iteration count '${value}'.`
-            );
-          }
-
-          counts.push(count);
-        }
-
-        if (counts.length !== indices.length) {
+        if (value === undefined) {
           throw new Error(
-            `Index/state mismatch at '${name}': ` +
-            `${indices.length} indices, ${counts.length} loops.`
+            `Unknown iteration expression '${state.exp}'.`
           );
         }
 
-        // 모든 loop 조합을 생성
-        function walkIndices(depth: number, currentName: string) {
-          if (depth === counts.length) {
-            result.push(
-              readType(elementType, currentName)
-            );
-            return;
-          }
+        const count =
+          value.t === 'literal'
+            ? value.v
+              : tableCount[value.v];
 
-          for (let i = 0; counts[depth] && i < counts[depth]; i++) {
-            walkIndices(
-              depth + 1,
-              `${currentName}[${i}]`
-            );
-          }
+        if (count === undefined) {
+          throw new Error(
+            `Unknown iteration count '${value}'.`
+          );
         }
 
-        walkIndices(0, name.replace(/\[[A-Za-z_]\w*\]/g, ''));
-
-        continue;
+        counts.push(count);
       }
+
+      if (counts.length !== indices.length) {
+        throw new Error(
+          `Index/state mismatch at '${name}': ` +
+          `${indices.length} indices, ${counts.length} loops.`
+        );
+      }
+
+      // 모든 loop 조합을 생성
+      function walkIndices(depth: number, currentName: string) {
+        if (depth === counts.length) {
+          result.push(
+            readType(callType, currentName)
+          );
+          return;
+        }
+
+        for (let i = 0; counts[depth] && i < counts[depth]; i++) {
+          walkIndices(
+            depth + 1,
+            `${currentName}[${i}]`
+          );
+        }
+      }
+
+      walkIndices(0, name.replace(/\[[A-Za-z_]\w*\]/g, ''));
+
+      continue;
     }
 
     const field = call.dimensions?.length

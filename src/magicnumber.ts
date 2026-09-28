@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import type { Definition } from './definition.js';
 
 export type primitiveDef = {
     name: string,
@@ -10,9 +11,6 @@ export type IterateRule =
   | { t: 'table'; v: string }
   | { t: 'member'; v: string };
 
-export type DefinitionType = {
-  name: string; args: DefinitionType[];
-}
 
 export function readMagicNumber(path: string) {
     const magicnumbers = JSON.parse(
@@ -24,7 +22,7 @@ export function readMagicNumber(path: string) {
     const iterateMap = new Map<string, IterateRule>(
         Object.entries(magicnumbers.iterate)
     );
-    const literalMap = new Map<string, DefinitionType>(
+    const literalMap = new Map<string, Definition>(
         Object.entries(magicnumbers.literal)
     );
 

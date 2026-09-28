@@ -1,4 +1,5 @@
-import { type DefinitionType } from '../magicnumber.js';
+
+import type { DefinitionType } from "../definition.js";
 import { readType, type PairInfo } from "../walk.js";
 import { Stop, typeArgs, typeToString } from "./util.js";
 

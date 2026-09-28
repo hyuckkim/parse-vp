@@ -1,4 +1,5 @@
-import { type DefinitionType } from '../magicnumber.js';
+
+import type { DefinitionType } from "../definition.js";
 import { type CollectionInfo, readType } from "../walk.js";
 import { typeArgs, typeToString, readContainerCount, offset } from "./util.js";
 
