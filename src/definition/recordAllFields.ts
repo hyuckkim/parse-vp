@@ -12,8 +12,7 @@ type FieldDefinition = {
 export function recordAllFields(cls: string): FieldDefinition[] {
   const body = extractClassBody(cls);
 
-  return body
-    .split(/\r?\n/)
+  return getTopLevelDeclarations(body)
     .map(removeComments)
     .map(line => line.trim())
     .filter(isFieldCandidate)
@@ -30,6 +29,55 @@ function extractClassBody(cls: string): string {
   }
 
   return cls.slice(start + 1, end);
+}
+
+function getTopLevelDeclarations(body: string): string[] {
+  const result: string[] = [];
+
+  let depth = 0;
+  let current = '';
+
+  for (let i = 0; i < body.length; i++) {
+    const ch = body[i];
+
+    if (ch === '{') {
+      depth++;
+
+      if (depth === 1) {
+        // 지금까지의 선언은 nested declaration의 시작
+        current = '';
+      }
+
+      continue;
+    }
+
+    if (ch === '}') {
+      depth--;
+
+      if (depth === 0) {
+        current = '';
+      }
+
+      continue;
+    }
+
+    if (depth === 0) {
+      if (ch === '\n') {
+        if (current.trim()) {
+          result.push(current.trim());
+        }
+        current = '';
+      } else {
+        current += ch;
+      }
+    }
+  }
+
+  if (current.trim()) {
+    result.push(current.trim());
+  }
+
+  return result;
 }
 
 function removeComments(line: string): string {

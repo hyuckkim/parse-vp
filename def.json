@@ -1084,7 +1084,7 @@
       "name": "m_iMinimumFaithForNextPantheon",
       "raw": "gameReligions.m_iMinimumFaithForNextPantheon",
       "type": {
-        "name": "return",
+        "name": "int",
         "args": []
       }
     },
@@ -1110,7 +1110,7 @@
       "name": "m_bReportedSomeoneInfluential",
       "raw": "gameCulture.m_bReportedSomeoneInfluential",
       "type": {
-        "name": "return",
+        "name": "bool",
         "args": []
       }
     }
