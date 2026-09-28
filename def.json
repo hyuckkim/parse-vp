@@ -1,0 +1,1263 @@
+{
+  "CvGame": [
+    {
+      "name": "m_iEndTurnMessagesSent",
+      "raw": "game.m_iEndTurnMessagesSent",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iElapsedGameTurns",
+      "raw": "game.m_iElapsedGameTurns",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iStartTurn",
+      "raw": "game.m_iStartTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iWinningTurn",
+      "raw": "game.m_iWinningTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iStartYear",
+      "raw": "game.m_iStartYear",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iEstimateEndTurn",
+      "raw": "game.m_iEstimateEndTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iDefaultEstimateEndTurn",
+      "raw": "game.m_iDefaultEstimateEndTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iTurnSlice",
+      "raw": "game.m_iTurnSlice",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCutoffSlice",
+      "raw": "game.m_iCutoffSlice",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumCities",
+      "raw": "game.m_iNumCities",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iTotalPopulation",
+      "raw": "game.m_iTotalPopulation",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iTotalEconomicValue",
+      "raw": "game.m_iTotalEconomicValue",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iHighestEconomicValue",
+      "raw": "game.m_iHighestEconomicValue",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iMedianEconomicValue",
+      "raw": "game.m_iMedianEconomicValue",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNoNukesCount",
+      "raw": "game.m_iNoNukesCount",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNukesExploded",
+      "raw": "game.m_iNukesExploded",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iMaxPopulation",
+      "raw": "game.m_iMaxPopulation",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iGlobalAssetCounterAllPreviousTurns",
+      "raw": "game.m_iGlobalAssetCounterAllPreviousTurns",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iGlobalAssetCounterCurrentTurn",
+      "raw": "game.m_iGlobalAssetCounterCurrentTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iInitPopulation",
+      "raw": "game.m_iInitPopulation",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iInitLand",
+      "raw": "game.m_iInitLand",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iInitTech",
+      "raw": "game.m_iInitTech",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iInitWonders",
+      "raw": "game.m_iInitWonders",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iAIAutoPlay",
+      "raw": "game.m_iAIAutoPlay",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iUnitedNationsCountdown",
+      "raw": "game.m_iUnitedNationsCountdown",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumVictoryVotesTallied",
+      "raw": "game.m_iNumVictoryVotesTallied",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumVictoryVotesExpected",
+      "raw": "game.m_iNumVictoryVotesExpected",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iVotesNeededForDiploVictory",
+      "raw": "game.m_iVotesNeededForDiploVictory",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iMapScoreMod",
+      "raw": "game.m_iMapScoreMod",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCityFoundValueReference",
+      "raw": "game.m_iCityFoundValueReference",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumReferenceCities",
+      "raw": "game.m_iNumReferenceCities",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumMajorCivsAliveAtGameStart",
+      "raw": "game.m_iNumMajorCivsAliveAtGameStart",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumMinorCivsAliveAtGameStart",
+      "raw": "game.m_iNumMinorCivsAliveAtGameStart",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bScoreDirty",
+      "raw": "game.m_bScoreDirty",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bCircumnavigated",
+      "raw": "game.m_bCircumnavigated",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bFinalInitialized",
+      "raw": "game.m_bFinalInitialized",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bHotPbemBetweenTurns",
+      "raw": "game.m_bHotPbemBetweenTurns",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bNukesValid",
+      "raw": "game.m_bNukesValid",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bEndGameTechResearched",
+      "raw": "game.m_bEndGameTechResearched",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eObserverUIOverridePlayer",
+      "raw": "game.m_eObserverUIOverridePlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bTunerEverConnected",
+      "raw": "game.m_bTunerEverConnected",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bSavedOnce",
+      "raw": "game.m_bSavedOnce",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bTutorialEverAttacked",
+      "raw": "game.m_bTutorialEverAttacked",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bStaticTutorialActive",
+      "raw": "game.m_bStaticTutorialActive",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bEverRightClickMoved",
+      "raw": "game.m_bEverRightClickMoved",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_AdvisorMessagesViewed",
+      "raw": "game.m_AdvisorMessagesViewed",
+      "type": {
+        "name": "std::tr1::unordered_set",
+        "args": [
+          {
+            "name": "size_t",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_eHandicap",
+      "raw": "game.m_eHandicap",
+      "type": {
+        "name": "HandicapTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_ePausePlayer",
+      "raw": "game.m_ePausePlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eAIAutoPlayReturnPlayer",
+      "raw": "game.m_eAIAutoPlayReturnPlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eBestLandUnit",
+      "raw": "game.m_eBestLandUnit",
+      "type": {
+        "name": "UnitTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eWinner",
+      "raw": "game.m_eWinner",
+      "type": {
+        "name": "TeamTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eVictory",
+      "raw": "game.m_eVictory",
+      "type": {
+        "name": "VictoryTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eGameState",
+      "raw": "game.m_eGameState",
+      "type": {
+        "name": "GameStateTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eBestWondersPlayer",
+      "raw": "game.m_eBestWondersPlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eBestPoliciesPlayer",
+      "raw": "game.m_eBestPoliciesPlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eBestGreatPeoplePlayer",
+      "raw": "game.m_eBestGreatPeoplePlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eIndustrialRoute",
+      "raw": "game.m_eIndustrialRoute",
+      "type": {
+        "name": "RouteTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eGameEra",
+      "raw": "game.m_eGameEra",
+      "type": {
+        "name": "EraTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eTeamThatCircumnavigated",
+      "raw": "game.m_eTeamThatCircumnavigated",
+      "type": {
+        "name": "char",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bVictoryRandomization",
+      "raw": "game.m_bVictoryRandomization",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iMedianTechsResearched",
+      "raw": "game.m_iMedianTechsResearched",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iBasicNeedsMedian",
+      "raw": "game.m_iBasicNeedsMedian",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iGoldMedian",
+      "raw": "game.m_iGoldMedian",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iScienceMedian",
+      "raw": "game.m_iScienceMedian",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCultureMedian",
+      "raw": "game.m_iCultureMedian",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iSpyThreshold",
+      "raw": "game.m_iSpyThreshold",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iLastTurnCSSurrendered",
+      "raw": "game.m_iLastTurnCSSurrendered",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_aiGreatestMonopolyPlayer",
+      "raw": "game.m_aiGreatestMonopolyPlayer",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "ResourceTypes",
+            "args": []
+          },
+          {
+            "name": "PlayerTypes",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_strScriptData",
+      "raw": "game.m_strScriptData",
+      "type": {
+        "name": "CvString",
+        "args": []
+      }
+    },
+    {
+      "name": "m_aiEndTurnMessagesReceived",
+      "raw": "game.m_aiEndTurnMessagesReceived",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "PlayerTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiRankPlayer",
+      "raw": "game.m_aiRankPlayer",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "PlayerTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiPlayerRank",
+      "raw": "game.m_aiPlayerRank",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "PlayerTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiPlayerScore",
+      "raw": "game.m_aiPlayerScore",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "PlayerTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiRankTeam",
+      "raw": "game.m_aiRankTeam",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiTeamRank",
+      "raw": "game.m_aiTeamRank",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiTeamScore",
+      "raw": "game.m_aiTeamScore",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_paiUnitCreatedCount",
+      "raw": "game.m_paiUnitCreatedCount",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "UnitTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_paiUnitClassCreatedCount",
+      "raw": "game.m_paiUnitClassCreatedCount",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "UnitClassTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_paiBuildingClassCreatedCount",
+      "raw": "game.m_paiBuildingClassCreatedCount",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "BuildingClassTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_paiProjectCreatedCount",
+      "raw": "game.m_paiProjectCreatedCount",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "ProjectTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiVotesCast",
+      "raw": "game.m_aiVotesCast",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "TeamTypes",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiPreviousVotesCast",
+      "raw": "game.m_aiPreviousVotesCast",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "TeamTypes",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiNumVotesForTeam",
+      "raw": "game.m_aiNumVotesForTeam",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "TeamTypes",
+            "args": []
+          },
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_pabSpecialUnitValid",
+      "raw": "game.m_pabSpecialUnitValid",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "SpecialUnitTypes",
+            "args": []
+          },
+          {
+            "name": "bool",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_ppaiContractUnits",
+      "raw": "game.m_ppaiContractUnits",
+      "type": {
+        "name": "CvEnumMap",
+        "args": [
+          {
+            "name": "ContractTypes",
+            "args": []
+          },
+          {
+            "name": "CvEnumMap",
+            "args": [
+              {
+                "name": "UnitTypes",
+                "args": []
+              },
+              {
+                "name": "int",
+                "args": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aszDestroyedCities",
+      "raw": "game.m_aszDestroyedCities",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "size_t",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aszGreatPeopleBorn",
+      "raw": "game.m_aszGreatPeopleBorn",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "size_t",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_mapRand",
+      "raw": "game.m_mapRand",
+      "type": {
+        "name": "CvRandom",
+        "args": []
+      }
+    },
+    {
+      "name": "m_jonRand",
+      "raw": "game.m_jonRand",
+      "type": {
+        "name": "CvRandom",
+        "args": []
+      }
+    },
+    {
+      "name": "m_listReplayMessages",
+      "raw": "game.m_listReplayMessages",
+      "type": {
+        "name": "ReplayMessageList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumSessions",
+      "raw": "game.m_iNumSessions",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_aPlotExtraYields",
+      "raw": "game.m_aPlotExtraYields",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "PlotExtraYield",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aPlotExtraCosts",
+      "raw": "game.m_aPlotExtraCosts",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "PlotExtraCost",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_bArchaeologyTriggered",
+      "raw": "game.m_bArchaeologyTriggered",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iEarliestBarbarianReleaseTurn",
+      "raw": "game.m_iEarliestBarbarianReleaseTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_kGameDeals",
+      "raw": "game.m_kGameDeals",
+      "type": {
+        "name": "CvGameDeals",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameReligions",
+      "raw": "*game.m_pGameReligions",
+      "type": {
+        "name": "CvGameReligions",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameCulture",
+      "raw": "*game.m_pGameCulture",
+      "type": {
+        "name": "CvGameCulture",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameLeagues",
+      "raw": "*game.m_pGameLeagues",
+      "type": {
+        "name": "CvGameLeagues",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameTrade",
+      "raw": "*game.m_pGameTrade",
+      "type": {
+        "name": "CvGameTrade",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameCorporations",
+      "raw": "*game.m_pGameCorporations",
+      "type": {
+        "name": "CvGameCorporations",
+        "args": []
+      }
+    },
+    {
+      "name": "m_pGameContracts",
+      "raw": "*game.m_pGameContracts",
+      "type": {
+        "name": "CvGameContracts",
+        "args": []
+      }
+    },
+    {
+      "name": "m_strGameId",
+      "raw": "game.m_strGameId",
+      "type": {
+        "name": "CvString",
+        "args": []
+      }
+    }
+  ],
+  "int": {
+    "name": "int",
+    "size": 4,
+    "encoding": "signed"
+  },
+  "bool": {
+    "name": "bool",
+    "size": 1,
+    "encoding": "signed"
+  },
+  "char": {
+    "name": "char",
+    "size": 1,
+    "encoding": "signed"
+  },
+  "CvRandom": [
+    {
+      "name": "m_ullRandomSeed",
+      "raw": "random.m_ullRandomSeed",
+      "type": {
+        "name": "unsigned long long",
+        "args": []
+      }
+    },
+    {
+      "name": "m_ulCallCount",
+      "raw": "random.m_ulCallCount",
+      "type": {
+        "name": "unsigned long",
+        "args": []
+      }
+    },
+    {
+      "name": "m_ulResetCount",
+      "raw": "random.m_ulResetCount",
+      "type": {
+        "name": "unsigned long",
+        "args": []
+      }
+    }
+  ],
+  "CvGameDeals": [
+    {
+      "name": "m_ProposedDeals",
+      "raw": "gameDeals.m_ProposedDeals",
+      "type": {
+        "name": "DealList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_CurrentDeals",
+      "raw": "gameDeals.m_CurrentDeals",
+      "type": {
+        "name": "DealList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_HistoricalDeals",
+      "raw": "gameDeals.m_HistoricalDeals",
+      "type": {
+        "name": "DealList",
+        "args": []
+      }
+    }
+  ],
+  "CvGameReligions": [
+    {
+      "name": "m_iMinimumFaithForNextPantheon",
+      "raw": "gameReligions.m_iMinimumFaithForNextPantheon",
+      "type": {
+        "name": "return",
+        "args": []
+      }
+    },
+    {
+      "name": "m_CurrentReligions",
+      "raw": "gameReligions.m_CurrentReligions",
+      "type": {
+        "name": "ReligionList",
+        "args": []
+      }
+    }
+  ],
+  "CvGameCulture": [
+    {
+      "name": "m_CurrentGreatWorks",
+      "raw": "gameCulture.m_CurrentGreatWorks",
+      "type": {
+        "name": "GreatWorkList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bReportedSomeoneInfluential",
+      "raw": "gameCulture.m_bReportedSomeoneInfluential",
+      "type": {
+        "name": "return",
+        "args": []
+      }
+    }
+  ],
+  "CvGameLeagues": [
+    {
+      "name": "m_iGeneratedIDCount",
+      "raw": "gameLeagues.m_iGeneratedIDCount",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_vActiveLeagues",
+      "raw": "gameLeagues.m_vActiveLeagues",
+      "type": {
+        "name": "LeagueList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iNumLeaguesEverFounded",
+      "raw": "gameLeagues.m_iNumLeaguesEverFounded",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eDiplomaticVictor",
+      "raw": "gameLeagues.m_eDiplomaticVictor",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eLastEraTrigger",
+      "raw": "gameLeagues.m_eLastEraTrigger",
+      "type": {
+        "name": "EraTypes",
+        "args": []
+      }
+    }
+  ],
+  "CvGameTrade": [
+    {
+      "name": "m_aTradeConnections",
+      "raw": "gameTrade.m_aTradeConnections",
+      "type": {
+        "name": "TradeConnectionList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_routesPerPlayer",
+      "raw": "gameTrade.m_routesPerPlayer",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "vector",
+            "args": [
+              {
+                "name": "int",
+                "args": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aaiTechDifference",
+      "raw": "gameTrade.m_aaiTechDifference",
+      "type": {
+        "name": "int",
+        "args": []
+      },
+      "dimensions": [
+        "MAX_MAJOR_CIVS",
+        "MAX_MAJOR_CIVS"
+      ]
+    },
+    {
+      "name": "m_aaiPolicyDifference",
+      "raw": "gameTrade.m_aaiPolicyDifference",
+      "type": {
+        "name": "int",
+        "args": []
+      },
+      "dimensions": [
+        "MAX_MAJOR_CIVS",
+        "MAX_MAJOR_CIVS"
+      ]
+    },
+    {
+      "name": "m_iNextID",
+      "raw": "gameTrade.m_iNextID",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    }
+  ],
+  "CvGameCorporations": [
+    {
+      "name": "m_ActiveCorporations",
+      "raw": "gameCorporations.m_ActiveCorporations",
+      "type": {
+        "name": "CorporationList",
+        "args": []
+      }
+    }
+  ],
+  "CvGameContracts": [
+    {
+      "name": "m_ActiveContracts",
+      "raw": "gameContracts.m_ActiveContracts",
+      "type": {
+        "name": "ContractList",
+        "args": []
+      }
+    },
+    {
+      "name": "m_InactiveContracts",
+      "raw": "gameContracts.m_InactiveContracts",
+      "type": {
+        "name": "ContractList",
+        "args": []
+      }
+    }
+  ],
+  "size_t": {
+    "name": "size_t",
+    "size": 4,
+    "encoding": "unsigned"
+  },
+  "unsigned long long": {
+    "name": "unsigned long long",
+    "size": 8,
+    "encoding": "unsigned"
+  },
+  "unsigned long": {
+    "name": "unsigned long",
+    "size": 4,
+    "encoding": "unsigned"
+  }
+}

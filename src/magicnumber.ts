@@ -1,26 +1,13 @@
 import { readFileSync } from 'fs';
 import type { Definition } from './definition.js';
-
-export type primitiveDef = {
-    name: string,
-    size: number,
-    encoding: "signed" | "unsigned" | string
-};
-export type IterateRule = 
-  | { t: 'literal'; v: number }
-  | { t: 'table'; v: string }
-  | { t: 'member'; v: string };
-
+import type { PrimitiveInfo } from './types.js';
 
 export function readMagicNumber(path: string) {
     const magicnumbers = JSON.parse(
         readFileSync(path, 'utf8')
     );
-    const primitiveMap = new Map<string, primitiveDef>(
+    const primitiveMap = new Map<string, PrimitiveInfo>(
         magicnumbers.primitive.map((type: { name: string }) => [type.name, type])
-    );
-    const iterateMap = new Map<string, IterateRule>(
-        Object.entries(magicnumbers.iterate)
     );
     const literalMap = new Map<string, Definition>(
         Object.entries(magicnumbers.literal)
@@ -28,7 +15,6 @@ export function readMagicNumber(path: string) {
 
     return {
         primitiveMap,
-        iterateMap,
         literalMap
     }
 }

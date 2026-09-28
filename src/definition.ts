@@ -1,4 +1,3 @@
-import { readMagicNumber } from './magicnumber.js';
 import esMain from 'es-main';
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, extname } from 'path';
@@ -207,7 +206,7 @@ type RawDefinition = {
   name: string;
   dimensions?: string[];
 }
-export type DefinitionType = {
+type DefinitionType = {
   name: string; args: DefinitionType[];
 }
 export type Definition = {
@@ -307,7 +306,15 @@ function recordAllCalls(str: string): Definition[] {
     // literal
     //
     if (literalMatch) {
-      const item = Object.assign({}, literalMatch);
+      const item: Definition = {
+        call: line,
+        name: literalMatch.name,
+        type: {
+          name: literalMatch.name,
+          args: literalMatch.args
+        }
+      };
+
       if (states.length > 0) {
         item.state = copyStates();
       }
@@ -562,7 +569,7 @@ let primitiveMap: Map<string, {
   size: number;
   encoding: string;
 }>;
-let literalMap: Map<string, Definition>;
+let literalMap: Map<string, DefinitionType>;
 let enumTypes: Set<string>;
 let typedefs: Record<string, string>;
 
@@ -572,10 +579,16 @@ if (esMain(import.meta)) {
     process.exit(1);
   }
 
-    const m  = readMagicNumber('magicnumbers.json');
-    primitiveMap = m.primitiveMap;
-    literalMap = m.literalMap;
-    
+  const magicnumbers = JSON.parse(
+    readFileSync('magicnumbers.json', 'utf8')
+  );
+  primitiveMap = new Map(
+    magicnumbers.primitive.map((type: { name: string }) => [type.name, type])
+  );
+  literalMap = new Map<string, DefinitionType>(
+    Object.entries(magicnumbers.literal)
+  );
+
   const enums = JSON.parse(
     readFileSync('enum.json', 'utf8')
   );
