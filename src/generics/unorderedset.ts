@@ -1,12 +1,13 @@
+import { type DefinitionType } from '../magicnumber.js';
 import { type CollectionInfo, readType } from "../walk.js";
 import { typeArgs, typeToString, readContainerCount, offset } from "./util.js";
 
-export function readUnorderedSet(type: string, name: string): CollectionInfo | null {
+export function readUnorderedSet(type: DefinitionType, name: string): CollectionInfo | null {
   const args = typeArgs(type);
 
   if (args.length !== 1) {
     throw new Error(
-      `Invalid unordered_set type: ${typeToString(type)}`
+        `Invalid unordered_set type: ${JSON.stringify(type)}`
     );
   }
 

@@ -1,3 +1,4 @@
+import { readMagicNumber } from './magicnumber.js';
 import esMain from 'es-main';
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, extname } from 'path';
@@ -409,9 +410,9 @@ if (esMain(import.meta)) {
         console.error('Usage: node definition.js <source_path>');
         process.exit(1);
     }
-    const magicnumbers = JSON.parse(readFileSync('magicnumbers.json', 'utf8'));
-    primitiveMap = new Map(magicnumbers.primitive.map((type) => [type.name, type]));
-    literalMap = new Map(Object.entries(magicnumbers.literal));
+    const m = readMagicNumber('magicnumbers.json');
+    primitiveMap = m.primitiveMap;
+    literalMap = m.literalMap;
     const enums = JSON.parse(readFileSync('enum.json', 'utf8'));
     enumTypes = new Set(Object.keys(enums));
     typedefs = JSON.parse(readFileSync('typedef.json', 'utf8'));

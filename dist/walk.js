@@ -1,4 +1,6 @@
+import {} from './magicnumber.js';
 import { readFileSync, writeFileSync } from 'fs';
+import { readMagicNumber } from './magicnumber.js';
 import { Init, offset, readBytes, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
 import { readVector } from './generics/vector.js';
 import { readPrimitive } from './generics/primitive.js';
@@ -7,16 +9,34 @@ import { readUnorderedSet } from './generics/unorderedset.js';
 import { readCvEnumMap } from './generics/cvenummap.js';
 import { readPair } from './generics/pair.js';
 const definitions = JSON.parse(readFileSync('definitions.json', 'utf8'));
-const primitive = JSON.parse(readFileSync('primitive.json', 'utf8'));
 const enums = JSON.parse(readFileSync('enum.json', 'utf8'));
 export const tableCount = JSON.parse(readFileSync('tableCount.json', 'utf8'));
-const iterate = JSON.parse(readFileSync('iterate.json', 'utf8'));
-export const primitiveMap = new Map(primitive.map(type => [type.name, type]));
+const { iterateMap, primitiveMap } = readMagicNumber('magicnumbers.json');
+export { primitiveMap };
 const input = process.argv[2];
 if (!input) {
     throw new Error('Decompressed file path is required.');
 }
 Init(input);
+function findMemberValue(resultArray, targetName) {
+    // 앞에서부터(인덱스 0부터) 순서대로 탐색
+    for (let i = 0; i < resultArray.length; i++) {
+        const item = resultArray[i];
+        if (item && item.name === targetName) {
+            // 숫자 값이 제대로 존재하는지 확인
+            if (typeof item.value === 'number') {
+                return item.value;
+            }
+            // 만약 value가 없고 hex 문자열인 data만 있다면 변환 시도
+            if (item.data) {
+                // 주의: 엔디안(Endian) 문제가 있을 수 있으므로 readPrimitive에서 
+                // 정확한 number 타입의 value를 넣어두는 것이 가장 안전합니다.
+                return parseInt(item.data, 16);
+            }
+        }
+    }
+    throw new Error(`Cannot find member '${targetName}' for dynamic iteration.`);
+}
 /*
  * ------------------------------------------------------------
  * Type helpers
@@ -79,68 +99,74 @@ function walkDefinition(type) {
     for (const call of definition.calls) {
         if (stopped)
             break;
-        const name = call.name || call.call;
-        if (!call.type) {
-            Stop(`Unknown/null type at field '${name}'.`);
-            break;
-        }
-        // m_xxx[i][j] 같은 indexed call
-        const indices = [...name.matchAll(/\[([A-Za-z_]\w*)\]/g)]
-            .map(m => m[1]);
-        if (indices.length > 0) {
-            const callType = call.type;
-            // CvEnumMap<Enum, T>[i][j]의 최종 원소 타입은 T
-            if (typeName(callType) === 'CvEnumMap') {
-                let elementType = typeArgs(callType)[1];
-                // T* -> T
-                const elementTypeName = typeName(elementType);
-                if (elementTypeName && elementTypeName.endsWith('*')) {
-                    elementType = {
-                        name: elementTypeName.slice(0, -1).trim(),
-                        args: elementTypeName
-                    };
-                }
-                const counts = [];
-                for (const state of call.state || []) {
-                    if (state.of !== 'for')
-                        continue;
-                    const value = iterate[state.exp];
-                    if (value === undefined) {
-                        throw new Error(`Unknown iteration expression '${state.exp}'.`);
-                    }
-                    const count = typeof value === 'number'
-                        ? value
-                        : tableCount[value];
-                    if (count === undefined) {
-                        throw new Error(`Unknown iteration count '${value}'.`);
-                    }
-                    counts.push(count);
-                }
-                if (counts.length !== indices.length) {
-                    throw new Error(`Index/state mismatch at '${name}': ` +
-                        `${indices.length} indices, ${counts.length} loops.`);
-                }
-                // 모든 loop 조합을 생성
-                function walkIndices(depth, currentName) {
-                    if (depth === counts.length) {
-                        result.push(readType(elementType, currentName));
-                        return;
-                    }
-                    for (let i = 0; counts[depth] && i < counts[depth]; i++) {
-                        walkIndices(depth + 1, `${currentName}[${i}]`);
-                    }
-                }
-                walkIndices(0, name.replace(/\[[A-Za-z_]\w*\]/g, ''));
-                continue;
+        try {
+            const name = call.name || call.call;
+            if (!call.type) {
+                Stop(`Unknown/null type at field '${name}'.`);
+                break;
             }
+            // m_xxx[i][j] 같은 indexed call
+            const indices = [...name.matchAll(/\[([A-Za-z_]\w*)\]/g)]
+                .map(m => m[1]);
+            if (indices.length > 0) {
+                const callType = call.type;
+                // CvEnumMap<Enum, T>[i][j]의 최종 원소 타입은 T
+                if (typeName(callType) === 'CvEnumMap') {
+                    let elementType = typeArgs(callType)[1];
+                    // T* -> T
+                    const elementTypeName = typeName(elementType);
+                    if (elementTypeName && elementTypeName.endsWith('*')) {
+                        elementType = {
+                            name: elementTypeName.slice(0, -1).trim(),
+                            args: elementTypeName
+                        };
+                    }
+                    const counts = [];
+                    for (const state of call.state || []) {
+                        if (state.of !== 'for')
+                            continue;
+                        const value = iterateMap.get(state.exp);
+                        if (value === undefined) {
+                            throw new Error(`Unknown iteration expression '${state.exp}'.`);
+                        }
+                        const count = value.t === 'literal'
+                            ? value.v
+                            : tableCount[value.v];
+                        console.log(value.t, value.v, count);
+                        if (count === undefined) {
+                            throw new Error(`Unknown iteration count '${value}'.`);
+                        }
+                        counts.push(count);
+                    }
+                    if (counts.length !== indices.length) {
+                        throw new Error(`Index/state mismatch at '${name}': ` +
+                            `${indices.length} indices, ${counts.length} loops.`);
+                    }
+                    // 모든 loop 조합을 생성
+                    function walkIndices(depth, currentName) {
+                        if (depth === counts.length) {
+                            result.push(readType(elementType, currentName));
+                            return;
+                        }
+                        for (let i = 0; counts[depth] && i < counts[depth]; i++) {
+                            walkIndices(depth + 1, `${currentName}[${i}]`);
+                        }
+                    }
+                    walkIndices(0, name.replace(/\[[A-Za-z_]\w*\]/g, ''));
+                    continue;
+                }
+            }
+            const field = call.dimensions?.length
+                ? readArray(call.type, call.dimensions, name)
+                : readType(call.type, name);
+            if (field === null) {
+                break;
+            }
+            result.push(field);
         }
-        const field = call.dimensions?.length
-            ? readArray(call.type, call.dimensions, name)
-            : readType(call.type, name);
-        if (field === null) {
-            break;
+        catch (e) {
+            Stop(e);
         }
-        result.push(field);
     }
     return result;
 }
@@ -245,10 +271,14 @@ export function readType(type, name) {
  * ------------------------------------------------------------
  */
 const result = {
+    //CvGame::Read()
     ...readSaveHeader(),
     CvGame: walkDefinition('CvGame'),
     GameDB: readCvString('GameDB'),
+    //CvMap::Read()
     CvMap: walkDefinition('CvMap'),
+    //CvTeam::Read() * 64
+    //CvPlayer::Read() * 64
 };
 writeFileSync('parsed.json', JSON.stringify(result, null, 2));
 console.log(`Save Version: ${result.saveVersion}`);

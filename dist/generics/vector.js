@@ -1,3 +1,4 @@
+import {} from '../magicnumber.js';
 import { readType } from '../walk.js';
 import { offset, readContainerCount, typeArgs, typeToString } from './util.js';
 export function readVector(type, name) {

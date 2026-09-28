@@ -1,3 +1,4 @@
+import {} from '../magicnumber.js';
 import { readType } from "../walk.js";
 import { Stop, typeArgs, typeToString } from "./util.js";
 export function readPair(type, name) {

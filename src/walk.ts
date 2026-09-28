@@ -1,4 +1,6 @@
+import { type DefinitionType } from './magicnumber.js';
 import { readFileSync, writeFileSync } from 'fs';
+import { readMagicNumber } from './magicnumber.js';
 
 import type { Definition } from './definition.js';
 import { Init, offset, readBytes, readString, Stop, stopped, typeArgs, typeName, typeToString } from './generics/util.js';
@@ -12,9 +14,6 @@ const definitions: Record<string, { calls: Definition[] }> = JSON.parse(
   readFileSync( 'definitions.json', 'utf8')
 );
 
-const primitive: { name: string; size: number }[] = JSON.parse(
-  readFileSync('primitive.json', 'utf8')
-);
 
 const enums: Record<string, Record<string, number>> = JSON.parse(
   readFileSync('enum.json', 'utf8')
@@ -22,9 +21,10 @@ const enums: Record<string, Record<string, number>> = JSON.parse(
 export const tableCount: Record<string, number> = JSON.parse(
   readFileSync('tableCount.json', 'utf8')
 );
-const iterate: Record<string, string | number> = JSON.parse(
-  readFileSync('iterate.json', 'utf8')
-);
+
+const { iterateMap, primitiveMap } = readMagicNumber('magicnumbers.json');
+export { primitiveMap };
+
 export type CvEnumMapInfo = TypeInfo & {
   values: TypeInfo[];
 };
@@ -32,16 +32,34 @@ type StringInfo = PrimitiveInfo & {
   value: string;
 };
 
-export const primitiveMap = new Map(
-  primitive.map(type => [type.name, type])
-);
-
-
 const input = process.argv[2];
 if (!input) {
   throw new Error('Decompressed file path is required.');
 }
 Init(input);
+
+function findMemberValue(resultArray: any[], targetName: string): number {
+  // 앞에서부터(인덱스 0부터) 순서대로 탐색
+  for (let i = 0; i < resultArray.length; i++) {
+    const item = resultArray[i];
+    
+    if (item && item.name === targetName) {
+      // 숫자 값이 제대로 존재하는지 확인
+      if (typeof item.value === 'number') {
+        return item.value;
+      }
+      
+      // 만약 value가 없고 hex 문자열인 data만 있다면 변환 시도
+      if (item.data) {
+         // 주의: 엔디안(Endian) 문제가 있을 수 있으므로 readPrimitive에서 
+         // 정확한 number 타입의 value를 넣어두는 것이 가장 안전합니다.
+         return parseInt(item.data, 16); 
+      }
+    }
+  }
+  
+  throw new Error(`Cannot find member '${targetName}' for dynamic iteration.`);
+}
 
 /*
  * ------------------------------------------------------------
@@ -135,7 +153,8 @@ function walkDefinition(type: string): any[] | null {
   const result = [];
 
   for (const call of definition.calls) {
-    if (stopped) break;
+      if (stopped) break;
+      try {
 
     const name = call.name || call.call;
 
@@ -169,7 +188,7 @@ function walkDefinition(type: string): any[] | null {
         for (const state of call.state || []) {
           if (state.of !== 'for') continue;
 
-          const value = iterate[state.exp];
+            const value = iterateMap.get(state.exp);
 
           if (value === undefined) {
             throw new Error(
@@ -178,9 +197,10 @@ function walkDefinition(type: string): any[] | null {
           }
 
           const count =
-            typeof value === 'number'
-              ? value
-              : tableCount[value];
+            value.t === 'literal'
+              ? value.v
+                : tableCount[value.v];
+            console.log(value.t, value.v, count);
 
           if (count === undefined) {
             throw new Error(
@@ -230,8 +250,11 @@ function walkDefinition(type: string): any[] | null {
     }
 
     result.push(field);
+      }
+      catch (e: any) {
+          Stop(e);
+      }
   }
-
   return result;
 }
 
@@ -248,7 +271,7 @@ function getArrayCount(expr: string): number {
   throw new Error(`Unknown array count '${expr}'.`);
 }
 
-function readArray(type: string, dimensions: string[], name: string, depth = 0): any[] {
+function readArray(type: DefinitionType, dimensions: string[], name: string, depth = 0): any[] {
   const current = dimensions[depth];
   if (!current) {
     throw new Error(`Invalid array dimensions at '${name}'.`);
@@ -299,7 +322,7 @@ export type PairInfo = TypeInfo & {
 type NestedInfo = TypeInfo & {
   fields: TypeInfo[];
 };
-export function readType(type: string, name: string): TypeInfo | NestedInfo | null {
+export function readType(type: DefinitionType, name: string): TypeInfo | NestedInfo | null {
   if (stopped) return null;
 
   const typeNameValue = typeName(type);
@@ -375,11 +398,16 @@ export function readType(type: string, name: string): TypeInfo | NestedInfo | nu
  */
 
 const result = {
-  ...readSaveHeader(),
-  CvGame: walkDefinition('CvGame'),
-  GameDB: readCvString('GameDB'),
-  
-  CvMap: walkDefinition('CvMap'),
+    //CvGame::Read()
+    ...readSaveHeader(),
+    CvGame: walkDefinition('CvGame'),
+    GameDB: readCvString('GameDB'),
+
+    //CvMap::Read()
+    CvMap: walkDefinition('CvMap'),
+    
+    //CvTeam::Read() * 64
+    //CvPlayer::Read() * 64
 };
 
 writeFileSync(

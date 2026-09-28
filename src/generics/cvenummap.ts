@@ -1,3 +1,4 @@
+import { type DefinitionType } from '../magicnumber.js';
 import { type CvEnumMapInfo, readType, tableCount } from "../walk.js";
 import { typeArgs, typeToString, typeName } from "./util.js";
 
@@ -74,7 +75,7 @@ function getEnumCount(enumType: string): number {
   );
 }
 
-export function readCvEnumMap(type: string, name: string): CvEnumMapInfo | null {
+export function readCvEnumMap(type: DefinitionType, name: string): CvEnumMapInfo | null {
   const args = typeArgs(type);
 
   if (args.length < 2) {

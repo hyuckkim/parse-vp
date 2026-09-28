@@ -1,3 +1,4 @@
+import {} from '../magicnumber.js';
 import { readType, tableCount } from "../walk.js";
 import { typeArgs, typeToString, typeName } from "./util.js";
 function getEnumCount(enumType) {

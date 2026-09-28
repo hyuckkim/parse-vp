@@ -1,1 +1,1 @@
-{"version":3,"file":"pair.d.ts","sourceRoot":"","sources":["../../src/generics/pair.ts"],"names":[],"mappings":"AAAA,OAAO,EAAY,KAAK,QAAQ,EAAE,MAAM,YAAY,CAAC;AAGrD,wBAAgB,QAAQ,CAAC,IAAI,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,GAAG,QAAQ,GAAG,IAAI,CAoBpE"}
+{"version":3,"file":"pair.d.ts","sourceRoot":"","sources":["../../src/generics/pair.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,cAAc,EAAE,MAAM,mBAAmB,CAAC;AACxD,OAAO,EAAY,KAAK,QAAQ,EAAE,MAAM,YAAY,CAAC;AAGrD,wBAAgB,QAAQ,CAAC,IAAI,EAAE,cAAc,EAAE,IAAI,EAAE,MAAM,GAAG,QAAQ,GAAG,IAAI,CAoB5E"}

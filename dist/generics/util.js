@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import { primitiveMap } from "../walk.js";
+import {} from '../magicnumber.js';
 export let offset = 0;
 export let stopped = false;
 export let data;
@@ -10,7 +11,7 @@ export function Init(input) {
 }
 export function readBytes(size) {
     if (offset + size > data.length) {
-        throw new Error(`Unexpected end of data at offset 0x${offset.toString(16)}.`);
+        throw new Error(`Unexpected end of data at offset 0x${offset.toString(16)}. required size was ${size}.`);
     }
     const value = data.subarray(offset, offset + size);
     offset += size;

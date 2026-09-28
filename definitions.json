@@ -1353,9 +1353,9 @@
           ]
         }
       },
-      {
+       {
         "call": "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));",
-        "name": "CvPlot",
+        "name": "mutPlot",
         "type": {
           "name": "CvPlot",
           "args": []

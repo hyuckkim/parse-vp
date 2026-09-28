@@ -1,9 +1,10 @@
+import {} from '../magicnumber.js';
 import { readType } from "../walk.js";
 import { typeArgs, typeToString, readContainerCount, offset } from "./util.js";
 export function readUnorderedSet(type, name) {
     const args = typeArgs(type);
     if (args.length !== 1) {
-        throw new Error(`Invalid unordered_set type: ${typeToString(type)}`);
+        throw new Error(`Invalid unordered_set type: ${JSON.stringify(type)}`);
     }
     const elementType = args[0];
     const countInfo = readContainerCount();

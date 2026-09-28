@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import { primitiveMap } from "../walk.js";
+import { type DefinitionType } from '../magicnumber.js';
 
 export let offset = 0;
 export let stopped = false;
@@ -12,7 +13,7 @@ export function Init(input: string) {
 export function readBytes(size: number) {
   if (offset + size > data.length) {
     throw new Error(
-      `Unexpected end of data at offset 0x${offset.toString(16)}.`
+        `Unexpected end of data at offset 0x${offset.toString(16)}. required size was ${size}.`
     );
   }
 
@@ -60,14 +61,14 @@ export function readContainerCount() {
   };
 }
 
-export function typeArgs(type: { name: string; args: any[] } | string): any[] {
+export function typeArgs(type: DefinitionType | string): any[] {
   if (!type || typeof type !== 'object') {
     return [];
   }
 
   return Array.isArray(type.args) ? type.args : [];
 }
-export function typeToString(type: { name: string; args: any[] } | string): string {
+export function typeToString(type: DefinitionType): string {
   if (!type) {
     return '<null>';
   }
@@ -86,7 +87,7 @@ export function typeToString(type: { name: string; args: any[] } | string): stri
 
   return `${name}<${args.map(typeToString).join(', ')}>`;
 }
-export function typeName(type: { name: string; args: any[] } | string): string | null {
+export function typeName(type: DefinitionType): string | null {
   if (!type) {
     return null;
   }

@@ -1,11 +1,14 @@
+import { type DefinitionType } from './magicnumber.js';
 export declare const tableCount: Record<string, number>;
+declare const { iterateMap, primitiveMap }: {
+    primitiveMap: Map<string, import("./magicnumber.js").primitiveDef>;
+    iterateMap: Map<string, import("./magicnumber.js").IterateRule>;
+    literalMap: Map<string, DefinitionType>;
+};
+export { primitiveMap };
 export type CvEnumMapInfo = TypeInfo & {
     values: TypeInfo[];
 };
-export declare const primitiveMap: Map<string, {
-    name: string;
-    size: number;
-}>;
 export declare const enumReverse: Map<any, any>;
 type TypeInfo = {
     name: string;
@@ -31,6 +34,5 @@ export type PairInfo = TypeInfo & {
 type NestedInfo = TypeInfo & {
     fields: TypeInfo[];
 };
-export declare function readType(type: string, name: string): TypeInfo | NestedInfo | null;
-export {};
+export declare function readType(type: DefinitionType, name: string): TypeInfo | NestedInfo | null;
 //# sourceMappingURL=walk.d.ts.map

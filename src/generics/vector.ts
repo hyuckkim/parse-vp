@@ -1,7 +1,8 @@
+import { type DefinitionType } from '../magicnumber.js';
 import { readType, type CollectionInfo } from '../walk.js';
 import { offset, readContainerCount, typeArgs, typeToString } from './util.js';
 
-export function readVector(type: string, name: string): CollectionInfo | null {
+export function readVector(type: DefinitionType, name: string): CollectionInfo | null {
   const args = typeArgs(type);
 
   if (args.length !== 1) {

@@ -1,7 +1,8 @@
+import { type DefinitionType } from '../magicnumber.js';
 import { readType, type PairInfo } from "../walk.js";
 import { Stop, typeArgs, typeToString } from "./util.js";
 
-export function readPair(type: string, name: string): PairInfo | null {
+export function readPair(type: DefinitionType, name: string): PairInfo | null {
   const args = typeArgs(type);
 
   if (args.length !== 2) {

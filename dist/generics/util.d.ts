@@ -1,3 +1,4 @@
+import { type DefinitionType } from '../magicnumber.js';
 export declare let offset: number;
 export declare let stopped: boolean;
 export declare let data: Buffer;
@@ -11,16 +12,7 @@ export declare function readContainerCount(): {
     count: number;
     data: string;
 };
-export declare function typeArgs(type: {
-    name: string;
-    args: any[];
-} | string): any[];
-export declare function typeToString(type: {
-    name: string;
-    args: any[];
-} | string): string;
-export declare function typeName(type: {
-    name: string;
-    args: any[];
-} | string): string | null;
+export declare function typeArgs(type: DefinitionType | string): any[];
+export declare function typeToString(type: DefinitionType): string;
+export declare function typeName(type: DefinitionType): string | null;
 //# sourceMappingURL=util.d.ts.map
