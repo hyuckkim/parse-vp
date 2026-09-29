@@ -58,7 +58,9 @@ function searchDefinition(typeName: string, src: string): {
     next: string[]
 } | undefined {
     const header = getHeaderContent(typeName, src);
-    const fields = recordAllFields(header ?? '');
+    const fields = recordAllFields(header ?? '', {
+        typedefs,
+    });
     const visitor = getVisitorContent(typeName, src);
 
     if (!visitor) return;
@@ -75,12 +77,11 @@ function searchDefinition(typeName: string, src: string): {
 
             const field = fields.find(field => field.name === type);
             if (!field) return null;
-            const fieldType = useTypedefs(field.type);
 
             return {
                 name: type,
                 raw: call,
-                type: fieldType,
+                type: field.type,
                 dimensions: field.dimensions
             };
         }).filter((call): call is ClassCall => !!call)
@@ -89,18 +90,6 @@ function searchDefinition(typeName: string, src: string): {
         def: calls,
         next: getEveryType(calls.map(call => call.type))
     };
-}
-
-function useTypedefs(call: ClassCallType): ClassCallType {
-    const queue = [call];
-    while (queue.length > 0) {
-        const current = queue.shift()!;
-        if (typedefs[current.name]) {
-            current.name = typedefs[current.name] ?? current.name;
-        }   
-        queue.push(...current.args);
-    }
-    return call;
 }
 
 function getEveryType(call: ClassCallType[]): string[] {

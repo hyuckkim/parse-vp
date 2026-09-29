@@ -8,8 +8,12 @@ type FieldDefinition = {
   name: string;
   dimensions?: string[];
 };
-
-export function recordAllFields(cls: string): FieldDefinition[] {
+let typedefs: Record<string, string> = {};
+export function recordAllFields(cls: string, options: Partial<{
+    typedefs: Record<string, string>
+}> = {}): FieldDefinition[] {
+    typedefs = options.typedefs ?? {};
+    
   const body = extractClassBody(cls);
 
   return getTopLevelDeclarations(body)
@@ -332,7 +336,11 @@ function removeTypeQualifiers(type: string): string {
 
 function parseGenericType(source: string): CppType {
   const type = source.trim();
+    const alias = typedefs?.[type];
 
+  if (alias) {
+    return parseGenericType(alias);
+  }
   const open = findTopLevelGenericOpen(type);
 
   if (open === -1) {
