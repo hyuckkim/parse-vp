@@ -32,28 +32,15 @@
     { "name": "size_t", "size": 4, "encoding": "unsigned" },
     { "name": "GUID", "size": 24, "encoding": "uuid" }
     ],
-    "iterate": {
-      "std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i": {
-        "t": "table", "v": "Victories"
-      },
-      "int j = 0; j < /*5*/ GD_INT_GET(NUM_VICTORY_POINT_AWARDS); ++j": {
-        "t": "literal", "v": 5
-      },
-      "int iY = 0; iY < map.getGridHeight(); ++iY": {
-        "t": "member", "v": "m_iGridWidth"
-      },
-      "int iX = 0; iX < map.getGridWidth(); ++iX": {
-        "t": "member", "v": "m_iGridHeight"
-      }
-    },
     "literal": {
-        "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));": {
-          "name": "mutPlot[iX][iY]",
-          "call": "CvPlot* mutPlot = const_cast<CvPlot*>(map.plotUnchecked(iX, iY));",
+        "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
+          "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
+          "name": "m_ppaaiTeamVictoryRank",
           "type": {
-            "name": "CvPlot",
+            "name": "TeamTypes",
             "args": []
-          }
+          },
+          "dimensions": ["Victories", "5"]
         }
     }
 }

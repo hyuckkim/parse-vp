@@ -1,9 +1,9 @@
-type CppType = {
+export type CppType = {
   name: string;
   args: CppType[];
 };
 
-type FieldDefinition = {
+export type FieldDefinition = {
   type: CppType;
   name: string;
   dimensions?: string[];

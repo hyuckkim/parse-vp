@@ -1,6 +1,5 @@
 import { readFileSync } from 'fs';
-import type { Definition } from './definition.js';
-import type { PrimitiveInfo } from './types.js';
+import type { ClassCall, PrimitiveInfo } from './types.js';
 
 export function readMagicNumber(path: string) {
     const magicnumbers = JSON.parse(
@@ -9,7 +8,7 @@ export function readMagicNumber(path: string) {
     const primitiveMap = new Map<string, PrimitiveInfo>(
         magicnumbers.primitive.map((type: { name: string }) => [type.name, type])
     );
-    const literalMap = new Map<string, Definition>(
+    const literalMap = new Map<string, ClassCall>(
         Object.entries(magicnumbers.literal)
     );
 

@@ -822,6 +822,18 @@
       }
     },
     {
+      "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
+      "name": "m_ppaaiTeamVictoryRank",
+      "type": {
+        "name": "TeamTypes",
+        "args": []
+      },
+      "dimensions": [
+        "Victories",
+        "5"
+      ]
+    },
+    {
       "name": "m_ppaiContractUnits",
       "raw": "game.m_ppaiContractUnits",
       "type": {

@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import { readMagicNumber } from '../magicnumber.js';
 import type { CallInfo, ClassCall, ClassCallType, PrimitiveInfo } from '../types.js';
 import { getHeaderContent, getVisitorContent } from './file.js';
-import { recordAllFields } from './recordAllFields.js';
+import { recordAllFields, type FieldDefinition } from './recordAllFields.js';
 import { collectTypedefs } from '../typedef.js';
 
 function collectDefinitions(rootType: string | string[], src: string): Record<string, CallInfo> {
@@ -65,31 +65,45 @@ function searchDefinition(typeName: string, src: string): {
 
     if (!visitor) return;
     
-    const calls: ClassCall[] = [
-        ...visitor.matchAll(
-            /visitor\((.+)\);/g
-        ).map((match: RegExpExecArray): ClassCall | null => {
-            const call = match[1]?.trim();
-            if (!call) return null;
+    const calls: ClassCall[] = visitor.split('\n')
+        .map(line => line.trim())
+        .map(line => {
+            return getClassCall(line, fields)
+             ?? getLiteralCall(line);
+        })
+        .filter((call): call is ClassCall => call !== null);
 
-            const type = patternizeCall(call);
-            if (!type) return null;
-
-            const field = fields.find(field => field.name === type);
-            if (!field) return null;
-
-            return {
-                name: type,
-                raw: call,
-                type: field.type,
-                dimensions: field.dimensions
-            };
-        }).filter((call): call is ClassCall => !!call)
-    ];
     return {
         def: calls,
         next: getEveryType(calls.map(call => call.type))
     };
+}
+
+function getClassCall(line: string, fields: FieldDefinition[]): ClassCall | null {
+    const match = line.match(/visitor\((.+)\);/);
+    if (!match) return null;
+
+    const call = match[1]?.trim();
+    if (!call) return null;
+
+    const type = patternizeCall(call);
+    if (!type) return null;
+
+    const field = fields.find(field => field.name === type);
+    if (!field) return null;
+
+    return {
+        name: type,
+        raw: call,
+        type: field.type,
+        dimensions: field.dimensions
+    };
+}
+function getLiteralCall(line: string): ClassCall | null {
+    if (!literalMap.has(line)) {
+        return null;
+    }
+    return literalMap.get(line) || null;
 }
 
 function getEveryType(call: ClassCallType[]): string[] {
@@ -121,6 +135,7 @@ function patternizeNormalType(call: string): string | null {
 const gamePath = 'Community-Patch-DLL';
 const {
     primitiveMap,
+    literalMap,
 } = readMagicNumber('magicnumber.json');
 const typedefs = collectTypedefs(gamePath);
 const d = collectDefinitions('CvGame', gamePath);
