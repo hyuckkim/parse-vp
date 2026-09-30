@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 import { readMagicNumber } from '../magicnumber.js';
-import type { CallInfo, ClassCall, ClassCallType, PrimitiveInfo } from '../types.js';
+import type { CallInfo, ClassCall, ClassCallType, EnumInfo, PrimitiveInfo } from '../types.js';
 import { getHeaderContent, getVisitorContent } from './file.js';
 import { recordAllFields, type FieldDefinition } from './recordAllFields.js';
 import { collectTypedefs } from '../typedef.js';
@@ -36,6 +36,11 @@ function visitDefinition(typeName: string, src: string): {
         if (!def) return;
         return { def, next: [] };
     }
+    if (isEnumType(typeName)) {
+        const def = asEnumType(typeName);
+        if (!def) return;
+        return { def, next: [] };
+    }
 
     return searchDefinition(typeName, src);
 }
@@ -51,6 +56,18 @@ function asPrimitiveType(typeName: string): PrimitiveInfo | undefined {
         name: def.name,
         size: def.size,
         encoding: def.encoding
+    }
+}
+function isEnumType(typeName: string): boolean {
+    return enums[typeName] !== undefined;
+}
+function asEnumType(typeName: string): EnumInfo | undefined {
+    const def = enums[typeName];
+    if (!def) return;
+
+    return {
+        name: typeName,
+        values: def.fields,
     }
 }
 
@@ -139,8 +156,13 @@ const {
     literalMap,
 } = readMagicNumber('magicnumber.json');
 const typedefs = collectTypedefs(gamePath);
-const enums = await getEnums('Civ5CoreDatabase.db',
-    `${gamePath}\\CvGameCoreDLLUtil\\include\\CvEnums.h`);
+const enums = {
+    ...await getEnums('Civ5CoreDatabase.db',
+    `${gamePath}\\CvGameCoreDLLUtil\\include\\CvEnums.h`),
+    ...await getEnums('Civ5CoreDatabase.db',
+    `${gamePath}\\CvGameCoreDLL_Expansion2\\CvDiplomacyAIEnums.h`)
+};
+// writeFileSync('enums.json', JSON.stringify(enums, null, 2), 'utf8');
 
 const d = collectDefinitions('CvGame', gamePath);
 writeFileSync('def.json', JSON.stringify(d, null, 2), 'utf8');

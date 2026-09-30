@@ -19,7 +19,7 @@ export type ClassCallType = {
 }
 export type EnumInfo = {
     name: string,
-    values: string[]
+    values: Record<string, number>,
 }
 export type GenericInfo = {
     name: string,

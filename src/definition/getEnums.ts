@@ -451,7 +451,7 @@ async function buildEnumDefinitions(
             );
         }
 
-        result[tableName] = {
+        result[enumInfo.name] = {
             length,
             fields: getEnumFields(enumInfo)
         };

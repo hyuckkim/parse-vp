@@ -1039,6 +1039,59 @@
     "size": 1,
     "encoding": "signed"
   },
+  "PlayerTypes": {
+    "name": "PlayerTypes",
+    "values": {
+      "NO_PLAYER": -1
+    }
+  },
+  "HandicapTypes": {
+    "name": "HandicapTypes",
+    "values": {
+      "NO_HANDICAP": -1
+    }
+  },
+  "UnitTypes": {
+    "name": "UnitTypes",
+    "values": {
+      "NO_UNIT": -1
+    }
+  },
+  "TeamTypes": {
+    "name": "TeamTypes",
+    "values": {
+      "NO_TEAM": -1
+    }
+  },
+  "VictoryTypes": {
+    "name": "VictoryTypes",
+    "values": {
+      "NO_VICTORY": -1
+    }
+  },
+  "GameStateTypes": {
+    "name": "GameStateTypes",
+    "values": {
+      "GAMESTATE_ON": 0,
+      "GAMESTATE_OVER": 1,
+      "GAMESTATE_EXTENDED": 2
+    }
+  },
+  "RouteTypes": {
+    "name": "RouteTypes",
+    "values": {
+      "NO_ROUTE": -1,
+      "ROUTE_ROAD": 0,
+      "ROUTE_RAILROAD": 1,
+      "ROUTE_ANY": 2
+    }
+  },
+  "EraTypes": {
+    "name": "EraTypes",
+    "values": {
+      "NO_ERA": -1
+    }
+  },
   "char": {
     "name": "char",
     "size": 1,
@@ -1316,6 +1369,42 @@
     "name": "size_t",
     "size": 4,
     "encoding": "unsigned"
+  },
+  "ResourceTypes": {
+    "name": "ResourceTypes",
+    "values": {
+      "NO_RESOURCE": -1
+    }
+  },
+  "UnitClassTypes": {
+    "name": "UnitClassTypes",
+    "values": {
+      "NO_UNITCLASS": -1
+    }
+  },
+  "BuildingClassTypes": {
+    "name": "BuildingClassTypes",
+    "values": {
+      "NO_BUILDINGCLASS": -1
+    }
+  },
+  "ProjectTypes": {
+    "name": "ProjectTypes",
+    "values": {
+      "NO_PROJECT": -1
+    }
+  },
+  "SpecialUnitTypes": {
+    "name": "SpecialUnitTypes",
+    "values": {
+      "NO_SPECIALUNIT": -1
+    }
+  },
+  "ContractTypes": {
+    "name": "ContractTypes",
+    "values": {
+      "NO_CONTRACT": -1
+    }
   },
   "CvReplayMessage": [
     {
@@ -1932,12 +2021,47 @@
       }
     }
   ],
+  "ReplayMessageTypes": {
+    "name": "ReplayMessageTypes",
+    "values": {
+      "NO_REPLAY_MESSAGE": -1,
+      "REPLAY_MESSAGE_MAJOR_EVENT": 0,
+      "REPLAY_MESSAGE_CITY_FOUNDED": 1,
+      "REPLAY_MESSAGE_PLOT_OWNER_CHANGE": 2,
+      "REPLAY_MESSAGE_CITY_CAPTURED": 3,
+      "REPLAY_MESSAGE_CITY_DESTROYED": 4,
+      "REPLAY_MESSAGE_RELIGION_FOUNDED": 5,
+      "REPLAY_MESSAGE_PANTHEON_FOUNDED": 6
+    }
+  },
   "short": {
     "name": "short",
     "size": 2,
     "encoding": "signed"
   },
+  "PeaceTreatyTypes": {
+    "name": "PeaceTreatyTypes",
+    "values": {
+      "NO_PEACE_TREATY_TYPE": -1,
+      "PEACE_TREATY_WHITE_PEACE": 0,
+      "PEACE_TREATY_ARMISTICE": 1,
+      "PEACE_TREATY_SETTLEMENT": 2,
+      "PEACE_TREATY_BACKDOWN": 3,
+      "PEACE_TREATY_SUBMISSION": 4,
+      "PEACE_TREATY_SURRENDER": 5,
+      "PEACE_TREATY_CESSION": 6,
+      "PEACE_TREATY_CAPITULATION": 7,
+      "PEACE_TREATY_UNCONDITIONAL_SURRENDER": 8
+    }
+  },
   "CvTradedItem": [],
+  "ReligionTypes": {
+    "name": "ReligionTypes",
+    "values": {
+      "NO_RELIGION": -1,
+      "RELIGION_PANTHEON": 0
+    }
+  },
   "CvReligionBeliefs": [
     {
       "name": "m_eReligion",
@@ -1974,9 +2098,45 @@
       }
     }
   ],
+  "GreatWorkType": {
+    "name": "GreatWorkType",
+    "values": {
+      "NO_GREAT_WORK": -1
+    }
+  },
+  "GreatWorkClass": {
+    "name": "GreatWorkClass",
+    "values": {
+      "NO_GREAT_WORK_CLASS": -1
+    }
+  },
+  "LeagueTypes": {
+    "name": "LeagueTypes",
+    "values": {
+      "NO_LEAGUE": -1
+    }
+  },
+  "LeagueNameTypes": {
+    "name": "LeagueNameTypes",
+    "values": {
+      "NO_LEAGUE_NAME": -1
+    }
+  },
+  "LeagueSpecialSessionTypes": {
+    "name": "LeagueSpecialSessionTypes",
+    "values": {
+      "NO_LEAGUE_SPECIAL_SESSION": -1
+    }
+  },
   "CvEnactProposal": [],
   "CvRepealProposal": [],
   "CvActiveResolution": [],
   "Member": [],
-  "Project": []
+  "Project": [],
+  "CorporationTypes": {
+    "name": "CorporationTypes",
+    "values": {
+      "NO_CORPORATION": -1
+    }
+  }
 }

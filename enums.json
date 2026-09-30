@@ -1,9 +1,9 @@
 {
-  "eCiv5GameCoreMPools": {
+  "eCiv5GameCoreMPoolType": {
     "length": 0,
     "fields": {}
   },
-  "CvBins": {
+  "CvBinType": {
     "length": 3,
     "fields": {
       "BIN_UNKNOWN": -1,
@@ -12,7 +12,7 @@
       "BIN_DX9": 2
     }
   },
-  "Armies": {
+  "ArmyType": {
     "length": 6,
     "fields": {
       "ARMY_TYPE_ANY": -1,
@@ -24,7 +24,7 @@
       "ARMY_TYPE_ESCORT_SEA": 5
     }
   },
-  "BattleUnits": {
+  "BattleUnitTypes": {
     "length": 3,
     "fields": {
       "BATTLE_UNIT_ATTACKER": 0,
@@ -32,7 +32,7 @@
       "BATTLE_UNIT_INTERCEPTOR": 2
     }
   },
-  "DiploStatements": {
+  "DiploStatementTypes": {
     "length": 113,
     "fields": {
       "NO_DIPLO_STATEMENT_TYPE": -1,
@@ -151,7 +151,7 @@
       "DIPLO_STATEMENT_LIBERATE_VASSAL": 112
     }
   },
-  "DiploMessages": {
+  "DiploMessageTypes": {
     "length": 312,
     "fields": {
       "NO_DIPLO_MESSAGE_TYPE": -1,
@@ -469,7 +469,7 @@
       "DIPLO_MESSAGE_WINNER_PEACE_OFFER": 311
     }
   },
-  "GameStates": {
+  "GameStateTypes": {
     "length": 3,
     "fields": {
       "GAMESTATE_ON": 0,
@@ -477,7 +477,7 @@
       "GAMESTATE_EXTENDED": 2
     }
   },
-  "CameraLookAts": {
+  "CameraLookAtTypes": {
     "length": 8,
     "fields": {
       "CAMERALOOKAT_NORMAL": 0,
@@ -508,7 +508,7 @@
       "UNHAPPY_REASON_BUILDINGS": 12
     }
   },
-  "BarbSpawnReasons": {
+  "BarbSpawnReason": {
     "length": 10,
     "fields": {
       "BARB_SPAWN_NEW_ENCAMPMENT": 0,
@@ -523,7 +523,7 @@
       "BARB_SPAWN_EVENT": 9
     }
   },
-  "UnitCreationReasons": {
+  "UnitCreationReason": {
     "length": 8,
     "fields": {
       "REASON_DEFAULT": 0,
@@ -536,7 +536,7 @@
       "REASON_LUA": 7
     }
   },
-  "Directions": {
+  "DirectionTypes": {
     "length": 7,
     "fields": {
       "DIRECTION_NORTHEAST": 0,
@@ -548,7 +548,7 @@
       "NO_DIRECTION": 6
     }
   },
-  "FlowDirections": {
+  "FlowDirectionTypes": {
     "length": 33,
     "fields": {
       "FLOWDIRECTION_NORTH": 0,
@@ -566,7 +566,7 @@
       "FLOWDIRECTION_NORTHEAST_MASK": 32
     }
   },
-  "Rotations": {
+  "RotationTypes": {
     "length": 4,
     "fields": {
       "ROTATE_NONE": 0,
@@ -575,7 +575,7 @@
       "ROTATE_270CW": 3
     }
   },
-  "WrapDirections": {
+  "WrapDirection": {
     "length": 6,
     "fields": {
       "WRAP_SAVE": 0,
@@ -587,19 +587,19 @@
       "WRAP_DOWN": 5
     }
   },
-  "Colors": {
+  "ColorTypes": {
     "length": 245,
     "fields": {
       "NO_COLOR": -1
     }
   },
-  "PlayerColors": {
+  "PlayerColorTypes": {
     "length": 150,
     "fields": {
       "NO_PLAYERCOLOR": -1
     }
   },
-  "InterfaceModes": {
+  "InterfaceModeTypes": {
     "length": 25,
     "fields": {
       "NO_INTERFACEMODE": -1,
@@ -630,7 +630,7 @@
       "INTERFACEMODE_SEALIFT": 24
     }
   },
-  "InterfaceMessages": {
+  "InterfaceMessageTypes": {
     "length": 7,
     "fields": {
       "NO_MESSAGE_TYPE": -1,
@@ -643,7 +643,7 @@
       "MESSAGE_TYPE_QUEST": 6
     }
   },
-  "Notifications": {
+  "NotificationTypes": {
     "length": 152,
     "fields": {
       "NO_NOTIFICATION_TYPE": -1,
@@ -791,7 +791,7 @@
       "NOTIFICATION_CITY_REVOLT": 3851067743
     }
   },
-  "NotificationAggregates": {
+  "NotificationAggregateTypes": {
     "length": 5,
     "fields": {
       "NO_NOTIFICATION_AGGREGATE_TYPE": -1,
@@ -802,7 +802,7 @@
       "NOTIFICATION_AGGREGATE_VERY_GOOD": 4
     }
   },
-  "MinimapModes": {
+  "MinimapModeTypes": {
     "length": 4,
     "fields": {
       "NO_MINIMAPMODE": -1,
@@ -855,7 +855,7 @@
       "NUM_INTERFACE_DIRTY_BITS": 37
     }
   },
-  "CityUpdates": {
+  "CityUpdateTypes": {
     "length": 5,
     "fields": {
       "NO_CITY_UPDATE_TYPE": -1,
@@ -866,7 +866,7 @@
       "CITY_UPDATE_TYPE_GARRISON": 4
     }
   },
-  "ButtonPopups": {
+  "ButtonPopupTypes": {
     "length": 4247147932,
     "fields": {
       "BUTTONPOPUP_TEXT": 0,
@@ -976,19 +976,19 @@
       "BUTTONPOPUP_MODDER_20": 1325553634
     }
   },
-  "Climates": {
+  "ClimateTypes": {
     "length": 5,
     "fields": {
       "NO_CLIMATE": -1
     }
   },
-  "SeaLevels": {
+  "SeaLevelTypes": {
     "length": 3,
     "fields": {
       "NO_SEALEVEL": -1
     }
   },
-  "WorldSizes": {
+  "WorldSizeTypes": {
     "length": 7,
     "fields": {
       "NO_WORLDSIZE": -1,
@@ -1018,7 +1018,7 @@
       "INIT_GAME_STARTED": 11
     }
   },
-  "Terrains": {
+  "TerrainTypes": {
     "length": 9,
     "fields": {
       "NO_TERRAIN": -1,
@@ -1033,7 +1033,7 @@
       "TERRAIN_HILL": 8
     }
   },
-  "Plots": {
+  "PlotTypes": {
     "length": 4,
     "fields": {
       "NO_PLOT": -1,
@@ -1043,19 +1043,19 @@
       "PLOT_OCEAN": 3
     }
   },
-  "Flavors": {
+  "FlavorTypes": {
     "length": 38,
     "fields": {
       "NO_FLAVOR": -1
     }
   },
-  "Emphasizes": {
+  "EmphasizeTypes": {
     "length": 0,
     "fields": {
       "NO_EMPHASIZE": -1
     }
   },
-  "GameOptions": {
+  "GameOptionTypes": {
     "length": 22,
     "fields": {
       "NO_GAMEOPTION": -1,
@@ -1083,7 +1083,7 @@
       "GAMEOPTION_NO_RELIGION": 21
     }
   },
-  "MultiplayerOptions": {
+  "MultiplayerOptionTypes": {
     "length": 4,
     "fields": {
       "NO_MPOPTION": -1,
@@ -1093,14 +1093,14 @@
       "MPOPTION_ANONYMOUS": 3
     }
   },
-  "SpecialOptions": {
+  "SpecialOptionTypes": {
     "length": 1,
     "fields": {
       "NO_SPECIALOPTION": -1,
       "SPECIALOPTION_REPORT_STATS": 0
     }
   },
-  "PlayerOptions": {
+  "PlayerOptionTypes": {
     "length": 4048108755,
     "fields": {
       "NO_PLAYEROPTION": -1,
@@ -1130,19 +1130,19 @@
       "PLAYEROPTION_QUICK_SELECTION_ADVANCE": 3752237080
     }
   },
-  "Victories": {
+  "VictoryTypes": {
     "length": 5,
     "fields": {
       "NO_VICTORY": -1
     }
   },
-  "SmallAwards": {
+  "SmallAwardTypes": {
     "length": 38,
     "fields": {
       "NO_SMALLAWARD": -1
     }
   },
-  "Features": {
+  "FeatureTypes": {
     "length": 25,
     "fields": {
       "NO_FEATURE": -1,
@@ -1173,19 +1173,19 @@
       "FEATURE_SOLOMONS_MINES": 24
     }
   },
-  "Resources": {
+  "ResourceTypes": {
     "length": 57,
     "fields": {
       "NO_RESOURCE": -1
     }
   },
-  "ResourceClasses": {
+  "ResourceClassTypes": {
     "length": 4,
     "fields": {
       "NO_RESOURCECLASS": -1
     }
   },
-  "ResourceUsages": {
+  "ResourceUsageTypes": {
     "length": 3,
     "fields": {
       "RESOURCEUSAGE_BONUS": 0,
@@ -1193,20 +1193,20 @@
       "RESOURCEUSAGE_LUXURY": 2
     }
   },
-  "Improvements": {
+  "ImprovementTypes": {
     "length": 48,
     "fields": {
       "NO_IMPROVEMENT": -1
     }
   },
-  "ImprovementUsages": {
+  "ImprovementUsageTypes": {
     "length": 2,
     "fields": {
       "IMPROVEMENTUSAGE_BASIC": 0,
       "IMPROVEMENTUSAGE_LANDMARK": 1
     }
   },
-  "Routes": {
+  "RouteTypes": {
     "length": 3,
     "fields": {
       "NO_ROUTE": -1,
@@ -1215,73 +1215,73 @@
       "ROUTE_ANY": 2
     }
   },
-  "Goodies": {
+  "GoodyTypes": {
     "length": 0,
     "fields": {
       "NO_GOODY": -1
     }
   },
-  "Builds": {
+  "BuildTypes": {
     "length": 54,
     "fields": {
       "NO_BUILD": -1
     }
   },
-  "Handicaps": {
+  "HandicapTypes": {
     "length": 0,
     "fields": {
       "NO_HANDICAP": -1
     }
   },
-  "GameSpeeds": {
+  "GameSpeedTypes": {
     "length": 4,
     "fields": {
       "NO_GAMESPEED": -1
     }
   },
-  "TurnTimers": {
+  "TurnTimerTypes": {
     "length": 6,
     "fields": {
       "NO_TURNTIMER": -1
     }
   },
-  "DiploModifiers": {
+  "DiploModifierTypes": {
     "length": 0,
     "fields": {
       "NO_DIPLOMODIFIER": -1
     }
   },
-  "Eras": {
+  "EraTypes": {
     "length": 8,
     "fields": {
       "NO_ERA": -1
     }
   },
-  "Civilizations": {
+  "CivilizationTypes": {
     "length": 45,
     "fields": {
       "NO_CIVILIZATION": -1
     }
   },
-  "MinorCivs": {
+  "MinorCivTypes": {
     "length": 0,
     "fields": {
       "NO_MINORCIV": -1
     }
   },
-  "LeaderHeads": {
+  "LeaderHeadTypes": {
     "length": 0,
     "fields": {
       "NO_LEADER": -1
     }
   },
-  "ArtStyles": {
+  "ArtStyleTypes": {
     "length": 0,
     "fields": {
       "NO_ARTSTYLE": -1
     }
   },
-  "CitySizes": {
+  "CitySizeTypes": {
     "length": 3,
     "fields": {
       "NO_CITYSIZE": -1,
@@ -1290,7 +1290,7 @@
       "CITYSIZE_LARGE": 2
     }
   },
-  "FootstepAudios": {
+  "FootstepAudioTypes": {
     "length": 0,
     "fields": {
       "NO_FOOTSTEPAUDIO": -1
@@ -1302,7 +1302,7 @@
       "NO_FOOTSTEPAUDIO_TAG": -1
     }
   },
-  "ChatTargets": {
+  "ChatTargetTypes": {
     "length": 0,
     "fields": {
       "NO_CHATTARGET": -1,
@@ -1311,98 +1311,98 @@
       "CHATTARGET_PLAYER": -4
     }
   },
-  "Teams": {
+  "TeamTypes": {
     "length": 0,
     "fields": {
       "NO_TEAM": -1
     }
   },
-  "Players": {
+  "PlayerTypes": {
     "length": 0,
     "fields": {
       "NO_PLAYER": -1
     }
   },
-  "Traits": {
+  "TraitTypes": {
     "length": 48,
     "fields": {
       "NO_TRAIT": -1
     }
   },
-  "Religions": {
+  "ReligionTypes": {
     "length": 14,
     "fields": {
       "NO_RELIGION": -1,
       "RELIGION_PANTHEON": 0
     }
   },
-  "Corporations": {
+  "CorporationTypes": {
     "length": 8,
     "fields": {
       "NO_CORPORATION": -1
     }
   },
-  "Contracts": {
+  "ContractTypes": {
     "length": 0,
     "fields": {
       "NO_CONTRACT": -1
     }
   },
-  "Beliefs": {
+  "BeliefTypes": {
     "length": 85,
     "fields": {
       "NO_BELIEF": -1
     }
   },
-  "SpyPassiveBonuses": {
+  "SpyPassiveBonusTypes": {
     "length": 5,
     "fields": {
       "NO_SPY_PASSIVE_BONUS": -1
     }
   },
-  "SpyPassiveBonusDiplomats": {
+  "SpyPassiveBonusDiplomatTypes": {
     "length": 0,
     "fields": {
       "NO_SPY_PASSIVE_BONUS_DIPLOMAT": -1
     }
   },
-  "Leagues": {
+  "LeagueTypes": {
     "length": 0,
     "fields": {
       "NO_LEAGUE": -1
     }
   },
-  "LeagueSpecialSessions": {
+  "LeagueSpecialSessionTypes": {
     "length": 4,
     "fields": {
       "NO_LEAGUE_SPECIAL_SESSION": -1
     }
   },
-  "LeagueNames": {
+  "LeagueNameTypes": {
     "length": 3,
     "fields": {
       "NO_LEAGUE_NAME": -1
     }
   },
-  "LeagueProjects": {
+  "LeagueProjectTypes": {
     "length": 6,
     "fields": {
       "NO_LEAGUE_PROJECT": -1
     }
   },
-  "LeagueProjectRewards": {
+  "LeagueProjectRewardTypes": {
     "length": 18,
     "fields": {
       "NO_LEAGUE_PROJECT_REWARD": -1
     }
   },
-  "Resolutions": {
+  "ResolutionTypes": {
     "length": 30,
     "fields": {
       "NO_RESOLUTION": -1
     }
   },
-  "ResolutionDecisions": {
+  "ResolutionDecisionTypes": {
     "length": 12,
     "fields": {
       "RESOLUTION_DECISION_NONE": 0,
@@ -1419,7 +1419,7 @@
       "RESOLUTION_DECISION_MAJOR_CIV_MEMBER_IDEOLOGY": 11
     }
   },
-  "ArchaeologyChoices": {
+  "ArchaeologyChoiceType": {
     "length": 6,
     "fields": {
       "NO_ARCHAEOLOGY_CHOICE": -1,
@@ -1431,7 +1431,7 @@
       "ARCHAEOLOGY_ARTIFACT_WRITING": 5
     }
   },
-  "Orders": {
+  "OrderTypes": {
     "length": 4,
     "fields": {
       "NO_ORDER": -1,
@@ -1441,7 +1441,7 @@
       "ORDER_MAINTAIN": 3
     }
   },
-  "Tasks": {
+  "TaskTypes": {
     "length": 23,
     "fields": {
       "TASK_RAZE": 0,
@@ -1469,7 +1469,7 @@
       "TASK_ANNEX_PUPPET": 22
     }
   },
-  "CityTaskResults": {
+  "CityTaskResult": {
     "length": 3,
     "fields": {
       "TASK_ABORTED": 0,
@@ -1477,37 +1477,37 @@
       "TASK_QUEUED": 2
     }
   },
-  "BuildingClasses": {
+  "BuildingClassTypes": {
     "length": 223,
     "fields": {
       "NO_BUILDINGCLASS": -1
     }
   },
-  "Buildings": {
+  "BuildingTypes": {
     "length": 284,
     "fields": {
       "NO_BUILDING": -1
     }
   },
-  "Projects": {
+  "ProjectTypes": {
     "length": 9,
     "fields": {
       "NO_PROJECT": -1
     }
   },
-  "Processes": {
+  "ProcessTypes": {
     "length": 12,
     "fields": {
       "NO_PROCESS": -1
     }
   },
-  "Votes": {
+  "VoteTypes": {
     "length": 1,
     "fields": {
       "NO_VOTE": -1
     }
   },
-  "PlayerVotes": {
+  "PlayerVoteTypes": {
     "length": 0,
     "fields": {
       "PLAYER_VOTE_NEVER": -5,
@@ -1517,7 +1517,7 @@
       "NO_PLAYER_VOTE": -1
     }
   },
-  "Calendars": {
+  "CalendarTypes": {
     "length": 7,
     "fields": {
       "NO_CALENDAR": -1,
@@ -1530,7 +1530,7 @@
       "CALENDAR_WEEKS": 6
     }
   },
-  "Domains": {
+  "DomainTypes": {
     "length": 5,
     "fields": {
       "NO_DOMAIN": -1,
@@ -1541,7 +1541,7 @@
       "DOMAIN_HOVER": 4
     }
   },
-  "Wars": {
+  "WarTypes": {
     "length": 3,
     "fields": {
       "WARTYPE_UNDEFINED": 0,
@@ -1549,31 +1549,31 @@
       "WARTYPE_SEA": 2
     }
   },
-  "UnitClasses": {
+  "UnitClassTypes": {
     "length": 124,
     "fields": {
       "NO_UNITCLASS": -1
     }
   },
-  "Units": {
+  "UnitTypes": {
     "length": 215,
     "fields": {
       "NO_UNIT": -1
     }
   },
-  "SpecialUnits": {
+  "SpecialUnitTypes": {
     "length": 4,
     "fields": {
       "NO_SPECIALUNIT": -1
     }
   },
-  "UnitCombats": {
+  "UnitCombatTypes": {
     "length": 0,
     "fields": {
       "NO_UNITCOMBAT": -1
     }
   },
-  "UnitAIs": {
+  "UnitAITypes": {
     "length": 46,
     "fields": {
       "NO_UNITAI": -1,
@@ -1625,43 +1625,43 @@
       "UNITAI_SUBMARINE": 45
     }
   },
-  "Invisibles": {
+  "InvisibleTypes": {
     "length": 0,
     "fields": {
       "NO_INVISIBLE": -1
     }
   },
-  "VoteSources": {
+  "VoteSourceTypes": {
     "length": 2,
     "fields": {
       "NO_VOTESOURCE": -1
     }
   },
-  "Events": {
+  "EventTypes": {
     "length": 24,
     "fields": {
       "NO_EVENT": -1
     }
   },
-  "EventChoices": {
+  "EventChoiceTypes": {
     "length": 76,
     "fields": {
       "NO_EVENT_CHOICE": -1
     }
   },
-  "CityEvents": {
+  "CityEventTypes": {
     "length": 37,
     "fields": {
       "NO_EVENT_CITY": -1
     }
   },
-  "CityEventChoices": {
+  "CityEventChoiceTypes": {
     "length": 98,
     "fields": {
       "NO_EVENT_CHOICE_CITY": -1
     }
   },
-  "EventClasses": {
+  "EventClassTypes": {
     "length": 5,
     "fields": {
       "NO_EVENT_CLASS": -1,
@@ -1672,7 +1672,7 @@
       "EVENT_CLASS_CIV_SPECIFIC": 4
     }
   },
-  "Activities": {
+  "ActivityTypes": {
     "length": 7,
     "fields": {
       "NO_ACTIVITY": -1,
@@ -1685,7 +1685,7 @@
       "ACTIVITY_MISSION": 6
     }
   },
-  "Automates": {
+  "AutomateTypes": {
     "length": 3537399086,
     "fields": {
       "NO_AUTOMATE": -1,
@@ -1697,13 +1697,13 @@
       "AUTOMATE_DIPLOMAT": 3537399085
     }
   },
-  "Missions": {
+  "MissionTypes": {
     "length": 60,
     "fields": {
       "NO_MISSION": -1
     }
   },
-  "MissionAIs": {
+  "MissionAITypes": {
     "length": 5,
     "fields": {
       "NO_MISSIONAI": -1,
@@ -1714,7 +1714,7 @@
       "MISSIONAI_OPMOVE": 4
     }
   },
-  "Commands": {
+  "CommandTypes": {
     "length": 10,
     "fields": {
       "NO_COMMAND": -1,
@@ -1730,7 +1730,7 @@
       "COMMAND_HOTKEY": 9
     }
   },
-  "Controls": {
+  "ControlTypes": {
     "length": 48,
     "fields": {
       "NO_CONTROL": -1,
@@ -1784,37 +1784,37 @@
       "CONTROL_HUMAN_AI_PATH": 47
     }
   },
-  "Promotions": {
+  "PromotionTypes": {
     "length": 0,
     "fields": {
       "NO_PROMOTION": -1
     }
   },
-  "Teches": {
+  "TechTypes": {
     "length": 0,
     "fields": {
       "NO_TECH": -1
     }
   },
-  "Specialists": {
+  "SpecialistTypes": {
     "length": 8,
     "fields": {
       "NO_SPECIALIST": -1
     }
   },
-  "Hurries": {
+  "HurryTypes": {
     "length": 0,
     "fields": {
       "NO_HURRY": -1
     }
   },
-  "CultureLevels": {
+  "CultureLevelTypes": {
     "length": 0,
     "fields": {
       "NO_CULTURELEVEL": -1
     }
   },
-  "Cultures": {
+  "CultureTypes": {
     "length": 7,
     "fields": {
       "NULL_CULTURE": -1,
@@ -1827,19 +1827,19 @@
       "CULTURE_NONE": 6
     }
   },
-  "Policies": {
+  "PolicyTypes": {
     "length": 116,
     "fields": {
       "NO_POLICY": -1
     }
   },
-  "PolicyBranches": {
+  "PolicyBranchTypes": {
     "length": 0,
     "fields": {
       "NO_POLICY_BRANCH_TYPE": -1
     }
   },
-  "FogOfWarModes": {
+  "FogOfWarModeTypes": {
     "length": 3,
     "fields": {
       "FOGOFWARMODE_OFF": 0,
@@ -1847,13 +1847,13 @@
       "FOGOFWARMODE_NOVIS": 2
     }
   },
-  "EntityEvents": {
+  "EntityEventTypes": {
     "length": 34,
     "fields": {
       "ENTITY_EVENT_NONE": -1
     }
   },
-  "AnimationPaths": {
+  "AnimationPathTypes": {
     "length": 38,
     "fields": {
       "ANIMATIONPATH_NONE": -1,
@@ -1897,7 +1897,7 @@
       "ANIMATIONPATH_AIRPATROL": 37
     }
   },
-  "WonderCommands": {
+  "WonderCommandType": {
     "length": 4,
     "fields": {
       "WONDER_NO_OP": 0,
@@ -1906,19 +1906,19 @@
       "WONDER_REMOVED": 3
     }
   },
-  "Cursors": {
+  "CursorTypes": {
     "length": 25,
     "fields": {
       "NO_CURSOR": -1
     }
   },
-  "DiploComments": {
+  "DiploCommentTypes": {
     "length": 0,
     "fields": {
       "NO_DIPLOCOMMENT": -1
     }
   },
-  "NetContacts": {
+  "NetContactTypes": {
     "length": 4,
     "fields": {
       "NO_NETCONTACT": -1,
@@ -1928,7 +1928,7 @@
       "NETCONTACT_BUSY": 3
     }
   },
-  "SaveGames": {
+  "SaveGameTypes": {
     "length": 9,
     "fields": {
       "SAVEGAME_NONE": -1,
@@ -1943,7 +1943,7 @@
       "SAVEGAME_REPLAY": 8
     }
   },
-  "Games": {
+  "GameTypes": {
     "length": 4,
     "fields": {
       "GAME_TYPE_NONE": -1,
@@ -1953,21 +1953,21 @@
       "GAME_EMAIL_MULTIPLAYER": 3
     }
   },
-  "GameStarts": {
+  "GameStartTypes": {
     "length": 2,
     "fields": {
       "GAME_NEW": 0,
       "GAME_LOADED": 1
     }
   },
-  "GameMaps": {
+  "GameMapTypes": {
     "length": 2,
     "fields": {
       "GAME_USER_PARAMETERS": 0,
       "GAME_SCENARIO": 1
     }
   },
-  "GameModes": {
+  "GameMode": {
     "length": 2,
     "fields": {
       "NO_GAMEMODE": -1,
@@ -1975,7 +1975,7 @@
       "GAMEMODE_PITBOSS": 1
     }
   },
-  "SlotClaims": {
+  "SlotClaim": {
     "length": 3,
     "fields": {
       "SLOTCLAIM_UNASSIGNED": 0,
@@ -1993,7 +1993,7 @@
       "SS_OBSERVER": 4
     }
   },
-  "Loads": {
+  "LoadType": {
     "length": 6,
     "fields": {
       "LOAD_NORMAL": 0,
@@ -2014,7 +2014,7 @@
       "LOGIN_CIV_HAS_ID": 3
     }
   },
-  "AudioTags": {
+  "AudioTag": {
     "length": 9,
     "fields": {
       "AUDIOTAG_NONE": -1,
@@ -2029,7 +2029,7 @@
       "AUDIOTAG_LOADTYPE": 8
     }
   },
-  "Versions": {
+  "VersionTypes": {
     "length": 5,
     "fields": {
       "VERSIONTYPE_EXE": 0,
@@ -2039,7 +2039,7 @@
       "VERSIONTYPE_XML": 4
     }
   },
-  "ReplayMessages": {
+  "ReplayMessageTypes": {
     "length": 7,
     "fields": {
       "NO_REPLAY_MESSAGE": -1,
@@ -2052,7 +2052,7 @@
       "REPLAY_MESSAGE_PANTHEON_FOUNDED": 6
     }
   },
-  "ActionSubs": {
+  "ActionSubTypes": {
     "length": 8,
     "fields": {
       "NO_ACTIONSUBTYPE": -1,
@@ -2066,7 +2066,7 @@
       "ACTIONSUBTYPE_MISSION": 7
     }
   },
-  "GameMessages": {
+  "GameMessageTypes": {
     "length": 163,
     "fields": {
       "GAMEMESSAGE_NETWORK_READY": 0,
@@ -2234,7 +2234,7 @@
       "GAMEMESSAGE_SET_PLAYER_DESIRED_SLOT": 162
     }
   },
-  "AdvancedStartActions": {
+  "AdvancedStartActionTypes": {
     "length": 11,
     "fields": {
       "NO_ADVANCEDSTARTACTION": -1,
@@ -2251,7 +2251,7 @@
       "ADVANCEDSTARTACTION_AUTOMATE": 10
     }
   },
-  "Bandwidths": {
+  "BandwidthType": {
     "length": 3,
     "fields": {
       "BANDWIDTH_MODEM": 0,
@@ -2259,7 +2259,7 @@
       "NO_BANDWIDTH": 2
     }
   },
-  "MultiunitFormations": {
+  "MultiunitFormationTypes": {
     "length": 24,
     "fields": {
       "NO_MUFORMATION": -1,
@@ -2289,49 +2289,49 @@
       "MUFORMATION_DIPLOMAT_ESCORT": 23
     }
   },
-  "MultiunitPositions": {
+  "MultiunitPositionTypes": {
     "length": 0,
     "fields": {
       "NO_MUPOSITION": -1
     }
   },
-  "EconomicAIStrategies": {
+  "EconomicAIStrategyTypes": {
     "length": 0,
     "fields": {
       "NO_ECONOMICAISTRATEGY": -1
     }
   },
-  "CitySpecializations": {
+  "CitySpecializationTypes": {
     "length": 11,
     "fields": {
       "NO_CITY_SPECIALIZATION": -1
     }
   },
-  "MilitaryAIStrategies": {
+  "MilitaryAIStrategyTypes": {
     "length": 0,
     "fields": {
       "NO_MILITARYAISTRATEGY": -1
     }
   },
-  "AIStrategies": {
+  "AIStrategyTypes": {
     "length": 0,
     "fields": {
       "NO_AISTRATEGY": -1
     }
   },
-  "AIGrandStrategies": {
+  "AIGrandStrategyTypes": {
     "length": 4,
     "fields": {
       "NO_AIGRANDSTRATEGY": -1
     }
   },
-  "AICityStrategies": {
+  "AICityStrategyTypes": {
     "length": 56,
     "fields": {
       "NO_AICITYSTRATEGY": -1
     }
   },
-  "AITacticalMoves": {
+  "AITacticalMove": {
     "length": 28,
     "fields": {
       "AI_TACTICAL_MOVE_NONE": 0,
@@ -2364,7 +2364,7 @@
       "AI_TACTICAL_BARBARIAN_HUNT": 27
     }
   },
-  "AIHomelandMoves": {
+  "AIHomelandMove": {
     "length": 33,
     "fields": {
       "AI_HOMELAND_MOVE_NONE": 0,
@@ -2402,7 +2402,7 @@
       "AI_HOMELAND_MOVE_OPPORTUNITY_ATTACK": 32
     }
   },
-  "PlayerProximities": {
+  "PlayerProximityTypes": {
     "length": 4,
     "fields": {
       "NO_PLAYER_PROXIMITY": -1,
@@ -2412,7 +2412,7 @@
       "PLAYER_PROXIMITY_NEIGHBORS": 3
     }
   },
-  "DOWs": {
+  "DOWType": {
     "length": 5,
     "fields": {
       "NO_DOW": -1,
@@ -2423,7 +2423,7 @@
       "DOW_PLUNDER_TRADE_UNIT": 4
     }
   },
-  "DiploUIStates": {
+  "DiploUIStateTypes": {
     "length": 44,
     "fields": {
       "NO_DIPLO_UI_STATE": -1,
@@ -2473,7 +2473,7 @@
       "DIPLO_UI_STATE_DISCUSS_END_WORK_WITH_US": 43
     }
   },
-  "FromUIDiploEvents": {
+  "FromUIDiploEventTypes": {
     "length": 41,
     "fields": {
       "NO_FROM_UI_DIPLO_EVENT": -1,
@@ -2520,7 +2520,7 @@
       "FROM_UI_DIPLO_EVENT_MEAN_RESPONSE": 40
     }
   },
-  "LeaderheadAnimations": {
+  "LeaderheadAnimationTypes": {
     "length": 42,
     "fields": {
       "NO_LEADERHEAD_ANIM": -1,
@@ -2545,7 +2545,7 @@
       "LEADERHEAD_ANIM_HATE_NEGATIVE": 41
     }
   },
-  "EndTurnBlockings": {
+  "EndTurnBlockingTypes": {
     "length": 28,
     "fields": {
       "NO_ENDTURN_BLOCKING_TYPE": -1,
@@ -2579,7 +2579,7 @@
       "ENDTURN_BLOCKING_CHOOSE_CITY_FATE": 27
     }
   },
-  "MinorCivTraits": {
+  "MinorCivTraitTypes": {
     "length": 5,
     "fields": {
       "NO_MINOR_CIV_TRAIT_TYPE": -1,
@@ -2590,7 +2590,7 @@
       "MINOR_CIV_TRAIT_RELIGIOUS": 4
     }
   },
-  "CityAIFocuses": {
+  "CityAIFocusTypes": {
     "length": 9,
     "fields": {
       "NO_CITY_AI_FOCUS_TYPE": -1,
@@ -2605,7 +2605,7 @@
       "CITY_AI_FOCUS_TYPE_FAITH": 8
     }
   },
-  "EAchievements": {
+  "EAchievement": {
     "length": 303,
     "fields": {
       "ACHIEVEMENT_WIN_WASHINGTON": 0,
@@ -2913,7 +2913,7 @@
       "ACHIEVEMENT_XP2_60": 302
     }
   },
-  "ESteamStats": {
+  "ESteamStat": {
     "length": 137,
     "fields": {
       "ESTEAMSTAT_TOTAL_WINS": 0,
@@ -3055,7 +3055,7 @@
       "ESTEAMSTAT_BULLIEDGOLD": 136
     }
   },
-  "Advisors": {
+  "AdvisorTypes": {
     "length": 4,
     "fields": {
       "NO_ADVISOR_TYPE": -1,
@@ -3065,7 +3065,7 @@
       "ADVISOR_SCIENCE": 3
     }
   },
-  "GenericWorldAnchors": {
+  "GenericWorldAnchorTypes": {
     "length": 3,
     "fields": {
       "NO_WORLD_ANCHOR": -1,
@@ -3074,7 +3074,7 @@
       "WORLD_ANCHOR_WORKER": 2
     }
   },
-  "GreatPeopleDirectives": {
+  "GreatPeopleDirectiveTypes": {
     "length": 7,
     "fields": {
       "NO_GREAT_PEOPLE_DIRECTIVE_TYPE": -1,
@@ -3087,7 +3087,7 @@
       "GREAT_PEOPLE_DIRECTIVE_FIELD_COMMAND": 6
     }
   },
-  "CombatPredictions": {
+  "CombatPredictionTypes": {
     "length": 8,
     "fields": {
       "NO_COMBAT_PREDICTION": -1,
@@ -3101,7 +3101,7 @@
       "COMBAT_PREDICTION_SMALL_DEFEAT": 7
     }
   },
-  "CivilianAttackPriorities": {
+  "CivilianAttackPriorityTypes": {
     "length": 3,
     "fields": {
       "NO_CIVILIAN_ATTACK_PRIORITY": -1,
@@ -3110,7 +3110,7 @@
       "CIVILIAN_ATTACK_PRIORITY_LOW": 2
     }
   },
-  "GameExecutables": {
+  "GameExecutableTypes": {
     "length": 4,
     "fields": {
       "CIV5_CORE_RELEASE": 0,
@@ -3119,7 +3119,7 @@
       "CIV5_EXPANSION_3": 3
     }
   },
-  "StorageLocations": {
+  "StorageLocation": {
     "length": 3,
     "fields": {
       "STORAGE_LOCAL": 0,
@@ -3127,7 +3127,7 @@
       "STORAGE_MEMORY": 2
     }
   },
-  "FaithPurchases": {
+  "FaithPurchaseTypes": {
     "length": 4,
     "fields": {
       "NO_AUTOMATIC_FAITH_PURCHASE": 0,
@@ -3136,7 +3136,7 @@
       "FAITH_PURCHASE_UNIT": 3
     }
   },
-  "PlotVisibilityChangeResults": {
+  "PlotVisibilityChangeResult": {
     "length": 3,
     "fields": {
       "VISIBILTY_CHANGE_NONE": 0,
@@ -3144,7 +3144,7 @@
       "VISIBILITY_CHANGE_TO_VISIBLE": 2
     }
   },
-  "TradeConnections": {
+  "TradeConnectionType": {
     "length": 5,
     "fields": {
       "TRADE_CONNECTION_INTERNATIONAL": 0,
@@ -3160,7 +3160,7 @@
       "NO_GREAT_WORK_ARTIFACT_CLASS": -1
     }
   },
-  "GreatWorks": {
+  "GreatWorkType": {
     "length": 549,
     "fields": {
       "NO_GREAT_WORK": -1
@@ -3172,13 +3172,13 @@
       "NO_GREAT_WORK_CLASS": -1
     }
   },
-  "GreatWorkSlots": {
+  "GreatWorkSlotType": {
     "length": 3,
     "fields": {
       "NO_GREAT_WORK_SLOT": -1
     }
   },
-  "AirActions": {
+  "AirActionType": {
     "length": 3,
     "fields": {
       "AIR_ACTION_ATTACK": 0,
@@ -3186,7 +3186,7 @@
       "AIR_ACTION_INTERCEPT": 2
     }
   },
-  "DiplomacyModes": {
+  "DiplomacyMode": {
     "length": 1,
     "fields": {
       "DIPLO_SPECIFIC_PLAYER": 0,
@@ -3195,7 +3195,7 @@
       "DIPLO_HUMAN_PLAYERS": -3
     }
   },
-  "InstantYields": {
+  "InstantYieldType": {
     "length": 64,
     "fields": {
       "INSTANT_YIELD_TYPE_BIRTH": 0,
@@ -3264,7 +3264,7 @@
       "INSTANT_YIELD_TYPE_SCRAP_OR_UPGRADE": 63
     }
   },
-  "Unhappinesses": {
+  "UnhappinessType": {
     "length": 10,
     "fields": {
       "NO_UNHAPPINESS_TYPE": -1,
@@ -3280,7 +3280,7 @@
       "UNHAPPINESS_TYPE_BOREDOM": 9
     }
   },
-  "Accomplishments": {
+  "AccomplishmentTypes": {
     "length": 24,
     "fields": {
       "ACCOMPLISHMENT_POLICY_BRANCH_ANCIENT": 0,
@@ -3309,7 +3309,7 @@
       "ACCOMPLISHMENT_HISTORIC_EVENT": 23
     }
   },
-  "HistoricEvents": {
+  "HistoricEventTypes": {
     "length": 21,
     "fields": {
       "HISTORIC_EVENT_ERA_CHANGE": 0,
@@ -3335,13 +3335,13 @@
       "DIFFICULTY_BONUS_AI_TURNS_PASSED": 20
     }
   },
-  "GreatPersons": {
+  "GreatPersonTypes": {
     "length": 10,
     "fields": {
       "NO_GREATPERSON": -1
     }
   },
-  "LoyaltyStates": {
+  "LoyaltyStateTypes": {
     "length": 5,
     "fields": {
       "NO_LOYALTY_TYPE": -1,
@@ -3352,7 +3352,7 @@
       "LOYALTY_JFD_SEPARATIST": 4
     }
   },
-  "AITacticalTargets": {
+  "AITacticalTargetType": {
     "length": 16,
     "fields": {
       "AI_TACTICAL_TARGET_NONE": 0,
@@ -3373,7 +3373,7 @@
       "AI_TACTICAL_TARGET_GOODY": 15
     }
   },
-  "Monopolies": {
+  "MonopolyTypes": {
     "length": 2,
     "fields": {
       "NO_MONOPOLY": -1,
@@ -3381,7 +3381,7 @@
       "MONOPOLY_STRATEGIC": 1
     }
   },
-  "RenewalReasons": {
+  "RenewalReason": {
     "length": 5,
     "fields": {
       "NO_REASON": -1,
@@ -3392,7 +3392,7 @@
       "REASON_BETTER_RENEWAL_CHOICE": 4
     }
   },
-  "RoutePurposes": {
+  "RoutePurpose": {
     "length": 9,
     "fields": {
       "NO_ROUTE_PURPOSE": 0,
@@ -3402,7 +3402,7 @@
       "PURPOSE_MANUAL": 8
     }
   },
-  "RoutePlans": {
+  "RoutePlanTypes": {
     "length": 3,
     "fields": {
       "NO_PLANNED_ROUTE": -1,
@@ -3411,7 +3411,7 @@
       "ROAD_PLANNING_PRIORITY_CONSTRUCTION": 2
     }
   },
-  "Likelyhoods": {
+  "Likelyhood": {
     "length": 5,
     "fields": {
       "LIKELYHOOD_IMPOSSIBLE": 0,
@@ -3421,7 +3421,7 @@
       "LIKELYHOOD_CERTAIN": 4
     }
   },
-  "IsHumanReasons": {
+  "IsHumanReason": {
     "length": 22,
     "fields": {
       "ISHUMAN_AI_CITY_MANAGEMENT": 0,
@@ -3448,12 +3448,300 @@
       "OTHER_ISHUMAN_REASON": 21
     }
   },
-  "ExplorationDomains": {
+  "ExplorationDomainTypes": {
     "length": 3,
     "fields": {
       "EXPLORATION_LAND": 0,
       "EXPLORATION_COAST": 1,
       "EXPLORATION_OCEAN": 2
+    }
+  },
+  "CivOpinionTypes": {
+    "length": 7,
+    "fields": {
+      "CIV_OPINION_UNFORGIVABLE": 0,
+      "CIV_OPINION_ENEMY": 1,
+      "CIV_OPINION_COMPETITOR": 2,
+      "CIV_OPINION_NEUTRAL": 3,
+      "CIV_OPINION_FAVORABLE": 4,
+      "CIV_OPINION_FRIEND": 5,
+      "CIV_OPINION_ALLY": 6
+    }
+  },
+  "CivApproachTypes": {
+    "length": 7,
+    "fields": {
+      "CIV_APPROACH_WAR": 0,
+      "CIV_APPROACH_HOSTILE": 1,
+      "CIV_APPROACH_DECEPTIVE": 2,
+      "CIV_APPROACH_GUARDED": 3,
+      "CIV_APPROACH_AFRAID": 4,
+      "CIV_APPROACH_NEUTRAL": 5,
+      "CIV_APPROACH_FRIENDLY": 6
+    }
+  },
+  "WarStateTypes": {
+    "length": 7,
+    "fields": {
+      "NO_WAR_STATE_TYPE": -1,
+      "WAR_STATE_NEARLY_DEFEATED": 0,
+      "WAR_STATE_DEFENSIVE": 1,
+      "WAR_STATE_TROUBLED": 2,
+      "WAR_STATE_STALEMATE": 3,
+      "WAR_STATE_CALM": 4,
+      "WAR_STATE_OFFENSIVE": 5,
+      "WAR_STATE_NEARLY_WON": 6
+    }
+  },
+  "StrengthTypes": {
+    "length": 7,
+    "fields": {
+      "STRENGTH_PATHETIC": 0,
+      "STRENGTH_WEAK": 1,
+      "STRENGTH_POOR": 2,
+      "STRENGTH_AVERAGE": 3,
+      "STRENGTH_STRONG": 4,
+      "STRENGTH_POWERFUL": 5,
+      "STRENGTH_IMMENSE": 6
+    }
+  },
+  "TargetValueTypes": {
+    "length": 7,
+    "fields": {
+      "TARGET_VALUE_IMPOSSIBLE": 0,
+      "TARGET_VALUE_BAD": 1,
+      "TARGET_VALUE_DIFFICULT": 2,
+      "TARGET_VALUE_AVERAGE": 3,
+      "TARGET_VALUE_FAVORABLE": 4,
+      "TARGET_VALUE_SOFT": 5,
+      "TARGET_VALUE_CAKEWALK": 6
+    }
+  },
+  "AggressivePostureTypes": {
+    "length": 5,
+    "fields": {
+      "AGGRESSIVE_POSTURE_NONE": 0,
+      "AGGRESSIVE_POSTURE_LOW": 1,
+      "AGGRESSIVE_POSTURE_MEDIUM": 2,
+      "AGGRESSIVE_POSTURE_HIGH": 3,
+      "AGGRESSIVE_POSTURE_INCREDIBLE": 4
+    }
+  },
+  "ThreatTypes": {
+    "length": 5,
+    "fields": {
+      "THREAT_NONE": 0,
+      "THREAT_MINOR": 1,
+      "THREAT_MAJOR": 2,
+      "THREAT_SEVERE": 3,
+      "THREAT_CRITICAL": 4
+    }
+  },
+  "DisputeLevelTypes": {
+    "length": 4,
+    "fields": {
+      "DISPUTE_LEVEL_NONE": 0,
+      "DISPUTE_LEVEL_WEAK": 1,
+      "DISPUTE_LEVEL_STRONG": 2,
+      "DISPUTE_LEVEL_FIERCE": 3
+    }
+  },
+  "BlockLevelTypes": {
+    "length": 4,
+    "fields": {
+      "BLOCK_LEVEL_NONE": 0,
+      "BLOCK_LEVEL_WEAK": 1,
+      "BLOCK_LEVEL_STRONG": 2,
+      "BLOCK_LEVEL_FIERCE": 3
+    }
+  },
+  "DoFLevelTypes": {
+    "length": 5,
+    "fields": {
+      "DOF_TYPE_UNTRUSTWORTHY": 0,
+      "DOF_TYPE_NEW": 1,
+      "DOF_TYPE_FRIENDS": 2,
+      "DOF_TYPE_ALLIES": 3,
+      "DOF_TYPE_BATTLE_BROTHERS": 4
+    }
+  },
+  "VictoryPursuitTypes": {
+    "length": 4,
+    "fields": {
+      "NO_VICTORY_PURSUIT": -1,
+      "VICTORY_PURSUIT_DOMINATION": 0,
+      "VICTORY_PURSUIT_DIPLOMACY": 1,
+      "VICTORY_PURSUIT_CULTURE": 2,
+      "VICTORY_PURSUIT_SCIENCE": 3
+    }
+  },
+  "PromiseStates": {
+    "length": 3,
+    "fields": {
+      "NO_PROMISE_STATE": -1,
+      "PROMISE_STATE_MADE": 0,
+      "PROMISE_STATE_IGNORED": 1,
+      "PROMISE_STATE_BROKEN": 2
+    }
+  },
+  "TimedModifierTypes": {
+    "length": 3,
+    "fields": {
+      "TIMED_MODIFIER_STANDARD": 0,
+      "TIMED_MODIFIER_STACKED": 1,
+      "TIMED_MODIFIER_DIMINISHING": 2
+    }
+  },
+  "WarmongerTriggerTypes": {
+    "length": 5,
+    "fields": {
+      "WARMONGER_MINOR_ATTACKED": 0,
+      "WARMONGER_MAJOR_ATTACKED": 1,
+      "WARMONGER_MAJOR_PURCHASED_TERRITORY": 2,
+      "WARMONGER_MAJOR_CULTURE_BOMBED": 3,
+      "WARMONGER_NUKED_PLAYER": 4
+    }
+  },
+  "TheftTypes": {
+    "length": 7,
+    "fields": {
+      "THEFT_TYPE_CULTURE_BOMB": 0,
+      "THEFT_TYPE_CONVERSION": 1,
+      "THEFT_TYPE_ARTIFACT": 2,
+      "THEFT_TYPE_SPY": 3,
+      "THEFT_TYPE_TRADE_ROUTE": 4,
+      "THEFT_TYPE_PLOT": 5,
+      "THEFT_TYPE_EMBASSY": 6
+    }
+  },
+  "GuessConfidenceTypes": {
+    "length": 3,
+    "fields": {
+      "GUESS_CONFIDENCE_UNSURE": 0,
+      "GUESS_CONFIDENCE_LIKELY": 1,
+      "GUESS_CONFIDENCE_POSITIVE": 2
+    }
+  },
+  "StateAllWars": {
+    "length": 3,
+    "fields": {
+      "STATE_ALL_WARS_NEUTRAL": 0,
+      "STATE_ALL_WARS_WINNING": 1,
+      "STATE_ALL_WARS_LOSING": 2
+    }
+  },
+  "PeaceBlockReasons": {
+    "length": 9,
+    "fields": {
+      "NO_PEACE_BLOCK_REASON": -1,
+      "PEACE_BLOCK_REASON_ALWAYS_WAR": 0,
+      "PEACE_BLOCK_REASON_VASSALAGE": 1,
+      "PEACE_BLOCK_REASON_AT_WAR_WITH_ALLY": 2,
+      "PEACE_BLOCK_REASON_SCENARIO": 3,
+      "PEACE_BLOCK_REASON_WAR_DEAL": 4,
+      "PEACE_BLOCK_REASON_TOO_SOON": 5,
+      "PEACE_BLOCK_REASON_COOP_WAR_AGAINST_DEFENSIVE_PACT": 6,
+      "PEACE_BLOCK_REASON_NO_ENEMY_CITIES": 7,
+      "PEACE_BLOCK_REASON_CITY_JUST_CAPTURED": 8
+    }
+  },
+  "PeaceTreatyTypes": {
+    "length": 9,
+    "fields": {
+      "NO_PEACE_TREATY_TYPE": -1,
+      "PEACE_TREATY_WHITE_PEACE": 0,
+      "PEACE_TREATY_ARMISTICE": 1,
+      "PEACE_TREATY_SETTLEMENT": 2,
+      "PEACE_TREATY_BACKDOWN": 3,
+      "PEACE_TREATY_SUBMISSION": 4,
+      "PEACE_TREATY_SURRENDER": 5,
+      "PEACE_TREATY_CESSION": 6,
+      "PEACE_TREATY_CAPITULATION": 7,
+      "PEACE_TREATY_UNCONDITIONAL_SURRENDER": 8
+    }
+  },
+  "CoopWarStates": {
+    "length": 4,
+    "fields": {
+      "NO_COOP_WAR_STATE": -1,
+      "COOP_WAR_STATE_WARNED_TARGET": 0,
+      "COOP_WAR_STATE_REJECTED": 1,
+      "COOP_WAR_STATE_PREPARING": 2,
+      "COOP_WAR_STATE_ONGOING": 3
+    }
+  },
+  "PublicDeclarationTypes": {
+    "length": 2,
+    "fields": {
+      "NO_PUBLIC_DECLARATION_TYPE": -1,
+      "PUBLIC_DECLARATION_PROTECT_MINOR": 0,
+      "PUBLIC_DECLARATION_ABANDON_MINOR": 1
+    }
+  },
+  "DealOfferResponseTypes": {
+    "length": 4,
+    "fields": {
+      "NO_DEAL_RESPONSE_TYPE": -1,
+      "DEAL_RESPONSE_GENEROUS": 0,
+      "DEAL_RESPONSE_ACCEPTABLE": 1,
+      "DEAL_RESPONSE_UNACCEPTABLE": 2,
+      "DEAL_RESPONSE_INSULTING": 3
+    }
+  },
+  "DemandResponseTypes": {
+    "length": 10,
+    "fields": {
+      "NO_DEMAND_RESPONSE_TYPE": -1,
+      "DEMAND_RESPONSE_ACCEPT": 0,
+      "DEMAND_RESPONSE_REFUSE_WEAK": 1,
+      "DEMAND_RESPONSE_REFUSE_HOSTILE": 2,
+      "DEMAND_RESPONSE_REFUSE_TOO_MUCH": 3,
+      "DEMAND_RESPONSE_REFUSE_TOO_SOON": 4,
+      "DEMAND_RESPONSE_REFUSE_TOO_SOON_SINCE_PEACE": 5,
+      "DEMAND_RESPONSE_REFUSE_PROTECTED_BY_MASTER": 6,
+      "DEMAND_RESPONSE_GIFT_ACCEPT": 7,
+      "DEMAND_RESPONSE_GIFT_REFUSE_TOO_MUCH": 8,
+      "DEMAND_RESPONSE_GIFT_REFUSE_TOO_SOON": 9
+    }
+  },
+  "ShareApproachResponseTypes": {
+    "length": 2,
+    "fields": {
+      "NO_SHARE_APPROACH_RESPONSE": -1,
+      "SHARE_APPROACH_RESPONSE_ACCEPTED": 0,
+      "SHARE_APPROACH_RESPONSE_REFUSED": 1
+    }
+  },
+  "MoveTroopsResponseTypes": {
+    "length": 3,
+    "fields": {
+      "MOVE_TROOPS_RESPONSE_ACCEPT": 0,
+      "MOVE_TROOPS_RESPONSE_NEUTRAL": 1,
+      "MOVE_TROOPS_RESPONSE_REFUSE": 2
+    }
+  },
+  "VassalTreatmentTypes": {
+    "length": 5,
+    "fields": {
+      "NO_VASSAL_TREATMENT": -1,
+      "VASSAL_TREATMENT_CONTENT": 0,
+      "VASSAL_TREATMENT_DISAGREE": 1,
+      "VASSAL_TREATMENT_MISTREATED": 2,
+      "VASSAL_TREATMENT_UNHAPPY": 3,
+      "VASSAL_TREATMENT_ENSLAVED": 4
+    }
+  },
+  "MajorCivApproachTypes": {
+    "length": 7,
+    "fields": {
+      "NO_MAJOR_CIV_APPROACH": -1,
+      "MAJOR_CIV_APPROACH_WAR": 0,
+      "MAJOR_CIV_APPROACH_HOSTILE": 1,
+      "MAJOR_CIV_APPROACH_DECEPTIVE": 2,
+      "MAJOR_CIV_APPROACH_GUARDED": 3,
+      "MAJOR_CIV_APPROACH_AFRAID": 4,
+      "MAJOR_CIV_APPROACH_NEUTRAL": 5,
+      "MAJOR_CIV_APPROACH_FRIENDLY": 6
     }
   }
 }
