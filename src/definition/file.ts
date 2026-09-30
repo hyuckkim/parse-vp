@@ -1,40 +1,49 @@
 import { readdirSync, readFileSync } from "fs";
 import { extname, join } from "path";
 
+function escapeRegExp(value: string): string {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 /** find file that includes keyword and return full file to string*/
-function grepToFile(keyword: string | RegExp, src: string, opt = ['.cpp', '.h']): string | null {
-  const entries = readdirSync(src, { withFileTypes: true });
+export function grepToFile(
+    keyword: string | RegExp,
+    src: string,
+    opt = [".cpp", ".h"]
+): string[] {
+    const results: string[] = [];
 
-  for (const entry of entries) {
-    const filePath = join(src, entry.name);
+    const entries = readdirSync(src, {
+        withFileTypes: true,
+    });
 
-    if (entry.isDirectory()) {
-      const result = grepToFile(keyword, filePath, opt);
+    for (const entry of entries) {
+        const filePath = join(src, entry.name);
 
-      if (result !== null) {
-        return result;
-      }
+        if (entry.isDirectory()) {
+            results.push(
+                ...grepToFile(keyword, filePath, opt)
+            );
+            continue;
+        }
 
-      continue;
+        if (!entry.isFile()) continue;
+
+        const ext = extname(entry.name);
+        if (!opt.includes(ext)) continue;
+
+        const content = readFileSync(filePath, "utf8");
+
+        if (
+            (typeof keyword === "string" &&
+                content.includes(keyword)) ||
+            (keyword instanceof RegExp &&
+                keyword.test(content))
+        ) {
+            results.push(content);
+        }
     }
 
-    if (!entry.isFile()) continue;
-
-    const ext = extname(entry.name);
-
-    if (!opt.includes(ext)) continue;
-
-    const content = readFileSync(filePath, 'utf8');
-
-    if (
-      (typeof keyword === 'string' && content.includes(keyword)) ||
-      (keyword instanceof RegExp && keyword.test(content))
-    ) {
-      return content;
-    }
-  }
-
-  return null;
+    return results;
 }
 
 function extractBraces(str: string, start: number): string | null {
@@ -65,10 +74,11 @@ function splitCppFunc(func: string, str: string): string | null {
   }
   return extractBraces(str, braceStart);
 }
-
-function splitCppClass(cls: string, str: string): string | null {
+function splitCppType(typeName: string, str: string): string | null {
   const start = str.search(
-    new RegExp(`\\bclass\\s+${escapeRegExp(cls)}\\b\\s*(?:\\n\\s*)?\\{`)
+    new RegExp(
+      `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b\\s*(?:\\n\\s*)?\\{`
+    )
   );
 
   if (start === -1) {
@@ -79,18 +89,18 @@ function splitCppClass(cls: string, str: string): string | null {
   return extractBraces(str, braceStart);
 }
 
-function escapeRegExp(str: string): string {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 export function getHeaderContent(typeName: string, src: string): string | null {
-    const file = grepToFile(
-        new RegExp(`\\bclass\\s+${escapeRegExp(typeName)}\\b\\s*(?:\\n\\s*)?\\{`),
-        src,
-        ['.cpp', '.h']
-    );
-    if (!file) return null;
-    return splitCppClass(typeName, file);
+  const file = grepToFile(
+    new RegExp(
+      `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b\\s*(?:\\n\\s*)?\\{`
+    ),
+    src,
+    ['.cpp', '.h']
+  );
+
+  if (file.length < 1) return null;
+
+  return splitCppType(typeName, file[0]!);
 }
 export function getVisitorContent(typeName: string, src: string): string | null {
     const file = grepToFile(
@@ -98,6 +108,6 @@ export function getVisitorContent(typeName: string, src: string): string | null 
         src,
         ['.cpp', '.h']
     );
-    if (!file) return null;
-    return splitCppFunc(`${typeName}::Serialize`, file);
+    if (file.length < 1) return null;
+    return splitCppFunc(`${typeName}::Serialize`, file[0]!);
 }

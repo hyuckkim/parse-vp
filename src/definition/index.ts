@@ -156,12 +156,7 @@ const {
     literalMap,
 } = readMagicNumber('magicnumber.json');
 const typedefs = collectTypedefs(gamePath);
-const enums = {
-    ...await getEnums('Civ5CoreDatabase.db',
-    `${gamePath}\\CvGameCoreDLLUtil\\include\\CvEnums.h`),
-    ...await getEnums('Civ5CoreDatabase.db',
-    `${gamePath}\\CvGameCoreDLL_Expansion2\\CvDiplomacyAIEnums.h`)
-};
+const enums = await getEnums('Civ5CoreDatabase.db', gamePath);
 // writeFileSync('enums.json', JSON.stringify(enums, null, 2), 'utf8');
 
 const d = collectDefinitions('CvGame', gamePath);

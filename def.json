@@ -1936,7 +1936,195 @@
       }
     }
   ],
-  "TradeConnection": [],
+  "TradeConnection": [
+    {
+      "name": "m_iID",
+      "raw": "tradeConnection.m_iID",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iOriginID",
+      "raw": "tradeConnection.m_iOriginID",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iOriginX",
+      "raw": "tradeConnection.m_iOriginX",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iOriginY",
+      "raw": "tradeConnection.m_iOriginY",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iDestID",
+      "raw": "tradeConnection.m_iDestID",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iDestX",
+      "raw": "tradeConnection.m_iDestX",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iDestY",
+      "raw": "tradeConnection.m_iDestY",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eOriginOwner",
+      "raw": "tradeConnection.m_eOriginOwner",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eDestOwner",
+      "raw": "tradeConnection.m_eDestOwner",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eDomain",
+      "raw": "tradeConnection.m_eDomain",
+      "type": {
+        "name": "DomainTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eConnectionType",
+      "raw": "tradeConnection.m_eConnectionType",
+      "type": {
+        "name": "TradeConnectionType",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iTradeUnitLocationIndex",
+      "raw": "tradeConnection.m_iTradeUnitLocationIndex",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bTradeUnitMovingForward",
+      "raw": "tradeConnection.m_bTradeUnitMovingForward",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_unitID",
+      "raw": "tradeConnection.m_unitID",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iSpeedFactor",
+      "raw": "tradeConnection.m_iSpeedFactor",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCircuitsCompleted",
+      "raw": "tradeConnection.m_iCircuitsCompleted",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCircuitsToComplete",
+      "raw": "tradeConnection.m_iCircuitsToComplete",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iTurnRouteComplete",
+      "raw": "tradeConnection.m_iTurnRouteComplete",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bTradeUnitRecalled",
+      "raw": "tradeConnection.m_bTradeUnitRecalled",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_aPlotList",
+      "raw": "tradeConnection.m_aPlotList",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "TradeConnectionPlot",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "m_aiOriginYields",
+      "raw": "tradeConnection.m_aiOriginYields",
+      "type": {
+        "name": "int",
+        "args": []
+      },
+      "dimensions": [
+        "NUM_YIELD_TYPES"
+      ]
+    },
+    {
+      "name": "m_aiDestYields",
+      "raw": "tradeConnection.m_aiDestYields",
+      "type": {
+        "name": "int",
+        "args": []
+      },
+      "dimensions": [
+        "NUM_YIELD_TYPES"
+      ]
+    }
+  ],
   "CvCorporation": [
     {
       "name": "m_eCorporation",
@@ -2054,7 +2242,72 @@
       "PEACE_TREATY_UNCONDITIONAL_SURRENDER": 8
     }
   },
-  "CvTradedItem": [],
+  "CvTradedItem": [
+    {
+      "name": "m_eItemType",
+      "raw": "tradedItem.m_eItemType",
+      "type": {
+        "name": "TradeableItems",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iDuration",
+      "raw": "tradedItem.m_iDuration",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iFinalTurn",
+      "raw": "tradedItem.m_iFinalTurn",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iData1",
+      "raw": "tradedItem.m_iData1",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iData2",
+      "raw": "tradedItem.m_iData2",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iData3",
+      "raw": "tradedItem.m_iData3",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_bFlag1",
+      "raw": "tradedItem.m_bFlag1",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "m_eFromPlayer",
+      "raw": "tradedItem.m_eFromPlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    }
+  ],
   "ReligionTypes": {
     "name": "ReligionTypes",
     "values": {
@@ -2131,12 +2384,191 @@
   "CvEnactProposal": [],
   "CvRepealProposal": [],
   "CvActiveResolution": [],
-  "Member": [],
-  "Project": [],
+  "Member": [
+    {
+      "name": "ePlayer",
+      "raw": "member.ePlayer",
+      "type": {
+        "name": "PlayerTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "iExtraVotes",
+      "raw": "member.iExtraVotes",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "sVoteSources",
+      "raw": "member.sVoteSources",
+      "type": {
+        "name": "CvString",
+        "args": []
+      }
+    },
+    {
+      "name": "bMayPropose",
+      "raw": "member.bMayPropose",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "iProposals",
+      "raw": "member.iProposals",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "iVotes",
+      "raw": "member.iVotes",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "iAbstainedVotes",
+      "raw": "member.iAbstainedVotes",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "bEverBeenHost",
+      "raw": "member.bEverBeenHost",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "bAlwaysBeenHost",
+      "raw": "member.bAlwaysBeenHost",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    }
+  ],
+  "Project": [
+    {
+      "name": "eType",
+      "raw": "project.eType",
+      "type": {
+        "name": "LeagueProjectTypes",
+        "args": []
+      }
+    },
+    {
+      "name": "vProductionList",
+      "raw": "project.vProductionList",
+      "type": {
+        "name": "vector",
+        "args": [
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "bComplete",
+      "raw": "project.bComplete",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    },
+    {
+      "name": "bProgressWarningSent",
+      "raw": "project.bProgressWarningSent",
+      "type": {
+        "name": "bool",
+        "args": []
+      }
+    }
+  ],
+  "DomainTypes": {
+    "name": "DomainTypes",
+    "values": {
+      "NO_DOMAIN": -1,
+      "DOMAIN_SEA": 0,
+      "DOMAIN_AIR": 1,
+      "DOMAIN_LAND": 2,
+      "DOMAIN_IMMOBILE": 3,
+      "DOMAIN_HOVER": 4
+    }
+  },
+  "TradeConnectionType": {
+    "name": "TradeConnectionType",
+    "values": {
+      "TRADE_CONNECTION_INTERNATIONAL": 0,
+      "TRADE_CONNECTION_FOOD": 1,
+      "TRADE_CONNECTION_PRODUCTION": 2,
+      "TRADE_CONNECTION_WONDER_RESOURCE": 3,
+      "TRADE_CONNECTION_GOLD_INTERNAL": 4
+    }
+  },
+  "TradeConnectionPlot": [
+    {
+      "name": "m_iX",
+      "raw": "tradeConnectionPlot.m_iX",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iY",
+      "raw": "tradeConnectionPlot.m_iY",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    }
+  ],
   "CorporationTypes": {
     "name": "CorporationTypes",
     "values": {
       "NO_CORPORATION": -1
+    }
+  },
+  "TradeableItems": {
+    "name": "TradeableItems",
+    "values": {
+      "TRADE_ITEM_NONE": -1,
+      "TRADE_ITEM_GOLD": 0,
+      "TRADE_ITEM_GOLD_PER_TURN": 1,
+      "TRADE_ITEM_MAPS": 2,
+      "TRADE_ITEM_RESOURCES": 3,
+      "TRADE_ITEM_CITIES": 4,
+      "TRADE_ITEM_OPEN_BORDERS": 5,
+      "TRADE_ITEM_DEFENSIVE_PACT": 6,
+      "TRADE_ITEM_RESEARCH_AGREEMENT": 7,
+      "TRADE_ITEM_PEACE_TREATY": 8,
+      "TRADE_ITEM_THIRD_PARTY_PEACE": 9,
+      "TRADE_ITEM_THIRD_PARTY_WAR": 10,
+      "TRADE_ITEM_ALLOW_EMBASSY": 11,
+      "TRADE_ITEM_DECLARATION_OF_FRIENDSHIP": 12,
+      "TRADE_ITEM_VOTE_COMMITMENT": 13,
+      "TRADE_ITEM_TECHS": 14,
+      "TRADE_ITEM_VASSALAGE": 15,
+      "TRADE_ITEM_VASSALAGE_REVOKE": 16
+    }
+  },
+  "LeagueProjectTypes": {
+    "name": "LeagueProjectTypes",
+    "values": {
+      "NO_LEAGUE_PROJECT": -1
     }
   }
 }

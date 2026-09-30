@@ -2,6 +2,7 @@ import fs from "fs";
 import sqlite3 from "sqlite3";
 import esMain from "es-main";
 import { findMatchingBrace, removeComments } from "../util.js";
+import { grepToFile } from "./file.js";
 
 type EnumKind = "OPEN_ENUM" | "CLOSED_ENUM" | "FLAG_ENUM";
 
@@ -467,17 +468,20 @@ export async function getEnums(
     const db = await openDB(dbPath);
 
     try {
-        const source =
-            fs.readFileSync(
-                enumPath,
-                "utf8"
-            );
+        const enumRegex =
+            /\benum\s+(?:(OPEN_ENUM|CLOSED_ENUM|FLAG_ENUM)\s+)?[A-Za-z_][A-Za-z0-9_]*\s*\{/;
 
-        const enums =
-            parseEnums(source);
+        const files = grepToFile(
+            enumRegex,
+            enumPath,
+            [".cpp", ".h"]
+        );
 
-        const tables =
-            await getTableNames(db);
+        const enums = files.flatMap(
+            source => parseEnums(source)
+        );
+
+        const tables = await getTableNames(db);
 
         return await buildEnumDefinitions(
             enums,

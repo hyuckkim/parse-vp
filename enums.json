@@ -539,13 +539,13 @@
   "DirectionTypes": {
     "length": 7,
     "fields": {
-      "DIRECTION_NORTHEAST": 0,
-      "DIRECTION_EAST": 1,
-      "DIRECTION_SOUTHEAST": 2,
-      "DIRECTION_SOUTHWEST": 3,
-      "DIRECTION_WEST": 4,
-      "DIRECTION_NORTHWEST": 5,
-      "NO_DIRECTION": 6
+      "DIRECTION_RANDOM": 0,
+      "DIRECTION_NORTHEAST": 1,
+      "DIRECTION_EAST": 2,
+      "DIRECTION_SOUTHEAST": 3,
+      "DIRECTION_SOUTHWEST": 4,
+      "DIRECTION_WEST": 5,
+      "DIRECTION_NORTHWEST": 6
     }
   },
   "FlowDirectionTypes": {
@@ -1715,19 +1715,16 @@
     }
   },
   "CommandTypes": {
-    "length": 10,
+    "length": 8,
     "fields": {
-      "NO_COMMAND": -1,
-      "COMMAND_PROMOTION": 0,
-      "COMMAND_UPGRADE": 1,
-      "COMMAND_AUTOMATE": 2,
-      "COMMAND_WAKE": 3,
-      "COMMAND_CANCEL": 4,
-      "COMMAND_CANCEL_ALL": 5,
-      "COMMAND_STOP_AUTOMATION": 6,
-      "COMMAND_DELETE": 7,
-      "COMMAND_GIFT": 8,
-      "COMMAND_HOTKEY": 9
+      "ERASE": 0,
+      "INSERT": 1,
+      "SET": 2,
+      "PUSH_BACK": 3,
+      "CLEAR": 4,
+      "RESIZE": 5,
+      "RESIZE_WITH_VALUE": 6,
+      "NO_COMMAND": 7
     }
   },
   "ControlTypes": {
@@ -3456,6 +3453,357 @@
       "EXPLORATION_OCEAN": 2
     }
   },
+  "INFO_FLAGS": {
+    "length": 2,
+    "fields": {
+      "INFO_FLAG_IS_CITY": 1
+    }
+  },
+  "MEMBER_TYPE": {
+    "length": 2,
+    "fields": {
+      "MEMBER_UNIT": 0,
+      "MEMBER_CITY": 1
+    }
+  },
+  "ArgType": {
+    "length": 6,
+    "fields": {
+      "ARGTYPE_NONE": 0,
+      "ARGTYPE_NULL": 1,
+      "ARGTYPE_BOOL": 2,
+      "ARGTYPE_STRING": 3,
+      "ARGTYPE_INT": 4,
+      "ARGTYPE_FLOAT": 5
+    }
+  },
+  "TURN_STATUS_TYPE": {
+    "length": 3,
+    "fields": {
+      "TURN_START": 0,
+      "TURN_END": 1,
+      "TURN_STEP": 2
+    }
+  },
+  "TerraformingEventTypes": {
+    "length": 10,
+    "fields": {
+      "NO_TERRAFORMINGEVENT": -1,
+      "TERRAFORMINGEVENT_LOAD": 0,
+      "TERRAFORMINGEVENT_AREA": 1,
+      "TERRAFORMINGEVENT_LANDMASS": 2,
+      "TERRAFORMINGEVENT_CONTINENT": 3,
+      "TERRAFORMINGEVENT_PLOT": 4,
+      "TERRAFORMINGEVENT_TERRAIN": 5,
+      "TERRAFORMINGEVENT_FEATURE": 6,
+      "TERRAFORMINGEVENT_RIVER": 7,
+      "TERRAFORMINGEVENT_CITY": 8,
+      "NUM_TERRAFORMINGEVENT_TYPES": 9
+    }
+  },
+  "BattleTypeTypes": {
+    "length": 6,
+    "fields": {
+      "BATTLE_TYPE_MELEE": 0,
+      "BATTLE_TYPE_RANGED": 1,
+      "BATTLE_TYPE_AIR": 2,
+      "BATTLE_TYPE_SWEEP": 3,
+      "BATTLE_TYPE_PARADROP": 4,
+      "BATTLE_TYPE_NUKE": 5
+    }
+  },
+  "AIOperationTypes": {
+    "length": 13,
+    "fields": {
+      "AI_OPERATION_TYPE_UNKNOWN": -1,
+      "AI_OPERATION_FOUND_CITY": 0,
+      "AI_OPERATION_PILLAGE_ENEMY": 1,
+      "AI_OPERATION_CITY_ATTACK_LAND": 2,
+      "AI_OPERATION_CITY_ATTACK_NAVAL": 3,
+      "AI_OPERATION_CITY_ATTACK_COMBINED": 4,
+      "AI_OPERATION_CITY_DEFENSE": 5,
+      "AI_OPERATION_RAPID_RESPONSE": 6,
+      "AI_OPERATION_NAVAL_SUPERIORITY": 7,
+      "AI_OPERATION_NUKE_ATTACK": 8,
+      "AI_OPERATION_CARRIER_GROUP": 9,
+      "AI_OPERATION_MUSICIAN_CONCERT_TOUR": 10,
+      "AI_OPERATION_MERCHANT_DELEGATION": 11,
+      "AI_OPERATION_DIPLOMAT_DELEGATION": 12
+    }
+  },
+  "AIOperationState": {
+    "length": 6,
+    "fields": {
+      "AI_OPERATION_STATE_INVALID": -1,
+      "AI_OPERATION_STATE_ABORTED": 0,
+      "AI_OPERATION_STATE_RECRUITING_UNITS": 1,
+      "AI_OPERATION_STATE_GATHERING_FORCES": 2,
+      "AI_OPERATION_STATE_MOVING_TO_TARGET": 3,
+      "AI_OPERATION_STATE_AT_TARGET": 4,
+      "AI_OPERATION_STATE_SUCCESSFUL_FINISH": 5
+    }
+  },
+  "AIOperationAbortReason": {
+    "length": 17,
+    "fields": {
+      "NO_ABORT_REASON": -1,
+      "AI_ABORT_SUCCESS": 0,
+      "AI_ABORT_NO_TARGET": 1,
+      "AI_ABORT_LOST_TARGET": 2,
+      "AI_ABORT_LOST_PATH": 3,
+      "AI_ABORT_NO_ROOM_DEPLOY": 4,
+      "AI_ABORT_NO_MUSTER": 5,
+      "AI_ABORT_NO_UNITS": 6,
+      "AI_ABORT_CANCELLED": 7,
+      "AI_ABORT_TARGET_ALREADY_CAPTURED": 8,
+      "AI_ABORT_HALF_STRENGTH": 9,
+      "AI_ABORT_LOST_CIVILIAN": 10,
+      "AI_ABORT_TARGET_NOT_VALID": 11,
+      "AI_ABORT_TOO_DANGEROUS": 12,
+      "AI_ABORT_KILLED": 13,
+      "AI_ABORT_WAR_STATE_CHANGE": 14,
+      "AI_ABORT_DIPLO_OPINION_CHANGE": 15,
+      "AI_ABORT_TIMED_OUT": 16
+    }
+  },
+  "ArmyAIState": {
+    "length": 4,
+    "fields": {
+      "NO_ARMYAISTATE": -1,
+      "ARMYAISTATE_WAITING_FOR_UNITS_TO_REINFORCE": 0,
+      "ARMYAISTATE_WAITING_FOR_UNITS_TO_CATCH_UP": 1,
+      "ARMYAISTATE_MOVING_TO_DESTINATION": 2,
+      "ARMYAISTATE_AT_DESTINATION": 3
+    }
+  },
+  "TurnCountMode": {
+    "length": 3,
+    "fields": {
+      "TC_GAMECORE": 0,
+      "TC_UI": 1,
+      "TC_DEBUG": 2
+    }
+  },
+  "NodeState": {
+    "length": 6,
+    "fields": {
+      "NS_INITIAL_FINAL": 0,
+      "NS_CURRENT": 1,
+      "NS_VALID": 2,
+      "NS_INVALID": 3,
+      "NS_OBSOLETE": 4,
+      "NS_FORBIDDEN": 5
+    }
+  },
+  "CvAStarNodeAddOp": {
+    "length": 5,
+    "fields": {
+      "ASNC_INITIALADD": 0,
+      "ASNC_OPENADD_UP": 1,
+      "ASNC_CLOSEDADD_UP": 2,
+      "ASNC_PARENTADD_UP": 3,
+      "ASNC_NEWADD": 4
+    }
+  },
+  "PathType": {
+    "length": 22,
+    "fields": {
+      "PT_UNIT_MOVEMENT": 0,
+      "PT_GENERIC_SAME_AREA": 1,
+      "PT_GENERIC_SAME_AREA_WIDE": 2,
+      "PT_ARMY_LAND": 3,
+      "PT_ARMY_WATER": 4,
+      "PT_ARMY_MIXED": 5,
+      "PT_TRADE_LAND": 6,
+      "PT_TRADE_WATER": 7,
+      "PT_BUILD_ROUTE": 8,
+      "PT_BUILD_ROUTE_MIXED": 9,
+      "PT_AREA_CONNECTION": 10,
+      "PT_LANDMASS_CONNECTION": 11,
+      "PT_CONTINENT_CONNECTION": 12,
+      "PT_CITY_INFLUENCE": 13,
+      "PT_CITY_CONNECTION_LAND": 14,
+      "PT_CITY_CONNECTION_WATER": 15,
+      "PT_CITY_CONNECTION_MIXED": 16,
+      "PT_WORKER_LAND_UNIT_SAFE": 17,
+      "PT_WORKER_SEA_UNIT_SAFE": 18,
+      "PT_AIR_REBASE": 19,
+      "PT_LAND_UNIT_SIMPLE": 20,
+      "PT_NAVAL_UNIT_SIMPLE": 21
+    }
+  },
+  "BuilderDirectiveType": {
+    "length": 8,
+    "fields": {
+      "BUILD_IMPROVEMENT_ON_RESOURCE": 0,
+      "BUILD_IMPROVEMENT": 1,
+      "BUILD_ROUTE": 2,
+      "REPAIR_IMPROVEMENT": 3,
+      "REPAIR_ROUTE": 4,
+      "REMOVE_FEATURE": 5,
+      "REMOVE_ROAD": 6,
+      "KEEP_IMPROVEMENT": 7
+    }
+  },
+  "eSpaceshipState": {
+    "length": 129,
+    "fields": {
+      "eUnderConstruction": 0,
+      "eFrame": 1,
+      "eCapsule": 2,
+      "eStasis_Chamber": 4,
+      "eEngine": 8,
+      "eBooster1": 16,
+      "eBooster2": 32,
+      "eBooster3": 64,
+      "eConstructed": 128
+    }
+  },
+  "eUpdateMode": {
+    "length": 3,
+    "fields": {
+      "YIELD_UPDATE_NONE": 0,
+      "YIELD_UPDATE_LOCAL": 1,
+      "YIELD_UPDATE_GLOBAL": 2
+    }
+  },
+  "ePlotSelectionMode": {
+    "length": 5,
+    "fields": {
+      "eBEST_UNWORKED_NO_OVERRIDE": 0,
+      "eBEST_UNWORKED_ALLOW_OVERRIDE": 1,
+      "eWORST_WORKED_UNFORCED": 2,
+      "eWORST_WORKED_FORCED": 3,
+      "eWORST_WORKED_ANY": 4
+    }
+  },
+  "CityConnectionTypes": {
+    "length": 32,
+    "fields": {
+      "CONNECTION_NONE": 0,
+      "CONNECTION_ROAD": 1,
+      "CONNECTION_RAILROAD": 2,
+      "CONNECTION_ANY_LAND": 3,
+      "CONNECTION_HARBOR": 4,
+      "CONNECTION_INDUSTRIAL_HARBOR": 8,
+      "CONNECTION_ANY_WATER": 12,
+      "CONNECTION_AIRPORT": 16,
+      "CONNECTION_ANY_INDIRECT": 28,
+      "CONNECTION_ANY": 31
+    }
+  },
+  "ProductionSpecializationSubtypes": {
+    "length": 6,
+    "fields": {
+      "PRODUCTION_SPECIALIZATION_MILITARY_TRAINING": 0,
+      "PRODUCTION_SPECIALIZATION_EMERGENCY_UNITS": 1,
+      "PRODUCTION_SPECIALIZATION_MILITARY_NAVAL": 2,
+      "PRODUCTION_SPECIALIZATION_WONDER": 3,
+      "PRODUCTION_SPECIALIZATION_SPACESHIP": 4,
+      "NUM_PRODUCTION_SPECIALIZATION_SUBTYPES": 5
+    }
+  },
+  "CitySpecializationUpdateType": {
+    "length": 11,
+    "fields": {
+      "SPECIALIZATION_UPDATE_NEW_GRAND_STRATEGY": 0,
+      "SPECIALIZATION_UPDATE_NOW_AT_WAR": 1,
+      "SPECIALIZATION_UPDATE_CITY_FOUNDED": 2,
+      "SPECIALIZATION_UPDATE_MY_CITY_CAPTURED": 3,
+      "SPECIALIZATION_UPDATE_ENEMY_CITY_CAPTURED": 4,
+      "SPECIALIZATION_UPDATE_STRATEGY_NOW_ON": 5,
+      "SPECIALIZATION_UPDATE_STRATEGY_NOW_OFF": 6,
+      "SPECIALIZATION_UPDATE_RESEARCH_COMPLETE": 7,
+      "SPECIALIZATION_UPDATE_WONDER_BUILT_BY_RIVAL": 8,
+      "SPECIALIZATION_UPDATE_WONDER_BUILT_BY_US": 9,
+      "SPECIALIZATION_UPDATE_CITIES_UNDER_SIEGE": 10
+    }
+  },
+  "CityBuildableType": {
+    "length": 7,
+    "fields": {
+      "NOT_A_CITY_BUILDABLE": 0,
+      "CITY_BUILDABLE_BUILDING": 1,
+      "CITY_BUILDABLE_UNIT": 2,
+      "CITY_BUILDABLE_PROJECT": 3,
+      "CITY_BUILDABLE_PROCESS": 4,
+      "CITY_BUILDABLE_UNIT_FOR_OPERATION": 5,
+      "CITY_BUILDABLE_UNIT_FOR_ARMY": 6
+    }
+  },
+  "ProductionSkipReason": {
+    "length": 1,
+    "fields": {
+      "SR_UNKNOWN": 0,
+      "SR_IMPOSSIBLE": -1,
+      "SR_UNITSUPPLY": -2,
+      "SR_MAINTENANCE": -3,
+      "SR_STRATEGY": -4,
+      "SR_USELESS": -5,
+      "SR_BALANCE": -6
+    }
+  },
+  "InfluenceLevelTypes": {
+    "length": 6,
+    "fields": {
+      "NO_INFLUENCE_LEVEL": -1,
+      "INFLUENCE_LEVEL_UNKNOWN": 0,
+      "INFLUENCE_LEVEL_EXOTIC": 1,
+      "INFLUENCE_LEVEL_FAMILIAR": 2,
+      "INFLUENCE_LEVEL_POPULAR": 3,
+      "INFLUENCE_LEVEL_INFLUENTIAL": 4,
+      "INFLUENCE_LEVEL_DOMINANT": 5
+    }
+  },
+  "InfluenceLevelTrend": {
+    "length": 2,
+    "fields": {
+      "INFLUENCE_TREND_FALLING": -1,
+      "INFLUENCE_TREND_STATIC": 0,
+      "INFLUENCE_TREND_RISING": 1
+    }
+  },
+  "PublicOpinionTypes": {
+    "length": 4,
+    "fields": {
+      "NO_PUBLIC_OPINION": -1,
+      "PUBLIC_OPINION_CONTENT": 0,
+      "PUBLIC_OPINION_DISSIDENTS": 1,
+      "PUBLIC_OPINION_CIVIL_RESISTANCE": 2,
+      "PUBLIC_OPINION_REVOLUTIONARY_WAVE": 3
+    }
+  },
+  "TradeableItems": {
+    "length": 17,
+    "fields": {
+      "TRADE_ITEM_NONE": -1,
+      "TRADE_ITEM_GOLD": 0,
+      "TRADE_ITEM_GOLD_PER_TURN": 1,
+      "TRADE_ITEM_MAPS": 2,
+      "TRADE_ITEM_RESOURCES": 3,
+      "TRADE_ITEM_CITIES": 4,
+      "TRADE_ITEM_OPEN_BORDERS": 5,
+      "TRADE_ITEM_DEFENSIVE_PACT": 6,
+      "TRADE_ITEM_RESEARCH_AGREEMENT": 7,
+      "TRADE_ITEM_PEACE_TREATY": 8,
+      "TRADE_ITEM_THIRD_PARTY_PEACE": 9,
+      "TRADE_ITEM_THIRD_PARTY_WAR": 10,
+      "TRADE_ITEM_ALLOW_EMBASSY": 11,
+      "TRADE_ITEM_DECLARATION_OF_FRIENDSHIP": 12,
+      "TRADE_ITEM_VOTE_COMMITMENT": 13,
+      "TRADE_ITEM_TECHS": 14,
+      "TRADE_ITEM_VASSALAGE": 15,
+      "TRADE_ITEM_VASSALAGE_REVOKE": 16
+    }
+  },
+  "DealRenewStatus": {
+    "length": 3,
+    "fields": {
+      "DEAL_RENEWABLE": 0,
+      "DEAL_NONRENEWABLE": 1,
+      "DEAL_SUPPLEMENTAL": 2
+    }
+  },
   "CivOpinionTypes": {
     "length": 7,
     "fields": {
@@ -3742,6 +4090,1002 @@
       "MAJOR_CIV_APPROACH_AFRAID": 4,
       "MAJOR_CIV_APPROACH_NEUTRAL": 5,
       "MAJOR_CIV_APPROACH_FRIENDLY": 6
+    }
+  },
+  "BeliefYieldSource": {
+    "length": 30,
+    "fields": {
+      "BYS_CITY_YIELD": 0,
+      "BYS_PER_POP": 1,
+      "BYS_FOLLOWER_LOCAL": 2,
+      "BYS_CAPITAL": 3,
+      "BYS_COASTAL": 4,
+      "BYS_NEARBY_TERRAIN": 5,
+      "BYS_TRADE_ROUTE": 6,
+      "BYS_ANY_SPECIALIST": 7,
+      "BYS_BUILDING_CLASS": 8,
+      "BYS_WORLD_WONDER": 9,
+      "BYS_PLOT_NATURE": 10,
+      "BYS_PLOT_IMPROVEMENT": 11,
+      "BYS_TERRAIN_PER_X": 12,
+      "BYS_FEATURE_PER_X": 13,
+      "BYS_SPECIALIST": 14,
+      "BYS_GREAT_WORK": 15,
+      "BYS_HOLY_CITY": 16,
+      "BYS_KNOWN_PANTHEONS": 17,
+      "BYS_PER_FOREIGN_CITY": 18,
+      "BYS_PER_X_FOREIGN_FOLLOWERS": 19,
+      "BYS_PER_X_CS_FOLLOWERS": 20,
+      "BYS_PER_OTHER_RELIGION_FOLLOWER": 21,
+      "BYS_PER_FOLLOWING_CITY": 22,
+      "BYS_PER_LUX": 23,
+      "BYS_PER_X_FOLLOWERS": 24,
+      "BYS_PER_SCIENCE": 25,
+      "BYS_PER_GPT": 26,
+      "BYS_PER_ACTIVE_TR": 27,
+      "BYS_GREAT_PERSON_POINTS": 28,
+      "BYS_RELIGIOUS_BUILDING": 29
+    }
+  },
+  "PurchaseType": {
+    "length": 7,
+    "fields": {
+      "NO_PURCHASE_TYPE": -1,
+      "PURCHASE_TYPE_TILE": 0,
+      "PURCHASE_TYPE_UNIT_UPGRADE": 1,
+      "PURCHASE_TYPE_MINOR_CIV_GIFT": 2,
+      "PURCHASE_TYPE_MAJOR_CIV_TRADE": 3,
+      "PURCHASE_TYPE_UNIT": 4,
+      "PURCHASE_TYPE_BUILDING": 5,
+      "NUM_PURCHASE_TYPES": 6
+    }
+  },
+  "ReconState": {
+    "length": 3,
+    "fields": {
+      "NO_RECON_STATE": -1,
+      "RECON_STATE_ENOUGH": 0,
+      "RECON_STATE_NEUTRAL": 1,
+      "RECON_STATE_NEEDED": 2
+    }
+  },
+  "CvSpyRank": {
+    "length": 3,
+    "fields": {
+      "SPY_RANK_RECRUIT": 0,
+      "SPY_RANK_AGENT": 1,
+      "SPY_RANK_SPECIAL_AGENT": 2
+    }
+  },
+  "CvEspionageType": {
+    "length": 3,
+    "fields": {
+      "ESPIONAGE_TYPE_KILL": 0,
+      "ESPIONAGE_TYPE_IDENTIFY": 1,
+      "ESPIONAGE_TYPE_DETECT": 2
+    }
+  },
+  "CvSpyState": {
+    "length": 10,
+    "fields": {
+      "SPY_STATE_UNASSIGNED": 0,
+      "SPY_STATE_TRAVELLING": 1,
+      "SPY_STATE_SURVEILLANCE": 2,
+      "SPY_STATE_GATHERING_INTEL": 3,
+      "SPY_STATE_RIG_ELECTION": 4,
+      "SPY_STATE_COUNTER_INTEL": 5,
+      "SPY_STATE_MAKING_INTRODUCTIONS": 6,
+      "SPY_STATE_SCHMOOZE": 7,
+      "SPY_STATE_DEAD": 8,
+      "SPY_STATE_TERMINATED": 9
+    }
+  },
+  "CvSpyResult": {
+    "length": 5,
+    "fields": {
+      "SPY_RESULT_UNDETECTED": 0,
+      "SPY_RESULT_DETECTED": 1,
+      "SPY_RESULT_IDENTIFIED": 2,
+      "SPY_RESULT_KILLED": 3,
+      "SPY_RESULT_KILLED_NOT_IDENTIFIED": 4
+    }
+  },
+  "CvIntrigueType": {
+    "length": 12,
+    "fields": {
+      "INTRIGUE_TYPE_DECEPTION": 0,
+      "INTRIGUE_TYPE_BUILDING_ARMY": 1,
+      "INTRIGUE_TYPE_BUILDING_AMPHIBIOUS_ARMY": 2,
+      "INTRIGUE_TYPE_ARMY_SNEAK_ATTACK": 3,
+      "INTRIGUE_TYPE_AMPHIBIOUS_SNEAK_ATTACK": 4,
+      "INTRIGUE_TYPE_BRIBE_WAR": 5,
+      "INTRIGUE_TYPE_COOP_WAR": 6,
+      "INTRIGUE_TYPE_MILITARY_MIGHT_RISEN": 7,
+      "INTRIGUE_TYPE_CONSTRUCTING_WONDER_ANY_CITY": 8,
+      "INTRIGUE_TYPE_BOUGHT_VOTES": 9,
+      "INTRIGUE_TYPE_SOLD_VOTES": 10,
+      "INTRIGUE_TYPE_CONSTRUCTING_WONDER": 11
+    }
+  },
+  "FracVals": {
+    "length": 33,
+    "fields": {
+      "FRAC_WRAP_X": 1,
+      "FRAC_WRAP_Y": 2,
+      "FRAC_PERCENT": 4,
+      "FRAC_POLAR": 8,
+      "FRAC_CENTER_RIFT": 16,
+      "FRAC_INVERT_HEIGHTS": 32,
+      "DEFAULT_FRAC_X_EXP": 7,
+      "DEFAULT_FRAC_Y_EXP": 6
+    }
+  },
+  "YieldTypes": {
+    "length": 17,
+    "fields": {
+      "NO_YIELD": -1,
+      "YIELD_FOOD": 0,
+      "YIELD_PRODUCTION": 1,
+      "YIELD_GOLD": 2,
+      "YIELD_SCIENCE": 3,
+      "YIELD_CULTURE": 4,
+      "YIELD_FAITH": 5,
+      "YIELD_TOURISM": 6,
+      "YIELD_GOLDEN_AGE_POINTS": 7,
+      "YIELD_GREAT_GENERAL_POINTS": 8,
+      "YIELD_GREAT_ADMIRAL_POINTS": 9,
+      "YIELD_POPULATION": 10,
+      "YIELD_CULTURE_LOCAL": 11,
+      "YIELD_JFD_HEALTH": 12,
+      "YIELD_JFD_DISEASE": 13,
+      "YIELD_JFD_CRIME": 14,
+      "YIELD_JFD_LOYALTY": 15,
+      "YIELD_JFD_SOVEREIGNTY": 16
+    }
+  },
+  "SaveVersionTags": {
+    "length": 1,
+    "fields": {
+      "SAVE_VERSION_LATEST": 0
+    }
+  },
+  "AIHomelandTargetType": {
+    "length": 8,
+    "fields": {
+      "AI_HOMELAND_TARGET_NONE": 0,
+      "AI_HOMELAND_TARGET_CITY": 1,
+      "AI_HOMELAND_TARGET_SENTRY_POINT": 2,
+      "AI_HOMELAND_TARGET_SENTRY_POINT_NAVAL": 3,
+      "AI_HOMELAND_TARGET_FORT": 4,
+      "AI_HOMELAND_TARGET_NAVAL_RESOURCE": 5,
+      "AI_HOMELAND_TARGET_WORKER": 6,
+      "AI_HOMELAND_TARGET_ANTIQUITY_SITE": 7
+    }
+  },
+  "DefenseState": {
+    "length": 4,
+    "fields": {
+      "NO_DEFENSE_STATE": -1,
+      "DEFENSE_STATE_ENOUGH": 0,
+      "DEFENSE_STATE_NEUTRAL": 1,
+      "DEFENSE_STATE_NEEDED": 2,
+      "DEFENSE_STATE_CRITICAL": 3
+    }
+  },
+  "MinorCivStatusTypes": {
+    "length": 3,
+    "fields": {
+      "NO_MINOR_CIV_STATUS_TYPE": -1,
+      "MINOR_CIV_STATUS_NORMAL": 0,
+      "MINOR_CIV_STATUS_ELEVATED": 1,
+      "MINOR_CIV_STATUS_CRITICAL": 2
+    }
+  },
+  "MinorCivPersonalityTypes": {
+    "length": 4,
+    "fields": {
+      "NO_MINOR_CIV_PERSONALITY_TYPE": -1,
+      "MINOR_CIV_PERSONALITY_FRIENDLY": 0,
+      "MINOR_CIV_PERSONALITY_NEUTRAL": 1,
+      "MINOR_CIV_PERSONALITY_HOSTILE": 2,
+      "MINOR_CIV_PERSONALITY_IRRATIONAL": 3
+    }
+  },
+  "MinorCivQuestTypes": {
+    "length": 38,
+    "fields": {
+      "NO_MINOR_CIV_QUEST_TYPE": -1,
+      "MINOR_CIV_QUEST_ROUTE": 0,
+      "MINOR_CIV_QUEST_KILL_CAMP": 1,
+      "MINOR_CIV_QUEST_CONNECT_RESOURCE": 2,
+      "MINOR_CIV_QUEST_CONSTRUCT_WONDER": 3,
+      "MINOR_CIV_QUEST_GREAT_PERSON": 4,
+      "MINOR_CIV_QUEST_KILL_CITY_STATE": 5,
+      "MINOR_CIV_QUEST_FIND_PLAYER": 6,
+      "MINOR_CIV_QUEST_FIND_NATURAL_WONDER": 7,
+      "MINOR_CIV_QUEST_GIVE_GOLD": 8,
+      "MINOR_CIV_QUEST_PLEDGE_TO_PROTECT": 9,
+      "MINOR_CIV_QUEST_CONTEST_CULTURE": 10,
+      "MINOR_CIV_QUEST_CONTEST_FAITH": 11,
+      "MINOR_CIV_QUEST_CONTEST_TECHS": 12,
+      "MINOR_CIV_QUEST_INVEST": 13,
+      "MINOR_CIV_QUEST_BULLY_CITY_STATE": 14,
+      "MINOR_CIV_QUEST_DENOUNCE_MAJOR": 15,
+      "MINOR_CIV_QUEST_SPREAD_RELIGION": 16,
+      "MINOR_CIV_QUEST_TRADE_ROUTE": 17,
+      "MINOR_CIV_QUEST_FIND_CITY": 18,
+      "MINOR_CIV_QUEST_WAR": 19,
+      "MINOR_CIV_QUEST_CONSTRUCT_NATIONAL_WONDER": 20,
+      "MINOR_CIV_QUEST_GIFT_SPECIFIC_UNIT": 21,
+      "MINOR_CIV_QUEST_FIND_CITY_STATE": 22,
+      "MINOR_CIV_QUEST_INFLUENCE": 23,
+      "MINOR_CIV_QUEST_CONTEST_TOURISM": 24,
+      "MINOR_CIV_QUEST_CONTEST_ARTSY_UNITS": 25,
+      "MINOR_CIV_QUEST_CONTEST_SCIENCEY_UNITS": 26,
+      "MINOR_CIV_QUEST_ARCHAEOLOGY": 27,
+      "MINOR_CIV_QUEST_CIRCUMNAVIGATION": 28,
+      "MINOR_CIV_QUEST_LIBERATION": 29,
+      "MINOR_CIV_QUEST_HORDE": 30,
+      "MINOR_CIV_QUEST_REBELLION": 31,
+      "MINOR_CIV_QUEST_EXPLORE_AREA": 32,
+      "MINOR_CIV_QUEST_BUILD_X_BUILDINGS": 33,
+      "MINOR_CIV_QUEST_SPY_MISSION": 34,
+      "MINOR_CIV_QUEST_SPY_ON_MAJOR": 35,
+      "MINOR_CIV_QUEST_COUP": 36,
+      "MINOR_CIV_QUEST_ACQUIRE_CITY": 37
+    }
+  },
+  "PlotSaveStructBitFlags": {
+    "length": 16385,
+    "fields": {
+      "PLOT_BIT_FLAG_IMPROVEMENT_EMBASSY": 1,
+      "PLOT_BIT_FLAG_IMPROVEMENT_PASSABLE": 2,
+      "PLOT_BIT_FLAG_IMPROVEMENT_PILLAGED": 4,
+      "PLOT_BIT_FLAG_ROUTE_PILLAGED": 8,
+      "PLOT_BIT_FLAG_STARTING_PLOT": 16,
+      "PLOT_BIT_FLAG_HILLS": 32,
+      "PLOT_BIT_FLAG_NE_OF_RIVER": 64,
+      "PLOT_BIT_FLAG_W_OF_RIVER": 128,
+      "PLOT_BIT_FLAG_NW_OF_RIVER": 256,
+      "PLOT_BIT_FLAG_POTENTIAL_CITY_WORK": 512,
+      "PLOT_BIT_FLAG_BARB_CAMP_NOT_CONVERTING": 1024,
+      "PLOT_BIT_FLAG_ROUGH_PLOT": 2048,
+      "PLOT_BIT_FLAG_RESOURCE_LINKED_CITY_ACTIVE": 4096,
+      "PLOT_BIT_FLAG_IMPROVED_BY_GIFT_FROM_MAYOR": 8192,
+      "PLOT_BIT_FLAG_IS_IMPASSABLE": 16384
+    }
+  },
+  "eRoadTypes": {
+    "length": 9,
+    "fields": {
+      "ROAD_REGULAR": 0,
+      "RR_REGULAR": 1,
+      "ROAD_PILLAGED": 2,
+      "RR_PILLAGED": 3,
+      "ROAD_UNDER_CONSTRUCTION": 4,
+      "RR_UNDER_CONSTRUCTION": 5,
+      "ROAD_TRADE_ROUTE": 6,
+      "RR_TRADE_ROUTE": 7,
+      "NUM_ROAD_RR_TYPES": 8
+    }
+  },
+  "PolicyModifierType": {
+    "length": 59,
+    "fields": {
+      "POLICYMOD_EXTRA_HAPPINESS": 0,
+      "POLICYMOD_EXTRA_HAPPINESS_PER_CITY": 1,
+      "POLICYMOD_GREAT_GENERAL_RATE": 2,
+      "POLICYMOD_DOMESTIC_GREAT_GENERAL_RATE": 3,
+      "POLICYMOD_GAP_FROM_HAPPINESS_MODIFIER": 4,
+      "POLICYMOD_POLICY_COST_MODIFIER": 5,
+      "POLICYMOD_WONDER_PRODUCTION_MODIFIER": 6,
+      "POLICYMOD_BUILDING_PRODUCTION_MODIFIER": 7,
+      "POLICYMOD_FREE_EXPERIENCE": 8,
+      "POLICYMOD_EXTRA_CULTURE_FROM_IMPROVEMENTS": 9,
+      "POLICYMOD_CULTURE_FROM_KILLS": 10,
+      "POLICYMOD_EMBARKED_EXTRA_MOVES": 11,
+      "POLICYMOD_CULTURE_FROM_BARBARIAN_KILLS": 12,
+      "POLICYMOD_GOLD_FROM_KILLS": 13,
+      "POLICYMOD_CULTURE_FROM_GARRISON": 14,
+      "POLICYMOD_UNIT_FREQUENCY_MODIFIER": 15,
+      "POLICYMOD_TRADE_MISSION_GOLD_MODIFIER": 16,
+      "POLICYMOD_FAITH_COST_MODIFIER": 17,
+      "POLICYMOD_CULTURAL_PLUNDER_MULTIPLIER": 18,
+      "POLICYMOD_STEAL_TECH_SLOWER_MODIFIER": 19,
+      "POLICYMOD_CATCH_SPIES_MODIFIER": 20,
+      "POLICYMOD_GREAT_ADMIRAL_RATE": 21,
+      "POLICYMOD_GREAT_WRITER_RATE": 22,
+      "POLICYMOD_GREAT_ARTIST_RATE": 23,
+      "POLICYMOD_GREAT_MUSICIAN_RATE": 24,
+      "POLICYMOD_GREAT_MERCHANT_RATE": 25,
+      "POLICYMOD_STEAL_GW_SLOWER_MODIFIER": 26,
+      "POLICYMOD_STEAL_GW_FASTER_MODIFIER": 27,
+      "POLICYMOD_GREAT_ENGINEER_RATE": 28,
+      "POLICYMOD_CITY_DEFENSE_BOOST": 29,
+      "POLICYMOD_GREAT_DIPLOMAT_RATE": 30,
+      "POLICYMOD_GREAT_SCIENTIST_RATE": 31,
+      "POLICYMOD_TOURISM_MOD_COMMON_FOE": 32,
+      "POLICYMOD_TOURISM_MOD_LESS_HAPPY": 33,
+      "POLICYMOD_TOURISM_MOD_SHARED_IDEOLOGY": 34,
+      "POLICYMOD_BUILDING_PURCHASE_COST_MODIFIER": 35,
+      "POLICYMOD_LAND_TRADE_GOLD_CHANGE": 36,
+      "POLICYMOD_SEA_TRADE_GOLD_CHANGE": 37,
+      "POLICYMOD_SHARED_IDEOLOGY_TRADE_CHANGE": 38,
+      "POLICYMOD_RIGGING_ELECTION_MODIFIER": 39,
+      "POLICYMOD_RIG_ELECTION_INFLUENCE_MODIFIER": 40,
+      "POLICYMOD_PASSIVE_ESPIONAGE_MODIFIER": 41,
+      "POLICYMOD_MILITARY_UNIT_GIFT_INFLUENCE": 42,
+      "POLICYMOD_PROTECTED_MINOR_INFLUENCE": 43,
+      "POLICYMOD_AFRAID_INFLUENCE": 44,
+      "POLICYMOD_MINOR_BULLY_SCORE_MODIFIER": 45,
+      "POLICYMOD_STEAL_TECH_FASTER_MODIFIER": 46,
+      "POLICYMOD_THEMING_BONUS": 47,
+      "POLICYMOD_CITY_STATE_TRADE_CHANGE": 48,
+      "POLICYMOD_INTERNAL_TRADE_MODIFIER": 49,
+      "POLICYMOD_INTERNAL_TRADE_CAPITAL_MODIFIER": 50,
+      "POLICYMOD_TRADE_CAPITAL_MODIFIER": 51,
+      "POLICYMOD_TRADE_MODIFIER": 52,
+      "POLICYMOD_LIBERATION_BONUS": 53,
+      "POLICYMOD_SHARED_RELIGION_TOURISM_MODIFIER": 54,
+      "POLICYMOD_TRADE_ROUTE_TOURISM_MODIFIER": 55,
+      "POLICYMOD_OPEN_BORDERS_TOURISM_MODIFIER": 56,
+      "POLICYMOD_CONVERSION_MODIFIER": 57,
+      "NUM_POLICY_MODIFIER_TYPE": 58
+    }
+  },
+  "GameType": {
+    "length": 13,
+    "fields": {
+      "GAME_NONE": -1,
+      "GAME_SP_NEW": 0,
+      "GAME_SP_SCENARIO": 1,
+      "GAME_SP_LOAD": 2,
+      "GAME_MP_NEW": 3,
+      "GAME_MP_SCENARIO": 4,
+      "GAME_MP_LOAD": 5,
+      "GAME_HOTSEAT_NEW": 6,
+      "GAME_HOTSEAT_SCENARIO": 7,
+      "GAME_HOTSEAT_LOAD": 8,
+      "GAME_PBEM_NEW": 9,
+      "GAME_PBEM_SCENARIO": 10,
+      "GAME_PBEM_LOAD": 11,
+      "NUM_GAMETYPES": 12
+    }
+  },
+  "Version": {
+    "length": 0,
+    "fields": {}
+  },
+  "FOUNDING_RESULT": {
+    "length": 11,
+    "fields": {
+      "FOUNDING_OK": 0,
+      "FOUNDING_BELIEF_IN_USE": 1,
+      "FOUNDING_RELIGION_IN_USE": 2,
+      "FOUNDING_NOT_ENOUGH_FAITH": 3,
+      "FOUNDING_NO_RELIGIONS_AVAILABLE": 4,
+      "FOUNDING_INVALID_PLAYER": 5,
+      "FOUNDING_PLAYER_ALREADY_CREATED_RELIGION": 6,
+      "FOUNDING_PLAYER_ALREADY_CREATED_PANTHEON": 7,
+      "FOUNDING_NAME_IN_USE": 8,
+      "FOUNDING_RELIGION_ENHANCED": 9,
+      "FOUNDING_NO_BELIEFS_AVAILABLE": 10
+    }
+  },
+  "CvReligiousFollowChangeReason": {
+    "length": 14,
+    "fields": {
+      "FOLLOWER_CHANGE_POP_CHANGE": 0,
+      "FOLLOWER_CHANGE_HOLY_CITY": 1,
+      "FOLLOWER_CHANGE_ADJACENT_PRESSURE": 2,
+      "FOLLOWER_CHANGE_RELIGION_FOUNDED": 3,
+      "FOLLOWER_CHANGE_PANTHEON_FOUNDED": 4,
+      "FOLLOWER_CHANGE_CONQUEST": 5,
+      "FOLLOWER_CHANGE_MISSIONARY": 6,
+      "FOLLOWER_CHANGE_PROPHET": 7,
+      "FOLLOWER_CHANGE_REMOVE_HERESY": 8,
+      "FOLLOWER_CHANGE_SCRIPTED_CONVERSION": 9,
+      "FOLLOWER_CHANGE_SPY_PRESSURE": 10,
+      "FOLLOWER_CHANGE_FRANCHISE_PRESSURE": 11,
+      "FOLLOWER_CHANGE_INSTANT_YIELD": 12,
+      "FOLLOWER_CHANGE_ADOPT_FULLY": 13
+    }
+  },
+  "SiteEvaluationFactors": {
+    "length": 3,
+    "fields": {
+      "SITE_EVALUATION_RESOURCES": 0,
+      "SITE_EVALUATION_STRATEGIC": 1,
+      "NUM_SITE_EVALUATION_FACTORS": 2
+    }
+  },
+  "eAggressionLevel": {
+    "length": 5,
+    "fields": {
+      "AL_NONE": 0,
+      "AL_LOW": 1,
+      "AL_MEDIUM": 2,
+      "AL_HIGH": 3,
+      "AL_BRAVEHEART": 4
+    }
+  },
+  "eUnitMoveEvalMode": {
+    "length": 3,
+    "fields": {
+      "EM_INITIAL": 0,
+      "EM_INTERMEDIATE": 1,
+      "EM_FINAL": 2
+    }
+  },
+  "eUnitMovementStrategy": {
+    "length": 6,
+    "fields": {
+      "MS_NONE": 0,
+      "MS_FIRSTLINE": 1,
+      "MS_SECONDLINE": 2,
+      "MS_THIRDLINE": 3,
+      "MS_SUPPORT": 4,
+      "MS_EMBARKED": 5
+    }
+  },
+  "eUnitAssignmentType": {
+    "length": 20,
+    "fields": {
+      "A_INITIAL": 0,
+      "A_MOVE": 1,
+      "A_MELEEATTACK": 2,
+      "A_MELEEKILL": 3,
+      "A_RANGEATTACK": 4,
+      "A_RANGEKILL": 5,
+      "A_FINISH": 6,
+      "A_BLOCKED": 7,
+      "A_PILLAGE": 8,
+      "A_CAPTURE": 9,
+      "A_MOVE_FORCED": 10,
+      "A_RESTART": 11,
+      "A_MELEEKILL_NO_ADVANCE": 12,
+      "A_MOVE_SWAP": 13,
+      "A_MOVE_SWAP_REVERSE": 14,
+      "A_MOVE_DOUBLE": 15,
+      "A_USE_POWER": 16,
+      "A_FINISH_TEMP": 17,
+      "A_HEAL": 18,
+      "A_WAIT": 19
+    }
+  },
+  "eTactPlotDomain": {
+    "length": 3,
+    "fields": {
+      "TD_LAND": 0,
+      "TD_SEA": 1,
+      "TD_BOTH": 2
+    }
+  },
+  "AddAssignmentResult": {
+    "length": 4,
+    "fields": {
+      "RESULT_NOOP": 0,
+      "RESULT_ADDED": 1,
+      "RESULT_ADDED_W_VIS_CHANGE": 2,
+      "RESULT_NOT_ADDED": 3
+    }
+  },
+  "eTacticalDominanceFlags": {
+    "length": 4,
+    "fields": {
+      "TACTICAL_DOMINANCE_NO_UNITS_VISIBLE": 0,
+      "TACTICAL_DOMINANCE_FRIENDLY": 1,
+      "TACTICAL_DOMINANCE_ENEMY": 2,
+      "TACTICAL_DOMINANCE_EVEN": 3
+    }
+  },
+  "eDominanceTerritoryTypes": {
+    "length": 4,
+    "fields": {
+      "TACTICAL_TERRITORY_NONE": 0,
+      "TACTICAL_TERRITORY_FRIENDLY": 1,
+      "TACTICAL_TERRITORY_ENEMY": 2,
+      "TACTICAL_TERRITORY_NEUTRAL": 3
+    }
+  },
+  "eTacticalPosture": {
+    "length": 8,
+    "fields": {
+      "TACTICAL_POSTURE_NONE": 0,
+      "TACTICAL_POSTURE_WITHDRAW": 1,
+      "TACTICAL_POSTURE_ATTRITION": 2,
+      "TACTICAL_POSTURE_EXPLOIT_FLANKS": 3,
+      "TACTICAL_POSTURE_STEAMROLL": 4,
+      "TACTICAL_POSTURE_SURGICAL_CITY_STRIKE": 5,
+      "TACTICAL_POSTURE_HEDGEHOG": 6,
+      "TACTICAL_POSTURE_COUNTERATTACK": 7
+    }
+  },
+  "AreaEffectType": {
+    "length": 4,
+    "fields": {
+      "AE_GREAT_GENERAL": 0,
+      "AE_SAPPER": 1,
+      "AE_SIEGETOWER": 2,
+      "AE_PASSIVE_HEAL": 3
+    }
+  },
+  "SquadsEndMovementType": {
+    "length": 3,
+    "fields": {
+      "ALERT_ON_ARRIVAL": 0,
+      "WAKE_ON_EACH_UNIT_ARRIVED": 1,
+      "WAKE_ON_ALL_ARRIVED": 2
+    }
+  },
+  "MoveResult": {
+    "length": 4294967295,
+    "fields": {
+      "MOVE_RESULT_CANCEL": 4294967294,
+      "MOVE_RESULT_NEXT_TURN": 4294967293,
+      "MOVE_RESULT_ATTACK": 4294967292,
+      "MOVE_RESULT_NO_TARGET": 4294967291
+    }
+  },
+  "ATTACK_RESULT": {
+    "length": 3,
+    "fields": {
+      "ATTACK_ABORTED": 0,
+      "ATTACK_COMPLETED": 1,
+      "ATTACK_QUEUED": 2
+    }
+  },
+  "ATTACK_OPTION": {
+    "length": 2,
+    "fields": {
+      "ATTACK_OPTION_NONE": 0,
+      "ATTACK_OPTION_NO_DEFENSIVE_SUPPORT": 1
+    }
+  },
+  "ContributionTier": {
+    "length": 5,
+    "fields": {
+      "CONTRIBUTION_TIER_0": 0,
+      "CONTRIBUTION_TIER_1": 1,
+      "CONTRIBUTION_TIER_2": 2,
+      "CONTRIBUTION_TIER_3": 3,
+      "NUM_CONTRIBUTION_TIERS": 4
+    }
+  },
+  "KnowledgeLevels": {
+    "length": 3,
+    "fields": {
+      "KNOWLEDGE_NONE": 0,
+      "KNOWLEDGE_PARTIAL": 1,
+      "KNOWLEDGE_INTIMATE": 2
+    }
+  },
+  "DesireLevels": {
+    "length": 9,
+    "fields": {
+      "DESIRE_NEVER": 0,
+      "DESIRE_STRONG_DISLIKE": 1,
+      "DESIRE_DISLIKE": 2,
+      "DESIRE_WEAK_DISLIKE": 3,
+      "DESIRE_NEUTRAL": 4,
+      "DESIRE_WEAK_LIKE": 5,
+      "DESIRE_LIKE": 6,
+      "DESIRE_STRONG_LIKE": 7,
+      "DESIRE_ALWAYS": 8
+    }
+  },
+  "DiplomatUsefulnessLevels": {
+    "length": 4,
+    "fields": {
+      "DIPLOMAT_USEFULNESS_NONE": 0,
+      "DIPLOMAT_USEFULNESS_LOW": 1,
+      "DIPLOMAT_USEFULNESS_MEDIUM": 2,
+      "DIPLOMAT_USEFULNESS_HIGH": 3
+    }
+  },
+  "AlignmentLevels": {
+    "length": 12,
+    "fields": {
+      "ALIGNMENT_WAR": 0,
+      "ALIGNMENT_ENEMY": 1,
+      "ALIGNMENT_HATRED": 2,
+      "ALIGNMENT_RIVAL": 3,
+      "ALIGNMENT_NEUTRAL": 4,
+      "ALIGNMENT_FRIEND": 5,
+      "ALIGNMENT_CONFIDANT": 6,
+      "ALIGNMENT_ALLY": 7,
+      "ALIGNMENT_LIBERATOR": 8,
+      "ALIGNMENT_TEAMMATE": 9,
+      "ALIGNMENT_LEADER": 10,
+      "ALIGNMENT_SELF": 11
+    }
+  },
+  "OpenFlags": {
+    "length": 65537,
+    "fields": {
+      "OPEN_READONLY": 1,
+      "OPEN_READWRITE": 2,
+      "OPEN_CREATE": 4,
+      "OPEN_NOMUTEX": 32768,
+      "OPEN_FULLMUTEX": 65536
+    }
+  },
+  "ColumnTypes": {
+    "length": 7,
+    "fields": {
+      "COLTYPE_NULL": 5,
+      "COLTYPE_INT": 1,
+      "COLTYPE_FLOAT": 2,
+      "COLTYPE_TEXT": 3,
+      "COLTYPE_BOOL": 6
+    }
+  },
+  "LogTypes": {
+    "length": 3,
+    "fields": {
+      "TYPE_MESSAGE": 0,
+      "TYPE_WARNING": 1,
+      "TYPE_ERROR": 2
+    }
+  },
+  "StringType": {
+    "length": 4,
+    "fields": {
+      "STRINGTYPE_UNKNOWN": -1,
+      "STRINGTYPE_NULL": 0,
+      "STRINGTYPE_TEXT": 1,
+      "STRINGTYPE_INT": 2,
+      "STRINGTYPE_REAL": 3
+    }
+  },
+  "InsertConflictClause": {
+    "length": 4,
+    "fields": {
+      "NONE": 0,
+      "OR_ABORT": 1,
+      "OR_IGNORE": 2,
+      "OR_REPLACE": 3
+    }
+  },
+  "Gender": {
+    "length": 3,
+    "fields": {
+      "GENDER_NEUTER": 0,
+      "GENDER_MASCULINE": 1,
+      "GENDER_FEMININE": 2
+    }
+  },
+  "Type": {
+    "length": 0,
+    "fields": {}
+  },
+  "PlotHeight": {
+    "length": 3,
+    "fields": {
+      "FLAT_TERRAIN": 0,
+      "HILLS": 1,
+      "MOUNTAINS": 2
+    }
+  },
+  "PlotFlags": {
+    "length": 129,
+    "fields": {
+      "W_OF_RIVER": 1,
+      "NW_OF_RIVER": 2,
+      "NE_OF_RIVER": 4,
+      "RIVER_FLOW_S": 8,
+      "RIVER_FLOW_NE": 16,
+      "RIVER_FLOW_NW": 32,
+      "START_POS_MAJOR": 64,
+      "START_POS_MINOR": 128
+    }
+  },
+  "Flags": {
+    "length": 5,
+    "fields": {
+      "CITY_LOCALIZED_NAME": 1,
+      "CITY_PUPPET_STATE": 2,
+      "CITY_OCCUPIED": 4
+    }
+  },
+  "MapFlags": {
+    "length": 17,
+    "fields": {
+      "FLAG_WORLD_WRAP": 1,
+      "FLAG_RANDOM_RECOURCES": 2,
+      "FLAG_RANDOM_GOODIES": 4,
+      "FLAG_OLD_GOODIE_RULES": 8,
+      "FLAG_TRANSFERABLE": 16
+    }
+  },
+  "FieldType": {
+    "length": 4,
+    "fields": {
+      "TYPE_INVALID": -1,
+      "TYPE_BOOL": 0,
+      "TYPE_FLOAT": 1,
+      "TYPE_STRING": 2,
+      "TYPE_ENUM": 3
+    }
+  },
+  "FAStarListType": {
+    "length": 3,
+    "fields": {
+      "NO_FASTARLIST": -1,
+      "FASTARLIST_OPEN": 0,
+      "FASTARLIST_CLOSED": 1,
+      "NUM_FASTARLIST_TYPES": 2
+    }
+  },
+  "EEndianness": {
+    "length": 3,
+    "fields": {
+      "ENDIAN_UNKNOWN": 0,
+      "ENDIAN_LITTLE": 1,
+      "ENDIAN_BIG": 2
+    }
+  },
+  "FileErr": {
+    "length": 11,
+    "fields": {
+      "FILE_OK": 0,
+      "FILE_NOTFOUND": 1,
+      "FILE_ALREADYEXISTS": 2,
+      "FILE_BADMODE": 3,
+      "FILE_BADSEEK": 4,
+      "FILE_MAPERROR": 5,
+      "FILE_VIEWERROR": 6,
+      "FILE_BADNAME": 7,
+      "FILE_BADSIG": 8,
+      "FILE_DISKFULL": 9,
+      "FILE_CORRUPT": 10
+    }
+  },
+  "SeekMode": {
+    "length": 3,
+    "fields": {
+      "begin": 0,
+      "current": 1,
+      "end": 2
+    }
+  },
+  "OpenMode": {
+    "length": 4,
+    "fields": {
+      "modeRead": 1,
+      "modeWrite": 2,
+      "modeEdit": 3
+    }
+  },
+  "EFlags": {
+    "length": 5,
+    "fields": {
+      "kDontTimeStamp": 1,
+      "kDontFlushOnWrite": 2,
+      "kWriteToConsole": 4
+    }
+  },
+  "eMPoolType": {
+    "length": 42,
+    "fields": {
+      "c_eMPoolTypeContainer": 0,
+      "c_eMPoolTypeSBA": 1,
+      "c_eMPoolTypeFireWorks": 2,
+      "c_eMPoolTypeFString": 3,
+      "c_eMPoolTypeStringPalette": 4,
+      "c_eMPoolTypeStringHashPalette": 5,
+      "c_eMPoolTypeTinyXML": 6,
+      "c_eMPoolTypeFXml": 7,
+      "c_eMPoolTypeFFileIO": 8,
+      "c_eMPoolTypeFireGrafix": 9,
+      "c_eMPoolTypeTextures": 10,
+      "c_eMPoolTypeGranny": 11,
+      "c_eMPoolTypeFireSound": 12,
+      "c_eMPoolTypeSamples": 13,
+      "c_eMPoolTypeFireTune": 14,
+      "c_eMPoolTypeFireWire": 15,
+      "c_eMPoolTypeFireEngine": 16,
+      "c_eMPoolTypeJobManager": 17,
+      "c_eMPoolTypeGFC": 18,
+      "c_eMPoolTypeUI": 19,
+      "c_eMPoolTypeLua": 20,
+      "c_eMPoolTypeGame": 21,
+      "c_eMPoolTypeGamebryo": 22,
+      "c_eMPoolTypePhysics": 23,
+      "c_eMPoolTypeForkParticles": 24,
+      "c_eMPoolTypeSTL": 25,
+      "c_eMPoolTypeTool": 26,
+      "c_eMPoolTypeGrannyAsset": 27,
+      "c_eMPoolTypeGrannyAssetInstance": 28,
+      "c_eMPoolTypeFGXModelTemplate": 29,
+      "c_eMPoolTypeFGXModelInstance": 30,
+      "c_eMPoolTypeEventSystem": 31,
+      "c_eMPoolTypeInstructionCache": 32,
+      "c_eMPoolTypeResourceManager": 33,
+      "c_eMPoolTypeTriggerSystem": 34,
+      "c_eMPoolTypeFileManager": 35,
+      "c_eMPoolTypeStateMachine": 36,
+      "c_eMPoolTypeFloatVarList": 37,
+      "c_eMPoolTypeDebugMenu": 38,
+      "c_eMPoolTypeCurve": 39,
+      "c_eDebugSafetyNet": 40,
+      "c_eMPoolTypeUserStart": 41
+    }
+  },
+  "eMPoolTag": {
+    "length": 2,
+    "fields": {
+      "c_eMPoolTagDefault": 0,
+      "c_eMPoolTagFireWorksDefaultNew": 1
+    }
+  },
+  "eMHeaps": {
+    "length": 3,
+    "fields": {
+      "c_eMHeapMain": 0,
+      "c_eMHeapSBA": 1,
+      "c_eMHeapGPU": 2
+    }
+  },
+  "CtorType": {
+    "length": 2,
+    "fields": {
+      "FORMAT": 1
+    }
+  },
+  "FlagType": {
+    "length": 17,
+    "fields": {
+      "LOCKED": 1,
+      "STATIC": 2,
+      "FIXED": 4,
+      "LARGE": 8,
+      "UNUSED": 16
+    }
+  },
+  "eFlags": {
+    "length": 2,
+    "fields": {
+      "eOwnsMemory": 1
+    }
+  },
+  "eVariableType": {
+    "length": 12,
+    "fields": {
+      "FVARTYPE_BOOL": 0,
+      "FVARTYPE_CHAR": 1,
+      "FVARTYPE_UCHAR": 2,
+      "FVARTYPE_SHORT": 3,
+      "FVARTYPE_USHORT": 4,
+      "FVARTYPE_INT": 5,
+      "FVARTYPE_UINT": 6,
+      "FVARTYPE_FLOAT": 7,
+      "FVARTYPE_DOUBLE": 8,
+      "FVARTYPE_STRING": 9,
+      "FVARTYPE_WSTRING": 10,
+      "FVARTYPE_COUNT": 11
+    }
+  },
+  "Modifiers": {
+    "length": 5,
+    "fields": {
+      "CTRL": 1,
+      "ALT": 2,
+      "SHIFT": 4
+    }
+  },
+  "InputType": {
+    "length": 109,
+    "fields": {
+      "KB_ESCAPE": 0,
+      "KB_0": 1,
+      "KB_1": 2,
+      "KB_2": 3,
+      "KB_3": 4,
+      "KB_4": 5,
+      "KB_5": 6,
+      "KB_6": 7,
+      "KB_7": 8,
+      "KB_8": 9,
+      "KB_9": 10,
+      "KB_MINUS": 11,
+      "KB_A": 12,
+      "KB_B": 13,
+      "KB_C": 14,
+      "KB_D": 15,
+      "KB_E": 16,
+      "KB_F": 17,
+      "KB_G": 18,
+      "KB_H": 19,
+      "KB_I": 20,
+      "KB_J": 21,
+      "KB_K": 22,
+      "KB_L": 23,
+      "KB_M": 24,
+      "KB_N": 25,
+      "KB_O": 26,
+      "KB_P": 27,
+      "KB_Q": 28,
+      "KB_R": 29,
+      "KB_S": 30,
+      "KB_T": 31,
+      "KB_U": 32,
+      "KB_V": 33,
+      "KB_W": 34,
+      "KB_X": 35,
+      "KB_Y": 36,
+      "KB_Z": 37,
+      "KB_EQUALS": 38,
+      "KB_BACKSPACE": 39,
+      "KB_TAB": 40,
+      "KB_LBRACKET": 41,
+      "KB_RBRACKET": 42,
+      "KB_RETURN": 43,
+      "KB_LCONTROL": 44,
+      "KB_SEMICOLON": 45,
+      "KB_APOSTROPHE": 46,
+      "KB_GRAVE": 47,
+      "KB_LSHIFT": 48,
+      "KB_BACKSLASH": 49,
+      "KB_COMMA": 50,
+      "KB_PERIOD": 51,
+      "KB_SLASH": 52,
+      "KB_RSHIFT": 53,
+      "KB_NUMPADSTAR": 54,
+      "KB_LALT": 55,
+      "KB_SPACE": 56,
+      "KB_CAPSLOCK": 57,
+      "KB_F1": 58,
+      "KB_F2": 59,
+      "KB_F3": 60,
+      "KB_F4": 61,
+      "KB_F5": 62,
+      "KB_F6": 63,
+      "KB_F7": 64,
+      "KB_F8": 65,
+      "KB_F9": 66,
+      "KB_F10": 67,
+      "KB_F11": 68,
+      "KB_F12": 69,
+      "KB_NUMLOCK": 70,
+      "KB_SCROLL": 71,
+      "KB_NUMPAD0": 72,
+      "KB_NUMPAD1": 73,
+      "KB_NUMPAD2": 74,
+      "KB_NUMPAD3": 75,
+      "KB_NUMPAD4": 76,
+      "KB_NUMPAD5": 77,
+      "KB_NUMPAD6": 78,
+      "KB_NUMPAD7": 79,
+      "KB_NUMPAD8": 80,
+      "KB_NUMPAD9": 81,
+      "KB_NUMPADMINUS": 82,
+      "KB_NUMPADPLUS": 83,
+      "KB_NUMPADPERIOD": 84,
+      "KB_NUMPADEQUALS": 85,
+      "KB_AT": 86,
+      "KB_UNDERLINE": 87,
+      "KB_COLON": 88,
+      "KB_NUMPADENTER": 89,
+      "KB_RCONTROL": 90,
+      "KB_VOLUMEDOWN": 91,
+      "KB_VOLUMEUP": 92,
+      "KB_NUMPADCOMMA": 93,
+      "KB_NUMPADSLASH": 94,
+      "KB_SYSRQ": 95,
+      "KB_RALT": 96,
+      "KB_PAUSE": 97,
+      "KB_HOME": 98,
+      "KB_UP": 99,
+      "KB_PGUP": 100,
+      "KB_LEFT": 101,
+      "KB_RIGHT": 102,
+      "KB_END": 103,
+      "KB_DOWN": 104,
+      "KB_PGDN": 105,
+      "KB_INSERT": 106,
+      "KB_DELETE": 107,
+      "NUM_INPUT_TYPE": 108
     }
   }
 }
