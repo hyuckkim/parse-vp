@@ -1462,6 +1462,63 @@
       }
     }
   ],
+  "PlotExtraYield": [
+    {
+      "name": "m_iX",
+      "raw": "saveTo << readFrom.m_iX;",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iY",
+      "raw": "saveTo << readFrom.m_iY;",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_aeExtraYield",
+      "raw": "saveTo << readFrom.m_aeExtraYield;",
+      "type": {
+        "name": "std::vector",
+        "args": [
+          {
+            "name": "int",
+            "args": []
+          }
+        ]
+      }
+    }
+  ],
+  "PlotExtraCost": [
+    {
+      "name": "m_iX",
+      "raw": "saveTo << readFrom.m_iX;",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iY",
+      "raw": "saveTo << readFrom.m_iY;",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    },
+    {
+      "name": "m_iCost",
+      "raw": "saveTo << readFrom.m_iCost;",
+      "type": {
+        "name": "int",
+        "args": []
+      }
+    }
+  ],
   "unsigned long long": {
     "name": "unsigned long long",
     "size": 8,

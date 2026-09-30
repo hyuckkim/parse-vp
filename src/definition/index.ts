@@ -80,13 +80,13 @@ function searchDefinition(typeName: string, src: string): {
         typedefs,
     });
     const visitor = getVisitorContent(typeName, src);
-
     if (!visitor) return;
     
     const calls: ClassCall[] = visitor.split('\n')
         .map(line => line.trim())
         .map(line => {
             return getClassCall(line, fields)
+             ?? getOperationCall(line, fields)
              ?? getLiteralCall(line);
         })
         .filter((call): call is ClassCall => call !== null);
@@ -113,6 +113,24 @@ function getClassCall(line: string, fields: FieldDefinition[]): ClassCall | null
     return {
         name: type,
         raw: call,
+        type: field.type,
+        dimensions: field.dimensions
+    };
+}
+function getOperationCall(
+    line: string,
+    fields: FieldDefinition[]
+): ClassCall | null {
+    const match = line.match(/\w+\s*<<\s*\w+\.(\w+)\s*;/);
+    if (!match) return null;
+
+    const name = match[1];
+    const field = fields.find(field => field.name === name);
+    if (!field) return null;
+
+    return {
+        name: name ?? '',
+        raw: line,
         type: field.type,
         dimensions: field.dimensions
     };

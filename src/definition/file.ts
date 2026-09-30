@@ -74,6 +74,29 @@ function splitCppFunc(func: string, str: string): string | null {
   }
   return extractBraces(str, braceStart);
 }
+function splitCppOperator(
+    typeName: string,
+    str: string
+): string | null {
+    const regex = new RegExp(
+        `\\boperator\\s*<<\\s*\\([^)]*\\b${escapeRegExp(typeName)}\\b[^)]*\\)`
+    );
+
+    const match = regex.exec(str);
+
+    if (!match || match.index === undefined) {
+        return null;
+    }
+
+    const braceStart = str.indexOf('{', match.index);
+
+    if (braceStart === -1) {
+        return null;
+    }
+
+    return extractBraces(str, braceStart);
+}
+
 function splitCppType(typeName: string, str: string): string | null {
   const start = str.search(
     new RegExp(
@@ -102,12 +125,39 @@ export function getHeaderContent(typeName: string, src: string): string | null {
 
   return splitCppType(typeName, file[0]!);
 }
-export function getVisitorContent(typeName: string, src: string): string | null {
-    const file = grepToFile(
+export function getVisitorContent(
+    typeName: string,
+    src: string
+): string | null {
+    // 1. Serialize 우선
+    const serializeFile = grepToFile(
         new RegExp(`\\b${escapeRegExp(typeName)}::Serialize\\b`),
         src,
         ['.cpp', '.h']
     );
-    if (file.length < 1) return null;
-    return splitCppFunc(`${typeName}::Serialize`, file[0]!);
+
+    if (serializeFile.length > 0) {
+        return splitCppFunc(
+            `${typeName}::Serialize`,
+            serializeFile[0]!
+        );
+    }
+
+    // 2. operator<< fallback
+    const operatorFile = grepToFile(
+        new RegExp(
+    `\\boperator\\s*<<\\s*\\(` +
+        `[^,]+,\\s*` +
+        `(?:const\\s+)?${escapeRegExp(typeName)}\\s*&?\\s+\\w+` +
+        `\\s*\\)`
+    ),
+        src,
+        ['.cpp', '.h']
+    );
+
+    if (operatorFile.length > 0) {
+        return splitCppOperator(typeName, operatorFile[0]!);
+    }
+
+    return null;
 }
