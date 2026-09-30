@@ -4,6 +4,7 @@ import type { CallInfo, ClassCall, ClassCallType, PrimitiveInfo } from '../types
 import { getHeaderContent, getVisitorContent } from './file.js';
 import { recordAllFields, type FieldDefinition } from './recordAllFields.js';
 import { collectTypedefs } from '../typedef.js';
+import { getEnums } from './getEnums.js';
 
 function collectDefinitions(rootType: string | string[], src: string): Record<string, CallInfo> {
     const visited = new Set<string>();
@@ -138,6 +139,8 @@ const {
     literalMap,
 } = readMagicNumber('magicnumber.json');
 const typedefs = collectTypedefs(gamePath);
-const d = collectDefinitions('CvGame', gamePath);
+const enums = await getEnums('Civ5CoreDatabase.db',
+    `${gamePath}\\CvGameCoreDLLUtil\\include\\CvEnums.h`);
 
+const d = collectDefinitions('CvGame', gamePath);
 writeFileSync('def.json', JSON.stringify(d, null, 2), 'utf8');
