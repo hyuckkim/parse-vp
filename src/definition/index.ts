@@ -58,6 +58,7 @@ function asPrimitiveType(typeName: string): PrimitiveInfo | undefined {
     if (!def) return;
 
     return {
+        type: 'primitive',
         name: def.name,
         size: def.size,
         encoding: def.encoding
@@ -71,6 +72,7 @@ function asEnumType(typeName: string): EnumInfo | undefined {
     if (!def) return;
 
     return {
+        type: 'enum',
         name: typeName,
         values: def.fields,
     }
@@ -80,6 +82,7 @@ function isGenericType(typeName: string): boolean {
 }
 function asGenericType(typeName: string): GenericInfo | undefined {
     return {
+        type: 'generic',
         name: typeName,
     }
 }
@@ -105,7 +108,11 @@ function searchDefinition(typeName: string, src: string): {
         .filter((call): call is ClassCall => call !== null);
 
     return {
-        def: calls,
+        def: {
+            type: 'class',
+            name: typeName,
+            calls
+        },
         next: getEveryType(calls.map(call => call.type))
     };
 }

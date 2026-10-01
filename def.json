@@ -1,1078 +1,1091 @@
 {
-  "CvGame": [
-    {
-      "name": "m_iEndTurnMessagesSent",
-      "raw": "game.m_iEndTurnMessagesSent",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iElapsedGameTurns",
-      "raw": "game.m_iElapsedGameTurns",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iStartTurn",
-      "raw": "game.m_iStartTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iWinningTurn",
-      "raw": "game.m_iWinningTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iStartYear",
-      "raw": "game.m_iStartYear",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iEstimateEndTurn",
-      "raw": "game.m_iEstimateEndTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iDefaultEstimateEndTurn",
-      "raw": "game.m_iDefaultEstimateEndTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTurnSlice",
-      "raw": "game.m_iTurnSlice",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCutoffSlice",
-      "raw": "game.m_iCutoffSlice",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumCities",
-      "raw": "game.m_iNumCities",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTotalPopulation",
-      "raw": "game.m_iTotalPopulation",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTotalEconomicValue",
-      "raw": "game.m_iTotalEconomicValue",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iHighestEconomicValue",
-      "raw": "game.m_iHighestEconomicValue",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iMedianEconomicValue",
-      "raw": "game.m_iMedianEconomicValue",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNoNukesCount",
-      "raw": "game.m_iNoNukesCount",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNukesExploded",
-      "raw": "game.m_iNukesExploded",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iMaxPopulation",
-      "raw": "game.m_iMaxPopulation",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iGlobalAssetCounterAllPreviousTurns",
-      "raw": "game.m_iGlobalAssetCounterAllPreviousTurns",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iGlobalAssetCounterCurrentTurn",
-      "raw": "game.m_iGlobalAssetCounterCurrentTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iInitPopulation",
-      "raw": "game.m_iInitPopulation",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iInitLand",
-      "raw": "game.m_iInitLand",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iInitTech",
-      "raw": "game.m_iInitTech",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iInitWonders",
-      "raw": "game.m_iInitWonders",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iAIAutoPlay",
-      "raw": "game.m_iAIAutoPlay",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iUnitedNationsCountdown",
-      "raw": "game.m_iUnitedNationsCountdown",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumVictoryVotesTallied",
-      "raw": "game.m_iNumVictoryVotesTallied",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumVictoryVotesExpected",
-      "raw": "game.m_iNumVictoryVotesExpected",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iVotesNeededForDiploVictory",
-      "raw": "game.m_iVotesNeededForDiploVictory",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iMapScoreMod",
-      "raw": "game.m_iMapScoreMod",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCityFoundValueReference",
-      "raw": "game.m_iCityFoundValueReference",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumReferenceCities",
-      "raw": "game.m_iNumReferenceCities",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumMajorCivsAliveAtGameStart",
-      "raw": "game.m_iNumMajorCivsAliveAtGameStart",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumMinorCivsAliveAtGameStart",
-      "raw": "game.m_iNumMinorCivsAliveAtGameStart",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bScoreDirty",
-      "raw": "game.m_bScoreDirty",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bCircumnavigated",
-      "raw": "game.m_bCircumnavigated",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bFinalInitialized",
-      "raw": "game.m_bFinalInitialized",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bHotPbemBetweenTurns",
-      "raw": "game.m_bHotPbemBetweenTurns",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bNukesValid",
-      "raw": "game.m_bNukesValid",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bEndGameTechResearched",
-      "raw": "game.m_bEndGameTechResearched",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eObserverUIOverridePlayer",
-      "raw": "game.m_eObserverUIOverridePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bTunerEverConnected",
-      "raw": "game.m_bTunerEverConnected",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bSavedOnce",
-      "raw": "game.m_bSavedOnce",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bTutorialEverAttacked",
-      "raw": "game.m_bTutorialEverAttacked",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bStaticTutorialActive",
-      "raw": "game.m_bStaticTutorialActive",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bEverRightClickMoved",
-      "raw": "game.m_bEverRightClickMoved",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_AdvisorMessagesViewed",
-      "raw": "game.m_AdvisorMessagesViewed",
-      "type": {
-        "name": "std::tr1::unordered_set",
-        "args": [
-          {
-            "name": "size_t",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_eHandicap",
-      "raw": "game.m_eHandicap",
-      "type": {
-        "name": "HandicapTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_ePausePlayer",
-      "raw": "game.m_ePausePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eAIAutoPlayReturnPlayer",
-      "raw": "game.m_eAIAutoPlayReturnPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eBestLandUnit",
-      "raw": "game.m_eBestLandUnit",
-      "type": {
-        "name": "UnitTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eWinner",
-      "raw": "game.m_eWinner",
-      "type": {
-        "name": "TeamTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eVictory",
-      "raw": "game.m_eVictory",
-      "type": {
-        "name": "VictoryTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eGameState",
-      "raw": "game.m_eGameState",
-      "type": {
-        "name": "GameStateTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eBestWondersPlayer",
-      "raw": "game.m_eBestWondersPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eBestPoliciesPlayer",
-      "raw": "game.m_eBestPoliciesPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eBestGreatPeoplePlayer",
-      "raw": "game.m_eBestGreatPeoplePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eIndustrialRoute",
-      "raw": "game.m_eIndustrialRoute",
-      "type": {
-        "name": "RouteTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eGameEra",
-      "raw": "game.m_eGameEra",
-      "type": {
-        "name": "EraTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eTeamThatCircumnavigated",
-      "raw": "game.m_eTeamThatCircumnavigated",
-      "type": {
-        "name": "char",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bVictoryRandomization",
-      "raw": "game.m_bVictoryRandomization",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iMedianTechsResearched",
-      "raw": "game.m_iMedianTechsResearched",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iBasicNeedsMedian",
-      "raw": "game.m_iBasicNeedsMedian",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iGoldMedian",
-      "raw": "game.m_iGoldMedian",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iScienceMedian",
-      "raw": "game.m_iScienceMedian",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCultureMedian",
-      "raw": "game.m_iCultureMedian",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iSpyThreshold",
-      "raw": "game.m_iSpyThreshold",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iLastTurnCSSurrendered",
-      "raw": "game.m_iLastTurnCSSurrendered",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_aiGreatestMonopolyPlayer",
-      "raw": "game.m_aiGreatestMonopolyPlayer",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "ResourceTypes",
-            "args": []
-          },
-          {
-            "name": "PlayerTypes",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_strScriptData",
-      "raw": "game.m_strScriptData",
-      "type": {
-        "name": "CvString",
-        "args": []
-      }
-    },
-    {
-      "name": "m_aiEndTurnMessagesReceived",
-      "raw": "game.m_aiEndTurnMessagesReceived",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "PlayerTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiRankPlayer",
-      "raw": "game.m_aiRankPlayer",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "PlayerTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiPlayerRank",
-      "raw": "game.m_aiPlayerRank",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "PlayerTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiPlayerScore",
-      "raw": "game.m_aiPlayerScore",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "PlayerTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiRankTeam",
-      "raw": "game.m_aiRankTeam",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiTeamRank",
-      "raw": "game.m_aiTeamRank",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiTeamScore",
-      "raw": "game.m_aiTeamScore",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_paiUnitCreatedCount",
-      "raw": "game.m_paiUnitCreatedCount",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "UnitTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_paiUnitClassCreatedCount",
-      "raw": "game.m_paiUnitClassCreatedCount",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "UnitClassTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_paiBuildingClassCreatedCount",
-      "raw": "game.m_paiBuildingClassCreatedCount",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "BuildingClassTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_paiProjectCreatedCount",
-      "raw": "game.m_paiProjectCreatedCount",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "ProjectTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiVotesCast",
-      "raw": "game.m_aiVotesCast",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "TeamTypes",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiPreviousVotesCast",
-      "raw": "game.m_aiPreviousVotesCast",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "TeamTypes",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiNumVotesForTeam",
-      "raw": "game.m_aiNumVotesForTeam",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "TeamTypes",
-            "args": []
-          },
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_pabSpecialUnitValid",
-      "raw": "game.m_pabSpecialUnitValid",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "SpecialUnitTypes",
-            "args": []
-          },
-          {
-            "name": "bool",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
-      "name": "m_ppaaiTeamVictoryRank",
-      "type": {
-        "name": "TeamTypes",
-        "args": []
+  "CvGame": {
+    "type": "class",
+    "name": "CvGame",
+    "calls": [
+      {
+        "name": "m_iEndTurnMessagesSent",
+        "raw": "game.m_iEndTurnMessagesSent",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       },
-      "dimensions": [
-        "Victories",
-        "5"
-      ]
-    },
-    {
-      "name": "m_ppaiContractUnits",
-      "raw": "game.m_ppaiContractUnits",
-      "type": {
-        "name": "CvEnumMap",
-        "args": [
-          {
-            "name": "ContractTypes",
-            "args": []
-          },
-          {
-            "name": "CvEnumMap",
-            "args": [
-              {
-                "name": "UnitTypes",
-                "args": []
-              },
-              {
-                "name": "int",
-                "args": []
-              }
-            ]
-          }
+      {
+        "name": "m_iElapsedGameTurns",
+        "raw": "game.m_iElapsedGameTurns",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iStartTurn",
+        "raw": "game.m_iStartTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iWinningTurn",
+        "raw": "game.m_iWinningTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iStartYear",
+        "raw": "game.m_iStartYear",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iEstimateEndTurn",
+        "raw": "game.m_iEstimateEndTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iDefaultEstimateEndTurn",
+        "raw": "game.m_iDefaultEstimateEndTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnSlice",
+        "raw": "game.m_iTurnSlice",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCutoffSlice",
+        "raw": "game.m_iCutoffSlice",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumCities",
+        "raw": "game.m_iNumCities",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTotalPopulation",
+        "raw": "game.m_iTotalPopulation",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTotalEconomicValue",
+        "raw": "game.m_iTotalEconomicValue",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iHighestEconomicValue",
+        "raw": "game.m_iHighestEconomicValue",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iMedianEconomicValue",
+        "raw": "game.m_iMedianEconomicValue",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNoNukesCount",
+        "raw": "game.m_iNoNukesCount",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNukesExploded",
+        "raw": "game.m_iNukesExploded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iMaxPopulation",
+        "raw": "game.m_iMaxPopulation",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iGlobalAssetCounterAllPreviousTurns",
+        "raw": "game.m_iGlobalAssetCounterAllPreviousTurns",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iGlobalAssetCounterCurrentTurn",
+        "raw": "game.m_iGlobalAssetCounterCurrentTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iInitPopulation",
+        "raw": "game.m_iInitPopulation",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iInitLand",
+        "raw": "game.m_iInitLand",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iInitTech",
+        "raw": "game.m_iInitTech",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iInitWonders",
+        "raw": "game.m_iInitWonders",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iAIAutoPlay",
+        "raw": "game.m_iAIAutoPlay",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iUnitedNationsCountdown",
+        "raw": "game.m_iUnitedNationsCountdown",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumVictoryVotesTallied",
+        "raw": "game.m_iNumVictoryVotesTallied",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumVictoryVotesExpected",
+        "raw": "game.m_iNumVictoryVotesExpected",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iVotesNeededForDiploVictory",
+        "raw": "game.m_iVotesNeededForDiploVictory",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iMapScoreMod",
+        "raw": "game.m_iMapScoreMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCityFoundValueReference",
+        "raw": "game.m_iCityFoundValueReference",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumReferenceCities",
+        "raw": "game.m_iNumReferenceCities",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumMajorCivsAliveAtGameStart",
+        "raw": "game.m_iNumMajorCivsAliveAtGameStart",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumMinorCivsAliveAtGameStart",
+        "raw": "game.m_iNumMinorCivsAliveAtGameStart",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bScoreDirty",
+        "raw": "game.m_bScoreDirty",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bCircumnavigated",
+        "raw": "game.m_bCircumnavigated",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bFinalInitialized",
+        "raw": "game.m_bFinalInitialized",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bHotPbemBetweenTurns",
+        "raw": "game.m_bHotPbemBetweenTurns",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bNukesValid",
+        "raw": "game.m_bNukesValid",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bEndGameTechResearched",
+        "raw": "game.m_bEndGameTechResearched",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eObserverUIOverridePlayer",
+        "raw": "game.m_eObserverUIOverridePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bTunerEverConnected",
+        "raw": "game.m_bTunerEverConnected",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bSavedOnce",
+        "raw": "game.m_bSavedOnce",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bTutorialEverAttacked",
+        "raw": "game.m_bTutorialEverAttacked",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bStaticTutorialActive",
+        "raw": "game.m_bStaticTutorialActive",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bEverRightClickMoved",
+        "raw": "game.m_bEverRightClickMoved",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_AdvisorMessagesViewed",
+        "raw": "game.m_AdvisorMessagesViewed",
+        "type": {
+          "name": "std::tr1::unordered_set",
+          "args": [
+            {
+              "name": "size_t",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_eHandicap",
+        "raw": "game.m_eHandicap",
+        "type": {
+          "name": "HandicapTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_ePausePlayer",
+        "raw": "game.m_ePausePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eAIAutoPlayReturnPlayer",
+        "raw": "game.m_eAIAutoPlayReturnPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eBestLandUnit",
+        "raw": "game.m_eBestLandUnit",
+        "type": {
+          "name": "UnitTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eWinner",
+        "raw": "game.m_eWinner",
+        "type": {
+          "name": "TeamTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eVictory",
+        "raw": "game.m_eVictory",
+        "type": {
+          "name": "VictoryTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eGameState",
+        "raw": "game.m_eGameState",
+        "type": {
+          "name": "GameStateTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eBestWondersPlayer",
+        "raw": "game.m_eBestWondersPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eBestPoliciesPlayer",
+        "raw": "game.m_eBestPoliciesPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eBestGreatPeoplePlayer",
+        "raw": "game.m_eBestGreatPeoplePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eIndustrialRoute",
+        "raw": "game.m_eIndustrialRoute",
+        "type": {
+          "name": "RouteTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eGameEra",
+        "raw": "game.m_eGameEra",
+        "type": {
+          "name": "EraTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eTeamThatCircumnavigated",
+        "raw": "game.m_eTeamThatCircumnavigated",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bVictoryRandomization",
+        "raw": "game.m_bVictoryRandomization",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iMedianTechsResearched",
+        "raw": "game.m_iMedianTechsResearched",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iBasicNeedsMedian",
+        "raw": "game.m_iBasicNeedsMedian",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iGoldMedian",
+        "raw": "game.m_iGoldMedian",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iScienceMedian",
+        "raw": "game.m_iScienceMedian",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCultureMedian",
+        "raw": "game.m_iCultureMedian",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iSpyThreshold",
+        "raw": "game.m_iSpyThreshold",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iLastTurnCSSurrendered",
+        "raw": "game.m_iLastTurnCSSurrendered",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aiGreatestMonopolyPlayer",
+        "raw": "game.m_aiGreatestMonopolyPlayer",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "ResourceTypes",
+              "args": []
+            },
+            {
+              "name": "PlayerTypes",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_strScriptData",
+        "raw": "game.m_strScriptData",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aiEndTurnMessagesReceived",
+        "raw": "game.m_aiEndTurnMessagesReceived",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiRankPlayer",
+        "raw": "game.m_aiRankPlayer",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiPlayerRank",
+        "raw": "game.m_aiPlayerRank",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiPlayerScore",
+        "raw": "game.m_aiPlayerScore",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiRankTeam",
+        "raw": "game.m_aiRankTeam",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiTeamRank",
+        "raw": "game.m_aiTeamRank",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiTeamScore",
+        "raw": "game.m_aiTeamScore",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_paiUnitCreatedCount",
+        "raw": "game.m_paiUnitCreatedCount",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "UnitTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_paiUnitClassCreatedCount",
+        "raw": "game.m_paiUnitClassCreatedCount",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "UnitClassTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_paiBuildingClassCreatedCount",
+        "raw": "game.m_paiBuildingClassCreatedCount",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "BuildingClassTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_paiProjectCreatedCount",
+        "raw": "game.m_paiProjectCreatedCount",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "ProjectTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiVotesCast",
+        "raw": "game.m_aiVotesCast",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "TeamTypes",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiPreviousVotesCast",
+        "raw": "game.m_aiPreviousVotesCast",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "TeamTypes",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiNumVotesForTeam",
+        "raw": "game.m_aiNumVotesForTeam",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_pabSpecialUnitValid",
+        "raw": "game.m_pabSpecialUnitValid",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "SpecialUnitTypes",
+              "args": []
+            },
+            {
+              "name": "bool",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
+        "name": "m_ppaaiTeamVictoryRank",
+        "type": {
+          "name": "TeamTypes",
+          "args": []
+        },
+        "dimensions": [
+          "Victories",
+          "5"
         ]
+      },
+      {
+        "name": "m_ppaiContractUnits",
+        "raw": "game.m_ppaiContractUnits",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "ContractTypes",
+              "args": []
+            },
+            {
+              "name": "CvEnumMap",
+              "args": [
+                {
+                  "name": "UnitTypes",
+                  "args": []
+                },
+                {
+                  "name": "int",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aszDestroyedCities",
+        "raw": "game.m_aszDestroyedCities",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "size_t",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aszGreatPeopleBorn",
+        "raw": "game.m_aszGreatPeopleBorn",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "size_t",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_mapRand",
+        "raw": "game.m_mapRand",
+        "type": {
+          "name": "CvRandom",
+          "args": []
+        }
+      },
+      {
+        "name": "m_jonRand",
+        "raw": "game.m_jonRand",
+        "type": {
+          "name": "CvRandom",
+          "args": []
+        }
+      },
+      {
+        "name": "m_listReplayMessages",
+        "raw": "game.m_listReplayMessages",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "CvReplayMessage",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_iNumSessions",
+        "raw": "game.m_iNumSessions",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aPlotExtraYields",
+        "raw": "game.m_aPlotExtraYields",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "PlotExtraYield",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aPlotExtraCosts",
+        "raw": "game.m_aPlotExtraCosts",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "PlotExtraCost",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_bArchaeologyTriggered",
+        "raw": "game.m_bArchaeologyTriggered",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iEarliestBarbarianReleaseTurn",
+        "raw": "game.m_iEarliestBarbarianReleaseTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_kGameDeals",
+        "raw": "game.m_kGameDeals",
+        "type": {
+          "name": "CvGameDeals",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameReligions",
+        "raw": "*game.m_pGameReligions",
+        "type": {
+          "name": "CvGameReligions",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameCulture",
+        "raw": "*game.m_pGameCulture",
+        "type": {
+          "name": "CvGameCulture",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameLeagues",
+        "raw": "*game.m_pGameLeagues",
+        "type": {
+          "name": "CvGameLeagues",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameTrade",
+        "raw": "*game.m_pGameTrade",
+        "type": {
+          "name": "CvGameTrade",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameCorporations",
+        "raw": "*game.m_pGameCorporations",
+        "type": {
+          "name": "CvGameCorporations",
+          "args": []
+        }
+      },
+      {
+        "name": "m_pGameContracts",
+        "raw": "*game.m_pGameContracts",
+        "type": {
+          "name": "CvGameContracts",
+          "args": []
+        }
+      },
+      {
+        "name": "m_strGameId",
+        "raw": "game.m_strGameId",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_aszDestroyedCities",
-      "raw": "game.m_aszDestroyedCities",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "size_t",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aszGreatPeopleBorn",
-      "raw": "game.m_aszGreatPeopleBorn",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "size_t",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_mapRand",
-      "raw": "game.m_mapRand",
-      "type": {
-        "name": "CvRandom",
-        "args": []
-      }
-    },
-    {
-      "name": "m_jonRand",
-      "raw": "game.m_jonRand",
-      "type": {
-        "name": "CvRandom",
-        "args": []
-      }
-    },
-    {
-      "name": "m_listReplayMessages",
-      "raw": "game.m_listReplayMessages",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "CvReplayMessage",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_iNumSessions",
-      "raw": "game.m_iNumSessions",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_aPlotExtraYields",
-      "raw": "game.m_aPlotExtraYields",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "PlotExtraYield",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aPlotExtraCosts",
-      "raw": "game.m_aPlotExtraCosts",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "PlotExtraCost",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_bArchaeologyTriggered",
-      "raw": "game.m_bArchaeologyTriggered",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iEarliestBarbarianReleaseTurn",
-      "raw": "game.m_iEarliestBarbarianReleaseTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_kGameDeals",
-      "raw": "game.m_kGameDeals",
-      "type": {
-        "name": "CvGameDeals",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameReligions",
-      "raw": "*game.m_pGameReligions",
-      "type": {
-        "name": "CvGameReligions",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameCulture",
-      "raw": "*game.m_pGameCulture",
-      "type": {
-        "name": "CvGameCulture",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameLeagues",
-      "raw": "*game.m_pGameLeagues",
-      "type": {
-        "name": "CvGameLeagues",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameTrade",
-      "raw": "*game.m_pGameTrade",
-      "type": {
-        "name": "CvGameTrade",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameCorporations",
-      "raw": "*game.m_pGameCorporations",
-      "type": {
-        "name": "CvGameCorporations",
-        "args": []
-      }
-    },
-    {
-      "name": "m_pGameContracts",
-      "raw": "*game.m_pGameContracts",
-      "type": {
-        "name": "CvGameContracts",
-        "args": []
-      }
-    },
-    {
-      "name": "m_strGameId",
-      "raw": "game.m_strGameId",
-      "type": {
-        "name": "CvString",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "int": {
+    "type": "primitive",
     "name": "int",
     "size": 4,
     "encoding": "signed"
   },
   "bool": {
+    "type": "primitive",
     "name": "bool",
     "size": 1,
     "encoding": "signed"
   },
   "PlayerTypes": {
+    "type": "enum",
     "name": "PlayerTypes",
     "values": {
       "NO_PLAYER": -1
     }
   },
   "std::tr1::unordered_set": {
+    "type": "generic",
     "name": "std::tr1::unordered_set"
   },
   "HandicapTypes": {
+    "type": "enum",
     "name": "HandicapTypes",
     "values": {
       "NO_HANDICAP": -1
     }
   },
   "UnitTypes": {
+    "type": "enum",
     "name": "UnitTypes",
     "values": {
       "NO_UNIT": -1
     }
   },
   "TeamTypes": {
+    "type": "enum",
     "name": "TeamTypes",
     "values": {
       "NO_TEAM": -1
     }
   },
   "VictoryTypes": {
+    "type": "enum",
     "name": "VictoryTypes",
     "values": {
       "NO_VICTORY": -1
     }
   },
   "GameStateTypes": {
+    "type": "enum",
     "name": "GameStateTypes",
     "values": {
       "GAMESTATE_ON": 0,
@@ -1081,6 +1094,7 @@
     }
   },
   "RouteTypes": {
+    "type": "enum",
     "name": "RouteTypes",
     "values": {
       "NO_ROUTE": -1,
@@ -1090,1198 +1104,1286 @@
     }
   },
   "EraTypes": {
+    "type": "enum",
     "name": "EraTypes",
     "values": {
       "NO_ERA": -1
     }
   },
   "char": {
+    "type": "primitive",
     "name": "char",
     "size": 1,
     "encoding": "signed"
   },
   "CvEnumMap": {
+    "type": "generic",
     "name": "CvEnumMap"
   },
   "CvString": {
+    "type": "generic",
     "name": "CvString"
   },
   "std::vector": {
+    "type": "generic",
     "name": "std::vector"
   },
-  "CvRandom": [
-    {
-      "name": "m_ullRandomSeed",
-      "raw": "random.m_ullRandomSeed",
-      "type": {
-        "name": "unsigned long long",
-        "args": []
-      }
-    },
-    {
-      "name": "m_ulCallCount",
-      "raw": "random.m_ulCallCount",
-      "type": {
-        "name": "unsigned long",
-        "args": []
-      }
-    },
-    {
-      "name": "m_ulResetCount",
-      "raw": "random.m_ulResetCount",
-      "type": {
-        "name": "unsigned long",
-        "args": []
-      }
-    }
-  ],
-  "CvGameDeals": [
-    {
-      "name": "m_ProposedDeals",
-      "raw": "gameDeals.m_ProposedDeals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvDeal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_CurrentDeals",
-      "raw": "gameDeals.m_CurrentDeals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvDeal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_HistoricalDeals",
-      "raw": "gameDeals.m_HistoricalDeals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvDeal",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
-  "CvGameReligions": [
-    {
-      "name": "m_iMinimumFaithForNextPantheon",
-      "raw": "gameReligions.m_iMinimumFaithForNextPantheon",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_CurrentReligions",
-      "raw": "gameReligions.m_CurrentReligions",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvReligion",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
-  "CvGameCulture": [
-    {
-      "name": "m_CurrentGreatWorks",
-      "raw": "gameCulture.m_CurrentGreatWorks",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvGreatWork",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_bReportedSomeoneInfluential",
-      "raw": "gameCulture.m_bReportedSomeoneInfluential",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    }
-  ],
-  "CvGameLeagues": [
-    {
-      "name": "m_iGeneratedIDCount",
-      "raw": "gameLeagues.m_iGeneratedIDCount",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_vActiveLeagues",
-      "raw": "gameLeagues.m_vActiveLeagues",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "CvLeague",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_iNumLeaguesEverFounded",
-      "raw": "gameLeagues.m_iNumLeaguesEverFounded",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eDiplomaticVictor",
-      "raw": "gameLeagues.m_eDiplomaticVictor",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eLastEraTrigger",
-      "raw": "gameLeagues.m_eLastEraTrigger",
-      "type": {
-        "name": "EraTypes",
-        "args": []
-      }
-    }
-  ],
-  "CvGameTrade": [
-    {
-      "name": "m_aTradeConnections",
-      "raw": "gameTrade.m_aTradeConnections",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "TradeConnection",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_routesPerPlayer",
-      "raw": "gameTrade.m_routesPerPlayer",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "vector",
-            "args": [
-              {
-                "name": "int",
-                "args": []
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aaiTechDifference",
-      "raw": "gameTrade.m_aaiTechDifference",
-      "type": {
-        "name": "int",
-        "args": []
+  "CvRandom": {
+    "type": "class",
+    "name": "CvRandom",
+    "calls": [
+      {
+        "name": "m_ullRandomSeed",
+        "raw": "random.m_ullRandomSeed",
+        "type": {
+          "name": "unsigned long long",
+          "args": []
+        }
       },
-      "dimensions": [
-        "MAX_MAJOR_CIVS",
-        "MAX_MAJOR_CIVS"
-      ]
-    },
-    {
-      "name": "m_aaiPolicyDifference",
-      "raw": "gameTrade.m_aaiPolicyDifference",
-      "type": {
-        "name": "int",
-        "args": []
+      {
+        "name": "m_ulCallCount",
+        "raw": "random.m_ulCallCount",
+        "type": {
+          "name": "unsigned long",
+          "args": []
+        }
       },
-      "dimensions": [
-        "MAX_MAJOR_CIVS",
-        "MAX_MAJOR_CIVS"
-      ]
-    },
-    {
-      "name": "m_iNextID",
-      "raw": "gameTrade.m_iNextID",
-      "type": {
-        "name": "int",
-        "args": []
+      {
+        "name": "m_ulResetCount",
+        "raw": "random.m_ulResetCount",
+        "type": {
+          "name": "unsigned long",
+          "args": []
+        }
       }
-    }
-  ],
-  "CvGameCorporations": [
-    {
-      "name": "m_ActiveCorporations",
-      "raw": "gameCorporations.m_ActiveCorporations",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvCorporation",
-            "args": []
-          }
+    ]
+  },
+  "CvGameDeals": {
+    "type": "class",
+    "name": "CvGameDeals",
+    "calls": [
+      {
+        "name": "m_ProposedDeals",
+        "raw": "gameDeals.m_ProposedDeals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_CurrentDeals",
+        "raw": "gameDeals.m_CurrentDeals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_HistoricalDeals",
+        "raw": "gameDeals.m_HistoricalDeals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvDeal",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvGameReligions": {
+    "type": "class",
+    "name": "CvGameReligions",
+    "calls": [
+      {
+        "name": "m_iMinimumFaithForNextPantheon",
+        "raw": "gameReligions.m_iMinimumFaithForNextPantheon",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_CurrentReligions",
+        "raw": "gameReligions.m_CurrentReligions",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvReligion",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvGameCulture": {
+    "type": "class",
+    "name": "CvGameCulture",
+    "calls": [
+      {
+        "name": "m_CurrentGreatWorks",
+        "raw": "gameCulture.m_CurrentGreatWorks",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvGreatWork",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_bReportedSomeoneInfluential",
+        "raw": "gameCulture.m_bReportedSomeoneInfluential",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGameLeagues": {
+    "type": "class",
+    "name": "CvGameLeagues",
+    "calls": [
+      {
+        "name": "m_iGeneratedIDCount",
+        "raw": "gameLeagues.m_iGeneratedIDCount",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vActiveLeagues",
+        "raw": "gameLeagues.m_vActiveLeagues",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "CvLeague",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_iNumLeaguesEverFounded",
+        "raw": "gameLeagues.m_iNumLeaguesEverFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eDiplomaticVictor",
+        "raw": "gameLeagues.m_eDiplomaticVictor",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eLastEraTrigger",
+        "raw": "gameLeagues.m_eLastEraTrigger",
+        "type": {
+          "name": "EraTypes",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvGameTrade": {
+    "type": "class",
+    "name": "CvGameTrade",
+    "calls": [
+      {
+        "name": "m_aTradeConnections",
+        "raw": "gameTrade.m_aTradeConnections",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "TradeConnection",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_routesPerPlayer",
+        "raw": "gameTrade.m_routesPerPlayer",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "vector",
+              "args": [
+                {
+                  "name": "int",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aaiTechDifference",
+        "raw": "gameTrade.m_aaiTechDifference",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "MAX_MAJOR_CIVS",
+          "MAX_MAJOR_CIVS"
         ]
-      }
-    }
-  ],
-  "CvGameContracts": [
-    {
-      "name": "m_ActiveContracts",
-      "raw": "gameContracts.m_ActiveContracts",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvContract",
-            "args": []
-          }
+      },
+      {
+        "name": "m_aaiPolicyDifference",
+        "raw": "gameTrade.m_aaiPolicyDifference",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "MAX_MAJOR_CIVS",
+          "MAX_MAJOR_CIVS"
         ]
+      },
+      {
+        "name": "m_iNextID",
+        "raw": "gameTrade.m_iNextID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_InactiveContracts",
-      "raw": "gameContracts.m_InactiveContracts",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvContract",
-            "args": []
-          }
-        ]
+    ]
+  },
+  "CvGameCorporations": {
+    "type": "class",
+    "name": "CvGameCorporations",
+    "calls": [
+      {
+        "name": "m_ActiveCorporations",
+        "raw": "gameCorporations.m_ActiveCorporations",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvCorporation",
+              "args": []
+            }
+          ]
+        }
       }
-    }
-  ],
+    ]
+  },
+  "CvGameContracts": {
+    "type": "class",
+    "name": "CvGameContracts",
+    "calls": [
+      {
+        "name": "m_ActiveContracts",
+        "raw": "gameContracts.m_ActiveContracts",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvContract",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_InactiveContracts",
+        "raw": "gameContracts.m_InactiveContracts",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvContract",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
   "size_t": {
+    "type": "primitive",
     "name": "size_t",
     "size": 4,
     "encoding": "unsigned"
   },
   "ResourceTypes": {
+    "type": "enum",
     "name": "ResourceTypes",
     "values": {
       "NO_RESOURCE": -1
     }
   },
   "UnitClassTypes": {
+    "type": "enum",
     "name": "UnitClassTypes",
     "values": {
       "NO_UNITCLASS": -1
     }
   },
   "BuildingClassTypes": {
+    "type": "enum",
     "name": "BuildingClassTypes",
     "values": {
       "NO_BUILDINGCLASS": -1
     }
   },
   "ProjectTypes": {
+    "type": "enum",
     "name": "ProjectTypes",
     "values": {
       "NO_PROJECT": -1
     }
   },
   "SpecialUnitTypes": {
+    "type": "enum",
     "name": "SpecialUnitTypes",
     "values": {
       "NO_SPECIALUNIT": -1
     }
   },
   "ContractTypes": {
+    "type": "enum",
     "name": "ContractTypes",
     "values": {
       "NO_CONTRACT": -1
     }
   },
-  "CvReplayMessage": [
-    {
-      "name": "m_iTurn",
-      "raw": "replayMessage.m_iTurn",
-      "type": {
-        "name": "int",
-        "args": []
+  "CvReplayMessage": {
+    "type": "class",
+    "name": "CvReplayMessage",
+    "calls": [
+      {
+        "name": "m_iTurn",
+        "raw": "replayMessage.m_iTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eType",
+        "raw": "replayMessage.m_eType",
+        "type": {
+          "name": "ReplayMessageTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_Plots",
+        "raw": "replayMessage.m_Plots",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "std::pair",
+              "args": [
+                {
+                  "name": "short",
+                  "args": []
+                },
+                {
+                  "name": "short",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_ePlayer",
+        "raw": "replayMessage.m_ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_strText",
+        "raw": "replayMessage.m_strText",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_eType",
-      "raw": "replayMessage.m_eType",
-      "type": {
-        "name": "ReplayMessageTypes",
-        "args": []
+    ]
+  },
+  "PlotExtraYield": {
+    "type": "class",
+    "name": "PlotExtraYield",
+    "calls": [
+      {
+        "name": "m_iX",
+        "raw": "saveTo << readFrom.m_iX;",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iY",
+        "raw": "saveTo << readFrom.m_iY;",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aeExtraYield",
+        "raw": "saveTo << readFrom.m_aeExtraYield;",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       }
-    },
-    {
-      "name": "m_Plots",
-      "raw": "replayMessage.m_Plots",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "std::pair",
-            "args": [
-              {
-                "name": "short",
-                "args": []
-              },
-              {
-                "name": "short",
-                "args": []
-              }
-            ]
-          }
-        ]
+    ]
+  },
+  "PlotExtraCost": {
+    "type": "class",
+    "name": "PlotExtraCost",
+    "calls": [
+      {
+        "name": "m_iX",
+        "raw": "saveTo << readFrom.m_iX;",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iY",
+        "raw": "saveTo << readFrom.m_iY;",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCost",
+        "raw": "saveTo << readFrom.m_iCost;",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_ePlayer",
-      "raw": "replayMessage.m_ePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_strText",
-      "raw": "replayMessage.m_strText",
-      "type": {
-        "name": "CvString",
-        "args": []
-      }
-    }
-  ],
-  "PlotExtraYield": [
-    {
-      "name": "m_iX",
-      "raw": "saveTo << readFrom.m_iX;",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iY",
-      "raw": "saveTo << readFrom.m_iY;",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_aeExtraYield",
-      "raw": "saveTo << readFrom.m_aeExtraYield;",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
-  "PlotExtraCost": [
-    {
-      "name": "m_iX",
-      "raw": "saveTo << readFrom.m_iX;",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iY",
-      "raw": "saveTo << readFrom.m_iY;",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCost",
-      "raw": "saveTo << readFrom.m_iCost;",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "unsigned long long": {
+    "type": "primitive",
     "name": "unsigned long long",
     "size": 8,
     "encoding": "unsigned"
   },
   "unsigned long": {
+    "type": "primitive",
     "name": "unsigned long",
     "size": 4,
     "encoding": "unsigned"
   },
   "vector": {
+    "type": "generic",
     "name": "vector"
   },
-  "CvDeal": [
-    {
-      "name": "m_iID",
-      "raw": "deal.m_iID",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eFromPlayer",
-      "raw": "deal.m_eFromPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eToPlayer",
-      "raw": "deal.m_eToPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iFinalTurn",
-      "raw": "deal.m_iFinalTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iDuration",
-      "raw": "deal.m_iDuration",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iStartTurn",
-      "raw": "deal.m_iStartTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bIsGift",
-      "raw": "deal.m_bIsGift",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_ePeaceTreatyType",
-      "raw": "deal.m_ePeaceTreatyType",
-      "type": {
-        "name": "PeaceTreatyTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eSurrenderingPlayer",
-      "raw": "deal.m_eSurrenderingPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eDemandingPlayer",
-      "raw": "deal.m_eDemandingPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eRequestingPlayer",
-      "raw": "deal.m_eRequestingPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_TradedItems",
-      "raw": "deal.m_TradedItems",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvTradedItem",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
-  "CvReligion": [
-    {
-      "name": "m_eReligion",
-      "raw": "religion.m_eReligion",
-      "type": {
-        "name": "ReligionTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eFounder",
-      "raw": "religion.m_eFounder",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iHolyCityX",
-      "raw": "religion.m_iHolyCityX",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iHolyCityY",
-      "raw": "religion.m_iHolyCityY",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTurnFounded",
-      "raw": "religion.m_iTurnFounded",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bPantheon",
-      "raw": "religion.m_bPantheon",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bEnhanced",
-      "raw": "religion.m_bEnhanced",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_szCustomName",
-      "raw": "religion.m_szCustomName",
-      "type": {
-        "name": "char",
-        "args": []
+  "CvDeal": {
+    "type": "class",
+    "name": "CvDeal",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "deal.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       },
-      "dimensions": [
-        "128"
-      ]
-    },
-    {
-      "name": "m_bReformed",
-      "raw": "religion.m_bReformed",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_Beliefs",
-      "raw": "religion.m_Beliefs",
-      "type": {
-        "name": "CvReligionBeliefs",
-        "args": []
-      }
-    }
-  ],
-  "CvGreatWork": [
-    {
-      "name": "m_szGreatPersonName",
-      "raw": "greatWork.m_szGreatPersonName",
-      "type": {
-        "name": "CvString",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eType",
-      "raw": "greatWork.m_eType",
-      "type": {
-        "name": "GreatWorkType",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eClassType",
-      "raw": "greatWork.m_eClassType",
-      "type": {
-        "name": "GreatWorkClass",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTurnFounded",
-      "raw": "greatWork.m_iTurnFounded",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eEra",
-      "raw": "greatWork.m_eEra",
-      "type": {
-        "name": "EraTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_ePlayer",
-      "raw": "greatWork.m_ePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    }
-  ],
-  "CvLeague": [
-    {
-      "name": "m_eID",
-      "raw": "league.m_eID",
-      "type": {
-        "name": "LeagueTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bUnitedNations",
-      "raw": "league.m_bUnitedNations",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bInSession",
-      "raw": "league.m_bInSession",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bHostProposing",
-      "raw": "league.m_bHostProposing",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTurnsUntilSession",
-      "raw": "league.m_iTurnsUntilSession",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iNumResolutionsEverEnacted",
-      "raw": "league.m_iNumResolutionsEverEnacted",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_vEnactProposals",
-      "raw": "league.m_vEnactProposals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvEnactProposal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vRepealProposals",
-      "raw": "league.m_vRepealProposals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvRepealProposal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vActiveResolutions",
-      "raw": "league.m_vActiveResolutions",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvActiveResolution",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vMembers",
-      "raw": "league.m_vMembers",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "Member",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_eHost",
-      "raw": "league.m_eHost",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_vProjects",
-      "raw": "league.m_vProjects",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "Project",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_iConsecutiveHostedSessions",
-      "raw": "league.m_iConsecutiveHostedSessions",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eAssignedName",
-      "raw": "league.m_eAssignedName",
-      "type": {
-        "name": "LeagueNameTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_szCustomName",
-      "raw": "league.m_szCustomName",
-      "type": {
-        "name": "char",
-        "args": []
+      {
+        "name": "m_eFromPlayer",
+        "raw": "deal.m_eFromPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
       },
-      "dimensions": [
-        "128"
-      ]
-    },
-    {
-      "name": "m_iLastSessionEndedTurn",
-      "raw": "league.m_iLastSessionEndedTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eLastSpecialSession",
-      "raw": "league.m_eLastSpecialSession",
-      "type": {
-        "name": "LeagueSpecialSessionTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eCurrentSpecialSession",
-      "raw": "league.m_eCurrentSpecialSession",
-      "type": {
-        "name": "LeagueSpecialSessionTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_vEnactProposalsOnHold",
-      "raw": "league.m_vEnactProposalsOnHold",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvEnactProposal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vRepealProposalsOnHold",
-      "raw": "league.m_vRepealProposalsOnHold",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvRepealProposal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vLastTurnEnactProposals",
-      "raw": "league.m_vLastTurnEnactProposals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvEnactProposal",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_vLastTurnRepealProposals",
-      "raw": "league.m_vLastTurnRepealProposals",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "CvRepealProposal",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
-  "TradeConnection": [
-    {
-      "name": "m_iID",
-      "raw": "tradeConnection.m_iID",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iOriginID",
-      "raw": "tradeConnection.m_iOriginID",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iOriginX",
-      "raw": "tradeConnection.m_iOriginX",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iOriginY",
-      "raw": "tradeConnection.m_iOriginY",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iDestID",
-      "raw": "tradeConnection.m_iDestID",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iDestX",
-      "raw": "tradeConnection.m_iDestX",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iDestY",
-      "raw": "tradeConnection.m_iDestY",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eOriginOwner",
-      "raw": "tradeConnection.m_eOriginOwner",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eDestOwner",
-      "raw": "tradeConnection.m_eDestOwner",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eDomain",
-      "raw": "tradeConnection.m_eDomain",
-      "type": {
-        "name": "DomainTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eConnectionType",
-      "raw": "tradeConnection.m_eConnectionType",
-      "type": {
-        "name": "TradeConnectionType",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTradeUnitLocationIndex",
-      "raw": "tradeConnection.m_iTradeUnitLocationIndex",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bTradeUnitMovingForward",
-      "raw": "tradeConnection.m_bTradeUnitMovingForward",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_unitID",
-      "raw": "tradeConnection.m_unitID",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iSpeedFactor",
-      "raw": "tradeConnection.m_iSpeedFactor",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCircuitsCompleted",
-      "raw": "tradeConnection.m_iCircuitsCompleted",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iCircuitsToComplete",
-      "raw": "tradeConnection.m_iCircuitsToComplete",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iTurnRouteComplete",
-      "raw": "tradeConnection.m_iTurnRouteComplete",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bTradeUnitRecalled",
-      "raw": "tradeConnection.m_bTradeUnitRecalled",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_aPlotList",
-      "raw": "tradeConnection.m_aPlotList",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "TradeConnectionPlot",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_aiOriginYields",
-      "raw": "tradeConnection.m_aiOriginYields",
-      "type": {
-        "name": "int",
-        "args": []
+      {
+        "name": "m_eToPlayer",
+        "raw": "deal.m_eToPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
       },
-      "dimensions": [
-        "NUM_YIELD_TYPES"
-      ]
-    },
-    {
-      "name": "m_aiDestYields",
-      "raw": "tradeConnection.m_aiDestYields",
-      "type": {
-        "name": "int",
-        "args": []
+      {
+        "name": "m_iFinalTurn",
+        "raw": "deal.m_iFinalTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       },
-      "dimensions": [
-        "NUM_YIELD_TYPES"
-      ]
-    }
-  ],
-  "CvCorporation": [
-    {
-      "name": "m_eCorporation",
-      "raw": "corporation.m_eCorporation",
-      "type": {
-        "name": "CorporationTypes",
-        "args": []
+      {
+        "name": "m_iDuration",
+        "raw": "deal.m_iDuration",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iStartTurn",
+        "raw": "deal.m_iStartTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bIsGift",
+        "raw": "deal.m_bIsGift",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_ePeaceTreatyType",
+        "raw": "deal.m_ePeaceTreatyType",
+        "type": {
+          "name": "PeaceTreatyTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eSurrenderingPlayer",
+        "raw": "deal.m_eSurrenderingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eDemandingPlayer",
+        "raw": "deal.m_eDemandingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eRequestingPlayer",
+        "raw": "deal.m_eRequestingPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_TradedItems",
+        "raw": "deal.m_TradedItems",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvTradedItem",
+              "args": []
+            }
+          ]
+        }
       }
-    },
-    {
-      "name": "m_eFounder",
-      "raw": "corporation.m_eFounder",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
+    ]
+  },
+  "CvReligion": {
+    "type": "class",
+    "name": "CvReligion",
+    "calls": [
+      {
+        "name": "m_eReligion",
+        "raw": "religion.m_eReligion",
+        "type": {
+          "name": "ReligionTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eFounder",
+        "raw": "religion.m_eFounder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iHolyCityX",
+        "raw": "religion.m_iHolyCityX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iHolyCityY",
+        "raw": "religion.m_iHolyCityY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnFounded",
+        "raw": "religion.m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bPantheon",
+        "raw": "religion.m_bPantheon",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bEnhanced",
+        "raw": "religion.m_bEnhanced",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_szCustomName",
+        "raw": "religion.m_szCustomName",
+        "type": {
+          "name": "char",
+          "args": []
+        },
+        "dimensions": [
+          "128"
+        ]
+      },
+      {
+        "name": "m_bReformed",
+        "raw": "religion.m_bReformed",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_Beliefs",
+        "raw": "religion.m_Beliefs",
+        "type": {
+          "name": "CvReligionBeliefs",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_iHeadquartersCityX",
-      "raw": "corporation.m_iHeadquartersCityX",
-      "type": {
-        "name": "int",
-        "args": []
+    ]
+  },
+  "CvGreatWork": {
+    "type": "class",
+    "name": "CvGreatWork",
+    "calls": [
+      {
+        "name": "m_szGreatPersonName",
+        "raw": "greatWork.m_szGreatPersonName",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eType",
+        "raw": "greatWork.m_eType",
+        "type": {
+          "name": "GreatWorkType",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eClassType",
+        "raw": "greatWork.m_eClassType",
+        "type": {
+          "name": "GreatWorkClass",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnFounded",
+        "raw": "greatWork.m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eEra",
+        "raw": "greatWork.m_eEra",
+        "type": {
+          "name": "EraTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_ePlayer",
+        "raw": "greatWork.m_ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_iHeadquartersCityY",
-      "raw": "corporation.m_iHeadquartersCityY",
-      "type": {
-        "name": "int",
-        "args": []
+    ]
+  },
+  "CvLeague": {
+    "type": "class",
+    "name": "CvLeague",
+    "calls": [
+      {
+        "name": "m_eID",
+        "raw": "league.m_eID",
+        "type": {
+          "name": "LeagueTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bUnitedNations",
+        "raw": "league.m_bUnitedNations",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bInSession",
+        "raw": "league.m_bInSession",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bHostProposing",
+        "raw": "league.m_bHostProposing",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnsUntilSession",
+        "raw": "league.m_iTurnsUntilSession",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumResolutionsEverEnacted",
+        "raw": "league.m_iNumResolutionsEverEnacted",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vEnactProposals",
+        "raw": "league.m_vEnactProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vRepealProposals",
+        "raw": "league.m_vRepealProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vActiveResolutions",
+        "raw": "league.m_vActiveResolutions",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvActiveResolution",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vMembers",
+        "raw": "league.m_vMembers",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "Member",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_eHost",
+        "raw": "league.m_eHost",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vProjects",
+        "raw": "league.m_vProjects",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "Project",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_iConsecutiveHostedSessions",
+        "raw": "league.m_iConsecutiveHostedSessions",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eAssignedName",
+        "raw": "league.m_eAssignedName",
+        "type": {
+          "name": "LeagueNameTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_szCustomName",
+        "raw": "league.m_szCustomName",
+        "type": {
+          "name": "char",
+          "args": []
+        },
+        "dimensions": [
+          "128"
+        ]
+      },
+      {
+        "name": "m_iLastSessionEndedTurn",
+        "raw": "league.m_iLastSessionEndedTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eLastSpecialSession",
+        "raw": "league.m_eLastSpecialSession",
+        "type": {
+          "name": "LeagueSpecialSessionTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eCurrentSpecialSession",
+        "raw": "league.m_eCurrentSpecialSession",
+        "type": {
+          "name": "LeagueSpecialSessionTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vEnactProposalsOnHold",
+        "raw": "league.m_vEnactProposalsOnHold",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vRepealProposalsOnHold",
+        "raw": "league.m_vRepealProposalsOnHold",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vLastTurnEnactProposals",
+        "raw": "league.m_vLastTurnEnactProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvEnactProposal",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_vLastTurnRepealProposals",
+        "raw": "league.m_vLastTurnRepealProposals",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvRepealProposal",
+              "args": []
+            }
+          ]
+        }
       }
-    },
-    {
-      "name": "m_iTurnFounded",
-      "raw": "corporation.m_iTurnFounded",
-      "type": {
-        "name": "int",
-        "args": []
+    ]
+  },
+  "TradeConnection": {
+    "type": "class",
+    "name": "TradeConnection",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "tradeConnection.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iOriginID",
+        "raw": "tradeConnection.m_iOriginID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iOriginX",
+        "raw": "tradeConnection.m_iOriginX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iOriginY",
+        "raw": "tradeConnection.m_iOriginY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iDestID",
+        "raw": "tradeConnection.m_iDestID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iDestX",
+        "raw": "tradeConnection.m_iDestX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iDestY",
+        "raw": "tradeConnection.m_iDestY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eOriginOwner",
+        "raw": "tradeConnection.m_eOriginOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eDestOwner",
+        "raw": "tradeConnection.m_eDestOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eDomain",
+        "raw": "tradeConnection.m_eDomain",
+        "type": {
+          "name": "DomainTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eConnectionType",
+        "raw": "tradeConnection.m_eConnectionType",
+        "type": {
+          "name": "TradeConnectionType",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTradeUnitLocationIndex",
+        "raw": "tradeConnection.m_iTradeUnitLocationIndex",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bTradeUnitMovingForward",
+        "raw": "tradeConnection.m_bTradeUnitMovingForward",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_unitID",
+        "raw": "tradeConnection.m_unitID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iSpeedFactor",
+        "raw": "tradeConnection.m_iSpeedFactor",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCircuitsCompleted",
+        "raw": "tradeConnection.m_iCircuitsCompleted",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCircuitsToComplete",
+        "raw": "tradeConnection.m_iCircuitsToComplete",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnRouteComplete",
+        "raw": "tradeConnection.m_iTurnRouteComplete",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bTradeUnitRecalled",
+        "raw": "tradeConnection.m_bTradeUnitRecalled",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aPlotList",
+        "raw": "tradeConnection.m_aPlotList",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "TradeConnectionPlot",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiOriginYields",
+        "raw": "tradeConnection.m_aiOriginYields",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "NUM_YIELD_TYPES"
+        ]
+      },
+      {
+        "name": "m_aiDestYields",
+        "raw": "tradeConnection.m_aiDestYields",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "NUM_YIELD_TYPES"
+        ]
       }
-    }
-  ],
-  "CvContract": [
-    {
-      "name": "m_eContract",
-      "raw": "contract.m_eContract",
-      "type": {
-        "name": "ContractTypes",
-        "args": []
+    ]
+  },
+  "CvCorporation": {
+    "type": "class",
+    "name": "CvCorporation",
+    "calls": [
+      {
+        "name": "m_eCorporation",
+        "raw": "corporation.m_eCorporation",
+        "type": {
+          "name": "CorporationTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eFounder",
+        "raw": "corporation.m_eFounder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iHeadquartersCityX",
+        "raw": "corporation.m_iHeadquartersCityX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iHeadquartersCityY",
+        "raw": "corporation.m_iHeadquartersCityY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnFounded",
+        "raw": "corporation.m_iTurnFounded",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_eContractHolder",
-      "raw": "contract.m_eContractHolder",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
+    ]
+  },
+  "CvContract": {
+    "type": "class",
+    "name": "CvContract",
+    "calls": [
+      {
+        "name": "m_eContract",
+        "raw": "contract.m_eContract",
+        "type": {
+          "name": "ContractTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eContractHolder",
+        "raw": "contract.m_eContractHolder",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iContractTurns",
+        "raw": "contract.m_iContractTurns",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iContractMaintenance",
+        "raw": "contract.m_iContractMaintenance",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iContractTurnStart",
+        "raw": "contract.m_iContractTurnStart",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_iContractTurns",
-      "raw": "contract.m_iContractTurns",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iContractMaintenance",
-      "raw": "contract.m_iContractMaintenance",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iContractTurnStart",
-      "raw": "contract.m_iContractTurnStart",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "ReplayMessageTypes": {
+    "type": "enum",
     "name": "ReplayMessageTypes",
     "values": {
       "NO_REPLAY_MESSAGE": -1,
@@ -2295,14 +2397,17 @@
     }
   },
   "std::pair": {
+    "type": "generic",
     "name": "std::pair"
   },
   "short": {
+    "type": "primitive",
     "name": "short",
     "size": 2,
     "encoding": "signed"
   },
   "PeaceTreatyTypes": {
+    "type": "enum",
     "name": "PeaceTreatyTypes",
     "values": {
       "NO_PEACE_TREATY_TYPE": -1,
@@ -2317,262 +2422,297 @@
       "PEACE_TREATY_UNCONDITIONAL_SURRENDER": 8
     }
   },
-  "CvTradedItem": [
-    {
-      "name": "m_eItemType",
-      "raw": "tradedItem.m_eItemType",
-      "type": {
-        "name": "TradeableItems",
-        "args": []
+  "CvTradedItem": {
+    "type": "class",
+    "name": "CvTradedItem",
+    "calls": [
+      {
+        "name": "m_eItemType",
+        "raw": "tradedItem.m_eItemType",
+        "type": {
+          "name": "TradeableItems",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iDuration",
+        "raw": "tradedItem.m_iDuration",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iFinalTurn",
+        "raw": "tradedItem.m_iFinalTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iData1",
+        "raw": "tradedItem.m_iData1",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iData2",
+        "raw": "tradedItem.m_iData2",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iData3",
+        "raw": "tradedItem.m_iData3",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bFlag1",
+        "raw": "tradedItem.m_bFlag1",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eFromPlayer",
+        "raw": "tradedItem.m_eFromPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_iDuration",
-      "raw": "tradedItem.m_iDuration",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iFinalTurn",
-      "raw": "tradedItem.m_iFinalTurn",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iData1",
-      "raw": "tradedItem.m_iData1",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iData2",
-      "raw": "tradedItem.m_iData2",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_iData3",
-      "raw": "tradedItem.m_iData3",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "m_bFlag1",
-      "raw": "tradedItem.m_bFlag1",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "m_eFromPlayer",
-      "raw": "tradedItem.m_eFromPlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "ReligionTypes": {
+    "type": "enum",
     "name": "ReligionTypes",
     "values": {
       "NO_RELIGION": -1,
       "RELIGION_PANTHEON": 0
     }
   },
-  "CvReligionBeliefs": [
-    {
-      "name": "m_eReligion",
-      "raw": "religionBeliefs.m_eReligion",
-      "type": {
-        "name": "ReligionTypes",
-        "args": []
+  "CvReligionBeliefs": {
+    "type": "class",
+    "name": "CvReligionBeliefs",
+    "calls": [
+      {
+        "name": "m_eReligion",
+        "raw": "religionBeliefs.m_eReligion",
+        "type": {
+          "name": "ReligionTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_ReligionBeliefs",
+        "raw": "religionBeliefs.m_ReligionBeliefs",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_BeliefLookup",
+        "raw": "religionBeliefs.m_BeliefLookup",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
       }
-    },
-    {
-      "name": "m_ReligionBeliefs",
-      "raw": "religionBeliefs.m_ReligionBeliefs",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "m_BeliefLookup",
-      "raw": "religionBeliefs.m_BeliefLookup",
-      "type": {
-        "name": "std::vector",
-        "args": [
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    }
-  ],
+    ]
+  },
   "GreatWorkType": {
+    "type": "enum",
     "name": "GreatWorkType",
     "values": {
       "NO_GREAT_WORK": -1
     }
   },
   "GreatWorkClass": {
+    "type": "enum",
     "name": "GreatWorkClass",
     "values": {
       "NO_GREAT_WORK_CLASS": -1
     }
   },
   "LeagueTypes": {
+    "type": "enum",
     "name": "LeagueTypes",
     "values": {
       "NO_LEAGUE": -1
     }
   },
   "LeagueNameTypes": {
+    "type": "enum",
     "name": "LeagueNameTypes",
     "values": {
       "NO_LEAGUE_NAME": -1
     }
   },
   "LeagueSpecialSessionTypes": {
+    "type": "enum",
     "name": "LeagueSpecialSessionTypes",
     "values": {
       "NO_LEAGUE_SPECIAL_SESSION": -1
     }
   },
-  "CvEnactProposal": [],
-  "CvRepealProposal": [],
-  "CvActiveResolution": [],
-  "Member": [
-    {
-      "name": "ePlayer",
-      "raw": "member.ePlayer",
-      "type": {
-        "name": "PlayerTypes",
-        "args": []
+  "CvEnactProposal": {
+    "type": "class",
+    "name": "CvEnactProposal",
+    "calls": []
+  },
+  "CvRepealProposal": {
+    "type": "class",
+    "name": "CvRepealProposal",
+    "calls": []
+  },
+  "CvActiveResolution": {
+    "type": "class",
+    "name": "CvActiveResolution",
+    "calls": []
+  },
+  "Member": {
+    "type": "class",
+    "name": "Member",
+    "calls": [
+      {
+        "name": "ePlayer",
+        "raw": "member.ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "iExtraVotes",
+        "raw": "member.iExtraVotes",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "sVoteSources",
+        "raw": "member.sVoteSources",
+        "type": {
+          "name": "CvString",
+          "args": []
+        }
+      },
+      {
+        "name": "bMayPropose",
+        "raw": "member.bMayPropose",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iProposals",
+        "raw": "member.iProposals",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iVotes",
+        "raw": "member.iVotes",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iAbstainedVotes",
+        "raw": "member.iAbstainedVotes",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bEverBeenHost",
+        "raw": "member.bEverBeenHost",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bAlwaysBeenHost",
+        "raw": "member.bAlwaysBeenHost",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "iExtraVotes",
-      "raw": "member.iExtraVotes",
-      "type": {
-        "name": "int",
-        "args": []
+    ]
+  },
+  "Project": {
+    "type": "class",
+    "name": "Project",
+    "calls": [
+      {
+        "name": "eType",
+        "raw": "project.eType",
+        "type": {
+          "name": "LeagueProjectTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "vProductionList",
+        "raw": "project.vProductionList",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "bComplete",
+        "raw": "project.bComplete",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bProgressWarningSent",
+        "raw": "project.bProgressWarningSent",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "sVoteSources",
-      "raw": "member.sVoteSources",
-      "type": {
-        "name": "CvString",
-        "args": []
-      }
-    },
-    {
-      "name": "bMayPropose",
-      "raw": "member.bMayPropose",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "iProposals",
-      "raw": "member.iProposals",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "iVotes",
-      "raw": "member.iVotes",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "iAbstainedVotes",
-      "raw": "member.iAbstainedVotes",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    },
-    {
-      "name": "bEverBeenHost",
-      "raw": "member.bEverBeenHost",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "bAlwaysBeenHost",
-      "raw": "member.bAlwaysBeenHost",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    }
-  ],
-  "Project": [
-    {
-      "name": "eType",
-      "raw": "project.eType",
-      "type": {
-        "name": "LeagueProjectTypes",
-        "args": []
-      }
-    },
-    {
-      "name": "vProductionList",
-      "raw": "project.vProductionList",
-      "type": {
-        "name": "vector",
-        "args": [
-          {
-            "name": "int",
-            "args": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "bComplete",
-      "raw": "project.bComplete",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    },
-    {
-      "name": "bProgressWarningSent",
-      "raw": "project.bProgressWarningSent",
-      "type": {
-        "name": "bool",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "DomainTypes": {
+    "type": "enum",
     "name": "DomainTypes",
     "values": {
       "NO_DOMAIN": -1,
@@ -2584,6 +2724,7 @@
     }
   },
   "TradeConnectionType": {
+    "type": "enum",
     "name": "TradeConnectionType",
     "values": {
       "TRADE_CONNECTION_INTERNATIONAL": 0,
@@ -2593,31 +2734,37 @@
       "TRADE_CONNECTION_GOLD_INTERNAL": 4
     }
   },
-  "TradeConnectionPlot": [
-    {
-      "name": "m_iX",
-      "raw": "tradeConnectionPlot.m_iX",
-      "type": {
-        "name": "int",
-        "args": []
+  "TradeConnectionPlot": {
+    "type": "class",
+    "name": "TradeConnectionPlot",
+    "calls": [
+      {
+        "name": "m_iX",
+        "raw": "tradeConnectionPlot.m_iX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iY",
+        "raw": "tradeConnectionPlot.m_iY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
       }
-    },
-    {
-      "name": "m_iY",
-      "raw": "tradeConnectionPlot.m_iY",
-      "type": {
-        "name": "int",
-        "args": []
-      }
-    }
-  ],
+    ]
+  },
   "CorporationTypes": {
+    "type": "enum",
     "name": "CorporationTypes",
     "values": {
       "NO_CORPORATION": -1
     }
   },
   "TradeableItems": {
+    "type": "enum",
     "name": "TradeableItems",
     "values": {
       "TRADE_ITEM_NONE": -1,
@@ -2641,6 +2788,7 @@
     }
   },
   "LeagueProjectTypes": {
+    "type": "enum",
     "name": "LeagueProjectTypes",
     "values": {
       "NO_LEAGUE_PROJECT": -1
