@@ -1031,6 +1031,10 @@
           "args": []
         }
       }
+    ],
+    "slug": [
+      "const bool bLoading = visitor.isLoading();",
+      "if (bLoading && game.m_eGameState == GAMESTATE_OVER)"
     ]
   },
   "int": {
@@ -2578,17 +2582,68 @@
   "CvEnactProposal": {
     "type": "class",
     "name": "CvEnactProposal",
-    "calls": []
+    "calls": [
+      {
+        "raw": "enactProposal.CvProposal::serialize(visitor);",
+        "name": "CvProposal",
+        "type": {
+          "name": "CvProposal",
+          "args": []
+        }
+      }
+    ]
   },
   "CvRepealProposal": {
     "type": "class",
     "name": "CvRepealProposal",
-    "calls": []
+    "calls": [
+      {
+        "raw": "repealProposal.CvProposal::serialize(visitor);",
+        "name": "CvProposal",
+        "type": {
+          "name": "CvProposal",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTargetResolutionID",
+        "raw": "repealProposal.m_iTargetResolutionID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_RepealDecision",
+        "raw": "repealProposal.m_RepealDecision",
+        "type": {
+          "name": "CvVoterDecision",
+          "args": []
+        }
+      }
+    ]
   },
   "CvActiveResolution": {
     "type": "class",
     "name": "CvActiveResolution",
-    "calls": []
+    "calls": [
+      {
+        "raw": "activeResolution.CvResolution::serialize(visitor);",
+        "name": "CvResolution",
+        "type": {
+          "name": "CvResolution",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTurnEnacted",
+        "raw": "activeResolution.m_iTurnEnacted",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ]
   },
   "Member": {
     "type": "class",
@@ -2787,11 +2842,491 @@
       "TRADE_ITEM_VASSALAGE_REVOKE": 16
     }
   },
+  "CvProposal": {
+    "type": "class",
+    "name": "CvProposal",
+    "calls": [
+      {
+        "raw": "proposal.CvResolution::serialize(visitor);",
+        "name": "CvResolution",
+        "type": {
+          "name": "CvResolution",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eProposalPlayer",
+        "raw": "proposal.m_eProposalPlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvVoterDecision": {
+    "type": "class",
+    "name": "CvVoterDecision",
+    "calls": [
+      {
+        "raw": "voterDecision.CvResolutionDecision::serialize(visitor);",
+        "name": "CvResolutionDecision",
+        "type": {
+          "name": "CvResolutionDecision",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vVotes",
+        "raw": "voterDecision.m_vVotes",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "PlayerVote",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvResolution": {
+    "type": "class",
+    "name": "CvResolution",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "resolution.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eType",
+        "raw": "resolution.m_eType",
+        "type": {
+          "name": "ResolutionTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_eLeague",
+        "raw": "resolution.m_eLeague",
+        "type": {
+          "name": "LeagueTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "m_sEffects",
+        "raw": "resolution.m_sEffects",
+        "type": {
+          "name": "CvResolutionEffects",
+          "args": []
+        }
+      },
+      {
+        "name": "m_VoterDecision",
+        "raw": "resolution.m_VoterDecision",
+        "type": {
+          "name": "CvVoterDecision",
+          "args": []
+        }
+      },
+      {
+        "name": "m_ProposerDecision",
+        "raw": "resolution.m_ProposerDecision",
+        "type": {
+          "name": "CvProposerDecision",
+          "args": []
+        }
+      }
+    ]
+  },
   "LeagueProjectTypes": {
     "type": "enum",
     "name": "LeagueProjectTypes",
     "values": {
       "NO_LEAGUE_PROJECT": -1
+    }
+  },
+  "CvResolutionDecision": {
+    "type": "class",
+    "name": "CvResolutionDecision",
+    "calls": [
+      {
+        "name": "m_eType",
+        "raw": "resolutionDecision.m_eType",
+        "type": {
+          "name": "ResolutionDecisionTypes",
+          "args": []
+        }
+      }
+    ]
+  },
+  "PlayerVote": {
+    "type": "class",
+    "name": "PlayerVote",
+    "calls": [
+      {
+        "name": "ePlayer",
+        "raw": "playerVote.ePlayer",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "iNumVotes",
+        "raw": "playerVote.iNumVotes",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iChoice",
+        "raw": "playerVote.iChoice",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ]
+  },
+  "ResolutionTypes": {
+    "type": "enum",
+    "name": "ResolutionTypes",
+    "values": {
+      "NO_RESOLUTION": -1
+    }
+  },
+  "CvResolutionEffects": {
+    "type": "class",
+    "name": "CvResolutionEffects",
+    "calls": [
+      {
+        "name": "bDiplomaticVictory",
+        "raw": "resolutionEffects.bDiplomaticVictory",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bChangeLeagueHost",
+        "raw": "resolutionEffects.bChangeLeagueHost",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iOneTimeGold",
+        "raw": "resolutionEffects.iOneTimeGold",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iOneTimeGoldPercent",
+        "raw": "resolutionEffects.iOneTimeGoldPercent",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bRaiseCityStateInfluenceToNeutral",
+        "raw": "resolutionEffects.bRaiseCityStateInfluenceToNeutral",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "eLeagueProjectEnabled",
+        "raw": "resolutionEffects.eLeagueProjectEnabled",
+        "type": {
+          "name": "LeagueProjectTypes",
+          "args": []
+        }
+      },
+      {
+        "name": "iGoldPerTurn",
+        "raw": "resolutionEffects.iGoldPerTurn",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iResourceQuantity",
+        "raw": "resolutionEffects.iResourceQuantity",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bEmbargoCityStates",
+        "raw": "resolutionEffects.bEmbargoCityStates",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bEmbargoPlayer",
+        "raw": "resolutionEffects.bEmbargoPlayer",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bNoResourceHappiness",
+        "raw": "resolutionEffects.bNoResourceHappiness",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iUnitMaintenanceGoldPercent",
+        "raw": "resolutionEffects.iUnitMaintenanceGoldPercent",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iMemberDiscoveredTechMod",
+        "raw": "resolutionEffects.iMemberDiscoveredTechMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iCulturePerWonder",
+        "raw": "resolutionEffects.iCulturePerWonder",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iCulturePerNaturalWonder",
+        "raw": "resolutionEffects.iCulturePerNaturalWonder",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bNoTrainingNuclearWeapons",
+        "raw": "resolutionEffects.bNoTrainingNuclearWeapons",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iVotesForFollowingReligion",
+        "raw": "resolutionEffects.iVotesForFollowingReligion",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iHolyCityTourism",
+        "raw": "resolutionEffects.iHolyCityTourism",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iReligionSpreadStrengthMod",
+        "raw": "resolutionEffects.iReligionSpreadStrengthMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iVotesForFollowingIdeology",
+        "raw": "resolutionEffects.iVotesForFollowingIdeology",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iOtherIdeologyRebellionMod",
+        "raw": "resolutionEffects.iOtherIdeologyRebellionMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iArtsyGreatPersonRateMod",
+        "raw": "resolutionEffects.iArtsyGreatPersonRateMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iScienceyGreatPersonRateMod",
+        "raw": "resolutionEffects.iScienceyGreatPersonRateMod",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iGreatPersonTileImprovementCulture",
+        "raw": "resolutionEffects.iGreatPersonTileImprovementCulture",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iLandmarkCulture",
+        "raw": "resolutionEffects.iLandmarkCulture",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bOpenDoor",
+        "raw": "resolutionEffects.bOpenDoor",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bSphereOfInfluence",
+        "raw": "resolutionEffects.bSphereOfInfluence",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "bDecolonization",
+        "raw": "resolutionEffects.bDecolonization",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iLimitSpaceshipProduction",
+        "raw": "resolutionEffects.iLimitSpaceshipProduction",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iLimitSpaceshipPurchase",
+        "raw": "resolutionEffects.iLimitSpaceshipPurchase",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iIsWorldWar",
+        "raw": "resolutionEffects.iIsWorldWar",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bEmbargoIdeology",
+        "raw": "resolutionEffects.bEmbargoIdeology",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "iChangeTourism",
+        "raw": "resolutionEffects.iChangeTourism",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "iVassalMaintenanceGoldPercent",
+        "raw": "resolutionEffects.iVassalMaintenanceGoldPercent",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "bEndAllCurrentVassals",
+        "raw": "resolutionEffects.bEndAllCurrentVassals",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvProposerDecision": {
+    "type": "class",
+    "name": "CvProposerDecision",
+    "calls": [
+      {
+        "raw": "proposerDecision.CvResolutionDecision::serialize(visitor);",
+        "name": "CvResolutionDecision",
+        "type": {
+          "name": "CvResolutionDecision",
+          "args": []
+        }
+      },
+      {
+        "name": "m_sVote",
+        "raw": "proposerDecision.m_sVote",
+        "type": {
+          "name": "PlayerVote",
+          "args": []
+        }
+      }
+    ]
+  },
+  "ResolutionDecisionTypes": {
+    "type": "enum",
+    "name": "ResolutionDecisionTypes",
+    "values": {
+      "RESOLUTION_DECISION_NONE": 0,
+      "RESOLUTION_DECISION_YES_OR_NO": 1,
+      "RESOLUTION_DECISION_ANY_MEMBER": 2,
+      "RESOLUTION_DECISION_CITY": 3,
+      "RESOLUTION_DECISION_ANY_LUXURY_RESOURCE": 4,
+      "RESOLUTION_DECISION_REPEAL": 5,
+      "RESOLUTION_DECISION_MAJOR_CIV_MEMBER": 6,
+      "RESOLUTION_DECISION_OTHER_MAJOR_CIV_MEMBER": 7,
+      "RESOLUTION_DECISION_RELIGION": 8,
+      "RESOLUTION_DECISION_IDEOLOGY": 9,
+      "RESOLUTION_DECISION_CITY_CSD": 10,
+      "RESOLUTION_DECISION_MAJOR_CIV_MEMBER_IDEOLOGY": 11
     }
   }
 }

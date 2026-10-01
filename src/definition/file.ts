@@ -107,9 +107,9 @@ function splitCppOperator(
 function splitCppType(typeName: string, str: string): string | null {
   const start = str.search(
     new RegExp(
-      `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b\\s*(?:\\n\\s*)?\\{`
+        `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b(?:\\s*:[^{]*)?\\s*\\{`
     )
-  );
+);
 
   if (start === -1) {
     return null;
@@ -122,7 +122,7 @@ function splitCppType(typeName: string, str: string): string | null {
 export function getHeaderContent(typeName: string, src: string): string | null {
   const file = grepToFile(
     new RegExp(
-      `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b\\s*(?:\\n\\s*)?\\{`
+    `\\b(?:class|struct)\\s+${escapeRegExp(typeName)}\\b(?:\\s*:[^{]*)?\\s*\\{`
     ),
     src,
     ['.cpp', '.h']

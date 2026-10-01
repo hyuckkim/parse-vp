@@ -100,8 +100,19 @@ function searchDefinition(typeName: string, src: string): {
     
     const calls: ClassCall[] = [];
     let slugs: string[] = [];
+    let depth = 0;
     for(const line of visitor.split('\n')
         .map(line => line.trim())) {
+        if (line.includes('{')) {
+            depth++;
+            continue;
+        }
+        if (line.includes('}')) {
+            depth--;
+            continue;
+        }
+        if (depth !== 1) continue;
+
         if (!line) continue;
         const call = getClassCall(line, fields)
         if (call) {
@@ -119,9 +130,9 @@ function searchDefinition(typeName: string, src: string): {
             continue;
         }
 
-        if (line === '{' || line === '}') {
-            continue;
-        }
+        if (line.startsWith('//')) continue;
+        if (line.startsWith('return')) continue;
+        
         slugs.push(line);
     }
 

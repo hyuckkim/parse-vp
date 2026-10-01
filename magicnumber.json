@@ -41,14 +41,63 @@
       "std::pair"
     ],
     "literal": {
-        "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
-          "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
-          "name": "m_ppaaiTeamVictoryRank",
-          "type": {
-            "name": "TeamTypes",
-            "args": []
-          },
-          "dimensions": ["Victories", "5"]
+      "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
+        "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
+        "name": "m_ppaaiTeamVictoryRank",
+        "type": {
+          "name": "TeamTypes",
+          "args": []
+        },
+        "dimensions": ["Victories", "5"]
+      },
+      "enactProposal.CvProposal::serialize(visitor);": {
+        "raw": "enactProposal.CvProposal::serialize(visitor);",
+        "name": "CvProposal",
+        "type": {
+          "name": "CvProposal",
+          "args": []
         }
+      },
+      "repealProposal.CvProposal::serialize(visitor);": {
+        "raw": "repealProposal.CvProposal::serialize(visitor);",
+        "name": "CvProposal",
+        "type": {
+          "name": "CvProposal",
+          "args": []
+        }
+      },
+      "activeResolution.CvResolution::serialize(visitor);": {
+        "raw": "activeResolution.CvResolution::serialize(visitor);",
+        "name": "CvResolution",
+        "type": {
+          "name": "CvResolution",
+          "args": []
+        }
+      },
+      "proposal.CvResolution::serialize(visitor);": {
+        "raw": "proposal.CvResolution::serialize(visitor);",
+        "name": "CvResolution",
+        "type": {
+          "name": "CvResolution",
+          "args": []
+        }
+      },
+      "voterDecision.CvResolutionDecision::serialize(visitor);":
+      {
+        "raw": "voterDecision.CvResolutionDecision::serialize(visitor);",
+        "name": "CvResolutionDecision",
+        "type": {
+          "name": "CvResolutionDecision",
+          "args": []
+        }
+      },
+      "proposerDecision.CvResolutionDecision::serialize(visitor);": {
+        "raw": "proposerDecision.CvResolutionDecision::serialize(visitor);",
+        "name": "CvResolutionDecision",
+        "type": {
+          "name": "CvResolutionDecision",
+          "args": []
+        }
+      }
     }
 }
