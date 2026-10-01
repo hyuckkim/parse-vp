@@ -32,6 +32,14 @@
     { "name": "size_t", "size": 4, "encoding": "unsigned" },
     { "name": "GUID", "size": 24, "encoding": "uuid" }
     ],
+    "generic": [
+      "std::tr1::unordered_set",
+      "CvEnumMap",
+      "CvString",
+      "std::vector",
+      "vector",
+      "std::pair"
+    ],
     "literal": {
         "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
           "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",

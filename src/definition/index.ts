@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 import { readMagicNumber } from '../magicnumber.js';
-import type { CallInfo, ClassCall, ClassCallType, EnumInfo, PrimitiveInfo } from '../types.js';
+import type { CallInfo, ClassCall, ClassCallType, EnumInfo, GenericInfo, PrimitiveInfo } from '../types.js';
 import { getHeaderContent, getVisitorContent } from './file.js';
 import { recordAllFields, type FieldDefinition } from './recordAllFields.js';
 import { collectTypedefs } from '../typedef.js';
@@ -41,6 +41,11 @@ function visitDefinition(typeName: string, src: string): {
         if (!def) return;
         return { def, next: [] };
     }
+    if (isGenericType(typeName)) {
+        const def = asGenericType(typeName);
+        if (!def) return;
+        return { def, next: [] };
+    }
 
     return searchDefinition(typeName, src);
 }
@@ -68,6 +73,14 @@ function asEnumType(typeName: string): EnumInfo | undefined {
     return {
         name: typeName,
         values: def.fields,
+    }
+}
+function isGenericType(typeName: string): boolean {
+    return genericTypes.includes(typeName);
+}
+function asGenericType(typeName: string): GenericInfo | undefined {
+    return {
+        name: typeName,
     }
 }
 
@@ -172,6 +185,7 @@ const gamePath = 'Community-Patch-DLL';
 const {
     primitiveMap,
     literalMap,
+    genericTypes
 } = readMagicNumber('magicnumber.json');
 const typedefs = collectTypedefs(gamePath);
 const enums = await getEnums('Civ5CoreDatabase.db', gamePath);

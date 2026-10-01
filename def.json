@@ -1045,6 +1045,9 @@
       "NO_PLAYER": -1
     }
   },
+  "std::tr1::unordered_set": {
+    "name": "std::tr1::unordered_set"
+  },
   "HandicapTypes": {
     "name": "HandicapTypes",
     "values": {
@@ -1096,6 +1099,15 @@
     "name": "char",
     "size": 1,
     "encoding": "signed"
+  },
+  "CvEnumMap": {
+    "name": "CvEnumMap"
+  },
+  "CvString": {
+    "name": "CvString"
+  },
+  "std::vector": {
+    "name": "std::vector"
   },
   "CvRandom": [
     {
@@ -1528,6 +1540,9 @@
     "name": "unsigned long",
     "size": 4,
     "encoding": "unsigned"
+  },
+  "vector": {
+    "name": "vector"
   },
   "CvDeal": [
     {
@@ -2278,6 +2293,9 @@
       "REPLAY_MESSAGE_RELIGION_FOUNDED": 5,
       "REPLAY_MESSAGE_PANTHEON_FOUNDED": 6
     }
+  },
+  "std::pair": {
+    "name": "std::pair"
   },
   "short": {
     "name": "short",

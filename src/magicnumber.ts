@@ -11,9 +11,11 @@ export function readMagicNumber(path: string) {
     const literalMap = new Map<string, ClassCall>(
         Object.entries(magicnumbers.literal)
     );
+    const genericTypes: string[] = magicnumbers.generic || [];
 
     return {
         primitiveMap,
-        literalMap
+        literalMap,
+        genericTypes
     }
 }

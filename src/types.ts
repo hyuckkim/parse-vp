@@ -1,4 +1,4 @@
-export type CallInfo = PrimitiveInfo | ClassInfo | EnumInfo;
+export type CallInfo = PrimitiveInfo | ClassInfo | EnumInfo | GenericInfo;
 
 export type PrimitiveInfo = {
     name: string,
@@ -23,5 +23,4 @@ export type EnumInfo = {
 }
 export type GenericInfo = {
     name: string,
-    strategy: 'length' | `fixed-${number}`
 }
