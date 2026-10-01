@@ -87,7 +87,7 @@ function asGenericType(typeName: string): GenericInfo | undefined {
     }
 }
 
-function searchDefinition(typeName: string, src: string): {
+export function searchDefinition(typeName: string, src: string): {
     def: CallInfo,
     next: string[]
 } | undefined {
@@ -103,15 +103,12 @@ function searchDefinition(typeName: string, src: string): {
     let depth = 0;
     for(const line of visitor.split('\n')
         .map(line => line.trim())) {
-        if (line.includes('{')) {
-            depth++;
-            continue;
-        }
-        if (line.includes('}')) {
-            depth--;
-            continue;
-        }
-        if (depth !== 1) continue;
+        const lastDepth = depth;
+        const openCount = (line.match(/\{/g) || []).length;
+    const closeCount = (line.match(/\}/g) || []).length;
+        depth += openCount - closeCount;
+
+        if (lastDepth !== depth || depth !== 1) continue;
 
         if (!line) continue;
         const call = getClassCall(line, fields)
