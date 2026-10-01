@@ -10,13 +10,14 @@ export type PrimitiveInfo = {
 export type ClassInfo = {
     type: 'class',
     name: string,
+    slug?: string[] | undefined,
     calls: ClassCall[]
 };
 export type ClassCall = {
     raw: string,
     name: string,
     type: ClassCallType,
-    dimensions?: string[] | undefined
+    dimensions?: string[] | undefined,
 }
 export type ClassCallType = {
     name: string,

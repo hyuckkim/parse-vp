@@ -98,20 +98,39 @@ function searchDefinition(typeName: string, src: string): {
     const visitor = getVisitorContent(typeName, src);
     if (!visitor) return;
     
-    const calls: ClassCall[] = visitor.split('\n')
-        .map(line => line.trim())
-        .map(line => {
-            return getClassCall(line, fields)
-             ?? getOperationCall(line, fields)
-             ?? getLiteralCall(line);
-        })
-        .filter((call): call is ClassCall => call !== null);
+    const calls: ClassCall[] = [];
+    let slugs: string[] = [];
+    for(const line of visitor.split('\n')
+        .map(line => line.trim())) {
+        if (!line) continue;
+        const call = getClassCall(line, fields)
+        if (call) {
+            calls.push(call);
+            continue;
+        }
+        const opCall = getOperationCall(line, fields);
+        if (opCall) {
+            calls.push(opCall);
+            continue;
+        }
+        const literalCall = getLiteralCall(line);
+        if (literalCall) {
+            calls.push(literalCall);
+            continue;
+        }
+
+        if (line === '{' || line === '}') {
+            continue;
+        }
+        slugs.push(line);
+    }
 
     return {
         def: {
             type: 'class',
             name: typeName,
-            calls
+            calls,
+            slug: slugs.length > 0 ? slugs : undefined
         },
         next: getEveryType(calls.map(call => call.type))
     };
