@@ -38,7 +38,9 @@
       "CvString",
       "std::vector",
       "vector",
-      "std::pair"
+      "std::pair",
+      "TContainer",
+      "map"
     ],
     "literal": {
       "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
@@ -52,7 +54,7 @@
       },
       "enactProposal.CvProposal::serialize(visitor);": {
         "raw": "enactProposal.CvProposal::serialize(visitor);",
-        "name": "CvProposal",
+        "name": "enactProposal",
         "type": {
           "name": "CvProposal",
           "args": []
@@ -60,7 +62,7 @@
       },
       "repealProposal.CvProposal::serialize(visitor);": {
         "raw": "repealProposal.CvProposal::serialize(visitor);",
-        "name": "CvProposal",
+        "name": "repealProposal",
         "type": {
           "name": "CvProposal",
           "args": []
@@ -68,7 +70,7 @@
       },
       "activeResolution.CvResolution::serialize(visitor);": {
         "raw": "activeResolution.CvResolution::serialize(visitor);",
-        "name": "CvResolution",
+        "name": "activeResolution",
         "type": {
           "name": "CvResolution",
           "args": []
@@ -76,7 +78,7 @@
       },
       "proposal.CvResolution::serialize(visitor);": {
         "raw": "proposal.CvResolution::serialize(visitor);",
-        "name": "CvResolution",
+        "name": "proposal",
         "type": {
           "name": "CvResolution",
           "args": []
@@ -85,7 +87,7 @@
       "voterDecision.CvResolutionDecision::serialize(visitor);":
       {
         "raw": "voterDecision.CvResolutionDecision::serialize(visitor);",
-        "name": "CvResolutionDecision",
+        "name": "voterDecision",
         "type": {
           "name": "CvResolutionDecision",
           "args": []
@@ -93,7 +95,7 @@
       },
       "proposerDecision.CvResolutionDecision::serialize(visitor);": {
         "raw": "proposerDecision.CvResolutionDecision::serialize(visitor);",
-        "name": "CvResolutionDecision",
+        "name": "proposerDecision",
         "type": {
           "name": "CvResolutionDecision",
           "args": []

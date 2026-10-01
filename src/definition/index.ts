@@ -132,7 +132,6 @@ function searchDefinition(typeName: string, src: string): {
 
         if (line.startsWith('//')) continue;
         if (line.startsWith('return')) continue;
-        
         slugs.push(line);
     }
 
@@ -228,5 +227,5 @@ const typedefs = collectTypedefs(gamePath);
 const enums = await getEnums('Civ5CoreDatabase.db', gamePath);
 // writeFileSync('enums.json', JSON.stringify(enums, null, 2), 'utf8');
 
-const d = collectDefinitions('CvGame', gamePath);
+const d = collectDefinitions(['CvGame', 'CvMap'], gamePath);
 writeFileSync('def.json', JSON.stringify(d, null, 2), 'utf8');

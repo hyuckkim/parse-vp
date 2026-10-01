@@ -1037,6 +1037,205 @@
       "if (bLoading && game.m_eGameState == GAMESTATE_OVER)"
     ]
   },
+  "CvMap": {
+    "type": "class",
+    "name": "CvMap",
+    "calls": [
+      {
+        "name": "m_iGridWidth",
+        "raw": "map.m_iGridWidth",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iGridHeight",
+        "raw": "map.m_iGridHeight",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iLandPlots",
+        "raw": "map.m_iLandPlots",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iOwnedPlots",
+        "raw": "map.m_iOwnedPlots",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumNaturalWonders",
+        "raw": "map.m_iNumNaturalWonders",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTopLatitude",
+        "raw": "map.m_iTopLatitude",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iBottomLatitude",
+        "raw": "map.m_iBottomLatitude",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bWrapX",
+        "raw": "map.m_bWrapX",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bWrapY",
+        "raw": "map.m_bWrapY",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_guid",
+        "raw": "map.m_guid",
+        "type": {
+          "name": "GUID",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bMapGenerated",
+        "raw": "map.m_bMapGenerated",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_paiNumResource",
+        "raw": "map.m_paiNumResource",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "ResourceTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_paiNumResourceOnLand",
+        "raw": "map.m_paiNumResourceOnLand",
+        "type": {
+          "name": "CvEnumMap",
+          "args": [
+            {
+              "name": "ResourceTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_areas",
+        "raw": "map.m_areas",
+        "type": {
+          "name": "TContainer",
+          "args": [
+            {
+              "name": "CvArea",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_landmasses",
+        "raw": "map.m_landmasses",
+        "type": {
+          "name": "TContainer",
+          "args": [
+            {
+              "name": "CvLandmass",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_continents",
+        "raw": "map.m_continents",
+        "type": {
+          "name": "TContainer",
+          "args": [
+            {
+              "name": "CvContinent",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_rivers",
+        "raw": "map.m_rivers",
+        "type": {
+          "name": "TContainer",
+          "args": [
+            {
+              "name": "CvRiver",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_iAIMapHints",
+        "raw": "map.m_iAIMapHints",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      }
+    ],
+    "slug": [
+      "const bool bLoading = visitor.isLoading();",
+      "const bool bSaving = visitor.isSaving();",
+      "CvMap& mutMap = const_cast<CvMap&>(map);",
+      "if (bLoading)",
+      "visitor.loadAssign(map.m_iGridSize, map.m_iGridHeight * map.m_iGridWidth);",
+      "PRECONDITION((0 < GC.getNumResourceInfos()), \"GC.getNumResourceInfos() is not greater than zero but an array is being allocated\");",
+      "if (bLoading)",
+      "mutMap.InitPlots();",
+      "for (int iY = 0; iY < map.getGridHeight(); ++iY)"
+    ]
+  },
   "int": {
     "type": "primitive",
     "name": "int",
@@ -1601,6 +1800,426 @@
         "type": {
           "name": "int",
           "args": []
+        }
+      }
+    ]
+  },
+  "GUID": {
+    "type": "primitive",
+    "name": "GUID",
+    "size": 24,
+    "encoding": "uuid"
+  },
+  "CvArea": {
+    "type": "class",
+    "name": "CvArea",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "area.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumTiles",
+        "raw": "area.m_iNumTiles",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumOwnedTiles",
+        "raw": "area.m_iNumOwnedTiles",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumRiverEdges",
+        "raw": "area.m_iNumRiverEdges",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumUnits",
+        "raw": "area.m_iNumUnits",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumCities",
+        "raw": "area.m_iNumCities",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTotalPopulation",
+        "raw": "area.m_iTotalPopulation",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumStartingPlots",
+        "raw": "area.m_iNumStartingPlots",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumNaturalWonders",
+        "raw": "area.m_iNumNaturalWonders",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iTotalFoundValue",
+        "raw": "area.m_iTotalFoundValue",
+        "type": {
+          "name": "unsigned int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iBadPlots",
+        "raw": "area.m_iBadPlots",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bWater",
+        "raw": "area.m_bWater",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bMountains",
+        "raw": "area.m_bMountains",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_aiUnitsPerPlayer",
+        "raw": "area.m_aiUnitsPerPlayer",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiCitiesPerPlayer",
+        "raw": "area.m_aiCitiesPerPlayer",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiPopulationPerPlayer",
+        "raw": "area.m_aiPopulationPerPlayer",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiFreeSpecialist",
+        "raw": "area.m_aiFreeSpecialist",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiNumRevealedTiles",
+        "raw": "area.m_aiNumRevealedTiles",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "TeamTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aTargetCities",
+        "raw": "area.m_aTargetCities",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "IDInfo",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aaiYieldRateModifier",
+        "raw": "area.m_aaiYieldRateModifier",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "PlayerTypes",
+              "args": []
+            },
+            {
+              "name": "vector",
+              "args": [
+                {
+                  "name": "int",
+                  "args": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiNumResources",
+        "raw": "area.m_aiNumResources",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "ResourceTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
+        "name": "m_aiNumImprovements",
+        "raw": "area.m_aiNumImprovements",
+        "type": {
+          "name": "map",
+          "args": [
+            {
+              "name": "ImprovementTypes",
+              "args": []
+            },
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      }
+    ],
+    "slug": [
+      "visitor(area.m_Boundaries.m_iNorthEdge);",
+      "visitor(area.m_Boundaries.m_iSouthEdge);",
+      "visitor(area.m_Boundaries.m_iEastEdge);",
+      "visitor(area.m_Boundaries.m_iWestEdge);"
+    ]
+  },
+  "CvLandmass": {
+    "type": "class",
+    "name": "CvLandmass",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "landmass.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumTiles",
+        "raw": "landmass.m_iNumTiles",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCentroidX",
+        "raw": "landmass.m_iCentroidX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCentroidY",
+        "raw": "landmass.m_iCentroidY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bWater",
+        "raw": "landmass.m_bWater",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      },
+      {
+        "name": "m_cContinentType",
+        "raw": "landmass.m_cContinentType",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vAreas",
+        "raw": "landmass.m_vAreas",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "CvContinent": {
+    "type": "class",
+    "name": "CvContinent",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "landmass.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumTiles",
+        "raw": "landmass.m_iNumTiles",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCentroidX",
+        "raw": "landmass.m_iCentroidX",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCentroidY",
+        "raw": "landmass.m_iCentroidY",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_bLand",
+        "raw": "landmass.m_bLand",
+        "type": {
+          "name": "bool",
+          "args": []
+        }
+      }
+    ]
+  },
+  "CvRiver": {
+    "type": "class",
+    "name": "CvRiver",
+    "calls": [
+      {
+        "name": "m_iID",
+        "raw": "river.m_iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vPlots",
+        "raw": "river.m_vPlots",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "CvPlot",
+              "args": []
+            }
+          ]
         }
       }
     ]
@@ -2409,6 +3028,146 @@
     "name": "short",
     "size": 2,
     "encoding": "signed"
+  },
+  "unsigned int": {
+    "type": "primitive",
+    "name": "unsigned int",
+    "size": 4,
+    "encoding": "unsigned"
+  },
+  "IDInfo": {
+    "type": "class",
+    "name": "IDInfo",
+    "calls": [],
+    "slug": [
+      "UnitMoveRate():m_fTotalMoveRate(1.0f),m_fEaseIn(0.0f),m_fEaseOut(0.0f),m_fIndividualOffset(0.0f), m_fRowOffset(0.0f), m_fCurveRoll(0.0f), m_iPathSubdivision(1)",
+      "float m_fTotalMoveRate;",
+      "float m_fEaseIn;",
+      "float m_fEaseOut;",
+      "float m_fIndividualOffset;",
+      "float m_fRowOffset;",
+      "float m_fCurveRoll;",
+      "int   m_iPathSubdivision;"
+    ]
+  },
+  "ImprovementTypes": {
+    "type": "enum",
+    "name": "ImprovementTypes",
+    "values": {
+      "NO_IMPROVEMENT": -1
+    }
+  },
+  "CvPlot": {
+    "type": "class",
+    "name": "CvPlot",
+    "calls": [
+      {
+        "name": "m_iArea",
+        "raw": "plot.m_iArea",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iOwnershipDuration",
+        "raw": "plot.m_iOwnershipDuration",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iImprovementDuration",
+        "raw": "plot.m_iImprovementDuration",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iUpgradeProgress",
+        "raw": "plot.m_iUpgradeProgress",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iNumMajorCivsRevealed",
+        "raw": "plot.m_iNumMajorCivsRevealed",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iCityRadiusCount",
+        "raw": "plot.m_iCityRadiusCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iReconCount",
+        "raw": "plot.m_iReconCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iRiverCrossingCount",
+        "raw": "plot.m_iRiverCrossingCount",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iResourceNum",
+        "raw": "plot.m_iResourceNum",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iLandmass",
+        "raw": "plot.m_iLandmass",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_iContinent",
+        "raw": "plot.m_iContinent",
+        "type": {
+          "name": "short",
+          "args": []
+        }
+      },
+      {
+        "name": "m_vRivers",
+        "raw": "plot.m_vRivers",
+        "type": {
+          "name": "std::vector",
+          "args": [
+            {
+              "name": "int",
+              "args": []
+            }
+          ]
+        }
+      }
+    ],
+    "slug": [
+      "const bool bLoading = visitor.isLoading();",
+      "const bool bSaving = visitor.isSaving();",
+      "CvPlot& mutPlot = const_cast<CvPlot&>(plot);"
+    ]
   },
   "PeaceTreatyTypes": {
     "type": "enum",
