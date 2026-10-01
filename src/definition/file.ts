@@ -5,6 +5,8 @@ function escapeRegExp(value: string): string {
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 /** find file that includes keyword and return full file to string*/
+const fileCache = new Map<string, string>();
+
 export function grepToFile(
     keyword: string | RegExp,
     src: string,
@@ -31,7 +33,12 @@ export function grepToFile(
         const ext = extname(entry.name);
         if (!opt.includes(ext)) continue;
 
-        const content = readFileSync(filePath, "utf8");
+        let content = fileCache.get(filePath);
+
+        if (content === undefined) {
+            content = readFileSync(filePath, "utf8");
+            fileCache.set(filePath, content);
+        }
 
         if (
             (typeof keyword === "string" &&
