@@ -26,7 +26,7 @@ export type ClassCallType = {
 export type EnumInfo = {
     type: 'enum',
     name: string,
-    values: Record<string, number>,
+    values: Record<string, number | string>,
 }
 export type GenericInfo = {
     type: 'generic',

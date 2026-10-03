@@ -8,9 +8,18 @@ type EnumKind = "OPEN_ENUM" | "CLOSED_ENUM" | "FLAG_ENUM";
 
 interface EnumMember {
     name: string;
-    value?: number;
+    value?: EnumValue;
     isMeta: boolean;
 }
+type EnumValue =
+| {
+resolved: true;
+value: number;
+}
+| {
+resolved: false;
+expression: string;
+};
 
 interface EnumInfo {
     name: string;
@@ -20,7 +29,7 @@ interface EnumInfo {
 
 export interface EnumDefinition {
     length: number;
-    fields: Record<string, number>;
+    fields: Record<string, number | string>;
 }
 
 function all(
@@ -170,11 +179,10 @@ function parseNumber(
 
     return undefined;
 }
-
 function evaluateExpression(
     expression: string,
-    symbols: Map<string, number>
-): number | undefined {
+    symbols: Map<string, EnumValue>
+): EnumValue | undefined {
     const trimmed = expression.trim();
 
     if (trimmed === "") {
@@ -184,7 +192,7 @@ function evaluateExpression(
     const direct = parseNumber(trimmed);
 
     if (direct !== undefined) {
-        return direct;
+        return { resolved: true, value: direct };
     }
 
     const symbol = symbols.get(trimmed);
@@ -193,27 +201,21 @@ function evaluateExpression(
         return symbol;
     }
 
-    /*
-     * Resolve known symbols inside simple C/C++ expressions.
-     *
-     * This is intentionally limited to expressions that can be
-     * evaluated safely by JavaScript.
-     */
     let expressionForJS = trimmed;
 
     for (const [name, value] of symbols) {
+        if (!value.resolved) {
+            continue;
+        }
+
         expressionForJS = expressionForJS.replace(
             new RegExp(`\\b${escapeRegExp(name)}\\b`, "g"),
-            String(value)
+            String(value.value)
         );
     }
 
-    // Only allow numeric/operator syntax.
     if (!/^[0-9a-fxXA-F+\-*/%<>&|^~() \t]+$/.test(expressionForJS)) {
-        console.warn(
-            `[WARN] Cannot evaluate enum expression: ${expression}`
-        );
-        return undefined;
+        return { resolved: false, expression: trimmed };
     }
 
     try {
@@ -222,15 +224,13 @@ function evaluateExpression(
         )();
 
         if (typeof result === "number" && Number.isFinite(result)) {
-            return result;
+            return { resolved: true, value: result };
         }
     } catch {
-        console.warn(
-            `[WARN] Cannot evaluate enum expression: ${expression}`
-        );
+        // ignore
     }
 
-    return undefined;
+    return { resolved: false, expression: trimmed };
 }
 
 function escapeRegExp(value: string): string {
@@ -243,7 +243,7 @@ function parseEnums(
     const cleaned = removeComments(source);
 
     const enums: EnumInfo[] = [];
-    const symbols = new Map<string, number>();
+    const symbols = new Map<string, EnumValue>();
 
     const enumRegex =
         /\benum\s+(?:(OPEN_ENUM|CLOSED_ENUM|FLAG_ENUM)\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*\{/g;
@@ -305,20 +305,22 @@ function parseEnums(
             const isMeta =
                 /\bENUM_META_VALUE\b/.test(part);
 
-            let value: number | undefined;
+            let value: EnumValue | undefined;
 
             if (expression !== undefined) {
-                value = evaluateExpression(
+                let v = evaluateExpression(
                     expression,
                     symbols
                 );
-
-                if (value !== undefined) {
-                    currentValue = value;
+                if (expression !== undefined) {
+                    value = evaluateExpression(
+                        expression,
+                        symbols
+                    );
                 }
             } else {
                 currentValue++;
-                value = currentValue;
+                value = { resolved: true, value: currentValue };
             }
 
             const member: EnumMember = {
@@ -364,9 +366,10 @@ function getClosedEnumLength(
 
     if (
         meta !== undefined &&
-        meta.value !== undefined
+        meta.value !== undefined &&
+        meta.value.resolved
     ) {
-        return meta.value;
+        return meta.value.value;
     }
 
     /*
@@ -383,7 +386,9 @@ function getClosedEnumLength(
                 !member.isMeta &&
                 member.value !== undefined
         )
-        .map(member => member.value as number);
+        .map(member => member.value as EnumValue)
+        .filter((value): value is { resolved: true, value: number } => value.resolved)
+        .map(value => value.value);
 
     if (values.length === 0) {
         return 0;
@@ -394,8 +399,8 @@ function getClosedEnumLength(
 
 function getEnumFields(
     enumInfo: EnumInfo
-): Record<string, number> {
-    const fields: Record<string, number> = {};
+): Record<string, string | number> {
+    const fields: Record<string, string | number> = {};
 
     for (const member of enumInfo.members) {
         /*
@@ -412,7 +417,9 @@ function getEnumFields(
             continue;
         }
 
-        fields[member.name] = member.value;
+        fields[member.name] = member.value.resolved
+            ? member.value.value
+            : member.value.expression;
     }
 
     return fields;
