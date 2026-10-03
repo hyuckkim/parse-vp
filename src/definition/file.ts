@@ -67,7 +67,7 @@ function extractBraces(str: string, start: number): string | null {
     }
     return null;
 }
-function splitCppFunc(func: string, str: string): string | null {
+export function splitCppFunc(func: string, str: string): string | null {
   const start = str.indexOf(func);
 
   if (start === -1) {
@@ -81,25 +81,33 @@ function splitCppFunc(func: string, str: string): string | null {
   }
   return extractBraces(str, braceStart);
 }
-function splitCppOperator(
+export function splitCppOperator(
     typeName: string,
     str: string
 ): string | null {
     const regex = new RegExp(
-        `\\boperator\\s*<<\\s*\\([^)]*\\b${escapeRegExp(typeName)}\\b[^)]*\\)`
+        `\\boperator\\s*<<\\s*\\(` +
+        `[^)]*\\b${escapeRegExp(typeName)}\\b\\s*&?\\s*\\w+` +
+        `[^)]*\\)`
     );
 
     const match = regex.exec(str);
 
-    if (!match || match.index === undefined) {
+    if (!match) {
         return null;
     }
 
-    const braceStart = str.indexOf('{', match.index);
+    const afterSignature = match.index + match[0].length;
 
-    if (braceStart === -1) {
+    // 함수 선언부와 본문 사이의 공백만 허용
+    const rest = str.slice(afterSignature);
+    const braceMatch = rest.match(/^\s*\{/);
+
+    if (!braceMatch) {
         return null;
     }
+
+    const braceStart = afterSignature + braceMatch[0].length - 1;
 
     return extractBraces(str, braceStart);
 }
@@ -143,11 +151,14 @@ export function getVisitorContent(
         ['.cpp', '.h']
     );
 
-    if (serializeFile.length > 0) {
-        return splitCppFunc(
+    while (serializeFile.length > 0) {
+        let splitted =  splitCppFunc(
             `${typeName}::Serialize`,
             serializeFile[0]!
         );
+
+        if (splitted) return splitted;
+        serializeFile.shift();
     }
 
     // 2. operator<< fallback
@@ -162,8 +173,11 @@ export function getVisitorContent(
         ['.cpp', '.h']
     );
 
-    if (operatorFile.length > 0) {
-        return splitCppOperator(typeName, operatorFile[0]!);
+    while (operatorFile.length > 0) {
+        let splitted = splitCppOperator(typeName, operatorFile[0]!);
+        
+        if (splitted) return splitted;
+        operatorFile.shift();
     }
 
     return null;

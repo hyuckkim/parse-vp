@@ -36,12 +36,17 @@
       "std::tr1::unordered_set",
       "CvEnumMap",
       "CvString",
+      "CvFixedBitfield",
       "std::vector",
       "vector",
       "std::pair",
+      "pair",
       "TContainer",
       "map"
     ],
+    "defines": {
+      "MAX_PLAYERS": 64
+    },
     "literal": {
       "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)": {
         "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
@@ -98,6 +103,47 @@
         "name": "proposerDecision",
         "type": {
           "name": "CvResolutionDecision",
+          "args": []
+        }
+      },
+      "for (int iY = 0; iY < map.getGridHeight(); ++iY)": {
+        "raw":"for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
+        "name": "m_ppaaiTeamVictoryRank",
+        "type": {
+          "name": "CvPlot",
+          "args": []
+        },
+        "dimensions": ["m_iGridHeight", "m_iGridWidth"]
+      },
+      "visitor(area.m_Boundaries.m_iNorthEdge);": {
+        "raw": "visitor(area.m_Boundaries.m_iNorthEdge);",
+        "name": "m_Boundaries.m_iNorthEdge",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      "visitor(area.m_Boundaries.m_iSouthEdge);": {
+        "raw": "visitor(area.m_Boundaries.m_iSouthEdge);",
+        "name": "m_Boundaries.m_iSouthEdge",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      "visitor(area.m_Boundaries.m_iEastEdge);": {
+        "raw": "visitor(area.m_Boundaries.m_iEastEdge);",
+        "name": "m_Boundaries.m_iEastEdge",
+        "type": {
+          "name": "char",
+          "args": []
+        }
+      },
+      "visitor(area.m_Boundaries.m_iWestEdge);": {
+        "raw": "visitor(area.m_Boundaries.m_iWestEdge);",
+        "name": "m_Boundaries.m_iWestEdge",
+        "type": {
+          "name": "char",
           "args": []
         }
       }

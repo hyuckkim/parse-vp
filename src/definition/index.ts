@@ -105,12 +105,17 @@ export function searchDefinition(typeName: string, src: string): {
         .map(line => line.trim())) {
         const lastDepth = depth;
         const openCount = (line.match(/\{/g) || []).length;
-    const closeCount = (line.match(/\}/g) || []).length;
+        const closeCount = (line.match(/\}/g) || []).length;
         depth += openCount - closeCount;
 
         if (lastDepth !== depth || depth !== 1) continue;
 
         if (!line) continue;
+        const literalCall = getLiteralCall(line);
+        if (literalCall) {
+            calls.push(literalCall);
+            continue;
+        }
         const call = getClassCall(line, fields)
         if (call) {
             calls.push(call);
@@ -121,13 +126,7 @@ export function searchDefinition(typeName: string, src: string): {
             calls.push(opCall);
             continue;
         }
-        const literalCall = getLiteralCall(line);
-        if (literalCall) {
-            calls.push(literalCall);
-            continue;
-        }
 
-        if (line.startsWith('//')) continue;
         if (line.startsWith('return')) continue;
         slugs.push(line);
     }
@@ -200,15 +199,6 @@ function getEveryType(call: ClassCallType[]): string[] {
 }
 
 function patternizeCall(call: string): string | null {
-    const result = patternizeNormalType(call);
-
-    if (!result) {
-        console.warn(`Failed to patternize call: ${call}`);
-    }
-    return result;
-}
-
-function patternizeNormalType(call: string): string | null {
     const splitted = call.split('.');
     if (splitted.length !== 2) return null;
     return splitted[1]!;
