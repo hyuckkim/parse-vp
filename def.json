@@ -3530,6 +3530,10 @@
     "size": 2,
     "encoding": "signed"
   },
+  "CvFixedBitfield": {
+    "type": "generic",
+    "name": "CvFixedBitfield"
+  },
   "map": {
     "type": "generic",
     "name": "map"
@@ -3586,6 +3590,10 @@
     "values": {
       "NO_BUILD": -1
     }
+  },
+  "pair": {
+    "type": "generic",
+    "name": "pair"
   },
   "unsigned int": {
     "type": "primitive",

@@ -97,26 +97,18 @@ export function searchDefinition(typeName: string, src: string): {
     });
     const visitor = getVisitorContent(typeName, src);
     if (!visitor) return;
-    
+
     const calls: ClassCall[] = [];
     let slugs: string[] = [];
-    let depth = 0;
-    for(const line of visitor.split('\n')
-        .map(line => line.trim())) {
-        const lastDepth = depth;
-        const openCount = (line.match(/\{/g) || []).length;
-        const closeCount = (line.match(/\}/g) || []).length;
-        depth += openCount - closeCount;
 
-        if (lastDepth !== depth || depth !== 1) continue;
-
+    for (const line of getVisitorLines(visitor)) {
         if (!line) continue;
         const literalCall = getLiteralCall(line);
         if (literalCall) {
             calls.push(literalCall);
             continue;
         }
-        const call = getClassCall(line, fields)
+        const call = getClassCall(line, fields);
         if (call) {
             calls.push(call);
             continue;
@@ -142,6 +134,33 @@ export function searchDefinition(typeName: string, src: string): {
     };
 }
 
+function getVisitorLines(visitor: string): string[] {
+    const result: string[] = [];
+
+    let depth = 0;
+    for (const line of visitor.split('\n').map(line => line.trim())) {
+        const lastDepth = depth;
+        const openCount = (line.match(/\{/g) || []).length;
+        const closeCount = (line.match(/\}/g) || []).length;
+        depth += openCount - closeCount;
+
+        if (lastDepth === 1 && depth === 2) {
+            const condition = line.replace(/\{\s*$/, '').trim();
+            if (condition.length > 0) {
+                result.push(condition);
+            }
+            continue;
+        }
+
+        if (lastDepth !== depth || depth !== 1) {
+            continue;
+        }
+
+        result.push(line);
+    }
+
+    return result;
+}
 function getClassCall(line: string, fields: FieldDefinition[]): ClassCall | null {
     const match = line.match(/visitor\((.+)\);/);
     if (!match) return null;
