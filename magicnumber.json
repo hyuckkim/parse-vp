@@ -20,6 +20,8 @@
     { "name": "float", "size": 4, "encoding": "float" },
     { "name": "double", "size": 8, "encoding": "double" },
 
+    { "name": "uint8", "size": 1, "encoding": "unsigned" },
+    
     { "name": "int8_t", "size": 1, "encoding": "signed" },
     { "name": "uint8_t", "size": 1, "encoding": "unsigned" },
     { "name": "int16_t", "size": 2, "encoding": "signed" },
@@ -42,7 +44,9 @@
       "std::pair",
       "pair",
       "TContainer",
-      "map"
+      "map",
+      "LineLoop",
+      "NullableCString"
     ],
     "defines": {
       "MAX_PLAYERS": 64
@@ -114,6 +118,117 @@
           "args": []
         },
         "dimensions": ["m_iGridHeight", "m_iGridWidth"]
+      },
+      "// Bit fields": {
+        "raw": "// Bit fields",
+        "name": "plotBits",
+        "type": {
+          "name": "PlotSaveStructBitFlags",
+          "args": []
+        }
+      },
+      "visitor.template as<FeatureTypes>(plot.m_eFeatureType);": {
+        "raw": "visitor.template as<FeatureTypes>(plot.m_eFeatureType);",
+        "name": "m_eFeatureType",
+        "type": {
+          "name": "FeatureTypes",
+          "args": []
+        }
+      },
+      "visitor.template as<ResourceTypes>(plot.m_eResourceType);": {
+        "raw": "visitor.template as<ResourceTypes>(plot.m_eResourceType);",
+        "name": "m_eResourceType",
+        "type": {
+          "name": "ResourceTypes",
+          "args": []
+        }
+      },
+      "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);": {
+        "raw": "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);",
+        "name": "m_eImprovementType",
+        "type": {
+          "name": "ImprovementTypes",
+          "args": []
+        }
+      },
+      "visitor(plot.m_owningCity.eOwner);": {
+        "raw": "visitor(plot.m_owningCity.eOwner);",
+        "name": "m_owningCity.eOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      "visitor(plot.m_owningCity.iID);": {
+        "raw": "visitor(plot.m_owningCity.iID);",
+        "name": "m_owningCity.iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      "visitor(plot.m_owningCityOverride.eOwner);": {
+        "raw": "visitor(plot.m_owningCityOverride.eOwner);",
+        "name": "m_owningCityOverride.eOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      "visitor(plot.m_owningCityOverride.iID);": {
+        "raw": "visitor(plot.m_owningCityOverride.iID);",
+        "name": "m_owningCityOverride.iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      "for (uint i = 0; i < NUM_YIELD_TYPES; i++)": {
+        "raw": "for (uint i = 0; i < NUM_YIELD_TYPES; i++)",
+        "name": "m_aiYield",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": ["NUM_YIELD_TYPES"]
+        },
+        "for (int i = 0; i < MAX_TEAMS; i++)": {
+          "raw": "for (int i = 0; i < MAX_TEAMS; i++)",
+          "name": "plotTeamData",
+          "dimensions": ["MAX_TEAMS"],
+          "type": {
+            "name": "LineLoop",
+            "args": [
+              { "name": "uint8", "args": [] },
+              { "name": "uint8", "args": [] },
+              { "name": "uint8", "args": [] },
+              { "name": "char", "args": [] },
+              { "name": "bool", "args": [] },
+              { "name": "ImprovementTypes", "args": [] },
+              { "name": "RouteTypes", "args": [] },
+              { "name": "bool", "args": [] },
+              { "name": "bool", "args": [] },
+              { "name": "char", "args": [] }
+            ]
+          }
+        },
+      "// Script data": {
+        "raw": "// Script data",
+        "name": "m_szScriptData",
+        "type": {
+          "name": "NullableCString",
+          "args": []
+        }
+      },
+      "// m_units": {
+        "raw": "// m_units",
+        "name": "m_units",
+        "type": {
+          "name": "vector",
+          "args": [
+            { "name": "IDInfo", "args": [] }
+          ]
+        }
       },
       "visitor(area.m_Boundaries.m_iNorthEdge);": {
         "raw": "visitor(area.m_Boundaries.m_iNorthEdge);",

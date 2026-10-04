@@ -1933,6 +1933,14 @@
         }
       },
       {
+        "raw": "// Bit fields",
+        "name": "plotBits",
+        "type": {
+          "name": "PlotSaveStructBitFlags",
+          "args": []
+        }
+      },
+      {
         "name": "m_iUnitPlotExperience",
         "raw": "plot.m_iUnitPlotExperience",
         "type": {
@@ -1993,6 +2001,30 @@
         "raw": "plot.m_eTerrainType",
         "type": {
           "name": "char",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor.template as<FeatureTypes>(plot.m_eFeatureType);",
+        "name": "m_eFeatureType",
+        "type": {
+          "name": "FeatureTypes",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor.template as<ResourceTypes>(plot.m_eResourceType);",
+        "name": "m_eResourceType",
+        "type": {
+          "name": "ResourceTypes",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);",
+        "name": "m_eImprovementType",
+        "type": {
+          "name": "ImprovementTypes",
           "args": []
         }
       },
@@ -2125,6 +2157,101 @@
         }
       },
       {
+        "raw": "visitor(plot.m_owningCity.eOwner);",
+        "name": "m_owningCity.eOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor(plot.m_owningCity.iID);",
+        "name": "m_owningCity.iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor(plot.m_owningCityOverride.eOwner);",
+        "name": "m_owningCityOverride.eOwner",
+        "type": {
+          "name": "PlayerTypes",
+          "args": []
+        }
+      },
+      {
+        "raw": "visitor(plot.m_owningCityOverride.iID);",
+        "name": "m_owningCityOverride.iID",
+        "type": {
+          "name": "int",
+          "args": []
+        }
+      },
+      {
+        "raw": "for (uint i = 0; i < NUM_YIELD_TYPES; i++)",
+        "name": "m_aiYield",
+        "type": {
+          "name": "int",
+          "args": []
+        },
+        "dimensions": [
+          "NUM_YIELD_TYPES"
+        ]
+      },
+      {
+        "raw": "for (int i = 0; i < MAX_TEAMS; i++)",
+        "name": "plotTeamData",
+        "dimensions": [
+          "MAX_TEAMS"
+        ],
+        "type": {
+          "name": "LineLoop",
+          "args": [
+            {
+              "name": "uint8",
+              "args": []
+            },
+            {
+              "name": "uint8",
+              "args": []
+            },
+            {
+              "name": "uint8",
+              "args": []
+            },
+            {
+              "name": "char",
+              "args": []
+            },
+            {
+              "name": "bool",
+              "args": []
+            },
+            {
+              "name": "ImprovementTypes",
+              "args": []
+            },
+            {
+              "name": "RouteTypes",
+              "args": []
+            },
+            {
+              "name": "bool",
+              "args": []
+            },
+            {
+              "name": "bool",
+              "args": []
+            },
+            {
+              "name": "char",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
         "name": "m_bfRevealed",
         "raw": "plot.m_bfRevealed",
         "type": {
@@ -2142,6 +2269,14 @@
         "raw": "plot.m_cRiverCrossing",
         "type": {
           "name": "char",
+          "args": []
+        }
+      },
+      {
+        "raw": "// Script data",
+        "name": "m_szScriptData",
+        "type": {
+          "name": "NullableCString",
           "args": []
         }
       },
@@ -2212,6 +2347,19 @@
         }
       },
       {
+        "raw": "// m_units",
+        "name": "m_units",
+        "type": {
+          "name": "vector",
+          "args": [
+            {
+              "name": "IDInfo",
+              "args": []
+            }
+          ]
+        }
+      },
+      {
         "name": "m_cContinentType",
         "raw": "plot.m_cContinentType",
         "type": {
@@ -2266,19 +2414,7 @@
       "// Hack for where we need to mutate the plot directly",
       "// Necessary because C++03 has no if constexpr =(",
       "// Don't use this in save branches and things will be okay",
-      "CvPlot& mutPlot = const_cast<CvPlot&>(plot);",
-      "// Bit fields",
-      "visitor.template as<FeatureTypes>(plot.m_eFeatureType);",
-      "visitor.template as<ResourceTypes>(plot.m_eResourceType);",
-      "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);",
-      "visitor(plot.m_owningCity.eOwner);",
-      "visitor(plot.m_owningCity.iID);",
-      "visitor(plot.m_owningCityOverride.eOwner);",
-      "visitor(plot.m_owningCityOverride.iID);",
-      "for (uint i = 0; i < NUM_YIELD_TYPES; i++)",
-      "for (int i = 0; i < MAX_TEAMS; i++)",
-      "// Script data",
-      "// m_units"
+      "CvPlot& mutPlot = const_cast<CvPlot&>(plot);"
     ]
   },
   "TContainer": {
@@ -3530,9 +3666,77 @@
     "size": 2,
     "encoding": "signed"
   },
+  "PlotSaveStructBitFlags": {
+    "type": "enum",
+    "name": "PlotSaveStructBitFlags",
+    "values": {
+      "PLOT_BIT_FLAG_IMPROVEMENT_EMBASSY": 1,
+      "PLOT_BIT_FLAG_IMPROVEMENT_PASSABLE": 2,
+      "PLOT_BIT_FLAG_IMPROVEMENT_PILLAGED": 4,
+      "PLOT_BIT_FLAG_ROUTE_PILLAGED": 8,
+      "PLOT_BIT_FLAG_STARTING_PLOT": 16,
+      "PLOT_BIT_FLAG_HILLS": 32,
+      "PLOT_BIT_FLAG_NE_OF_RIVER": 64,
+      "PLOT_BIT_FLAG_W_OF_RIVER": 128,
+      "PLOT_BIT_FLAG_NW_OF_RIVER": 256,
+      "PLOT_BIT_FLAG_POTENTIAL_CITY_WORK": 512,
+      "PLOT_BIT_FLAG_BARB_CAMP_NOT_CONVERTING": 1024,
+      "PLOT_BIT_FLAG_ROUGH_PLOT": 2048,
+      "PLOT_BIT_FLAG_RESOURCE_LINKED_CITY_ACTIVE": 4096,
+      "PLOT_BIT_FLAG_IMPROVED_BY_GIFT_FROM_MAYOR": 8192,
+      "PLOT_BIT_FLAG_IS_IMPASSABLE": 16384
+    }
+  },
+  "FeatureTypes": {
+    "type": "enum",
+    "name": "FeatureTypes",
+    "values": {
+      "NO_FEATURE": -1,
+      "FEATURE_ICE": 0,
+      "FEATURE_JUNGLE": 1,
+      "FEATURE_MARSH": 2,
+      "FEATURE_OASIS": 3,
+      "FEATURE_FLOOD_PLAINS": 4,
+      "FEATURE_FOREST": 5,
+      "FEATURE_FALLOUT": 6,
+      "FEATURE_CRATER": 7,
+      "FEATURE_FUJI": 8,
+      "FEATURE_MESA": 9,
+      "FEATURE_REEF": 10,
+      "FEATURE_VOLCANO": 11,
+      "FEATURE_GIBRALTAR": 12,
+      "FEATURE_GEYSER": 13,
+      "FEATURE_FOUNTAIN_YOUTH": 14,
+      "FEATURE_POTOSI": 15,
+      "FEATURE_EL_DORADO": 16,
+      "FEATURE_ATOLL": 17,
+      "FEATURE_SRI_PADA": 18,
+      "FEATURE_MT_SINAI": 19,
+      "FEATURE_MT_KAILASH": 20,
+      "FEATURE_ULURU": 21,
+      "FEATURE_LAKE_VICTORIA": 22,
+      "FEATURE_KILIMANJARO": 23,
+      "FEATURE_SOLOMONS_MINES": 24
+    }
+  },
+  "ImprovementTypes": {
+    "type": "enum",
+    "name": "ImprovementTypes",
+    "values": {
+      "NO_IMPROVEMENT": -1
+    }
+  },
+  "LineLoop": {
+    "type": "generic",
+    "name": "LineLoop"
+  },
   "CvFixedBitfield": {
     "type": "generic",
     "name": "CvFixedBitfield"
+  },
+  "NullableCString": {
+    "type": "generic",
+    "name": "NullableCString"
   },
   "map": {
     "type": "generic",
@@ -3584,6 +3788,12 @@
       }
     ]
   },
+  "uint8": {
+    "type": "primitive",
+    "name": "uint8",
+    "size": 1,
+    "encoding": "unsigned"
+  },
   "BuildTypes": {
     "type": "enum",
     "name": "BuildTypes",
@@ -3594,12 +3804,6 @@
   "pair": {
     "type": "generic",
     "name": "pair"
-  },
-  "unsigned int": {
-    "type": "primitive",
-    "name": "unsigned int",
-    "size": 4,
-    "encoding": "unsigned"
   },
   "IDInfo": {
     "type": "class",
@@ -3623,12 +3827,11 @@
       }
     ]
   },
-  "ImprovementTypes": {
-    "type": "enum",
-    "name": "ImprovementTypes",
-    "values": {
-      "NO_IMPROVEMENT": -1
-    }
+  "unsigned int": {
+    "type": "primitive",
+    "name": "unsigned int",
+    "size": 4,
+    "encoding": "unsigned"
   },
   "PeaceTreatyTypes": {
     "type": "enum",
