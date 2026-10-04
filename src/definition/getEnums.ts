@@ -1,4 +1,3 @@
-import fs from "fs";
 import sqlite3 from "sqlite3";
 import esMain from "es-main";
 import { findMatchingBrace, removeComments } from "../util.js";

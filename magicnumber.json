@@ -21,7 +21,7 @@
     { "name": "double", "size": 8, "encoding": "double" },
 
     { "name": "uint8", "size": 1, "encoding": "unsigned" },
-    
+
     { "name": "int8_t", "size": 1, "encoding": "signed" },
     { "name": "uint8_t", "size": 1, "encoding": "unsigned" },
     { "name": "int16_t", "size": 2, "encoding": "signed" },
@@ -56,8 +56,7 @@
         "raw": "for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
         "name": "m_ppaaiTeamVictoryRank",
         "type": {
-          "name": "TeamTypes",
-          "args": []
+          "name": "TeamTypes"
         },
         "dimensions": ["Victories", "5"]
       },
@@ -65,32 +64,28 @@
         "raw": "enactProposal.CvProposal::serialize(visitor);",
         "name": "enactProposal",
         "type": {
-          "name": "CvProposal",
-          "args": []
+          "name": "CvProposal"
         }
       },
       "repealProposal.CvProposal::serialize(visitor);": {
         "raw": "repealProposal.CvProposal::serialize(visitor);",
         "name": "repealProposal",
         "type": {
-          "name": "CvProposal",
-          "args": []
+          "name": "CvProposal"
         }
       },
       "activeResolution.CvResolution::serialize(visitor);": {
         "raw": "activeResolution.CvResolution::serialize(visitor);",
         "name": "activeResolution",
         "type": {
-          "name": "CvResolution",
-          "args": []
+          "name": "CvResolution"
         }
       },
       "proposal.CvResolution::serialize(visitor);": {
         "raw": "proposal.CvResolution::serialize(visitor);",
         "name": "proposal",
         "type": {
-          "name": "CvResolution",
-          "args": []
+          "name": "CvResolution"
         }
       },
       "voterDecision.CvResolutionDecision::serialize(visitor);":
@@ -98,24 +93,21 @@
         "raw": "voterDecision.CvResolutionDecision::serialize(visitor);",
         "name": "voterDecision",
         "type": {
-          "name": "CvResolutionDecision",
-          "args": []
+          "name": "CvResolutionDecision"
         }
       },
       "proposerDecision.CvResolutionDecision::serialize(visitor);": {
         "raw": "proposerDecision.CvResolutionDecision::serialize(visitor);",
         "name": "proposerDecision",
         "type": {
-          "name": "CvResolutionDecision",
-          "args": []
+          "name": "CvResolutionDecision"
         }
       },
       "for (int iY = 0; iY < map.getGridHeight(); ++iY)": {
         "raw":"for (std::size_t i = 0; i < game.m_ppaaiTeamVictoryRank.size(); ++i)",
         "name": "m_ppaaiTeamVictoryRank",
         "type": {
-          "name": "CvPlot",
-          "args": []
+          "name": "CvPlot"
         },
         "dimensions": ["m_iGridHeight", "m_iGridWidth"]
       },
@@ -123,72 +115,63 @@
         "raw": "// Bit fields",
         "name": "plotBits",
         "type": {
-          "name": "PlotSaveStructBitFlags",
-          "args": []
+          "name": "PlotSaveStructBitFlags"
         }
       },
       "visitor.template as<FeatureTypes>(plot.m_eFeatureType);": {
         "raw": "visitor.template as<FeatureTypes>(plot.m_eFeatureType);",
         "name": "m_eFeatureType",
         "type": {
-          "name": "FeatureTypes",
-          "args": []
+          "name": "FeatureTypes"
         }
       },
       "visitor.template as<ResourceTypes>(plot.m_eResourceType);": {
         "raw": "visitor.template as<ResourceTypes>(plot.m_eResourceType);",
         "name": "m_eResourceType",
         "type": {
-          "name": "ResourceTypes",
-          "args": []
+          "name": "ResourceTypes"
         }
       },
       "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);": {
         "raw": "visitor.template as<ImprovementTypes>(plot.m_eImprovementType);",
         "name": "m_eImprovementType",
         "type": {
-          "name": "ImprovementTypes",
-          "args": []
+          "name": "ImprovementTypes"
         }
       },
       "visitor(plot.m_owningCity.eOwner);": {
         "raw": "visitor(plot.m_owningCity.eOwner);",
         "name": "m_owningCity.eOwner",
         "type": {
-          "name": "PlayerTypes",
-          "args": []
+          "name": "PlayerTypes"
         }
       },
       "visitor(plot.m_owningCity.iID);": {
         "raw": "visitor(plot.m_owningCity.iID);",
         "name": "m_owningCity.iID",
         "type": {
-          "name": "int",
-          "args": []
+          "name": "int"
         }
       },
       "visitor(plot.m_owningCityOverride.eOwner);": {
         "raw": "visitor(plot.m_owningCityOverride.eOwner);",
         "name": "m_owningCityOverride.eOwner",
         "type": {
-          "name": "PlayerTypes",
-          "args": []
+          "name": "PlayerTypes"
         }
       },
       "visitor(plot.m_owningCityOverride.iID);": {
         "raw": "visitor(plot.m_owningCityOverride.iID);",
         "name": "m_owningCityOverride.iID",
         "type": {
-          "name": "int",
-          "args": []
+          "name": "int"
         }
       },
       "for (uint i = 0; i < NUM_YIELD_TYPES; i++)": {
         "raw": "for (uint i = 0; i < NUM_YIELD_TYPES; i++)",
         "name": "m_aiYield",
         "type": {
-          "name": "int",
-          "args": []
+          "name": "int"
         },
         "dimensions": ["NUM_YIELD_TYPES"]
         },
@@ -199,16 +182,16 @@
           "type": {
             "name": "LineLoop",
             "args": [
-              { "name": "uint8", "args": [] },
-              { "name": "uint8", "args": [] },
-              { "name": "uint8", "args": [] },
-              { "name": "char", "args": [] },
-              { "name": "bool", "args": [] },
-              { "name": "ImprovementTypes", "args": [] },
-              { "name": "RouteTypes", "args": [] },
-              { "name": "bool", "args": [] },
-              { "name": "bool", "args": [] },
-              { "name": "char", "args": [] }
+              { "name": "uint8" },
+              { "name": "uint8" },
+              { "name": "uint8" },
+              { "name": "char" },
+              { "name": "bool" },
+              { "name": "ImprovementTypes" },
+              { "name": "RouteTypes" },
+              { "name": "bool" },
+              { "name": "bool" },
+              { "name": "char" }
             ]
           }
         },
@@ -216,8 +199,7 @@
         "raw": "// Script data",
         "name": "m_szScriptData",
         "type": {
-          "name": "NullableCString",
-          "args": []
+          "name": "NullableCString"
         }
       },
       "// m_units": {
@@ -226,7 +208,7 @@
         "type": {
           "name": "vector",
           "args": [
-            { "name": "IDInfo", "args": [] }
+            { "name": "IDInfo" }
           ]
         }
       },
@@ -234,32 +216,28 @@
         "raw": "visitor(area.m_Boundaries.m_iNorthEdge);",
         "name": "m_Boundaries.m_iNorthEdge",
         "type": {
-          "name": "char",
-          "args": []
+          "name": "char"
         }
       },
       "visitor(area.m_Boundaries.m_iSouthEdge);": {
         "raw": "visitor(area.m_Boundaries.m_iSouthEdge);",
         "name": "m_Boundaries.m_iSouthEdge",
         "type": {
-          "name": "char",
-          "args": []
+          "name": "char"
         }
       },
       "visitor(area.m_Boundaries.m_iEastEdge);": {
         "raw": "visitor(area.m_Boundaries.m_iEastEdge);",
         "name": "m_Boundaries.m_iEastEdge",
         "type": {
-          "name": "char",
-          "args": []
+          "name": "char"
         }
       },
       "visitor(area.m_Boundaries.m_iWestEdge);": {
         "raw": "visitor(area.m_Boundaries.m_iWestEdge);",
         "name": "m_Boundaries.m_iWestEdge",
         "type": {
-          "name": "char",
-          "args": []
+          "name": "char"
         }
       }
     }

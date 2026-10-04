@@ -21,7 +21,7 @@ export type ClassCall = {
 }
 export type ClassCallType = {
     name: string,
-    args: ClassCallType[]
+    args?: ClassCallType[] | undefined,
 }
 export type EnumInfo = {
     type: 'enum',

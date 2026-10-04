@@ -127,7 +127,7 @@ export function searchDefinition(typeName: string, src: string): {
         def: {
             type: 'class',
             name: typeName,
-            calls,
+            calls: calls,
             slug: slugs.length > 0 ? slugs : undefined
         },
         next: getEveryType(calls.map(call => call.type))
@@ -212,7 +212,8 @@ function getEveryType(call: ClassCallType[]): string[] {
     while (queue.length > 0) {
         const current = queue.shift()!;
         types.add(current.name);
-        queue.push(...current.args);
+        if (current.args)
+            queue.push(...current.args);
     }
     return Array.from(types);
 }

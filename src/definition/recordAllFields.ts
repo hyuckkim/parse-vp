@@ -1,10 +1,7 @@
-export type CppType = {
-  name: string;
-  args: CppType[];
-};
+import type { ClassCallType } from "../types.js";
 
 export type FieldDefinition = {
-  type: CppType;
+  type: ClassCallType;
   name: string;
   dimensions?: string[];
 };
@@ -296,7 +293,7 @@ function isIdentifierChar(ch: string): boolean {
   return /[A-Za-z0-9_]/.test(ch);
 }
 
-function parseCppType(source: string): CppType | null {
+function parseCppType(source: string): ClassCallType | null {
   let type = source.trim();
 
   // pointer / reference 제거
@@ -334,7 +331,7 @@ function removeTypeQualifiers(type: string): string {
     .join(' ');
 }
 
-function parseGenericType(source: string): CppType {
+function parseGenericType(source: string): ClassCallType {
   const type = source.trim();
     const alias = typedefs?.[type];
 
@@ -345,8 +342,7 @@ function parseGenericType(source: string): CppType {
 
   if (open === -1) {
     return {
-      name: type,
-      args: []
+      name: type
     };
   }
 
@@ -354,19 +350,19 @@ function parseGenericType(source: string): CppType {
 
   if (close === -1) {
     return {
-      name: type,
-      args: []
+      name: type
     };
   }
 
   const name = type.slice(0, open).trim();
   const argsSource = type.slice(open + 1, close);
+  const args = splitGenericArgs(argsSource)
+      .map(parseCppType)
+      .filter((arg): arg is ClassCallType => arg !== null);
 
   return {
     name,
-    args: splitGenericArgs(argsSource)
-      .map(parseCppType)
-      .filter((arg): arg is CppType => arg !== null)
+    args: args.length > 0 ? args : undefined
   };
 }
 
